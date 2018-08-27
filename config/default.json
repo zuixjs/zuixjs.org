@@ -62,11 +62,11 @@
       "resourcePath": "./app/",
       "libraryPath": "https://zuixjs.github.io/zkit/lib/",
       "zuixjs.github.io": {
-        "resourcePath": "/zuix/app/",
+        "resourcePath": "/zuixjs.org/app/",
         "libraryPath": "https://zuixjs.github.io/zkit/lib/"
       },
       "zuixjs.org": {
-        "resourcePath": "/zuix/app/",
+        "resourcePath": "/app/",
         "libraryPath": "https://zuixjs.github.io/zkit/lib/"
       }
     }
