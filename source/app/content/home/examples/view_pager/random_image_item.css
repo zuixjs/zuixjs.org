@@ -1,0 +1,23 @@
+.image {
+    width:324px;
+    height: 260px;
+    margin: 8px;
+    animation-duration: 0.2s;
+    animation-delay: 0s;
+}
+.image-wrapper {
+    border-radius: 12px;
+    width:352px;
+    height: 288px;
+    padding: 6px;
+    overflow: hidden;
+}
+.backdrop {
+    position: absolute;
+    width:340px;
+    height: 276px;
+    background-size: cover;
+    background: rgba(255,255,255,0.5) center;
+    border: solid 1px rgba(255,255,255,0.5);
+    border-radius: 8px;
+}
