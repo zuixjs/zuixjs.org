@@ -32,28 +32,16 @@ self.__precacheManifest = [
     "revision": "31ebcceb3611dbe0a5cb429831485e4c"
   },
   {
-    "url": "app/content/api/data/ComponentCache.json",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "url": "app/content/docs/examples/alice/ch_1.html",
+    "revision": "c8daa9177e58ac0f0e4346d10c8daac6"
   },
   {
-    "url": "app/content/api/data/ComponentContext.json",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "url": "app/content/docs/examples/alice/ch_2.html",
+    "revision": "96cfdd8acb5a2686d2e0875f83ee20c8"
   },
   {
-    "url": "app/content/api/data/ContextController.json",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
-  },
-  {
-    "url": "app/content/api/data/Localizer.json",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
-  },
-  {
-    "url": "app/content/api/data/Zuix.json",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
-  },
-  {
-    "url": "app/content/api/data/ZxQuery.json",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "url": "app/content/docs/examples/alice/ch_3.html",
+    "revision": "cfd716cd8caf9f443744d1b68a0043eb"
   },
   {
     "url": "app/content/docs/examples/links.css",
@@ -61,7 +49,7 @@ self.__precacheManifest = [
   },
   {
     "url": "app/content/docs/examples/links.html",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "cbd247603f5f438b7c760f4fdc77cf50"
   },
   {
     "url": "app/templates/mdl_card.css",
@@ -73,7 +61,7 @@ self.__precacheManifest = [
   },
   {
     "url": "config.js",
-    "revision": "44fbfb43138c07dde84757615e22a868"
+    "revision": "0814adeaa458582eff83c22d4fcefb26"
   },
   {
     "url": "css/flex-layout-attribute.min.css",
@@ -85,7 +73,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "071680aeb8bc26994b3227f19a114e81"
+    "revision": "1e32eb78aa05a50a46a0c26309a6db95"
   },
   {
     "url": "index.js",

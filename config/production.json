@@ -7,7 +7,6 @@
         "app/content/docs/examples",
         "app/templates/mdl_card.css",
         "app/templates/mdl_card.html",
-        "app/content/api/data",
         "app/content/api/api_template.html",
         "app/content/api/api_template.css",
         "app/content/api/api_template.js",
