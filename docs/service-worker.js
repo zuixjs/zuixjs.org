@@ -32,18 +32,6 @@ self.__precacheManifest = [
     "revision": "31ebcceb3611dbe0a5cb429831485e4c"
   },
   {
-    "url": "app/content/docs/examples/alice/ch_1.html",
-    "revision": "c8daa9177e58ac0f0e4346d10c8daac6"
-  },
-  {
-    "url": "app/content/docs/examples/alice/ch_2.html",
-    "revision": "96cfdd8acb5a2686d2e0875f83ee20c8"
-  },
-  {
-    "url": "app/content/docs/examples/alice/ch_3.html",
-    "revision": "cfd716cd8caf9f443744d1b68a0043eb"
-  },
-  {
     "url": "app/content/docs/examples/links.css",
     "revision": "300f68df4ae2415d93a52a566b256dbf"
   },
@@ -73,7 +61,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "1e32eb78aa05a50a46a0c26309a6db95"
+    "revision": "20b6723b0827d2647c59c927ead33a57"
   },
   {
     "url": "index.js",
