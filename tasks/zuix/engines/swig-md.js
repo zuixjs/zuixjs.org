@@ -45,7 +45,6 @@ module.exports = {
     }
 };
 
-
 /* BEGIN 'static-site' default engine code */
 
 /*
@@ -74,12 +73,6 @@ swig.setDefaults({cache: false});
 
 extras.useTag(swig, 'switch');
 extras.useTag(swig, 'case');
-
-// other custom tags
-const glitchTag = require('./tags/glitch-tag');
-const linkTag = require('./tags/link-tag');
-swig.setTag('glitch', glitchTag.parse, glitchTag.compile, false, false);
-swig.setTag('link', linkTag.parse, linkTag.compile, false, false);
 
 function swigTemplate(page, locals) {
     let template = isMarkdown(page.file) ? render(page.content) : page.content;
