@@ -1,9 +1,9 @@
 <a id="Getting_Started--Zuix_Bundler"></a>
 #### App bundling <i class="material-icons mdl-color-text--grey-500">folder</i>
 
-Bundling is the process of collecting all resources used in a page and then compiling them into a single, optimized file.
-This will drastically reduce the number of network requests the browser will have to do to complete the page loading
-and that will so load the page faster.
+Bundling is the process of collecting all resources used in a page and then compiling them into a single and optimized file.
+This will drastically narrow down the number of network requests the browser will make to complete the page loading,
+thus resulting in a faster startup.
 
 There are actually two way of doing this:
 
@@ -11,15 +11,15 @@ There are actually two way of doing this:
 this method does not require any build tool nor plugins, it just works in the browser as-is.
 
 - **Web-Starter** bundler:
-is the [zuix-web-starter](https://github.com/zuixjs/zuix-web-starter) bare template, with a bunch of extra features and enhancements.
-It requires *Node.js* to be installed.
+is the [zuix-web-starter](https://github.com/zuixjs/zuix-web-starter) bare template with *inline bundle generation*
+and a bunch of extra features and enhancements. It requires *Node.js* to be installed.
 
 This documentation will only cover the in-browser bundling method.
 
 
 ##### In-Browser bundling
 
-Usually when a website or application is ready for production you can decide to bundle it in order to gain better performances.
+When a website is ready for production you can decide to bundle it in order to gain better performances.
 All of its components and resources will be crunched into a single file and loaded from memory rather than from network/localhost.
 
 ###### Step by step guide
@@ -65,7 +65,7 @@ zuix.saveBundle()
 ```
 
 Also external JavaScript libraries and CSS files can be included in the page bundle. In order to achieve this,
-remove the `<script src="..."></script>` or `<link rel="stylesheet">` and use the method `zuix.using(...)` instead to load the script/css.
+remove the `<script src="..."></script>` or `<link rel="stylesheet">` and instead use the method `zuix.using(...)` to load the script/css.
 
 ```javascript
 // Loading a .css style
@@ -86,6 +86,15 @@ zuix.using('component', '@lib/extensions/animate_css', function(res, componentCo
 
 If the `zuix.using` method is called on a resource that was already loaded, it will just ignore the request.
 
-This method is also used to create **self-contained components** that can be loaded without having to worry about external dependencies to include.
+This method can also be used to create **self-contained components** that can be loaded without having to worry about external dependencies to include.
+
+###### In-browser bundling examples
+
+You can see how in-browser bundling is used in the following projects:
+
+- <a href="https://github.com/zuixjs/zuix-web-flix"><i class="material-icons">link</i> **WebFlix**</a>
+*Web app template inspired to Netflix mobile app (PWA)*
+- <a href="https://github.com/zuixjs/zuix-html-pwa"><i class="material-icons">link</i> **HTML-PWA**</a>
+*Web app template of a modern mobile app, made with just HTML, CSS, JavaScript (PWA)*
 
 <p>&nbsp;</p>
