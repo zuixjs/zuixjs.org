@@ -57,11 +57,11 @@ self.__precacheManifest = [
   },
   {
     "url": "index.css",
-    "revision": "588f075779ca17aa0b949aba18a12493"
+    "revision": "a4fbef1c6c7b0d300642efa16ae3b188"
   },
   {
     "url": "index.html",
-    "revision": "7f24f792948c1f9265b764d8ba15997e"
+    "revision": "cbec7ef99258084e637768aea4171c24"
   },
   {
     "url": "index.js",
@@ -158,6 +158,38 @@ self.__precacheManifest = [
   {
     "url": "app/content/docs/examples/alice/img/ch_3_2.png",
     "revision": "6f21a396f2c8b7f3a5a884dc9a8932c0"
+  },
+  {
+    "url": "app/content/docs/examples/images/avatar_01.png",
+    "revision": "8b86e5f8249828163a0d7e9f6d315dce"
+  },
+  {
+    "url": "app/content/docs/examples/images/avatar_02.png",
+    "revision": "8a011d6e36c3b968241ac4331cd03aad"
+  },
+  {
+    "url": "app/content/docs/examples/images/avatar_03.png",
+    "revision": "57f804786860e3d1166d0905651efed2"
+  },
+  {
+    "url": "app/content/docs/examples/images/card_cover_2.jpg",
+    "revision": "7988b42acee615124d83c43f3f34c02b"
+  },
+  {
+    "url": "app/content/docs/examples/images/card_cover.jpg",
+    "revision": "056b0eb64ac30441bd6aca8e3798286b"
+  },
+  {
+    "url": "app/content/docs/examples/images/card_placeholder.jpg",
+    "revision": "67f0870f50d4008e45eca50cd43e50bf"
+  },
+  {
+    "url": "app/content/docs/examples/images/cover_javascript.jpg",
+    "revision": "86f9d6c2b7e0bf1703681ada474a313d"
+  },
+  {
+    "url": "app/content/docs/examples/images/cover_recipes.jpg",
+    "revision": "6b19a1781bc4e0ca2d71e843ec7ad38e"
   },
   {
     "url": "images/api.png",
