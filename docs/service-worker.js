@@ -37,7 +37,7 @@ self.__precacheManifest = [
   },
   {
     "url": "app/content/docs/examples/links.html",
-    "revision": "cbd247603f5f438b7c760f4fdc77cf50"
+    "revision": "d41d8cd98f00b204e9800998ecf8427e"
   },
   {
     "url": "app/templates/mdl_card.css",
@@ -61,7 +61,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "d8d8ed6d35a45793c6adad6c0700f660"
+    "revision": "115ff19bd84c45835d2bacef460bca1f"
   },
   {
     "url": "index.js",
