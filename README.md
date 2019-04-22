@@ -8,7 +8,7 @@
 
 This website is based on [zUIx Web Starter](https://github.com/zuixjs/zuix-web-starter).
 
-1. `npm install` to install development dependencies
+1. `npm install && npm run build` to install development dependencies and run the initial build
 2. `npm start` to start local web server
 3. `npm run watch` to watch file tree for changes and auto-rebuild
 4. `npm run build` to manually build the files
@@ -28,4 +28,3 @@ export NODE_ENV=production
 
 - zUIx https://zuixjs.org
 - zUIx Web Starter https://github.com/zuixjs/zuix-web-starter
-- Static Site https://github.com/paulcpederson/static-site
