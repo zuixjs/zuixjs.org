@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "app/content/api/api_template.css",
-    "revision": "61474ac5fc5b338a98f960811cd01194"
+    "revision": "dbc74b9717a870d48f20c4a24edb86b9"
   },
   {
     "url": "app/content/api/api_template.html",
@@ -29,7 +29,47 @@ self.__precacheManifest = [
   },
   {
     "url": "app/content/api/api_template.js",
-    "revision": "31ebcceb3611dbe0a5cb429831485e4c"
+    "revision": "502e5da5944316549ef06742d4aadab2"
+  },
+  {
+    "url": "app/content/api/data/ComponentCache.json",
+    "revision": "fb028884cf2c4792f8c3b8d3e4c2ec6f"
+  },
+  {
+    "url": "app/content/api/data/ComponentContext.json",
+    "revision": "e8eb90ba39aea8b8f265b6458468002e"
+  },
+  {
+    "url": "app/content/api/data/ContextController.json",
+    "revision": "26dad7938cd060646d1c689bac668e9f"
+  },
+  {
+    "url": "app/content/api/data/Localizer.json",
+    "revision": "4a7595fb9db4a0df583488dbeae388f7"
+  },
+  {
+    "url": "app/content/api/data/Logger.json",
+    "revision": "b00d068a5966d233b4c64fa527a9da60"
+  },
+  {
+    "url": "app/content/api/data/ObjectObserver.json",
+    "revision": "878ac773dc0435a8cd28ee7a4af05199"
+  },
+  {
+    "url": "app/content/api/data/ObservableListener.json",
+    "revision": "a4755d0513e93852b1d5d6af69c46e57"
+  },
+  {
+    "url": "app/content/api/data/ObservableObject.json",
+    "revision": "79878a816d18b3697bd0fdd6bbd77d08"
+  },
+  {
+    "url": "app/content/api/data/Zuix.json",
+    "revision": "55ade148997848992f8eb56a0d84ba7a"
+  },
+  {
+    "url": "app/content/api/data/ZxQuery.json",
+    "revision": "115b65d79ec7186ae6c0c392a56427c9"
   },
   {
     "url": "app/content/docs/examples/links.css",
@@ -37,7 +77,7 @@ self.__precacheManifest = [
   },
   {
     "url": "app/content/docs/examples/links.html",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "cbd247603f5f438b7c760f4fdc77cf50"
   },
   {
     "url": "app/templates/mdl_card.css",
@@ -61,7 +101,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "115ff19bd84c45835d2bacef460bca1f"
+    "revision": "7369e387de92fba757d4aa46fd26d779"
   },
   {
     "url": "index.js",

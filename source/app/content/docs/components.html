@@ -55,16 +55,29 @@ The following snippet is the skeleton of a controller declaration.
 <pre><code class="language-js">
 zuix.controller(function(cp) {
 
-    /* private fields */
+    /*
+     * Private fields
+     */
+
     // ...
 
-    /* life-cycle handlers declaration */
-    cp.init = function() { /* called before component is created and before applying options */ };
-    cp.create = function() { /* called after loading, when the component is created */ };
-    cp.destroy = function() { /* called when the component is destroyed */ }
-    cp.update = function() { /* called each time the data model is updated */ }
+    /*
+     * Life-cycle callbacks declaration
+     */
 
-    /* private functions */
+    // called before component is created and before applying context options
+    cp.init = function() { /* ... */ };
+    // called after loading, when the component is created
+    cp.create = function() { /* ... */ };
+    // called when the component is destroyed
+    cp.destroy = function() { /* ... */ }
+    // called each time the data model is updated
+    cp.update = function(target, key, value, path, old) { /* ... */ }
+
+    /*
+     * Private functions
+     */
+
     // ...
 
 }).for('path/of/component');

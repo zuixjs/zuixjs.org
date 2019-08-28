@@ -1,12 +1,19 @@
-"use strict";
+'use strict';
 zuix.controller(function (cp) {
     const linkedApi = [
         'ZxQuery',
+        'ZxQueryStatic',
         'Zuix',
+        'ObservableObject',
         'ContextOptions',
         'ComponentContext',
-        'ContextController',
         'ContextControllerHandler',
+        'ContextController',
+        'ContextControllerInitCallback',
+        'ContextControllerCreateCallback',
+        'ContextControllerUpdateCallback',
+        'ContextControllerDestroyCallback',
+        'Logger',
         'ContextErrorCallback',
         'ContextReadyCallback',
         'EventCallback',
@@ -182,11 +189,18 @@ zuix.controller(function (cp) {
             });
             typesList += ' <em class="mdl-color-text--grey-700">{' + typesHtml + '}</em>';
             const pl = { content: this.description };
-            if (this.name != null)
+            if (this.name != null && pl.content){
                 pl.content = '<code>'+ this.name.replace('[','').replace(']','') +'</code>: '+pl.content;
+            } else if (this.name != null) {
+                pl.content = '<code>'+ this.name.replace('[','').replace(']','') +'</code>';
+            }
             cp.trigger('html:parse', pl, true);
-            if (pl.content.indexOf('<p>') === -1)
+            if (typeof pl.content === 'string' && pl.content.indexOf('<p>') === -1)
                 pl.content = '<p>'+pl.content+'</p>';
+            else {
+                // TODO: ...
+                //console.log(pl.content);
+            }
             typesList += pl.content;
         });
         typesList += '</div>';

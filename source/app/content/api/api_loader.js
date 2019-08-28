@@ -11,7 +11,6 @@ zuix.controller(function(cp) {
             success: function(json) {
                 cp.view().html('');
                 const dox = JSON.parse(json);
-
                 const apiDocs = {};
                 apiDocs.name = apiName;
                 apiDocs.constructor = null;
@@ -34,7 +33,32 @@ zuix.controller(function(cp) {
 
                     const apiMember = (!this.isPrivate && this.ctx != null && (this.ctx.cons === apiName));
                     if (apiMember) {
-                        apiDocs.methods.push(addMember(this));
+                        if (this.ctx.type === 'property') {
+                            const p = {};
+                            for (let t = 0; t <= this.tags.length; t++) {
+                                const tag = this.tags[t];
+                                if (tag) {
+                                    switch (tag.type) {
+                                        case 'property':
+                                        case 'type':
+                                            p.property = getParam(tag);
+                                            break;
+                                        case 'description':
+                                            p.description = tag.full;
+                                            break;
+                                    }
+                                }
+                            }
+                            if (p.property != null) {
+                                const props = p.property;
+                                props.name = this.ctx.name;
+                                props.description = p.description || this.ctx.description;
+                                apiDocs.properties.push(props);
+                                console.log(this, props);
+                            }
+                        } else {
+                            apiDocs.methods.push(addMember(this));
+                        }
                         return true;
                     }
 
