@@ -2,7 +2,13 @@
 zuix.controller(function(cp) {
     const zuixCdnPath = 'https://zuixjs.github.io/zuix/';
     cp.create = function() {
-        const apiName = cp.view().attr('data-ui-api');
+        let apiName = cp.view().attr('data-ui-api');
+        let innerClass;
+        if (apiName.indexOf(':') > 0) {
+            apiName = apiName.split(':');
+            innerClass = apiName[1];
+            apiName = apiName[0];
+        }
         cp.view().html('Loading '+apiName+' API...');
 
         // download the jsDoc data file and HTML-format it.
@@ -12,6 +18,7 @@ zuix.controller(function(cp) {
                 cp.view().html('');
                 const dox = JSON.parse(json);
                 const apiDocs = {};
+                if (innerClass) apiName = innerClass;
                 apiDocs.name = apiName;
                 apiDocs.constructor = null;
                 apiDocs.parameters = []; // constructor parameters
@@ -21,7 +28,11 @@ zuix.controller(function(cp) {
                 apiDocs.callbacks = []; // callback functions
 
                 zuix.$.each(dox, function() {
-                    const skipItem = (this.isPrivate || (this.ctx != null && (this.ctx.name !== apiName && this.ctx.cons !== apiName)) || this.tags == null || this.tags.length === 0);
+                    const skipItem = !this.isClass
+                        && (this.isPrivate ||
+                            (this.ctx != null && (this.ctx.name !== apiName && this.ctx.cons !== apiName && this.ctx.receiver !== apiName))
+                            || this.tags == null || this.tags.length === 0
+                        );
                     if (skipItem) {
                         return true;
                     }
@@ -31,7 +42,8 @@ zuix.controller(function(cp) {
                         return true;
                     }
 
-                    const apiMember = (!this.isPrivate && this.ctx != null && (this.ctx.cons === apiName));
+                    const apiMember = (!this.isPrivate && this.ctx != null
+                        && (this.ctx.cons === apiName || this.ctx.type === 'function' || this.ctx.receiver === apiName));
                     if (apiMember) {
                         if (this.ctx.type === 'property') {
                             const p = {};
@@ -54,7 +66,6 @@ zuix.controller(function(cp) {
                                 props.name = this.ctx.name;
                                 props.description = p.description || this.ctx.description;
                                 apiDocs.properties.push(props);
-                                console.log(this, props);
                             }
                         } else {
                             apiDocs.methods.push(addMember(this));
@@ -68,6 +79,7 @@ zuix.controller(function(cp) {
                             apiDocs.parameters.push(addType(this));
                             break;
                         case 'typedef':
+                            if (innerClass) break;
                             const type = addType(this);
                             if (type.name === apiName) {
                                 apiDocs.properties = type.properties;
@@ -76,6 +88,7 @@ zuix.controller(function(cp) {
                             }
                             break;
                         case 'callback':
+                            if (innerClass) break;
                             apiDocs.callbacks.push(addHandler(this));
                             break;
                     }

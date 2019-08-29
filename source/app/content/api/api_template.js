@@ -176,23 +176,29 @@ zuix.controller(function (cp) {
     function buildTypes(types) {
         let typesList = '<div class="api-member-details">';
         zuix.$.each(types, function (i) {
-            if (this.optional)
-                typesList += ' <strong class="mdl-color-text--grey-500">optional</strong>';
-            let typesHtml = '', types = this.types;
+            let typesHtml = ''; let types = this.types;
             zuix.$.each(types, function (i) {
-                if (linkedApi.indexOf(this.toString()) >= 0)
+                if (linkedApi.indexOf(this.toString()) >= 0){
                     typesHtml += '<a href="#api#ZUIX_API--' + this + '">' + this.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</a>';
-                else
+                } else {
                     typesHtml += this.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                if (i < types.length - 1)
+                }
+                if (i < types.length - 1) {
                     typesHtml += ' | ';
+                }
             });
-            typesList += ' <em class="mdl-color-text--grey-700">{' + typesHtml + '}</em>';
+            let optional = '';
+            if (this.optional) {
+                optional = ' <strong class="mdl-color-text--blue-500 optional">[optional]</strong>';
+            }
             const pl = { content: this.description };
-            if (this.name != null && pl.content){
-                pl.content = '<code>'+ this.name.replace('[','').replace(']','') +'</code>: '+pl.content;
+            if (this.name != null && pl.content) {
+                let p = '<code class="type">'+ this.name.replace('[','').replace(']','') +'</code>: ';
+                p += ' <em class="mdl-color-text--grey-700">' + typesHtml + '</em>';
+                p += optional;
+                pl.content = p+'<br/>&nbsp;&nbsp;'+pl.content;
             } else if (this.name != null) {
-                pl.content = '<code>'+ this.name.replace('[','').replace(']','') +'</code>';
+                pl.content = '<code class="type">'+ this.name.replace('[','').replace(']','') +'</code>' + optional;
             }
             cp.trigger('html:parse', pl, true);
             if (typeof pl.content === 'string' && pl.content.indexOf('<p>') === -1)
