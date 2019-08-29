@@ -51,6 +51,7 @@ h5 code.language-javascript {
 }
 .details em {
     font-weight: bold;
+    color: gray;
 }
 .api-member-details {
     margin-left: 8px;

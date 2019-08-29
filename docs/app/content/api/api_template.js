@@ -199,6 +199,8 @@ zuix.controller(function (cp) {
                 pl.content = p+'<br/>&nbsp;&nbsp;'+pl.content;
             } else if (this.name != null) {
                 pl.content = '<code class="type">'+ this.name.replace('[','').replace(']','') +'</code>' + optional;
+            } else {
+                typesList += '<em class="mdl-color-text--grey-700">' + typesHtml + '</em>';
             }
             cp.trigger('html:parse', pl, true);
             if (typeof pl.content === 'string' && pl.content.indexOf('<p>') === -1)
