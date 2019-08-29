@@ -187,6 +187,7 @@ zuix.controller(function (cp) {
                     typesHtml += ' | ';
                 }
             });
+            typesHtml = ' <em class="mdl-color-text--grey-700">' + typesHtml + '</em>';
             let optional = '';
             if (this.optional) {
                 optional = ' <strong class="mdl-color-text--blue-500 optional">[optional]</strong>';
@@ -194,13 +195,13 @@ zuix.controller(function (cp) {
             const pl = { content: this.description };
             if (this.name != null && pl.content) {
                 let p = '<code class="type">'+ this.name.replace('[','').replace(']','') +'</code>: ';
-                p += ' <em class="mdl-color-text--grey-700">' + typesHtml + '</em>';
+                p += typesHtml;
                 p += optional;
                 pl.content = p+'<br/>&nbsp;&nbsp;'+pl.content;
             } else if (this.name != null) {
-                pl.content = '<code class="type">'+ this.name.replace('[','').replace(']','') +'</code>' + optional;
+                pl.content = '<code class="type">'+ this.name.replace('[','').replace(']','') +'</code>:' + typesHtml + optional;
             } else {
-                typesList += '<em class="mdl-color-text--grey-700">' + typesHtml + '</em>';
+                typesList += typesHtml;
             }
             cp.trigger('html:parse', pl, true);
             if (typeof pl.content === 'string' && pl.content.indexOf('<p>') === -1)

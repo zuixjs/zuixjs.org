@@ -29,15 +29,15 @@ self.__precacheManifest = [
   },
   {
     "url": "app/content/api/api_template.js",
-    "revision": "13aa7baf292886a1b15e93e4814e48c6"
+    "revision": "d4976706b9a8e9236fa1e1cff0842773"
   },
   {
     "url": "app/content/docs/examples/links.css",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "300f68df4ae2415d93a52a566b256dbf"
   },
   {
     "url": "app/content/docs/examples/links.html",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "cbd247603f5f438b7c760f4fdc77cf50"
   },
   {
     "url": "app/templates/mdl_card.css",
@@ -53,7 +53,7 @@ self.__precacheManifest = [
   },
   {
     "url": "css/flex-layout-attribute.min.css",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "c55488315343d9afb4d13ebf9cc8f97b"
   },
   {
     "url": "index.css",
@@ -160,40 +160,8 @@ self.__precacheManifest = [
     "revision": "6f21a396f2c8b7f3a5a884dc9a8932c0"
   },
   {
-    "url": "app/content/docs/examples/images/avatar_01.png",
-    "revision": "8b86e5f8249828163a0d7e9f6d315dce"
-  },
-  {
-    "url": "app/content/docs/examples/images/avatar_02.png",
-    "revision": "8a011d6e36c3b968241ac4331cd03aad"
-  },
-  {
-    "url": "app/content/docs/examples/images/avatar_03.png",
-    "revision": "57f804786860e3d1166d0905651efed2"
-  },
-  {
-    "url": "app/content/docs/examples/images/card_cover_2.jpg",
-    "revision": "7988b42acee615124d83c43f3f34c02b"
-  },
-  {
-    "url": "app/content/docs/examples/images/card_cover.jpg",
-    "revision": "056b0eb64ac30441bd6aca8e3798286b"
-  },
-  {
-    "url": "app/content/docs/examples/images/card_placeholder.jpg",
-    "revision": "67f0870f50d4008e45eca50cd43e50bf"
-  },
-  {
-    "url": "app/content/docs/examples/images/cover_javascript.jpg",
-    "revision": "86f9d6c2b7e0bf1703681ada474a313d"
-  },
-  {
-    "url": "app/content/docs/examples/images/cover_recipes.jpg",
-    "revision": "6b19a1781bc4e0ca2d71e843ec7ad38e"
-  },
-  {
     "url": "images/api.png",
-    "revision": "d41d8cd98f00b204e9800998ecf8427e"
+    "revision": "ba62975c85636fe9b08d5f842c2023f0"
   },
   {
     "url": "images/documentation.png",
