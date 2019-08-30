@@ -29,7 +29,47 @@ self.__precacheManifest = [
   },
   {
     "url": "app/content/api/api_template.js",
-    "revision": "d4976706b9a8e9236fa1e1cff0842773"
+    "revision": "dc08d157dc079d7e5ad51e7b4e0aa8b5"
+  },
+  {
+    "url": "app/content/api/data/ComponentCache.json",
+    "revision": "fb028884cf2c4792f8c3b8d3e4c2ec6f"
+  },
+  {
+    "url": "app/content/api/data/ComponentContext.json",
+    "revision": "e8eb90ba39aea8b8f265b6458468002e"
+  },
+  {
+    "url": "app/content/api/data/ContextController.json",
+    "revision": "26dad7938cd060646d1c689bac668e9f"
+  },
+  {
+    "url": "app/content/api/data/Localizer.json",
+    "revision": "4a7595fb9db4a0df583488dbeae388f7"
+  },
+  {
+    "url": "app/content/api/data/Logger.json",
+    "revision": "b00d068a5966d233b4c64fa527a9da60"
+  },
+  {
+    "url": "app/content/api/data/ObjectObserver.json",
+    "revision": "878ac773dc0435a8cd28ee7a4af05199"
+  },
+  {
+    "url": "app/content/api/data/ObservableListener.json",
+    "revision": "a4755d0513e93852b1d5d6af69c46e57"
+  },
+  {
+    "url": "app/content/api/data/ObservableObject.json",
+    "revision": "79878a816d18b3697bd0fdd6bbd77d08"
+  },
+  {
+    "url": "app/content/api/data/Zuix.json",
+    "revision": "848f64e06b214740b06a2f8ca1e907fe"
+  },
+  {
+    "url": "app/content/api/data/ZxQuery.json",
+    "revision": "df7c3a4e260b5b60b96831f2955525c1"
   },
   {
     "url": "app/content/docs/examples/links.css",
@@ -53,7 +93,7 @@ self.__precacheManifest = [
   },
   {
     "url": "css/flex-layout-attribute.min.css",
-    "revision": "c55488315343d9afb4d13ebf9cc8f97b"
+    "revision": "d41d8cd98f00b204e9800998ecf8427e"
   },
   {
     "url": "index.css",
@@ -61,7 +101,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "c208cdeb8a4f3d48e3d52706ddd7ee5e"
+    "revision": "0aa9cbd8d22d335ef033cb86a066eb1c"
   },
   {
     "url": "index.js",
@@ -161,7 +201,7 @@ self.__precacheManifest = [
   },
   {
     "url": "images/api.png",
-    "revision": "ba62975c85636fe9b08d5f842c2023f0"
+    "revision": "d41d8cd98f00b204e9800998ecf8427e"
   },
   {
     "url": "images/documentation.png",

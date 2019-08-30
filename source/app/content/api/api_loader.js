@@ -51,6 +51,9 @@ zuix.controller(function(cp) {
                                 const tag = this.tags[t];
                                 if (tag) {
                                     switch (tag.type) {
+                                        case 'alias':
+                                            p.alias = tag.string;
+                                            break;
                                         case 'property':
                                         case 'type':
                                             p.property = getParam(tag);
@@ -63,12 +66,16 @@ zuix.controller(function(cp) {
                             }
                             if (p.property != null) {
                                 const props = p.property;
+                                props.alias = p.alias;
                                 props.name = this.ctx.name;
                                 props.description = p.description || this.ctx.description;
                                 apiDocs.properties.push(props);
                             }
                         } else {
-                            apiDocs.methods.push(addMember(this));
+                            const method = addMethod(this);
+                            if ((method.member == null && !innerClass) || (method.member && method.member === apiName)) {
+                                apiDocs.methods.push(method);
+                            }
                         }
                         return true;
                     }
@@ -79,17 +86,18 @@ zuix.controller(function(cp) {
                             apiDocs.parameters.push(addType(this));
                             break;
                         case 'typedef':
-                            if (innerClass) break;
                             const type = addType(this);
                             if (type.name === apiName) {
                                 apiDocs.properties = type.properties;
-                            } else {
+                            } else if ((type.member == null && !innerClass) || (type.member && type.member === apiName)) {
                                 apiDocs.types.push(type);
                             }
                             break;
                         case 'callback':
-                            if (innerClass) break;
-                            apiDocs.callbacks.push(addHandler(this));
+                            const handler = addHandler(this);
+                            if ((handler.member == null && !innerClass) || (handler.member && handler.member === apiName)) {
+                                apiDocs.callbacks.push(handler);
+                            }
                             break;
                     }
                 });
@@ -129,9 +137,10 @@ zuix.controller(function(cp) {
         return item;
     }
 
-    function addMember(member) {
+    function addMethod(member) {
         const item = {};
-        item.name = member.ctx.name;
+        const alias = getAlias(member);
+        item.name = alias || member.ctx.name;
         item.description = member.description.full || member.description;
         item.parameters = [];
         item.return = [];
@@ -144,6 +153,8 @@ zuix.controller(function(cp) {
                 item.example = this.string;
             } else if (this.type === 'return') {
                 item.return.push(param);
+            } else if (this.type === 'memberOf') {
+                item.member = this.string.replace('{', '').replace('}', '');
             }
         });
         return item;
@@ -166,6 +177,8 @@ zuix.controller(function(cp) {
                 if (item.name.indexOf('}') > 0) {
                     item.name = item.name.substring(item.name.lastIndexOf('}')+1).trim();
                 }
+            } else if (this.type === 'memberOf') {
+                item.member = this.string.replace('{', '').replace('}', '');
             }
         });
         return item;
@@ -189,6 +202,8 @@ zuix.controller(function(cp) {
                 item.example = this.string;
             } else if (this.type === 'this') {
                 item.context = this.string;
+            } else if (this.type === 'memberOf') {
+                item.member = this.string.replace('{', '').replace('}', '');
             } else if (this.type === 'return') {
                 item.return = param;
             }
@@ -203,4 +218,15 @@ zuix.controller(function(cp) {
         param.optional = parameter.optional;
         return param;
     }
+    function getAlias(ctx) {
+        if (ctx.tags == null) return;
+        for (let t = 0; t < ctx.tags.length; t++) {
+            const tag = ctx.tags[t];
+            if (tag.type === 'alias') {
+                return tag.string;
+            }
+        }
+    }
+
+
 });
