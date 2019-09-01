@@ -69,76 +69,7 @@ var main = {
 };
 
 
-// Animate CSS extension method for ZxQuery
-zuix.$.ZxQuery.prototype.animateCss = function() { return this; };
-zuix.using('component', '@lib/extensions/animate_css', function(res, ctx){
-    console.log('AnimateCSS extension loaded.', res, ctx);
-});
-
-
-// Get reference to various elements of the main page
-
-const loaderMessage = zuix.field('loaderMessage');
-const mainPage = zuix.field('main').hide();
-let splashScreen = zuix.field('splashScreen');
-if (!isSplashEnabled()) {
-    splashScreen.hide();
-    splashScreen = false;
-} else {
-    splashScreen.show();
-}
-let revealTimeout = null;
-// reference to homepage's cover and features block (used for change-page animation)
-let coverBlock = null;
-let featuresBlock = null;
-zuix.field('content-home').on('component:ready', function (ctx) {
-    // these element are available only after the 'content-home' is loaded
-    coverBlock = zuix.field('mainCover', this);
-    featuresBlock = zuix.field('mainFeatures', this);
-});
-// Reference to navigation components
-let pagedView = null;
-
-// Turn off debug output
-
-window.zuixNoConsoleOutput = true;
-// zuix.lazyLoad(false);
-// zuix.httpCaching(false);
-
-// Use "scroll_helper" to auto show/hide header and menu button on internal pages
-
-zuix.load('@lib/controllers/scroll_helper', {
-    view: zuix.field('page-start'),
-    on: {
-        'scroll:change': function(e, data) {
-            if (pagedView != null && pagedView.getCurrent() === 1) {
-                pageScrollChanged(e, data);
-            }
-        }
-    }
-});
-zuix.load('@lib/controllers/scroll_helper', {
-    view: zuix.field('page-docs'),
-    on: {
-        'scroll:change': function (e, data) {
-            if (pagedView != null && pagedView.getCurrent() === 2) {
-                pageScrollChanged(e, data);
-            }
-        }
-    }
-});
-zuix.load('@lib/controllers/scroll_helper', {
-    view: zuix.field('page-api'),
-    on: {
-        'scroll:change': function(e, data) {
-            if (pagedView != null && pagedView.getCurrent() === 3) {
-                pageScrollChanged(e, data);
-            }
-        }
-    }
-});
-
-// Global zUIx event hooks
+// Global zUIx life-cycle hooks
 
 zuix.hook('load:begin', function(data) {
     if (splashScreen) {
@@ -192,6 +123,77 @@ zuix.hook('load:begin', function(data) {
     // Material Design Light integration - DOM upgrade
     if (this.options().mdl && typeof componentHandler !== 'undefined')
         componentHandler.upgradeElements(view.get());
+});
+
+
+// Get reference to various elements of the main page
+
+const loaderMessage = zuix.field('loaderMessage');
+const mainPage = zuix.field('main').hide();
+let splashScreen = zuix.field('splashScreen');
+if (!isSplashEnabled()) {
+    splashScreen.hide();
+    splashScreen = false;
+} else {
+    splashScreen.show();
+}
+let revealTimeout = null;
+// reference to homepage's cover and features block (used for change-page animation)
+let coverBlock = null;
+let featuresBlock = null;
+zuix.field('content-home').on('component:ready', function (ctx) {
+    // these element are available only after the 'content-home' is loaded
+    coverBlock = zuix.field('mainCover', this);
+    featuresBlock = zuix.field('mainFeatures', this);
+});
+// Reference to navigation components
+let pagedView = null;
+
+// Turn off debug output
+
+window.zuixNoConsoleOutput = true;
+// zuix.lazyLoad(false);
+// zuix.httpCaching(false);
+
+
+// Animate CSS extension method for ZxQuery
+
+zuix.$.ZxQuery.prototype.animateCss = function() { return this; };
+zuix.using('component', '@lib/extensions/animate_css', function(res, ctx){
+    console.log('AnimateCSS extension loaded.', res, ctx);
+});
+
+// Use "scroll_helper" to auto show/hide header and menu button on internal pages
+
+zuix.load('@lib/controllers/scroll_helper', {
+    view: zuix.field('page-start'),
+    on: {
+        'scroll:change': function(e, data) {
+            if (pagedView != null && pagedView.getCurrent() === 1) {
+                pageScrollChanged(e, data);
+            }
+        }
+    }
+});
+zuix.load('@lib/controllers/scroll_helper', {
+    view: zuix.field('page-docs'),
+    on: {
+        'scroll:change': function (e, data) {
+            if (pagedView != null && pagedView.getCurrent() === 2) {
+                pageScrollChanged(e, data);
+            }
+        }
+    }
+});
+zuix.load('@lib/controllers/scroll_helper', {
+    view: zuix.field('page-api'),
+    on: {
+        'scroll:change': function(e, data) {
+            if (pagedView != null && pagedView.getCurrent() === 3) {
+                pageScrollChanged(e, data);
+            }
+        }
+    }
 });
 
 
