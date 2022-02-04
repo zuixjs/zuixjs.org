@@ -11,6 +11,7 @@
       "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
     },
     "zuixjs.github.io": {
+      "baseUrl": "/zuixjs.org/",
       "resourcePath": "/zuixjs.org/app/"
     },
     "zuixjs.org": {
