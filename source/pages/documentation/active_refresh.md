@@ -315,7 +315,7 @@ the preview rectangle will change accordingly.
 
 {% unpre %}
 ```html
-<div z-load="default" z-context="color-select" z-model="{color:'{{colors[2]}}'}" class="example-container">
+<div z-context="color-select" z-model="{color:'{{colors[2]}}'}" class="example-container">
   <div layout="row bottom-left">
     <div>
       <label for="color">Color</label>
