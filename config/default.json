@@ -25,9 +25,9 @@
         "css": false,
         "zuix": false
       },
-      "serviceWorker": true,
+      "serviceWorker": false,
       "minify": {
-        "disable": false,
+        "disable": true,
         "collapseWhitespace": true,
         "removeOptionalTags": true,
         "removeRedundantAttributes": true,

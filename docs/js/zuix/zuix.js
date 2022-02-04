@@ -1,4 +1,4 @@
-/* zUIx v1.0.10 22.02.01 01:26:49 */
+/* zUIx v1.0.11 22.02.04 02:37:07 */
 
 var zuix;
 /******/ (() => { // webpackBootstrap
@@ -6129,8 +6129,10 @@ function initController(c) {
           });
           // if "using" components are not ready, retry on the next refresh call
           if (ctx._dependencyResolver !== false && componentsResolve.length > 0) {
-            componentsResolve += 'const resolved = function() { return ' + waitingComponents + 'true; }';
-            ctx._dependencyResolver = Function(scriptHeader + componentsResolve + '; return { resolved }; }).call(this.$el.get(), this.$el, this.ctx, this.args);')
+            componentsResolve += 'const resolved = function() { return ' + waitingComponents + 'true; };';
+            const fn = scriptHeader + componentsResolve + '; return { resolved }; }).call(this.$el.get(), this.$el, this.ctx, this.args);';
+            console.log(fn);
+            ctx._dependencyResolver = Function(fn)
                 .call({$el, ctx, args: null});
             if (!ctx._dependencyResolver.resolved()) {
               // do not start the refresh handler yet,
@@ -6967,7 +6969,7 @@ module.exports = function(root) {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -6981,17 +6983,17 @@ module.exports = function(root) {
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
@@ -7001,14 +7003,14 @@ module.exports = function(root) {
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__(693);
 /******/ 	zuix = __webpack_exports__;
-/******/ 	
+/******/
 /******/ })()
 ;
