@@ -22,8 +22,8 @@
       "includesFolder": "_inc",
       "bundle": {
         "js": false,
-        "css": true,
-        "zuix": true
+        "css": false,
+        "zuix": false
       },
       "serviceWorker": true,
       "minify": {

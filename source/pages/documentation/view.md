@@ -408,7 +408,7 @@ attribute:
 ```html
 <div view z-load="templates/mdl_card">
 
-  <h1 #title>Pizza pizza!</h1>
+  <h1 #title>Let's code!</h1>
   <img #image src="examples/images/card_cover_3.jpg" alt="Cover image" role="presentation">
   <p #text>
     Yes we can!

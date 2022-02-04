@@ -15,20 +15,24 @@ setTimeout(() => {
 }, 1);
 
 function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
+
   if (sampleData === null) {
     // no data yet
     // return and retry again in 500ms
     return refreshCallback();
   }
-  // data is available
+
+  // data is available, update only
+  // if the `$element` is visible on screen
   if (!$element.position().visible) {
     // postpone field binding of 1s if element is not visible
     return refreshCallback(1000);
   }
+
+  // $element is visible, resolve field binding
   switch(fieldName) {
 
     case 'title':
-      // update only if the `$element` is visible on screen
       $element.html(sampleData.title());
       // this field will be updated every second
       return refreshCallback(1000);
@@ -49,5 +53,6 @@ function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
       // will be updated only once
       break;
   }
+
 }
 </script>

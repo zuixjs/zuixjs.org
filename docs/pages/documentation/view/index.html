@@ -105,20 +105,24 @@ setTimeout(() =&gt; {
 }, 1);
 
 function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
+
   if (sampleData === null) {
     // no data yet
     // return and retry again in 500ms
     return refreshCallback();
   }
-  // data is available
+
+  // data is available, update only
+  // if the `$element` is visible on screen
   if (!$element.position().visible) {
     // postpone field binding of 1s if element is not visible
     return refreshCallback(1000);
   }
+
+  // $element is visible, resolve field binding
   switch(fieldName) {
 
     case 'title':
-      // update only if the `$element` is visible on screen
       $element.html(sampleData.title());
       // this field will be updated every second
       return refreshCallback(1000);
@@ -139,6 +143,7 @@ function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
       // will be updated only once
       break;
   }
+
 }
 &lt;/script&gt;
 
@@ -171,7 +176,7 @@ function a_random_name() {
 &lt;/script&gt;
 </code></pre><script>function nameUpdateFn(a,n,e,m){a.html(a_random_name())}function a_random_name(){return"Jane Doe"}foo_bar_contact={image:"/app/content/docs/examples/images/avatar_02.png",name:"Foo Bar "},a_random_contact={image:"/app/content/docs/examples/images/avatar_01.png",name:nameUpdateFn}</script><p><label class="mdl-color-text--primary">Result</label><div class="example-container"><div layout="rows center-spread"><div view z-load="inline/common/contact_chip" data-id="0" z-model="foo_bar_contact" class="visible-on-ready"></div><div view z-load="inline/common/contact_chip" data-id="1" z-model="a_random_contact" class="visible-on-ready"></div></div></div><h2>Accessibility</h2><p>The data model can also be set directly inside the host element through HTML tags, and this will also provide a default visualization in case the view's template is still loading or JavaScript is not enabled.<p>The following example shows how to embed data model's fields with HTML code inside the host element using <code>#&lt;field_name&gt;</code> attribute:<p><label class="mdl-color-text--primary">Example</label><pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot;&gt;
 
-  &lt;h1 #title&gt;Pizza pizza!&lt;/h1&gt;
+  &lt;h1 #title&gt;Let's code!&lt;/h1&gt;
   &lt;img #image src=&quot;examples/images/card_cover_3.jpg&quot; alt=&quot;Cover image&quot; role=&quot;presentation&quot;&gt;
   &lt;p #text&gt;
     Yes we can!
