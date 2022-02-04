@@ -1,0 +1,92 @@
+{% assign items = (1..5) %}
+<div class="example-container" layout="column stretch-center" style="min-height: 350px">
+    <div class="example-container" style="margin-bottom: 12px">
+        <div layout="row center-start reverse" style="background: black">
+            <div class="views-container">
+{% for i in items %}<div z-field="view-{{ i }}" class="view-switch" layout="column top-center"
+                    {% if i == 1 %}view-selected="true"{% endif %}>
+                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
+                        Random content {{ i }}
+                    </p>
+                </div>{% endfor %}
+            </div>
+            <div style="width: 72px;" layout="column">
+{% for i in items %}<img src="https://picsum.photos/320/225?{{ i }}" width="72" height="40" style="margin: 2px; padding: 2px;"
+                     class="visible-on-ready" alt="Random image"
+                     z-options="mdl_button_options_2"
+                     z-behavior="viewSwitchBehaviorV"
+                     animation="back"
+                     target="view-{{ i }}">{% endfor %}
+            </div>
+        </div>
+        <div layout="row center-center">
+{% for i in items %}<button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
+                    z-options="mdl_button_options_2"
+                    z-behavior="viewSwitchBehaviorH"
+                    target="view-{{ i }}">
+                {{ i }}
+            </button>{% endfor %}
+        </div>
+    </div>
+    <!-- -->
+    <div style="font-family: monospace; font-size: 140%; margin-bottom: 24px; text-align: center; line-height: 180%">
+        Ok, Let's try this <em>behavior</em> on a simple text <em>span</em> ...
+        <br>
+        <span z-behavior="viewSwitchBehaviorH" target="view-1" animation="lightSpeed">
+           TEST one</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-2" animation="lightSpeed">
+           two</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-3" animation="lightSpeed">
+           three</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-4" animation="lightSpeed">
+           four</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-5" animation="lightSpeed">
+           five</span>!
+        ... =)
+    </div>
+    <!-- -->
+</div>
+<style>
+{% for i in items %}[z-field="view-{{ i }}"] {
+        background-repeat: no-repeat;
+        background-color: antiquewhite;
+        background-image: url("https://picsum.photos/320/225?{{ i }}");
+    }{% endfor %}
+    .view-switch {
+        width: 100%;
+        height: 100%;
+        padding: 12px;
+        position:absolute;
+    }
+    .view-switch p {
+        font-size: 90%;
+        opacity: 0.65;
+        background-color: white;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin: 0;
+        border: solid 1px;
+        border-radius: 12px;
+    }
+    .views-container {
+        overflow: hidden;
+        position: relative;
+        width: 320px;
+        height: 225px;
+        margin: 8px;
+    }
+</style>
+<script type="module">
+  import {ViewSwitchBehavior} from './ViewSwitchBehavior.js';
+  self.viewSwitchBehaviorH = ViewSwitchBehavior('horizontal');
+  self.viewSwitchBehaviorV = ViewSwitchBehavior('vertical');
+  self.mdl_button_options_2 = {
+    class: 'primary',
+    type: 'flat',
+    behavior: viewSwitchBehaviorH,
+    on: {
+      'click': () => { /* noop */
+      }
+    }
+  }
+</script>

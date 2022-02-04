@@ -1,6 +1,8 @@
 .mdl-card {
     padding: 0 !important;
     margin: 0 !important;
+    width: 100%;
+    max-width: 460px;
 }
 
 .mdl-card__title {
@@ -40,9 +42,9 @@ h1 {
     padding: 12px !important;
     margin: 0 !important;
     text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000 !important;
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000 !important;
     z-index: 10 !important;
 }

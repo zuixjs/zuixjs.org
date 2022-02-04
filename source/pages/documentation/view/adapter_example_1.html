@@ -1,0 +1,53 @@
+<div view z-load="templates/mdl_card"
+     z-model="sampleCardAdapter"></div>
+
+<script>
+counter = 0;
+sampleData = null; // example data for the card
+
+// let's pretend the data is fetched asynchronously via http
+setTimeout(() => {
+  sampleData = {
+    title: () => 'Hello! ' + counter++,
+    text: 'A binding adapter can be used to customize the way data model\'s fields are mapped to the view elements.',
+    image: () => 'https://picsum.photos/320/160?' + counter
+  }
+}, 1);
+
+function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
+  if (sampleData === null) {
+    // no data yet
+    // return and retry again in 500ms
+    return refreshCallback();
+  }
+  // data is available
+  if (!$element.position().visible) {
+    // postpone field binding of 1s if element is not visible
+    return refreshCallback(1000);
+  }
+  switch(fieldName) {
+
+    case 'title':
+      // update only if the `$element` is visible on screen
+      $element.html(sampleData.title());
+      // this field will be updated every second
+      return refreshCallback(1000);
+
+    case 'image':
+      $element.attr('src', sampleData.image());
+      // get the component's context
+      const ctx = zuix.context($view);
+      // to animate the `title` field also
+      ctx.field('title')
+         .animateCss('bounce', {duration: '0.5s'});
+      // this field will be updated every 5 seconds
+      return refreshCallback(5000);
+
+    case 'text':
+      $element.html(sampleData.text);
+      // no `refreshCallback`, this field
+      // will be updated only once
+      break;
+  }
+}
+</script>

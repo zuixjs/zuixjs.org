@@ -1,48 +1,31 @@
 {
   "zuix": {
     "build": {
-      "input": "./source",
-      "output": "./docs",
+      "input": "source",
+      "output": "docs",
       "copy": [
-        "app/content/docs/examples",
-        "app/templates/mdl_card.css",
-        "app/templates/mdl_card.html",
-        "app/content/api/api_template.html",
-        "app/content/api/api_template.css",
-        "app/content/api/api_template.js",
-        "app/widgets/timeclock.html",
-        "app/widgets/timeclock.css",
-        "app/widgets/timeclock.js",
+        "app",
         "css",
         "images",
-        "js",
         ".nojekyll",
+        "browserconfig.xml",
         "manifest.json",
-        "manifest.webapp",
         "humans.txt",
         "favicon.ico",
         "robots.txt"
       ],
       "ignore": [
-        "app",
-        "_inc"
+        "_filters",
+        "app"
       ],
-      "compile": [
-        "html",
-        "less",
-        "css",
-        "js",
-        "md",
-        "svg"
-      ],
-      "prettyUrl": false,
-      "less": true,
-      "esLint": true,
+      "dataFolder": "_data",
+      "includesFolder": "_inc",
       "bundle": {
         "js": false,
         "css": false,
-        "zuix": true
+        "zuix": false
       },
+      "serviceWorker": false,
       "minify": {
         "disable": true,
         "collapseWhitespace": true,
@@ -61,15 +44,18 @@
     "app": {
       "title": "zUIx.js presentation and documentation website.",
       "googleSiteId": "UA-92520304-1",
-      "resourcePath": "./app/",
-      "libraryPath": "https://zuixjs.github.io/zkit/lib/",
+      "baseUrl": "/",
+      "resourcePath": "/app/",
+      "libraryPath": {
+        "@lib": "https://zuixjs.github.io/zkit/lib/",
+        "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",
+        "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
+      },
       "zuixjs.github.io": {
-        "resourcePath": "/zuixjs.org/app/",
-        "libraryPath": "https://zuixjs.github.io/zkit/lib/"
+        "resourcePath": "/zuixjs.org/app/"
       },
       "zuixjs.org": {
-        "resourcePath": "/app/",
-        "libraryPath": "https://zuixjs.github.io/zkit/lib/"
+        "resourcePath": "/app/"
       }
     }
   }
