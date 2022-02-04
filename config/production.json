@@ -27,7 +27,7 @@
       },
       "serviceWorker": true,
       "minify": {
-        "disable": false,
+        "disable": true,
         "collapseWhitespace": true,
         "removeOptionalTags": true,
         "removeRedundantAttributes": true,

@@ -1,18 +1,496 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="zuix.js getting started, documentation and api"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Active&rarr;Refresh - zUIx.js / 11ty</title><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to homescreen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to homescreen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="zuix.js getting started, documentation and api">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active&rarr;Refresh - zUIx.js / 11ty</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+
+    <!-- Progressive Web App -->
+    <meta name="theme-color" content="white">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="A zUIx website">
+    <link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png">
+    <link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Tile color for Windows -->
+    <meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
     <link rel="canonical" href="https://www.example.com/">
-    --><style>:root{--primary-color:#16641c;--primary-color-half:#16641c88;--accent-color:rgb(0 123 171)}</style><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel="stylesheet" href="/css/mdl-custom-theme.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ia-light.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script><!-- zuix.js https://github.com/zuixjs/zuix --><script src="/js/zuix/zuix.min.js"></script><script src="/config.js"></script><script src="/js/zuix/animate_css.js"></script><style>body{margin:0;padding:0;font-size:12px;font-family:Helvetica,sans-serif;position:relative}a,a::after,a::before{-webkit-user-drag:none;-webkit-app-region:no-drag}main{padding:0}main div.content{width:100%;max-width:960px;padding-left:12px;padding-right:12px}[z-field=header]{position:fixed;z-index:1;top:0;left:0;right:0;bottom:0;height:64px;padding-left:8px;padding-right:8px;background:#f5f5f5}h1[z-field=alt_header]{text-align:center;display:block;font-weight:600;margin:24px}pre{overflow-x:auto!important}footer{margin-top:96px;min-height:96px;font-size:120%;padding:12px 24px 0;background:#bbc;background:linear-gradient(#fff,#16641c22)}div.content>p{font-size:150%!important;line-height:160%!important;margin:24px 0 24px}pre{background:rgba(0,0,0,.1);border:solid 1px rgba(65,98,14,.15);font-size:100%;line-height:165%;margin-top:36px;margin-bottom:36px;border-radius:8px}code{color:var(--primary-color);padding-left:3px;padding-right:3px}a code,li code,p code{font-size:95%;color:var(--primary-color);font-weight:400}.example-container{position:relative;margin-bottom:48px;min-height:76px}h1{font-size:195%;font-weight:600}h2{font-size:185%;margin-top:56px;font-weight:600}main .content h2:first-child{margin-top:24px}h3{margin-top:42px;font-size:160%;font-weight:600;color:#778899}label{color:#778899;font-size:14px;text-transform:uppercase;font-weight:700;margin-top:24px;display:block}a{text-decoration:none}blockquote{z-index:-1;position:center!important;font-size:140%!important;font-family:serif,Helvetica,sans-serif!important;margin-left:24px;margin-right:24px}main .content ul{padding-left:20px}li{line-height:175%;font-size:100%}li small{color:#696969}code.option{font-size:80%;padding:4px;border-radius:6px;border:solid 1px rgba(0,200,0,.25);background:rgba(255,255,255,.15)}.header-logo{cursor:pointer;border:solid 1px #a9a9a9;border-radius:56px;background:#fff}[data-ui-include]:not([z-ready=true]).visible-on-ready,[data-ui-load]:not([z-ready=true]).visible-on-ready,[z-include]:not([z-ready=true]).visible-on-ready,[z-load]:not([z-ready=true]).visible-on-ready{display:block;visibility:hidden}.margin-8px{margin:8px}.margin-16px{margin:16px}.no-select{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}@media screen and (max-width:720px){.content{font-size:90%}pre{font-size:12px}}@media screen and (min-width:1280px){main{padding-top:0;padding-left:304px;padding-right:24px}[z-field=header]{padding-left:316px;display:none}h1[z-field=alt_header]{margin-top:32px;margin-bottom:48px;margin-left:-28px;visibility:visible}footer{margin-left:280px}pre{font-size:100%;line-height:165%}.header-logo{display:none}}.hljs{color:#181818;background:#fffff8}.hljs-attr{color:#d21811}.hljs-comment{color:#737373!important}.hljs-string{color:#406c2d!important}.hljs-attribute,.hljs-title{color:#106bd7!important}.not-ready{opacity:.5;-webkit-animation:pulse .5s infinite ease-in-out;-o-animation:pulse .5s infinite ease-in-out;-ms-animation:pulse .5s infinite ease-in-out;-moz-animation:pulse .5s infinite ease-in-out;animation:pulse .5s infinite ease-in-out}@-webkit-keyframes pulse{0%{opacity:.2}50%{opacity:.4}100%{opacity:.2}}@keyframes pulse{0%{opacity:.2}50%{opacity:.4}100%{opacity:.2}}.drawer-header{color:#fff;height:128px;padding:8px 8px 8px 8px;background:#7b9170;background:-webkit-linear-gradient(to right,#7b9170,#0b4d2c);background:linear-gradient(to right,#7b9170,#0b4d2c)}.drawer-header img.logo{width:64px;height:64px;border:solid 1px rgba(0,0,0,.75);border-radius:56px;background:#fff}.drawer-header .text-logo{font-size:180%;font-weight:400;margin-right:48px}.drawer-header .title{margin-left:4px;margin-right:4px;font-size:120%;font-weight:600}.drawer-header .subtitle{margin-left:4px;margin-right:4px;font-size:120%}.drawer-content{background:#fff}.drawer-content ul{padding:0;margin-top:8px}.drawer-content li:hover{background:rgba(0,0,0,.1)}.drawer-content li{border-top:solid 2px transparent;border-bottom:solid 2px transparent;list-style:none}.drawer-content ul li[aria-current=page]{border-top:solid 2px #f3f3f3;border-bottom:solid 2px #f3f3f3;background:#f9f9f9}.drawer-content ul li[aria-current=page] [class=mdl-color-text--primary]{font-weight:700}.drawer-content li a{color:var(--accent-color);position:relative;display:block;padding:8px 16px;text-decoration:none}.drawer-content ul li[aria-current=page] a{color:var(--primary-color);font-weight:700}.drawer-content ul li a div.summary{font-size:95%;line-height:150%;margin-top:4px;margin-right:32px;font-style:italic;font-weight:400!important;font-family:'Helvetica Neue',Helvetica,sans-serif;color:#778899}[z-context=menu-drawer]:focus{outline:0}</style></head><!-- scroll helper is used to show/hide the header when scrolling --><body ctrl z-load="controllers/scroll_helper" z-lazy="scroll" z-context="scroll-helper" z-options="scroll_opts" layout="column stretch-stretch"><header #header layout="row center-start" class="mdl-shadow--2dp"><div self="stretch" layout="row center-start"><div><img src="/images/icons/icon-192x192.png" width="56" height="56" alt="zUIx.js logo" title="zuix.js" class="header-logo animate__animated animate__bounceIn" onclick="menuDrawer.open()"></div><div self="size-x1" layout="row center-center"><h1 class="mdl-color-text--primary" style="margin-left:-56px">Active&rarr;Refresh</h1></div></div></header><!--
+    -->
+
+    <style>
+        :root {
+            --primary-color: #16641c;
+            --primary-color-half: #16641c88;
+            --accent-color: rgb(0 123 171);
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/mdl-custom-theme.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ia-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
+    <!-- zuix.js https://github.com/zuixjs/zuix -->
+    <script src="/js/zuix/zuix.min.js"></script>
+    <script src="/config.js"></script>
+    <script src="/js/zuix/animate_css.js"></script>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: Helvetica, sans-serif;
+    position: relative;
+}
+
+/* prevents links dragging */
+a, a::after, a::before {
+    -webkit-user-drag: none;
+    -webkit-app-region: no-drag;
+}
+
+main {
+    padding: 0;
+}
+main div.content {
+    width: 100%;
+    max-width: 960px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+main div.content > p {
+/*    text-align: justify; */
+}
+
+[z-field="header"] {
+    position: fixed;
+    z-index: 1;
+    top:0; left: 0; right: 0; bottom: 0;
+    height: 64px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #f5f5f5;
+}
+h1[z-field="alt_header"] {
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    margin: 24px;
+}
+
+pre {
+    overflow-x: auto !important;
+}
+
+footer {
+    margin-top: 96px;
+    min-height: 96px;
+    font-size: 120%;
+    padding: 12px 24px 0;
+    background: #bbc;
+    background: linear-gradient(#fff, #16641c22);
+}
+
+div.content > p {
+    font-size: 150% !important;
+    line-height: 160% !important;
+    margin: 24px 0 24px;
+}
+pre {
+    background: rgba(0,0,0,0.1);
+    border: solid 1px rgba(65, 98, 14, 0.15);
+    font-size: 100%;
+    line-height: 165%;
+    margin-top: 36px;
+    margin-bottom: 36px;
+    border-radius: 8px;
+}
+code {
+    color: var(--primary-color);
+    padding-left: 3px;
+    padding-right: 3px;
+}
+a code, p code, li code {
+    font-size: 95%;
+    color: var(--primary-color);
+    font-weight: normal;
+}
+
+
+.example-container {
+    position: relative;
+    margin-bottom: 48px;
+    min-height: 76px;
+}
+
+h1 {
+    font-size: 195%;
+    font-weight: 600;
+}
+h2 {
+    font-size: 185%;
+    margin-top: 56px;
+    font-weight: 600;
+}
+main .content h2:first-child {
+    margin-top: 24px;
+}
+h3 {
+    margin-top: 42px;
+    font-size: 160%;
+    font-weight: 600;
+    color: lightslategray;
+}
+label {
+    color: lightslategray;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 24px;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+blockquote {
+    z-index: -1; /* not sure why it would overlap the header without this */
+    position: center !important;
+    font-size: 140% !important;
+    font-family: 'serif', 'Helvetica', 'sans-serif' !important;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+main .content ul {
+    padding-left: 20px;
+}
+li {
+    line-height: 175%;
+    font-size: 100%;
+}
+li small {
+    color: dimgray;
+/*    opacity: 0.5;*/
+}
+
+code.option {
+    font-size: 80%;
+    padding: 4px;
+    border-radius: 6px;
+    border: solid 1px rgba(0,200,0,0.25);
+    background: rgba(255,255,255,0.15);
+}
+
+.header-logo {
+    cursor: pointer;
+    border: solid 1px darkgray;
+    border-radius: 56px;
+    background: white;
+}
+
+[data-ui-load]:not([z-ready=true]).visible-on-ready,
+[z-load]:not([z-ready=true]).visible-on-ready,
+[data-ui-include]:not([z-ready=true]).visible-on-ready,
+[z-include]:not([z-ready=true]).visible-on-ready
+{
+    display: block;
+    visibility: hidden;
+}
+
+.margin-8px {
+    margin: 8px;
+}
+.margin-16px {
+    margin: 16px;
+}
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+@media screen and (max-width: 720px) {
+    .content {
+        font-size: 90%;
+    }
+    pre {
+        font-size: 12px;
+    }
+}
+/*@media screen and (min-width: 1720px) {
+    .content {
+        font-size: 140%;
+        max-width: 1400px !important;
+    }
+}*/
+@media screen and (min-width: 1280px) {
+    main {
+        padding-top: 0;
+        padding-left: 304px; /* 280px + 24px */
+        padding-right: 24px;
+    }
+    [z-field="header"] {
+        padding-left: 316px;
+        display: none;
+    }
+    h1[z-field="alt_header"] {
+        margin-top: 32px;
+        margin-bottom: 48px;
+        margin-left: -28px;
+        visibility: visible;
+    }
+    footer {
+        margin-left: 280px;
+    }
+    pre {
+        font-size: 100%;
+        line-height: 165%;
+    }
+    .header-logo {
+        display: none;
+    }
+}
+
+/*
+ Various Fixes for Lighthouse accessibility score
+ */
+.hljs {
+    color: #181818;
+    background: #fffff8;
+}
+.hljs-attr {
+    color: #d21811;
+}
+.hljs-comment {
+    color: #737373 !important;
+}
+.hljs-string {
+    color: #406c2d !important;
+}
+.hljs-attribute,.hljs-title {
+    color: #106bd7 !important;
+}
+
+/* general UI state classes */
+.not-ready {
+    opacity: 0.5;
+    -webkit-animation: pulse .5s infinite ease-in-out;
+    -o-animation: pulse .5s infinite ease-in-out;
+    -ms-animation: pulse .5s infinite ease-in-out;
+    -moz-animation: pulse .5s infinite ease-in-out;
+    animation: pulse .5s infinite ease-in-out;
+}
+@-webkit-keyframes pulse {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.2; }
+}
+@keyframes pulse {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.2; }
+}
+
+.drawer-header {
+    color:white;
+    height: 128px;
+    padding: 8px 8px 8px 8px;
+    background: #7b9170;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7b9170, #0b4d2c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7b9170, #0b4d2c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.drawer-header img.logo {
+    width: 64px;
+    height: 64px;
+    border: solid 1px rgba(0,0,0,0.75);
+    border-radius: 56px;
+    background: #ffffff;
+}
+.drawer-header .text-logo {
+    font-size: 180%;
+    font-weight: 400;
+    margin-right: 48px;
+}
+.drawer-header .title {
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 120%;
+    font-weight: 600;
+}
+.drawer-header .subtitle {
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 120%;
+}
+.drawer-content {
+    background: white;
+}
+.drawer-content ul {
+    padding: 0;
+    margin-top: 8px;
+    /*font-size: 120%;*/
+}
+.drawer-content li:hover {
+    background: rgba(0,0,0,0.1);
+}
+.drawer-content li {
+    border-top: solid 2px transparent;
+    border-bottom: solid 2px transparent;;
+    list-style: none;
+}
+.drawer-content ul li[aria-current=page] {
+    border-top: solid 2px #f3f3f3;
+    border-bottom: solid 2px #f3f3f3;
+    background: #f9f9f9;
+}
+.drawer-content ul li[aria-current=page] [class="mdl-color-text--primary"] {
+    font-weight: bold;
+}
+.drawer-content li a {
+    color: var(--accent-color);
+    position: relative;
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.drawer-content ul li[aria-current=page] a {
+    /*pointer-events: none;*/
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.drawer-content ul li a div.summary {
+    font-size: 95%;
+    line-height: 150%;
+    margin-top: 4px;
+    margin-right: 32px;
+    font-style: italic;
+    font-weight: 400!important;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    color: lightslategray;
+}
+
+[z-context="menu-drawer"]:focus {
+    outline: none;
+}
+
+
+</style>
+
+
+</head>
+
+
+<!-- scroll helper is used to show/hide the header when scrolling -->
+<body ctrl z-load="controllers/scroll_helper" z-lazy="scroll"
+      z-context="scroll-helper"
+      z-options="scroll_opts"
+      layout="column stretch-stretch">
+
+    <header #header layout="row center-start" class="mdl-shadow--2dp">
+        <div self="stretch" layout="row center-start">
+            <div>
+                <img src="/images/icons/icon-192x192.png"
+                     width="56" height="56" alt="zUIx.js logo" title="zuix.js"
+                     class="header-logo animate__animated animate__bounceIn"
+                     onclick="menuDrawer.open()">
+            </div>
+            <div self="size-x1" layout="row center-center">
+                <h1 class="mdl-color-text--primary" style="margin-left: -56px">Active&rarr;Refresh</h1>
+            </div>
+        </div>
+    </header>
+
+    <!--
     <div z-load="@lib/components/hamburger_icon"
          z-context="menu_hamburger"
          z-options="menuButtonOptions"
          style="position:fixed;right:0;top:6px;z-index:1001"></div>
-         --><main class="animate__animated animate__fadeIn animate__faster"><div layout="column top-center"><h1 #alt_header class="mdl-color-text--primary">Active&rarr;Refresh</h1><div class="content"><p><em>Active→Refresh</em> handlers are user-definable functions that are associated with elements of a component's view and that get executed only when the component is visible on screen, or enter a <em>paused</em> state otherwise. Refresh handlers can be activated on any component's element, directly in the HTML template by using the special element's attribute prefix <code>@</code> (here thus intended as a symbol for &quot;<em>refresh/loop</em>&quot;).<p>This kind of functions are very small and very little CPU time-consuming, even because they might get executed already a bunch of times in a second. For instance think of a function that validates the user input and that enables/disables a button accordingly:<pre><code class="language-html">&lt;form z-load=&quot;default&quot;&gt;
+         -->
+
+    <main class="animate__animated animate__fadeIn animate__faster">
+        <div layout="column top-center">
+
+            <h1 #alt_header class="mdl-color-text--primary">Active&rarr;Refresh</h1>
+            <div class="content">
+                <p><em>Active→Refresh</em> handlers are user-definable functions that are associated with elements of a component's view and
+that get executed only when the component is visible on screen, or enter a <em>paused</em> state otherwise. Refresh handlers
+can be activated on any component's element, directly in the HTML template by using the special element's attribute prefix
+<code>@</code> (here thus intended as a symbol for &quot;<em>refresh/loop</em>&quot;).</p>
+<p>This kind of functions are very small and very little CPU time-consuming, even because they might get executed already a
+bunch of times in a second. For instance think of a function that validates the user input and that enables/disables a
+button accordingly:</p>
+<pre><code class="language-html">&lt;form z-load=&quot;default&quot;&gt;
   &lt;label for=&quot;firstName&quot;&gt;First name&lt;/label&gt;
   &lt;input id=&quot;firstName&quot; type=&quot;text&quot; minlength=&quot;3&quot;&gt;
   &lt;button @disable-if=&quot;!firstName.value || !firstName.validity.valid&quot;&gt;
       Ok
   &lt;/button&gt;
 &lt;/form&gt;
-</code></pre><div z-load="default"><label for="firstName">Name</label> <input id="firstName" minlength="3" autocomplete="off"> <button @disable-if="!firstName.value || !firstName.validity.valid">Ok</button></div><p>In the above example the built-in handler <code>@disable-if</code>, evaluates the condition specified in the attribute's value and if the condition is truthy, then the button is disabled, in this case if the input text is less than 3 characters long.<h2>Built-in <code>@</code> handlers</h2><p>Along with the <em>@disable-if</em> handler, the following active→refresh handlers are available:<ul><li><code>@if</code> → evaluates the given condition; if true, executes the code specified by the <code>@then</code> attribute, otherwise the <code>@else</code> one<li><code>@hide-if</code> → sets element's visibility to hidden if the given expression is truthy<li><code>@disable-if</code> → sets element to disabled if the given expression is truthy<li><code>@sync</code> → synchronizes the value of the element with the data model's field specified by <code>#</code> (<code>z-field</code>) attribute or by the <code>@sync</code> value<li><code>@get</code> → gets new values from evaluating the given expression and passes them as arguments of the script specified by the <code>@set</code> attribute<li><code>@set</code> → sets code to execute (works also without <em>@get</em>)<li><code>@on:&lt;event&gt;</code> → sets an event handler</ul><p>In the next example, a default component context is created using the <em>z-load=&quot;default&quot;</em> attribute on the container <code>div</code>. It's then possible to use <code>@</code> handlers and other component features inside its view.<p>There, four fields are declared using the <code>#&lt;field_name&gt;</code> attribute (equivalent of <code>z-field=&quot;&lt;field_name&gt;&quot;</code>): <code>#check1</code>, <code>#check2</code>, <code>#check3</code> and <code>#proceed-button</code>. Declared fields are then available as variables in the script of type &quot;<code>jscript</code>&quot;, that is put at the end of the view and that adds a few more declarations.<p><label class="mdl-color-text--primary">Example 1</label><pre><code class="language-html">&lt;div z-load=&quot;default&quot;&gt;
+</code></pre>
+<div z-load="default">
+  <label for="firstName">Name</label>
+  <input id="firstName" type="text" minlength="3" autocomplete="off">
+  <button @disable-if="!firstName.value || !firstName.validity.valid">
+      Ok
+  </button>
+</div>
+<p>In the above example the built-in handler <code>@disable-if</code>, evaluates the condition specified in the attribute's value and
+if the condition is truthy, then the button is disabled, in this case if the input text is less than 3 characters long.</p>
+<h2>Built-in <code>@</code> handlers</h2>
+<p>Along with the <em>@disable-if</em> handler, the following active→refresh handlers are available:</p>
+<ul>
+<li><code>@if</code> → evaluates the given condition; if true, executes the code specified by the <code>@then</code> attribute, otherwise
+the <code>@else</code> one</li>
+<li><code>@hide-if</code> → sets element's visibility to hidden if the given expression is truthy</li>
+<li><code>@disable-if</code> → sets element to disabled if the given expression is truthy</li>
+<li><code>@sync</code> → synchronizes the value of the element with the data model's field specified by <code>#</code> (<code>z-field</code>) attribute or by
+the <code>@sync</code> value</li>
+<li><code>@get</code> → gets new values from evaluating the given expression and passes them as arguments of the script specified by the <code>@set</code>
+attribute</li>
+<li><code>@set</code> → sets code to execute (works also without <em>@get</em>)</li>
+<li><code>@on:&lt;event&gt;</code> → sets an event handler</li>
+</ul>
+<p>In the next  example, a default component context is created using the <em>z-load=&quot;default&quot;</em> attribute on the container
+<code>div</code>. It's then possible to use <code>@</code> handlers and other component features inside its view.</p>
+<p>There, four fields are declared using the <code>#&lt;field_name&gt;</code> attribute (equivalent of <code>z-field=&quot;&lt;field_name&gt;&quot;</code>): <code>#check1</code>,
+<code>#check2</code>, <code>#check3</code> and <code>#proceed-button</code>. Declared fields are then available as variables in the  script of type
+&quot;<code>jscript</code>&quot;, that is put at the end of the view and that adds a few more declarations.</p>
+<p><label class="mdl-color-text--primary">Example 1</label></p>
+<pre><code class="language-html">&lt;div z-load=&quot;default&quot;&gt;
 
   &lt;label for=&quot;agreed1&quot;&gt;
       &lt;input id=&quot;agreed1&quot; type=&quot;checkbox&quot; #check1&gt;
@@ -72,10 +550,58 @@
     }
   &lt;/style&gt;
 &lt;/div&gt;
-</code></pre><p>The type <code>jscript</code> might sound unusual, but that's just because this way the browser will not recognize the type and will ignore this script, instead it will be loaded by <em>zuix.js</em> as the <strong>default refresh handler</strong> of the component. Furthermore, the <code>jscript</code> type, will be automatically recognized as JavaScript syntax by some IDE, without requiring additional plugins for syntax highlighting. Next to the <em>jscript</em>, it's also possible to add a scoped CSS that will be so applied only to the component's view.<h2>The default refresh handler</h2><p>The <em>default refresh handler</em> of a component, like the others <em>active → refresh</em> handlers, will run only when the component become visible in the viewport. The main body of the script's code will be executed only once, as initialization code, while the <code>refresh()</code> function, if present, will be executed, as long as the component is visible, circa ten times a second or as differently specified by the <code>refreshDelay</code> attribute of the <code>&lt;script&gt;</code> tag (value is expressed in milliseconds).<p>Any member declared in this script it's only visible to the component, and can be referenced also in <code>@</code> handlers' value expression employed in the view's template. And so, the two state variables <code>validFormData</code>, <code>bothChecked</code>, and the function <code>handleClick</code>, declared in the example script, can be employed in the template as values for <code>@disable-if</code> and <code>@hide-if</code> handlers, so that basically, the &quot;<em>Proceed</em>&quot; button will be enabled only if all the three checkboxes are checked.<pre><code class="language-html">&lt;button #proceed-button
+</code></pre>
+<p>The type <code>jscript</code> might sound unusual, but that's just because this way the browser will not recognize the type and
+will ignore this script, instead it will be loaded by <em>zuix.js</em> as the <strong>default refresh handler</strong> of the component.
+Furthermore, the <code>jscript</code> type, will be automatically recognized as JavaScript syntax by some IDE, without requiring
+additional plugins for syntax highlighting. Next to the <em>jscript</em>, it's also possible to add a scoped CSS that will be
+so applied only to the component's view.</p>
+<h2>The default refresh handler</h2>
+<p>The <em>default refresh handler</em> of a component, like the others <em>active → refresh</em> handlers, will run only when the
+component become visible in the viewport. The main body of the script's code will be executed only once, as initialization
+code, while the <code>refresh()</code> function, if present, will be executed, as long as the component is visible, circa ten times
+a second or as differently specified by the <code>refreshDelay</code> attribute of the <code>&lt;script&gt;</code> tag (value is expressed in milliseconds).</p>
+<p>Any member declared in this script it's only visible to the component, and can be referenced also in <code>@</code> handlers' value
+expression employed in the view's template. And so, the two state variables <code>validFormData</code>, <code>bothChecked</code>, and the
+function <code>handleClick</code>, declared in the example script, can be employed in the template as values for <code>@disable-if</code>
+and <code>@hide-if</code> handlers, so that basically, the &quot;<em>Proceed</em>&quot; button will be enabled only if all the three checkboxes are
+checked.</p>
+<pre><code class="language-html">&lt;button #proceed-button
         @disable-if=&quot;!validFormData&quot;
         @on:click=&quot;handleClick&quot;&gt; Proceed &lt;/button&gt;
-</code></pre><p><label class="mdl-color-text--primary">Result</label><div z-load="default" class="example-container visible-on-ready" style="min-height:248px" layout="column top-start"><label #check1 ctrl z-load="controllers/mdl_checkbox" for="agreed1"><input type="checkbox" id="agreed1"> Check this</label> <label #check2 ctrl z-load="controllers/mdl_checkbox" for="agreed2"><input type="checkbox" id="agreed2"> Check that</label> <label #check3 ctrl z-load="controllers/mdl_checkbox" for="agreed3" @get="state.bothChecked as isInPlace" @set="if (!isInPlace && _this.checked) { _this.checked = false; } _this.disabled = !isInPlace"><input type="checkbox" id="agreed3"> Everything is in place!</label><div layout="rows center-left"><button ctrl z-load="controllers/mdl_button" style="min-width:120px" @disable-if="!state.validFormData" #proceed-button @on:click="handleClick"><span #label>Proceed</span></button> <i @hide-if="state.validFormData" class="material-icons animate__animated animate__flash animate__infinite mdl-color-text--orange-500 warning-sign">report</i><div @hide-if="state.validFormData">Please check all options to proceed.</div></div><script type="jscript" refreshdelay="175">const $label = $.field('label');
+</code></pre>
+<p><label class="mdl-color-text--primary">Result</label></p>
+<div z-load="default"
+     class="example-container visible-on-ready" style="min-height:248px" layout="column top-start">
+    <label #check1 ctrl z-load="controllers/mdl_checkbox" for="agreed1">
+        <input type="checkbox" id="agreed1">
+        Check this
+    </label>
+    <label #check2 ctrl z-load="controllers/mdl_checkbox" for="agreed2">
+        <input type="checkbox" id="agreed2">
+        Check that
+    </label>
+    <label #check3 ctrl z-load="controllers/mdl_checkbox" for="agreed3"
+           @get="state.bothChecked as isInPlace"
+           @set="if (!isInPlace && _this.checked) { _this.checked = false; } _this.disabled = !isInPlace">
+      <input type="checkbox" id="agreed3">
+      Everything is in place!
+    </label>
+    <div layout="rows center-left">
+        <button ctrl z-load="controllers/mdl_button" style="min-width: 120px"
+                @disable-if="!state.validFormData" #proceed-button
+                @on:click="handleClick">
+          <span #label>Proceed</span>
+        </button>
+        <i @hide-if="state.validFormData" class="material-icons animate__animated animate__flash animate__infinite mdl-color-text--orange-500 warning-sign">
+          report
+        </i>
+        <div @hide-if="state.validFormData">
+            Please check all options to proceed.
+        </div>
+    </div>
+  <script type="jscript" refreshDelay="175">
+    const $label = $.field('label');
     const state = zuix.observable({
       validFormData: false,
       bothChecked: false
@@ -104,7 +630,100 @@
     }
     function handleClick() {
       alert('Yay! This worked! =)');
-    }</script><style media="#">:host{border:solid 1px #f5f5f5;max-width:460px;padding:8px}.warning-sign{margin-left:16px;margin-right:16px}label[disabled]{opacity:.5}label{text-transform:none;font-weight:400;max-width:200px}button{margin:24px 12px}</style></div><h2>&quot;Active → Refresh&quot; scripting scope</h2><p>When the code of a refresh handler is run, beside the context object <code>this</code>, which references the target HTML element itself, also a few more predefined variables are available, either if it's the code of a <em>default refresh handler</em>, or an expression in the value of a <code>@</code> handler:<table><thead><tr><th>Member<th>Description<tbody><tr><td><code>this</code><td>The target HTMLElement<tr><td><code>$this</code><td>Same as <code>&quot;this&quot;</code>, but <em>ZxQuery-wrapped</em><tr><td><code>_this</code><td>If this element is also a component, <code>_this</code> is its component's context object<tr><td><code>&lt;field_name&gt;</code><td>For each element in the view with a <code>#</code> (<code>z-field</code>) attribute, there will be a variable (only one for each distinct field)<tr><td><code>$&lt;field_name&gt;</code><td>Same as above but <em>ZxQuery-wrapped</em>, allowing multiple element instances for each field<tr><td><code>_&lt;field_name&gt;</code><td>If the field is also a component, then, this will be its component's context object<tr><td><code>context</code><td>The component's context that contains this element<tr><td><code>model</code><td>The component's data model<tr><td><code>$</code><td>The component's view as <em>ZxQuery</em> object<tr><td><code>args</code><td>Optional arguments object</table><p>additionally, like seen in the previous example, to the <em>default refresh handler</em> script, will be also available as variables, all <code>#</code> fields declared in the view's template, and vice-versa, to any of the <code>@</code> handlers employed in the view, will be also available all local variables and functions declared in the <em>default refresh handler</em>.<p><strong>Notice</strong> that members starting with an underscore <code>_</code>, since they are components, are loaded asynchronously, so they will be <code>null</code> until the component context of the underlying element has been loaded. So if there is any value's expression in the template that involves such asynchronous objects, the <code>ready()</code> function should be provided in the <em>default refresh handler</em> to prevent errors from evaluating expressions before async objects become available.<p>When implemented, the <code>ready()</code> function, will simply return <code>false</code> if any of the async objects used in template's value's expressions is null, and otherwise, will finally return <code>true</code> to let the template's refresh handlers start safely. As long as the <code>ready()</code> function returns <code>false</code>, the CSS class <code>.not-ready</code> will be applied to the view of the component, and this can be used to customize a visible feedback of the <em>not ready</em> state.<p>View's fields are also accessible through the &quot;<code>model</code>&quot; object, that is the component's data model. In this case the two-way data binding will automatically sync and map any value's change, as shown in the next example.<p><label class="mdl-color-text--primary">Example 2</label><pre><code class="language-html">&lt;div z-load=&quot;default&quot; z-context=&quot;color-select&quot;&gt;
+    }
+  </script>
+  <style media="#">
+    :host {
+      border: solid 1px whitesmoke;
+      max-width: 460px;
+      padding: 8px;
+    }
+    .warning-sign {
+      margin-left: 16px;
+      margin-right: 16px
+    }
+    label[disabled] {
+      opacity: 0.5;
+    }
+    label{
+      text-transform: none;
+      font-weight:400;
+      max-width:200px;
+    }
+    button{
+      margin: 24px 12px;
+    }
+  </style>
+</div>
+<h2>&quot;Active → Refresh&quot; scripting scope</h2>
+<p>When the code of a refresh handler is run, beside the context object <code>this</code>, which references the target HTML element itself,
+also a few more predefined variables are available, either if it's the code of a <em>default refresh handler</em>, or an
+expression in the value of a <code>@</code> handler:</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>this</code></td>
+<td>The target HTMLElement</td>
+</tr>
+<tr>
+<td><code>$this</code></td>
+<td>Same as <code>&quot;this&quot;</code>, but <em>ZxQuery-wrapped</em></td>
+</tr>
+<tr>
+<td><code>_this</code></td>
+<td>If this element is also a component, <code>_this</code> is its component's context object</td>
+</tr>
+<tr>
+<td><code>&lt;field_name&gt;</code></td>
+<td>For each element in the view with a <code>#</code> (<code>z-field</code>) attribute, there will be a variable (only one for each distinct field)</td>
+</tr>
+<tr>
+<td><code>$&lt;field_name&gt;</code></td>
+<td>Same as above but <em>ZxQuery-wrapped</em>, allowing multiple element instances for each field</td>
+</tr>
+<tr>
+<td><code>_&lt;field_name&gt;</code></td>
+<td>If the field is also a component, then, this will be its component's context object</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td>The component's context that contains this element</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>The component's data model</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>The component's view as <em>ZxQuery</em> object</td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td>Optional arguments object</td>
+</tr>
+</tbody>
+</table>
+<p>additionally, like seen in the previous example, to the <em>default refresh handler</em> script, will be also available as variables,
+all <code>#</code> fields declared in the view's template, and vice-versa, to any of the <code>@</code> handlers employed in the view, will be
+also available all local variables and functions declared in the <em>default refresh handler</em>.</p>
+<p><strong>Notice</strong> that members starting with an underscore <code>_</code>, since they are components, are loaded asynchronously, so they will be <code>null</code>
+until the component context of the underlying element has been loaded. So if there is any value's expression in the
+template that involves such asynchronous objects, the <code>ready()</code> function should be provided in the <em>default refresh handler</em>
+to prevent errors from evaluating expressions before async objects become available.</p>
+<p>When implemented, the <code>ready()</code> function, will simply return <code>false</code> if any of the async objects used in template's value's
+expressions is null, and otherwise, will finally return <code>true</code> to let the template's refresh handlers start safely.
+As long as the <code>ready()</code> function returns <code>false</code>, the CSS class <code>.not-ready</code> will be applied to the
+view of the component, and this can be used to customize a visible feedback of the <em>not ready</em> state.</p>
+<p>View's fields are also accessible through the &quot;<code>model</code>&quot; object, that is the component's data model. In this case the
+two-way data binding will automatically sync and map any value's change, as shown in the next example.</p>
+<p><label class="mdl-color-text--primary">Example 2</label></p>
+<pre><code class="language-html">&lt;div z-load=&quot;default&quot; z-context=&quot;color-select&quot;&gt;
 
   &lt;label for=&quot;color&quot;&gt;Color&lt;/label&gt;
   &lt;select id=&quot;color&quot; #color @sync&gt;
@@ -120,7 +739,132 @@
        @set=&quot;$this.css({backgroundColor})&quot;&gt;&lt;/div&gt;
 
 &lt;/div&gt;
-</code></pre><p>The <code>@sync</code> handler on the <code>select</code> will update the bound field <code>color</code> in the component's data model, anytime a new option is selected from the <code>select</code> control. While the <code>@get</code> handler on the color preview rectangle, will read value changes from <code>model.color</code> field, and pass new values to the <code>@set</code> handler. So, what happen is that whenever the value of the select is changed, also the background color of the preview rectangle will change accordingly.<div z-context="color-select" z-model="{color:'GoldenRod'}" class="example-container"><div layout="row bottom-left"><div><label for="color">Color</label><div class="select-dropdown"><select id="color" #color @sync><option>Black<option>DarkRed<option>GoldenRod<option>LimeGreen<option>DarkGreen</select></div></div><div class="color-preview" @get="model.color as backgroundColor" @set="$this.css({backgroundColor})"></div></div><style media="#">.color-preview{width:16px;height:16px;border-radius:6px;margin:0 6px 7px;border:solid 3px rgba(255,255,255,.4)}.select-dropdown,.select-dropdown *{margin:0;padding:0;position:relative;box-sizing:border-box}.select-dropdown{margin-top:8px;position:relative;background-color:#e6e6e6;border-radius:4px}.select-dropdown select{font-size:1rem;font-weight:400;max-width:100%;padding:8px 24px 8px 10px;border:none;background-color:transparent;-webkit-appearance:none;-moz-appearance:none;appearance:none}.select-dropdown select:active,.select-dropdown select:focus{outline:0;box-shadow:none}.select-dropdown:after{content:"";position:absolute;top:50%;right:8px;width:0;height:0;margin-top:-2px;border-top:5px solid #aaa;border-right:5px solid transparent;border-left:5px solid transparent}</style></div><p>So, setting directly <code>model.color = '&lt;color_name&gt;'</code> will also synchronize any bound element of the view, with the new field value, as shown in the following example where the <code>model</code> of the <em>color-select</em> component, is accessed from the following component to get or set the selected color:<div z-load="default" style="min-height:120px"><label>Selected <span @get="cm.color as color" @set="$this.html(color).css({color})">?</span></label><div layout="rows center-left"><div class="color-preview" style="background-color:#000" @if="cm.color === 'Black'" @then="$this.addClass('selected')" @else="$this.removeClass('selected')" @on:click="cm.color = 'Black'"></div><div class="color-preview" style="background-color:#8b0000" @if="cm.color === 'DarkRed'" @then="$this.addClass('selected')" @else="$this.removeClass('selected')" @on:click="cm.color = 'DarkRed'"></div><div class="color-preview" style="background-color:#daa520" @if="cm.color === 'GoldenRod'" @then="$this.addClass('selected')" @else="$this.removeClass('selected')" @on:click="cm.color = 'GoldenRod'"></div><div class="color-preview" style="background-color:#32cd32" @if="cm.color === 'LimeGreen'" @then="$this.addClass('selected')" @else="$this.removeClass('selected')" @on:click="cm.color = 'LimeGreen'"></div><div class="color-preview" style="background-color:#006400" @if="cm.color === 'DarkGreen'" @then="$this.addClass('selected')" @else="$this.removeClass('selected')" @on:click="cm.color = 'DarkGreen'"></div></div><script type="jscript" using="color-select">const cm = colorSelect.model();</script><style media="#">:host{padding-top:2px;padding-bottom:24px}.selected{border:solid 8px rgba(255,255,255,.75)!important;transition:border .1s ease-out}.color-preview{cursor:pointer;width:40px;height:40px;margin:8px 4px 0;border-radius:20px;border:solid 8px #fff}</style></div><pre><code class="language-html">&lt;div z-load=&quot;default&quot;&gt;
+</code></pre>
+<p>The <code>@sync</code> handler on the <code>select</code> will update the bound field <code>color</code> in the component's data model, anytime a new option
+is selected from the <code>select</code> control.
+While the <code>@get</code> handler on the color preview rectangle, will read value changes from <code>model.color</code> field, and pass new values
+to the <code>@set</code> handler. So, what happen is that whenever the value of the select is changed, also the background color of
+the preview rectangle will change accordingly.</p>
+<div z-context="color-select" z-model="{color:'GoldenRod'}" class="example-container">
+  <div layout="row bottom-left">
+    <div>
+      <label for="color">Color</label>
+      <div class="select-dropdown">
+        <select id="color" #color @sync>
+          <option>Black</option><option>DarkRed</option><option>GoldenRod</option><option>LimeGreen</option><option>DarkGreen</option>
+        </select>
+      </div>
+    </div>
+    <div class="color-preview"
+         @get="model.color as backgroundColor"
+         @set="$this.css({backgroundColor})"></div>
+  </div>
+  <style media="#">
+    .color-preview {
+      width: 16px;
+      height: 16px;
+      border-radius: 6px;
+      margin: 0 6px 7px;
+      border: solid 3px rgba(255,255,255,0.4);
+    }
+    .select-dropdown,
+    .select-dropdown * {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .select-dropdown {
+      margin-top: 8px;
+      position: relative;
+      background-color: #E6E6E6;
+      border-radius: 4px;
+    }
+    .select-dropdown select {
+      font-size: 1rem;
+      font-weight: normal;
+      max-width: 100%;
+      padding: 8px 24px 8px 10px;
+      border: none;
+      background-color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .select-dropdown select:active, .select-dropdown select:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    .select-dropdown:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      width: 0;
+      height: 0;
+      margin-top: -2px;
+      border-top: 5px solid #aaa;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+    }
+  </style>
+</div>
+<p>So, setting directly <code>model.color = '&lt;color_name&gt;'</code> will also synchronize any bound element of the view, with the new
+field value, as shown in the following example where the <code>model</code> of the <em>color-select</em> component, is accessed from the
+following component to get or set the selected color:</p>
+<div z-load="default" style="min-height: 120px">
+  <label>
+    Selected
+    <span @get="cm.color as color" @set="$this.html(color).css({color})">
+      ?
+    </span>
+  </label>
+  <div layout="rows center-left">
+    <div class="color-preview" style="background-color: Black"
+         @if="cm.color === 'Black'"
+         @then="$this.addClass('selected')"
+         @else="$this.removeClass('selected')"
+         @on:click="cm.color = 'Black'"></div><div class="color-preview" style="background-color: DarkRed"
+         @if="cm.color === 'DarkRed'"
+         @then="$this.addClass('selected')"
+         @else="$this.removeClass('selected')"
+         @on:click="cm.color = 'DarkRed'"></div><div class="color-preview" style="background-color: GoldenRod"
+         @if="cm.color === 'GoldenRod'"
+         @then="$this.addClass('selected')"
+         @else="$this.removeClass('selected')"
+         @on:click="cm.color = 'GoldenRod'"></div><div class="color-preview" style="background-color: LimeGreen"
+         @if="cm.color === 'LimeGreen'"
+         @then="$this.addClass('selected')"
+         @else="$this.removeClass('selected')"
+         @on:click="cm.color = 'LimeGreen'"></div><div class="color-preview" style="background-color: DarkGreen"
+         @if="cm.color === 'DarkGreen'"
+         @then="$this.addClass('selected')"
+         @else="$this.removeClass('selected')"
+         @on:click="cm.color = 'DarkGreen'"></div>
+  </div>
+  <script type="jscript" using="color-select">
+    const cm = colorSelect.model();
+  </script>
+  <style media="#">
+    :host {
+      padding-top: 2px;
+      padding-bottom: 24px;
+    }
+    .selected {
+      border: solid 8px rgba(255,255,255,0.75) !important;
+      transition: border 0.1s ease-out;
+    }
+    .color-preview {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      margin: 8px 4px 0;
+      border-radius: 20px;
+      border: solid 8px white;
+    }
+  </style>
+</div>
+<pre><code class="language-html">&lt;div z-load=&quot;default&quot;&gt;
   &lt;label&gt;
     Selected: &lt;span @get=&quot;cm.color as color&quot; 
                     @set=&quot;$this.html(color).css({color})&quot;&gt; ? &lt;/span&gt;
@@ -138,7 +882,23 @@
     const cm = colorSelect.model();
   &lt;/script&gt;
 &lt;/div&gt;
-</code></pre><p>As shown in the <em>jscript</em> above, to reference another component, the <code>using</code> attribute is added to the <code>script</code> tag, with its value containing a comma separated list of the contexts' identifiers of the required components. In this example the <em>context id</em> is <code>color-select</code> and it was assigned to the color select component using the attribute <code>z-context=&quot;color-select&quot;</code> on its container. Like in other cases, names containing the <code>-</code> symbol will be converted to <em>camel case</em>, so in this case the assigned variable name will be <code>colorSelect</code>.<p>Like seen for the <code>ready()</code> function and view's <code>@</code> handlers, also in this case the <em>default refresh handler</em> of the component will not be started until the components specified with the <code>using</code> attribute are loaded. And also in this case the class <code>.not-ready</code> is added to the container and removed only once all components are loaded. Then the default refresh handler is started, and so, in this example, the <code>const cm = colorSelect.model()</code>, will assign to the local <code>cm</code> variable, the <em>data model</em> of the <em>color-select</em> component.<p>Clicking a color will then assign a new value to the &quot;color&quot; field of the data model, <code>@on:click=&quot;cm.color = '&lt;color_name&gt;'&quot;</code>, and the data binding will do the rest by synchronizing the <em>color-select</em> component automatically.<p>It's also possible to add public methods and properties to a component so that these can be invoked from other components as well:<pre><code class="language-html">&lt;script type=&quot;jscript&quot;&gt;
+</code></pre>
+<p>As shown in the <em>jscript</em> above, to reference another component, the <code>using</code> attribute is added to the <code>script</code> tag, with
+its value containing a comma separated list of the contexts' identifiers of the required components.
+In this example the <em>context id</em> is <code>color-select</code> and it was assigned to the color select component using the attribute
+<code>z-context=&quot;color-select&quot;</code> on its container.
+Like in other cases, names containing the <code>-</code> symbol will be converted to <em>camel case</em>, so in this case the assigned
+variable name will be <code>colorSelect</code>.</p>
+<p>Like seen for the <code>ready()</code> function and view's <code>@</code> handlers, also in this case the <em>default refresh handler</em> of the
+component will not be started until the components specified with the <code>using</code> attribute are loaded. And also in this case
+the class <code>.not-ready</code> is added to the container and removed only once all components are loaded.
+Then the default refresh handler is started, and so, in this example, the <code>const cm = colorSelect.model()</code>, will assign
+to the local <code>cm</code> variable, the <em>data model</em> of the <em>color-select</em> component.</p>
+<p>Clicking a color will then assign a new value to the &quot;color&quot; field of the data model, <code>@on:click=&quot;cm.color = '&lt;color_name&gt;'&quot;</code>,
+and the data binding will do the rest by synchronizing the <em>color-select</em> component automatically.</p>
+<p>It's also possible to add public methods and properties to a component so that these can be invoked from other components
+as well:</p>
+<pre><code class="language-html">&lt;script type=&quot;jscript&quot;&gt;
 
   expose = {
     // adds a public property getter (read only)
@@ -153,7 +913,15 @@
   };
 
 &lt;/script&gt;
-</code></pre><h2>Adding or overriding a <code>@</code> handler</h2><p>An <a href="../api/zuix/Zuix/#ActiveRefreshHandler">ActiveRefreshHandler</a> can be global or component-local. In the first case, it's stored in the global <a href="../api/zuix/Zuix/#store">store</a> named &quot;<em>handlers</em>&quot; and can be employed in any component's view. Or it can be added to the <a href="../api/zuix/ComponentContext/#handlers">handlers</a> list of a component's context, in which case is recognized only within the view of the component.<p>Refresh handlers will call the <a href="../api/zuix/Zuix/#ActiveRefreshCallback">refreshCallback</a> to request a new &quot;refresh&quot; after the given delay or as soon as it becomes visible again. If the <em>refresh handler</em> does not call the <em>refreshCallback</em>, the refresh loop will end.<p>For example, this is the built-in <code>@hide-if</code> handler that is a <em>refresh-based</em> handler:<pre><code class="language-js">zuix.store('handlers')['hide-if'] = ($view, $el, lastResult, refreshCallback) =&gt; {
+</code></pre>
+<h2>Adding or overriding a <code>@</code> handler</h2>
+<p>An <a href="../api/zuix/Zuix/#ActiveRefreshHandler">ActiveRefreshHandler</a> can be global or component-local. In the first case, it's stored in the global <a href="../api/zuix/Zuix/#store">store</a> named
+&quot;<em>handlers</em>&quot; and can be employed in any component's view. Or it can be added to the <a href="../api/zuix/ComponentContext/#handlers">handlers</a> list of a
+component's context, in which case is recognized only within the view of the component.</p>
+<p>Refresh handlers will call the <a href="../api/zuix/Zuix/#ActiveRefreshCallback">refreshCallback</a> to request a new &quot;refresh&quot; after the given delay
+or as soon as it becomes visible again. If the <em>refresh handler</em> does not call the <em>refreshCallback</em>, the refresh loop will end.</p>
+<p>For example, this is the built-in <code>@hide-if</code> handler that is a <em>refresh-based</em> handler:</p>
+<pre><code class="language-js">zuix.store('handlers')['hide-if'] = ($view, $el, lastResult, refreshCallback) =&gt; {
   const code = $el.attr('@hide-if');
   const result = zuix.runScriptlet(code, $el, $view);
   if (result !== lastResult) {
@@ -163,7 +931,14 @@
   }
   refreshCallback(lastResult);
 };
-</code></pre><p>that basically read the code to evaluate from the <code>@hide-if</code> attribute's value, then it executes the code using the utility method <code>zuix.runScriptlet(..)</code> and if the result is truthy and not equal to the previous evaluation, then it will set the target element (<code>$el</code>) visibility to <code>hidden</code>, or, if the result is false and different from the previous evaluation, then it will set the visibility to <code>visible</code>. It will finally call the method <code>refreshCallback(lastResult)</code> to request a new refresh call, passing to it the last result.<p>Instead below, the built-in <code>@on</code> handler is an <em>event-based</em> handler that gets executed only once, and will never call the <code>refreshCallback</code>:<pre><code class="language-html">&lt;script&gt;
+</code></pre>
+<p>that basically read the code to evaluate from the <code>@hide-if</code> attribute's value, then it executes the code using the utility
+method <code>zuix.runScriptlet(..)</code> and if the result is truthy and not equal to the previous evaluation, then it will set the
+target element (<code>$el</code>) visibility to <code>hidden</code>, or, if the result is false and different from the previous evaluation, then
+it will set the visibility to <code>visible</code>. It will finally call the method <code>refreshCallback(lastResult)</code> to request a new
+refresh call, passing to it the last result.</p>
+<p>Instead below, the built-in <code>@on</code> handler is an <em>event-based</em> handler that gets executed only once, and will never call the <code>refreshCallback</code>:</p>
+<pre><code class="language-html">&lt;script&gt;
 zuix.store('handlers').on = ($view, $el, lastResult, refreshCallback, attributeName) =&gt; {
   const handlerArgs = zuix.parseAttributeArgs(attributeName, $el, $view, lastResult);
   const code = $el.attr(attributeName);
@@ -176,4 +951,332 @@ zuix.store('handlers').on = ($view, $el, lastResult, refreshCallback, attributeN
   });
 };
 &lt;/script&gt;
-</code></pre><div layout="column center-left"><div><a layout="row center-start" href="https://codesandbox.io/s/zuix-js-3ix3o?file=/behavior-example-1.html"><i class="material-icons mdl-color-text--primary">try</i> <span style="font-size:120%;margin-left:2px;margin-bottom:2px">Examples on CodeSandbox</span></a></div></div></div><div -self="size-large" layout="row center-spread" style="margin-top:96px;margin-bottom:56px;padding-left:8px;padding-right:8px;font-size:140%"><a href="/pages/documentation/view/"><label layout="row center-center"><i class="material-icons">arrow_left</i>&nbsp; <span style="padding-right:24px">Previous</span></label><div layout="row center-center" class="mdl-color-text--pink">View</div></a><a href="/pages/documentation/controller/"><label layout="row center-center"><span style="padding-left:24px">Next</span> <i class="material-icons">arrow_right</i>&nbsp;</label><div layout="row center-center" class="mdl-color-text--pink">Controller</div></a></div></div></main><!-- Navigation Drawer --><div ctrl z-load="controllers/drawer_layout" z-context="menu-drawer" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"><div class="text-logo">zuix.js</div><a href="https://github.com/zuixjs" style="margin:8px 8px 4px 20px;opacity:.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left:6px;padding-right:6px">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><ul><li><a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>About <code style="font-weight:400">zuix</code></span> <i class="material-icons">info_outline</i></div><div class="summary">Library and CLI features in brief.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>Getting started</span> <i class="material-icons">outlined_flag</i></div><div class="summary">Creating a new project, bare library usage, reading this guide.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>Component</span> <i class="material-icons">smart_button</i></div><div class="summary">Loading options, lazy-loading, the <em>default</em> component, theming.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>View</span> <i class="material-icons">html</i></div><div class="summary">Data binding, binding adapters, accessibility, behaviors.</div><span class="mdl-ripple"></span></a><li aria-current="page"><a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>Active&rarr;Refresh</span> <i class="material-icons">loop</i></div><div class="summary">Built-in <code>@</code> handlers, scripting scope, custom handlers.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>Controller</span> <i class="material-icons">javascript</i></div><div class="summary">Implementation types, lifecycle, options, events.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>CLI / Templates</span> <i class="material-icons">terminal</i></div><div class="summary">Creating a new projects, pages and components.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden"><div layout="row center-justify"><span>API</span> <i class="material-icons">emoji_nature</i></div><div class="summary">Zuix, ComponentContext, ContextController, ZxQuery.</div><span class="mdl-ripple"></span></a></ul></div></div><!--TODO: { - % include "footer.html" % - } --><footer><div layout="rows top-justify"><div class="margin-16px">see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT">code</a> and <a href="https://creativecommons.org/licenses/by/4.0/">documentation</a> licenses</div><div class="margin-16px"><a href="https://github.com/zuixjs">zuix.js</a></div><div class="margin-16px">&copy; 2016-to-infinity-and-beyond by <a href="https://glabs.it">g-labs</a></div></div></footer><!-- Built with love using zUIx Web Starter --><script>zuix.$("pre code").each(function(e,a){hljs.highlightElement(a)}),"localhost"!==location.hostname&&"127.0.0.1"!==location.hostname&&(function(e,a,t,n,o,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,o=a.createElement(t),c=a.getElementsByTagName(t)[0],o.async=1,o.src="https://www.google-analytics.com/analytics.js",c.parentNode.insertBefore(o,c)}(window,document,"script","ga"),ga("create","UA-92520304-1","auto"),ga("send","pageview"))</script><!-- Common JS scripts --><script>let menuDrawer,menuButton;window.drawer_opts={autoHideWidth:1280,on:{"drawer:open":function(){},"drawer:close":function(){}},ready:function(){menuDrawer=this}},window.menuButtonOptions={on:{"menu:open":function(){},"menu:close":function(){}},ready:function(){menuButton=this}};let scrollHelper;function enableScrollHelper(){scrollHelper.on("scroll:change",function(e,n){switch(n.event){case"hit-top":showHeader();break;case"scroll":(0<n.info.shift.y?showHeader:hideHeader)();break;case"hit-bottom":showHeader()}}),location.hash&&setTimeout(hideHeader,200)}window.scroll_opts={ready:e=>{scrollHelper=e,setTimeout(enableScrollHelper,500)}};let headerVisible=!0;function showHeader(){headerVisible||(headerVisible=!0,zuix.field("header").animateCss("fadeInDown").show())}function hideHeader(){headerVisible&&!zuix.field("header").hasClass("animate__animated")&&(headerVisible=!1,zuix.field("header").animateCss("fadeOutUp",function(){this.hide()}))}function processExternalLinks(e){zuix.$(e).find('a[href*="://"]').attr("target","_blank").attr("rel","noreferrer")}zuix.hook("view:process",function(e){processExternalLinks(e),window.componentHandler&&window.componentHandler.upgradeElements(e.get())}),processExternalLinks(document)</script>
+</code></pre>
+<div layout="column center-left"><div><a layout="row center-start" href="https://codesandbox.io/s/zuix-js-3ix3o?file=/behavior-example-1.html">
+         <i class="material-icons mdl-color-text--primary">try</i>
+         <span style="font-size: 120%;margin-left:2px;margin-bottom: 2px">Examples on CodeSandbox</span>
+       </a></div></div>
+
+            </div>
+
+            
+
+
+<div -self="size-large" layout="row center-spread" style="margin-top: 96px; margin-bottom: 56px; padding-left: 8px; padding-right: 8px; font-size: 140%">
+    
+    <a href="/pages/documentation/view/">
+        <label layout="row center-center">
+            <i class="material-icons">arrow_left</i>&nbsp;
+            <span style="padding-right: 24px">Previous</span>
+        </label>
+        <div layout="row center-center" class="mdl-color-text--pink">View</div>
+    </a>
+    
+    
+    <a href="/pages/documentation/controller/">
+        <label layout="row center-center">
+            <span style="padding-left: 24px">Next</span>
+            <i class="material-icons">arrow_right</i>&nbsp;
+        </label>
+        <div layout="row center-center" class="mdl-color-text--pink">Controller</div>
+    </a>
+    
+</div>
+
+
+            
+
+        </div>
+    </main>
+
+    <!-- Navigation Drawer -->
+    <div ctrl z-load="controllers/drawer_layout"
+         z-context="menu-drawer"
+         z-options="drawer_opts"
+         class="drawer-layout no-select visible-on-ready"
+         layout="column top-stretch">
+        <!-- Navigation Drawer content -->
+
+        <!-- Header -->
+        <div class="drawer-header" layout="column justify-stretch">
+            <div self="stretch" layout="row center-justify">
+                <img class="logo animate__animated animate__swing animate__fast"
+                     src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js">
+                <div class="text-logo">zuix.js</div>
+                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 20px;opacity: 0.75">
+                    <img src="/images/github-mark-light.png" alt="GitHub logo"
+                         title="zuix.js on GitHub" width="32" height="32">
+                </a>
+            </div>
+            <div style="padding-left: 6px;padding-right: 6px;">
+                JavaScript library for component-based websites and applications.
+            </div>
+        </div>
+
+        <!-- Menu items and other content -->
+        <div class="drawer-content" self="size-x1">
+            <ul>
+    <li >
+        <a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>About <code style="font-weight:400">zuix</code></span>
+                <i class="material-icons">info_outline</i>
+            </div>
+            <div class="summary">
+                Library and CLI features in brief.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li >
+        <a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>Getting started</span>
+                <i class="material-icons">outlined_flag</i>
+            </div>
+            <div class="summary">
+                Creating a new project, bare library usage, reading this guide.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li >
+        <a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>Component</span>
+                <i class="material-icons">smart_button</i>
+            </div>
+            <div class="summary">
+                Loading options, lazy-loading, the <em>default</em> component, theming.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li >
+        <a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>View</span>
+                <i class="material-icons">html</i>
+            </div>
+            <div class="summary">
+                Data binding, binding adapters, accessibility, behaviors.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li  aria-current="page">
+        <a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>Active&rarr;Refresh</span>
+                <i class="material-icons">loop</i>
+            </div>
+            <div class="summary">
+                Built-in <code>@</code> handlers, scripting scope, custom handlers.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li >
+        <a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>Controller</span>
+                <i class="material-icons">javascript</i>
+            </div>
+            <div class="summary">
+                Implementation types, lifecycle, options, events.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li >
+        <a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>CLI / Templates</span>
+                <i class="material-icons">terminal</i>
+            </div>
+            <div class="summary">
+                Creating a new projects, pages and components.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li>
+    <li >
+        <a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+            <div layout="row center-justify">
+                <span>API</span>
+                <i class="material-icons">emoji_nature</i>
+            </div>
+            <div class="summary">
+                Zuix, ComponentContext, ContextController, ZxQuery.
+            </div>
+            <span class="mdl-ripple"></span>
+        </a>
+    </li></ul>
+
+        </div>
+
+    </div>
+
+    <!--TODO: { - % include "footer.html" % - } -->
+    <footer>
+
+        <div layout="rows top-justify">
+            <div class="margin-16px">
+                see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT">code</a>
+                and <a href="https://creativecommons.org/licenses/by/4.0/">documentation</a>
+                licenses
+            </div>
+            <div class="margin-16px">
+                <a href="https://github.com/zuixjs">zuix.js</a>
+            </div>
+            <div class="margin-16px">
+                &copy; 2016-to-infinity-and-beyond
+                by <a href="https://glabs.it">g-labs</a>
+            </div>
+        </div>
+
+    </footer>
+
+    
+<!-- Built with love using zUIx Web Starter -->
+
+<script>
+
+  // Code highlighting
+  //zuix.using('script', '@cdnjs/highlight.js/11.3.1/highlight.min.js', function () {
+    zuix.$('pre code').each(function(i, block) {
+      hljs.highlightElement(block);
+    });
+  //});
+
+  // Google Analytics: change UA-92520304-1 to be your site's ID
+  if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-92520304-1', 'auto');
+    ga('send', 'pageview');
+  }
+
+</script>
+
+
+    <!-- Common JS scripts -->
+    <script>
+    /** type {ComponentContext} */
+let menuDrawer;
+/** type {ComponentContext} */
+let menuButton;
+window.drawer_opts = {
+  autoHideWidth: 1280,
+  on: {
+    'drawer:open': function() {
+      //zuix.context('menu_hamburger', function() {
+      //  this.open();
+      //});
+    },
+    'drawer:close': function() {
+      //zuix.context('menu_hamburger', function() {
+      //  this.close();
+      //});
+    }
+  },
+  ready: function() {
+    menuDrawer = this;
+  }
+};
+window.menuButtonOptions = {
+  on: {
+    'menu:open': function() {
+      //headerMenu.open();
+    },
+    'menu:close': function() {
+      //headerMenu.close();
+    }
+  },
+  ready: function() {
+    menuButton = this;
+  }
+};
+
+let scrollHelper;
+window.scroll_opts = {
+  ready: (ctx) => {
+    scrollHelper = ctx;
+    setTimeout(enableScrollHelper, 500);
+  }
+};
+function enableScrollHelper() {
+  scrollHelper.on('scroll:change', function(e, data) {
+    switch (data.event) {
+      case 'hit-top':
+        // reached top of the page
+        showHeader();
+        break;
+      case 'scroll':
+        // show/hide header when scrolling up/down
+        if (data.info.shift.y > 0) {
+          showHeader();
+        } else {
+          hideHeader();
+        }
+        break;
+      case 'hit-bottom':
+        // reached end of the page
+        showHeader();
+        break;
+    }
+  });
+  if (location.hash) {
+    setTimeout(hideHeader, 200);
+  }
+}
+
+let headerVisible = true;
+function showHeader() {
+  if (!headerVisible) {
+    headerVisible = true;
+    zuix.field('header').animateCss('fadeInDown').show();
+  }
+  ////if (!menuButton.$.hasClass('animate__animated')) {
+  //  menuButton.$.animateCss('fadeInDown').show();
+  ////}
+}
+function hideHeader() {
+  if (headerVisible && !zuix.field('header').hasClass('animate__animated')) {
+    headerVisible = false;
+    zuix.field('header').animateCss('fadeOutUp', function() {
+      this.hide();
+    });
+  }
+  ////if (!menuButton.$.hasClass('animate__animated')) {
+  //  menuButton.$.animateCss('fadeOutUp', function() {
+  //    this.hide();
+  //  });
+  ////}
+}
+
+function processExternalLinks(view) {
+  // Force opening of all non-local links in a new window
+  zuix.$(view).find('a[href*="://"]')
+      .attr('target', '_blank')
+      .attr('rel', 'noreferrer');
+}
+
+zuix.hook('view:process', function(view) {
+  processExternalLinks(view);
+  // Material Design Light auto-detection
+  // Call DOM upgrade on newly added view elements
+  if (window['componentHandler']) {
+    window['componentHandler'].upgradeElements(view.get());
+  }
+});
+processExternalLinks(document);
+
+//html = css = js = (s) => s[0];
+
+    </script>
+
+</body>
+</html>

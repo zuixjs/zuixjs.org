@@ -1,4 +1,159 @@
-<div class="example-container" layout="column stretch-center" style="min-height:350px"><div class="example-container" style="margin-bottom:12px"><div layout="row center-start reverse" style="background:#000"><div class="views-container"><div z-field="view-1" class="view-switch" layout="column top-center" view-selected="true"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 1</div><div z-field="view-2" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 2</div><div z-field="view-3" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 3</div><div z-field="view-4" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 4</div><div z-field="view-5" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 5</div></div><div style="width:72px" layout="column"><img src="https://picsum.photos/320/225?1" width="72" height="40" style="margin:2px;padding:2px" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-1"><img src="https://picsum.photos/320/225?2" width="72" height="40" style="margin:2px;padding:2px" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-2"><img src="https://picsum.photos/320/225?3" width="72" height="40" style="margin:2px;padding:2px" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-3"><img src="https://picsum.photos/320/225?4" width="72" height="40" style="margin:2px;padding:2px" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-4"><img src="https://picsum.photos/320/225?5" width="72" height="40" style="margin:2px;padding:2px" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-5"></div></div><div layout="row center-center"><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-1">1</button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-2">2</button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-3">3</button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-4">4</button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-5">5</button></div></div><!-- --><div style="font-family:monospace;font-size:140%;margin-bottom:24px;text-align:center;line-height:180%">Ok, Let's try this <em>behavior</em> on a simple text <em>span</em> ...<br><span z-behavior="viewSwitchBehaviorH" target="view-1" animation="lightSpeed">TEST one</span>, <span z-behavior="viewSwitchBehaviorH" target="view-2" animation="lightSpeed">two</span>, <span z-behavior="viewSwitchBehaviorH" target="view-3" animation="lightSpeed">three</span>, <span z-behavior="viewSwitchBehaviorH" target="view-4" animation="lightSpeed">four</span>, <span z-behavior="viewSwitchBehaviorH" target="view-5" animation="lightSpeed">five</span>! ... =)</div><!-- --></div><style>[z-field=view-1]{background-repeat:no-repeat;background-color:#faebd7;background-image:url(https://picsum.photos/320/225?1)}[z-field=view-2]{background-repeat:no-repeat;background-color:#faebd7;background-image:url(https://picsum.photos/320/225?2)}[z-field=view-3]{background-repeat:no-repeat;background-color:#faebd7;background-image:url(https://picsum.photos/320/225?3)}[z-field=view-4]{background-repeat:no-repeat;background-color:#faebd7;background-image:url(https://picsum.photos/320/225?4)}[z-field=view-5]{background-repeat:no-repeat;background-color:#faebd7;background-image:url(https://picsum.photos/320/225?5)}.view-switch{width:100%;height:100%;padding:12px;position:absolute}.view-switch p{font-size:90%;opacity:.65;background-color:#fff;padding-left:8px;padding-right:8px;margin:0;border:solid 1px;border-radius:12px}.views-container{overflow:hidden;position:relative;width:320px;height:225px;margin:8px}</style><script type="module">import {ViewSwitchBehavior} from './ViewSwitchBehavior.js';
+
+<div class="example-container" layout="column stretch-center" style="min-height: 350px">
+    <div class="example-container" style="margin-bottom: 12px">
+        <div layout="row center-start reverse" style="background: black">
+            <div class="views-container">
+<div z-field="view-1" class="view-switch" layout="column top-center"
+                    view-selected="true">
+                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
+                        Random content 1
+                    </p>
+                </div><div z-field="view-2" class="view-switch" layout="column top-center"
+                    >
+                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
+                        Random content 2
+                    </p>
+                </div><div z-field="view-3" class="view-switch" layout="column top-center"
+                    >
+                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
+                        Random content 3
+                    </p>
+                </div><div z-field="view-4" class="view-switch" layout="column top-center"
+                    >
+                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
+                        Random content 4
+                    </p>
+                </div><div z-field="view-5" class="view-switch" layout="column top-center"
+                    >
+                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
+                        Random content 5
+                    </p>
+                </div>
+            </div>
+            <div style="width: 72px;" layout="column">
+<img src="https://picsum.photos/320/225?1" width="72" height="40" style="margin: 2px; padding: 2px;"
+                     class="visible-on-ready" alt="Random image"
+                     z-options="mdl_button_options_2"
+                     z-behavior="viewSwitchBehaviorV"
+                     animation="back"
+                     target="view-1"><img src="https://picsum.photos/320/225?2" width="72" height="40" style="margin: 2px; padding: 2px;"
+                     class="visible-on-ready" alt="Random image"
+                     z-options="mdl_button_options_2"
+                     z-behavior="viewSwitchBehaviorV"
+                     animation="back"
+                     target="view-2"><img src="https://picsum.photos/320/225?3" width="72" height="40" style="margin: 2px; padding: 2px;"
+                     class="visible-on-ready" alt="Random image"
+                     z-options="mdl_button_options_2"
+                     z-behavior="viewSwitchBehaviorV"
+                     animation="back"
+                     target="view-3"><img src="https://picsum.photos/320/225?4" width="72" height="40" style="margin: 2px; padding: 2px;"
+                     class="visible-on-ready" alt="Random image"
+                     z-options="mdl_button_options_2"
+                     z-behavior="viewSwitchBehaviorV"
+                     animation="back"
+                     target="view-4"><img src="https://picsum.photos/320/225?5" width="72" height="40" style="margin: 2px; padding: 2px;"
+                     class="visible-on-ready" alt="Random image"
+                     z-options="mdl_button_options_2"
+                     z-behavior="viewSwitchBehaviorV"
+                     animation="back"
+                     target="view-5">
+            </div>
+        </div>
+        <div layout="row center-center">
+<button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
+                    z-options="mdl_button_options_2"
+                    z-behavior="viewSwitchBehaviorH"
+                    target="view-1">
+                1
+            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
+                    z-options="mdl_button_options_2"
+                    z-behavior="viewSwitchBehaviorH"
+                    target="view-2">
+                2
+            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
+                    z-options="mdl_button_options_2"
+                    z-behavior="viewSwitchBehaviorH"
+                    target="view-3">
+                3
+            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
+                    z-options="mdl_button_options_2"
+                    z-behavior="viewSwitchBehaviorH"
+                    target="view-4">
+                4
+            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
+                    z-options="mdl_button_options_2"
+                    z-behavior="viewSwitchBehaviorH"
+                    target="view-5">
+                5
+            </button>
+        </div>
+    </div>
+    <!-- -->
+    <div style="font-family: monospace; font-size: 140%; margin-bottom: 24px; text-align: center; line-height: 180%">
+        Ok, Let's try this <em>behavior</em> on a simple text <em>span</em> ...
+        <br>
+        <span z-behavior="viewSwitchBehaviorH" target="view-1" animation="lightSpeed">
+           TEST one</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-2" animation="lightSpeed">
+           two</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-3" animation="lightSpeed">
+           three</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-4" animation="lightSpeed">
+           four</span>,
+        <span z-behavior="viewSwitchBehaviorH" target="view-5" animation="lightSpeed">
+           five</span>!
+        ... =)
+    </div>
+    <!-- -->
+</div>
+<style>
+[z-field="view-1"] {
+        background-repeat: no-repeat;
+        background-color: antiquewhite;
+        background-image: url("https://picsum.photos/320/225?1");
+    }[z-field="view-2"] {
+        background-repeat: no-repeat;
+        background-color: antiquewhite;
+        background-image: url("https://picsum.photos/320/225?2");
+    }[z-field="view-3"] {
+        background-repeat: no-repeat;
+        background-color: antiquewhite;
+        background-image: url("https://picsum.photos/320/225?3");
+    }[z-field="view-4"] {
+        background-repeat: no-repeat;
+        background-color: antiquewhite;
+        background-image: url("https://picsum.photos/320/225?4");
+    }[z-field="view-5"] {
+        background-repeat: no-repeat;
+        background-color: antiquewhite;
+        background-image: url("https://picsum.photos/320/225?5");
+    }
+    .view-switch {
+        width: 100%;
+        height: 100%;
+        padding: 12px;
+        position:absolute;
+    }
+    .view-switch p {
+        font-size: 90%;
+        opacity: 0.65;
+        background-color: white;
+        padding-left: 8px;
+        padding-right: 8px;
+        margin: 0;
+        border: solid 1px;
+        border-radius: 12px;
+    }
+    .views-container {
+        overflow: hidden;
+        position: relative;
+        width: 320px;
+        height: 225px;
+        margin: 8px;
+    }
+</style>
+<script type="module">
+  import {ViewSwitchBehavior} from './ViewSwitchBehavior.js';
   self.viewSwitchBehaviorH = ViewSwitchBehavior('horizontal');
   self.viewSwitchBehaviorV = ViewSwitchBehavior('vertical');
   self.mdl_button_options_2 = {
@@ -9,4 +164,5 @@
       'click': () => { /* noop */
       }
     }
-  }</script>
+  }
+</script>
