@@ -32,8 +32,16 @@ self.__precacheManifest = [
     "revision": "dc08d157dc079d7e5ad51e7b4e0aa8b5"
   },
   {
+    "url": "app/content/docs/examples/alice/ch_1.html",
+    "revision": "7bdba3c49c7bb2e4cc412e7791c6e771"
+  },
+  {
+    "url": "app/content/docs/examples/alice/ch_2.html",
+    "revision": "ccfe438dd4542451bcdabf93ec332847"
+  },
+  {
     "url": "app/content/docs/examples/alice/ch_3.html",
-    "revision": "cfd716cd8caf9f443744d1b68a0043eb"
+    "revision": "eb43ef576cd0d1c6a85e2413870f34dc"
   },
   {
     "url": "app/content/docs/examples/links.css",
@@ -52,6 +60,18 @@ self.__precacheManifest = [
     "revision": "ecaa9aeb44f0e845c1f42a641f02b45c"
   },
   {
+    "url": "app/widgets/timeclock.css",
+    "revision": "d6acbfd22af28ce13562b8693c9d13b9"
+  },
+  {
+    "url": "app/widgets/timeclock.html",
+    "revision": "fd7f07e20dbe1f988bb210c7237aee6c"
+  },
+  {
+    "url": "app/widgets/timeclock.js",
+    "revision": "41e4d5fdaaa451e63d07ae10d4dc173a"
+  },
+  {
     "url": "config.js",
     "revision": "0814adeaa458582eff83c22d4fcefb26"
   },
@@ -65,7 +85,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "26001245c2d3582093d89da3c73aacf0"
+    "revision": "89b83e1f97e30d4063efce7123c508cb"
   },
   {
     "url": "index.js",
