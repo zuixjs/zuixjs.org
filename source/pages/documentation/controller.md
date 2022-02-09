@@ -282,12 +282,12 @@ The same thing could be similarly done for Bootstrap, Materialize.CSS, or any ot
 
 
 So, in the `create` lifecycle callback, the controller can access the [view](../api/zuix/ContextController#view) element and the component's 
-[options](../api/zuix/ContextController#options), and in this example the controller recognizes two options fields, `type` and `class`,
+[options](../api/zuix/ContextController#options), and in this example the controller recognizes two option fields, `type` and `class`,
 that control the button appearance:
 
 ```html
-<a ctrl z-load="controllers/mdl_button" class="mdl-shadow--6dp"
-   z-options="{ class: 'mini-fab' }">
+<a ctrl z-load="controllers/mdl_button"
+   z-options="{ type: 'fab', class: 'mini-fab' }">
   <i class="material-icons">mail</i>
 </a>
 

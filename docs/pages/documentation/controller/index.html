@@ -656,10 +656,10 @@ The same thing could be similarly done for Bootstrap, Materialize.CSS, or any ot
 ... or ...
 <a>Without</a></p>
 <p>So, in the <code>create</code> lifecycle callback, the controller can access the <a href="../api/zuix/ContextController#view">view</a> element and the component's
-<a href="../api/zuix/ContextController#options">options</a>, and in this example the controller recognizes two options fields, <code>type</code> and <code>class</code>,
+<a href="../api/zuix/ContextController#options">options</a>, and in this example the controller recognizes two option fields, <code>type</code> and <code>class</code>,
 that control the button appearance:</p>
-<pre><code class="language-html">&lt;a ctrl z-load=&quot;controllers/mdl_button&quot; class=&quot;mdl-shadow--6dp&quot;
-   z-options=&quot;{ class: 'mini-fab' }&quot;&gt;
+<pre><code class="language-html">&lt;a ctrl z-load=&quot;controllers/mdl_button&quot;
+   z-options=&quot;{ type: 'fab', class: 'mini-fab' }&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;mail&lt;/i&gt;
 &lt;/a&gt;
 

@@ -72,9 +72,9 @@ zx g component cards/my-new-card
 
 will generate three files for the component `MyNewCard`:
 
-- `./source/app/components/my-new-card.html`
-- `./source/app/components/my-new-card.css`
-- `./source/app/components/my-new-card.js`
+- `./source/app/components/cards/my-new-card.html`
+- `./source/app/components/cards/my-new-card.css`
+- `./source/app/components/cards/my-new-card.js`
 
 To generate only the view template `ArticleHeader`:
 

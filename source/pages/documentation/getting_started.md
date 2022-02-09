@@ -37,7 +37,6 @@ default at *http://localhost:8080*).
 
 ```bash
 cd my-new-webapp
-npm install
 zx start
 ```
 
