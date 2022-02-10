@@ -2760,11 +2760,6 @@ function processExternalLinks(view) {
 
 zuix.hook('view:process', function(view) {
   processExternalLinks(view);
-  // Material Design Light auto-detection
-  // Call DOM upgrade on newly added view elements
-  if (window['componentHandler']) {
-    window['componentHandler'].upgradeElements(view.get());
-  }
 });
 processExternalLinks(document);
 
