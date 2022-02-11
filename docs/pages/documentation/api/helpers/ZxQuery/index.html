@@ -2689,9 +2689,15 @@ function enableScrollHelper() {
         break;
     }
   });
-  if (location.hash) {
-    setTimeout(hideHeader, 200);
-  }
+  setTimeout(function() {
+    if (location.hash && scrollbarVisible(document.body)) {
+      hideHeader();
+    }
+  }, 500);
+}
+function scrollbarVisible(element) {
+  const r = element.getBoundingClientRect();
+  return r.bottom !== r.height;
 }
 
 let headerVisible = true;
