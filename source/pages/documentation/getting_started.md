@@ -12,7 +12,7 @@ keywords:
 - helper
 ---
 
-Start playing with *zuix.js* right away on [StackBlitz](https://stackblitz.com/edit/zuixjs-demo-01?file=index.html) or you can
+Start playing with *zuix.js* right away on [CodeSandbox](https://codesandbox.io/s/starter-demo-sz0q3) or you can
 install the *zuix-cli* tool to create a new website from the command line.
 
 ## Creating a new web project using the CLI

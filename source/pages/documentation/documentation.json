@@ -1,6 +1,0 @@
-{
-  "submenu": [
-    { "url": "introduction", "title": "Introduction" },
-    { "url": "getting_started", "title": "Getting started" }
-  ]
-}
