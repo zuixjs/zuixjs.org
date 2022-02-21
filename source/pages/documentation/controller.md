@@ -403,10 +403,6 @@ menuButtonBehavior = {
 ```
 
 
-{% tryLink "Examples on CodeSandbox" "https://codesandbox.io/s/zuix-js-3ix3o?file=/behavior-example-1.html" %}
-
-
-
 ### Global event hooks
 
 While component events are local to each instance, global events have only one global listener (hook) and this kind of event

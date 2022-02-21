@@ -530,6 +530,3 @@ zuix.store('handlers').on = ($view, $el, lastResult, refreshCallback, attributeN
 };
 </script>
 ```
-
-
-{% tryLink "Examples on CodeSandbox" "https://codesandbox.io/s/zuix-js-3ix3o?file=/behavior-example-1.html" %}

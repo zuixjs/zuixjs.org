@@ -82,7 +82,17 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/controller/</loc>
+    <loc>https://zuixjs.org/pages/documentation/api/</loc>
+    <lastmod>2022-02-21</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/cli/</loc>
+    <lastmod>2022-02-21</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/about/</loc>
     <lastmod>2022-02-21</lastmod>
   </url>
 
@@ -92,12 +102,7 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
-    <lastmod>2022-02-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/api/</loc>
+    <loc>https://zuixjs.org/pages/documentation/controller/</loc>
     <lastmod>2022-02-21</lastmod>
   </url>
 
@@ -112,12 +117,7 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/cli/</loc>
-    <lastmod>2022-02-21</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/about/</loc>
+    <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
     <lastmod>2022-02-21</lastmod>
   </url>
 

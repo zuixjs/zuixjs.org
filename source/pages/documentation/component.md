@@ -18,19 +18,20 @@ A *component*, here intended as a reusable part of a web page, consists of a **[
 with an HTML template with its own CSS, and a **[Controller](../controller)**, that is the Javascript code that controls the *view*,
 its presentation and interaction logic.
 
-Component's files are placed in the same *path* location, and the base of file's name of its `.html`, `.css` and
-`.js` files, will be the same, representing thus the *component's name* itself:
+Component's files are placed in the same *path* location, and the base name of its `.html`, `.css` and `.js` files, is
+the same, and it represents itself the *component's name*:
 - `[<path>/]<component_name>.html`
 - `[<path>/]<component_name>.css` <small>(optional)</small>
 - `[<path>/]<component_name>.js`
 
-The *component's identifier* is then its full path, formed by the component's `<path>` plus the `<component_name>`.
+The *unique component's identifier* is then its full path, formed by the component's `<path>` plus the `<component_name>`,
+without the extension.
 
 ```
 <component_id> :== [<path>/]<component_name>
 ```
 
-Components are loaded by adding the `z-load` attribute to a host element with its value containing a valid *component
+Components can be loaded by adding the `z-load` attribute to a host element, with its value containing a valid *component
 identifier*:
 
 ```html

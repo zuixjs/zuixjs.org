@@ -658,7 +658,3 @@ The possible values of the `animation` attribute are:
 <label class="mdl-color-text--primary">Result</label>
 
 {% include './view/behavior_example_2.html' %}
-
-
-{% tryLink "Examples on CodeSandbox" "https://codesandbox.io/s/zuix-js-3ix3o?file=/behavior-example-1.html" %}
-

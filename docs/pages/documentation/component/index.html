@@ -470,17 +470,18 @@ code.option {
                 <p>A <em>component</em>, here intended as a reusable part of a web page, consists of a <strong><a href="../view">View</a></strong>, that is implemented
 with an HTML template with its own CSS, and a <strong><a href="../controller">Controller</a></strong>, that is the Javascript code that controls the <em>view</em>,
 its presentation and interaction logic.</p>
-<p>Component's files are placed in the same <em>path</em> location, and the base of file's name of its <code>.html</code>, <code>.css</code> and
-<code>.js</code> files, will be the same, representing thus the <em>component's name</em> itself:</p>
+<p>Component's files are placed in the same <em>path</em> location, and the base name of its <code>.html</code>, <code>.css</code> and <code>.js</code> files, is
+the same, and it represents itself the <em>component's name</em>:</p>
 <ul>
 <li><code>[&lt;path&gt;/]&lt;component_name&gt;.html</code></li>
 <li><code>[&lt;path&gt;/]&lt;component_name&gt;.css</code> <small>(optional)</small></li>
 <li><code>[&lt;path&gt;/]&lt;component_name&gt;.js</code></li>
 </ul>
-<p>The <em>component's identifier</em> is then its full path, formed by the component's <code>&lt;path&gt;</code> plus the <code>&lt;component_name&gt;</code>.</p>
+<p>The <em>unique component's identifier</em> is then its full path, formed by the component's <code>&lt;path&gt;</code> plus the <code>&lt;component_name&gt;</code>,
+without the extension.</p>
 <pre><code>&lt;component_id&gt; :== [&lt;path&gt;/]&lt;component_name&gt;
 </code></pre>
-<p>Components are loaded by adding the <code>z-load</code> attribute to a host element with its value containing a valid <em>component
+<p>Components can be loaded by adding the <code>z-load</code> attribute to a host element, with its value containing a valid <em>component
 identifier</em>:</p>
 <pre><code class="language-html">&lt;div z-load=&quot;&lt;component_id&gt;&quot;&gt;&lt;/div&gt; 
 </code></pre>
