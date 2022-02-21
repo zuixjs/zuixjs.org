@@ -2,9 +2,9 @@
 layout: side_drawer.html
 order: 1
 icon: info_outline
-title: About <code style="font-weight:400">zuix</code>
+title: About zuix.js
 summary: Library and CLI features in brief.
-description: zuix.js library and CLI features in brief.
+description: zuix.js is a lightweight library for creating component based web applications by using standard HTML, CSS and JavaScript.
 keywords:
 - documentation
 - introduction
