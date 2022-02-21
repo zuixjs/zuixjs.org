@@ -4,7 +4,7 @@ order: 3
 icon: smart_button
 title: Component
 summary: Loading options, lazy-loading, the <em>default</em> component, theming.
-description: About *zUIx.js* components.
+description: Components, loading options, lazy-loading, the <em>default</em> component, theming.
 keywords:
 - documentation
 - api

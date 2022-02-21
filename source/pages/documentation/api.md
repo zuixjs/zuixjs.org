@@ -4,7 +4,7 @@ order: 8
 icon: emoji_nature
 title: API
 summary: Zuix, ComponentContext, ContextController, ZxQuery.
-description: "zuix.js getting started, documentation and api"
+description: API classes documentation, Zuix, ComponentContext, ContextController, ZxQuery.
 keywords:
 - Documentation
 - API

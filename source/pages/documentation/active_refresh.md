@@ -4,7 +4,7 @@ order: 5
 icon: loop
 title: Active&rarr;Refresh
 summary: Built-in <code>@</code> handlers, scripting scope, custom handlers.
-description: "zuix.js getting started, documentation and api"
+description: About refresh-handlers, built-in @ handlers, scripting scope, custom handlers.
 keywords:
 - documentation
 - api

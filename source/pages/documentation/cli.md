@@ -4,7 +4,7 @@ order: 7
 icon: terminal
 title: CLI / Templates
 summary: Creating a new projects, pages and components.
-description: "zuix.js getting started, documentation and api"
+description: Command Line Interface, creating a new projects, pages, templates and components.
 keywords:
 - Documentation
 - API

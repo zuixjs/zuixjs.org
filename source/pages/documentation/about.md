@@ -4,7 +4,7 @@ order: 1
 icon: info_outline
 title: About <code style="font-weight:400">zuix</code>
 summary: Library and CLI features in brief.
-description: "*zUIx.js* and CLI features in brief."
+description: zuix.js library and CLI features in brief.
 keywords:
 - documentation
 - introduction

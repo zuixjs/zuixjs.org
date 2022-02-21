@@ -3,6 +3,7 @@
   zuix.store('config', {
     "title": "zUIx.js presentation and documentation website.",
     "googleSiteId": "UA-92520304-1",
+    "siteMapUrl": "https://zuixjs.org",
     "baseUrl": "/",
     "resourcePath": "/app/",
     "libraryPath": {

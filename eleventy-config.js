@@ -1,3 +1,4 @@
+const moment = require('moment');
 /**
  * TODO: add JSDoc
  * @param eleventyConfig
@@ -30,6 +31,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter(
       'dateFormat',
       require('./source/_filters/dateFormat')
+  );
+  eleventyConfig.addFilter(
+      'date',
+      (date, format) => moment(date).format(format || 'YYYY-MM-DD')
   );
 
   // TODO: describe the following

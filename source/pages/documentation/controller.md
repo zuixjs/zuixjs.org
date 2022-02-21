@@ -4,7 +4,7 @@ order: 6
 icon: javascript
 title: Controller
 summary: Implementation types, lifecycle, options, events.
-description: "zuix.js getting started, documentation and api"
+description: Controller implementation types, lifecycle, options, events.
 keywords:
 - documentation
 - api

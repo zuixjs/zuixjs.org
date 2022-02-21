@@ -4,7 +4,7 @@ order: 4
 icon: html
 title: View
 summary: Data binding, binding adapters, accessibility, behaviors.
-description: "zuix.js getting started, documentation and api"
+description: View, Data binding, binding adapters, accessibility, behaviors.
 keywords:
 - documentation
 - api

@@ -4,7 +4,7 @@ order: 2
 icon: outlined_flag
 title: Getting started
 summary: Creating a new project, bare library usage, reading this guide.
-description: Getting started with *zUIx.js*, documentation and API.
+description: Creating a new project, bare library usage, reading this guide.
 keywords:
 - documentation
 - api
