@@ -62,7 +62,6 @@ that works very nicely together with *zuix.js*.
 
 {% unpre %}
 ```html
-
 <style>
   main .content code {
     border: solid 2px var(--accent-color);
@@ -73,3 +72,15 @@ that works very nicely together with *zuix.js*.
 </style>
 ```
 {% endunpre %}
+
+
+## Demos
+
+- [zKit web enhancing bits](https://zuixjs.github.io/zkit)
+- [zuix.js Web Starter](https://zuixjs.github.io/zuix-web-starter)
+
+
+## Old demos
+
+- [zuix.js playground on Glitch](https://glitch.com/@genemars)
+- [Examples on CodePen](https://codepen.io/genielabs)
