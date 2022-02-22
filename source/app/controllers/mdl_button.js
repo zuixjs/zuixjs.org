@@ -10,16 +10,6 @@
  * @this {ContextController}
  */
 function MdlButton() {
-  this.init = function() {
-    /*
-    const theme = this.options().theme || 'indigo-pink';
-    [
-      '@cdnjs/material-design-lite/1.3.0/material.' + theme + '.min.css',
-      '@cdnjs/material-design-lite/1.3.0/material.min.js',
-      'https://fonts.googleapis.com/icon?family=Material+Icons'
-    ].forEach((d) => zuix.using(d.endsWith('.js') ? 'script' : 'style', d));
-    */
-  };
   this.create = () => {
     const view = this.view();
     const options = this.options();
@@ -27,9 +17,6 @@ function MdlButton() {
     view.addClass('mdl-button mdl-js-button mdl-button--' + type + ' mdl-js-ripple-effect');
     if (options.class) {
       const classes = options.class.split(' ');
-      if (classes.indexOf('mini-fab') !== -1) {
-        classes.push('fab');
-      }
       classes.forEach((c) => {
         view.addClass('mdl-button--' + c);
       });
