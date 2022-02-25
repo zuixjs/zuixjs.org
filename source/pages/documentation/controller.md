@@ -304,7 +304,7 @@ that control the button appearance:
 ```html
 <div layout="row center-spread">
     <div>
-        <a ctrl z-load="controllers/mdl_button" z-options="{ class: 'mini-fab colored' }">
+        <a ctrl z-load="controllers/mdl_button" z-options="{ type: 'fab', class: 'mini-fab colored' }">
             <i class="material-icons">mail</i>
         </a>
     </div>
@@ -338,7 +338,7 @@ loads the `mdl_menu` controller, and contains the menu's items list and a button
 
   <!-- the menu's FAB button -->
   <a ctrl z-load="controllers/mdl_button"
-     z-options="{ class: 'mini-fab colored' }">
+     z-options="{ type: 'fab', class: 'mini-fab colored' }">
     <i class="material-icons">add</i>
   </a>
 
