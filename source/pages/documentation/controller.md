@@ -361,7 +361,7 @@ of the button.
             <li>Menu option 2</li>
         </ul>
         <a ctrl z-load="controllers/mdl_button"
-           z-options="{ class: 'mini-fab colored' }" class="mdl-color--pink">
+           z-options="{ type: 'fab', class: 'mini-fab colored' }" class="mdl-color--pink">
             <i class="material-icons">menu</i>
         </a>
     </div>
