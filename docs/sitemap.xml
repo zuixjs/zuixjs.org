@@ -87,11 +87,6 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/cli/</loc>
-    <lastmod>2022-02-21</lastmod>
-  </url>
-
-  <url>
     <loc>https://zuixjs.org/pages/documentation/component/</loc>
     <lastmod>2022-02-21</lastmod>
   </url>
@@ -119,6 +114,11 @@
   <url>
     <loc>https://zuixjs.org/pages/documentation/controller/</loc>
     <lastmod>2022-02-25</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/cli/</loc>
+    <lastmod>2022-03-12</lastmod>
   </url>
 
 </urlset>

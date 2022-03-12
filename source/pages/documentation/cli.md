@@ -29,34 +29,9 @@ The `zx` command can now be used from command shell to create a new web applicat
 zx new my-new-webapp
 ```
 
-A new folder named *my-new-webapp* will be created containing all files required to run the starter project.
-
-From the new folder we can now start the local server that will watch, build and serve the web application files (by
-default at *http://localhost:8080*).
-
-```bash
-cd my-new-webapp
-npm install
-zx start
-```
-
-Enter `zx help` for a list of all available commands.
-
-
-### Creating a new page
-
-```shell
-zx generate page "<template_name>" "<page_path>"
-```
-
-There is currently only one template: `side_drawer`. More templates will be added with next releases.
-
-<label class="mdl-color-text--primary">Example</label>
-```shell
-zx g page side_drawer blog/my-new-post
-```
-
-The above command will create a new page `my-new-post.md` in the folder `./source/pages/blog`.
+A new folder named *my-new-webapp* will be created containing all files required to run the web-starter project.  
+See *zuix.js* [Web Starter documentation](https://zuixjs.github.io/zuix-web-starter/) for a complete overview of 
+commands and features.
 
 
 ### Creating a new component
