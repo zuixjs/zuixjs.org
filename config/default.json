@@ -4,7 +4,6 @@
       "input": "source",
       "output": "docs",
       "copy": [
-        "app",
         "css",
         "images",
         ".nojekyll",
@@ -12,14 +11,21 @@
         "manifest.json",
         "humans.txt",
         "favicon.ico",
-        "robots.txt"
+        "robots.txt",
+        "pages/**/*.jpg",
+        "pages/**/*.png",
+        "pages/**/*.webp",
+        "pages/**/*.gif",
+        "pages/**/*.svg",
+        "pages/**/*.json"
       ],
       "ignore": [
         "_filters",
-        "app"
+        "pages/**/_inc/*"
       ],
       "dataFolder": "_data",
       "includesFolder": "_inc",
+      "componentsFolders": [ "app", "lib" ],
       "bundle": {
         "js": false,
         "css": false,
@@ -37,28 +43,28 @@
         "collapseBooleanAttributes": true,
         "removeAttributeQuotes": false,
         "removeEmptyAttributes": true,
-        "minifyCSS": true,
+        "minifyCSS": false,
         "minifyJS": true
       }
     },
     "app": {
       "title": "zUIx.js presentation and documentation website.",
-      "googleSiteId": "UA-92520304-1",
-      "siteMapUrl": "https://zuixjs.org",
       "baseUrl": "/",
       "resourcePath": "/app/",
       "libraryPath": {
-        "@lib": "https://zuixjs.github.io/zkit/lib/",
+        "@lib": "/lib/1.1/",
         "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",
         "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
       },
       "zuixjs.github.io": {
         "baseUrl": "/zuixjs.org/",
-        "resourcePath": "/zuixjs.org/app/"
+        "resourcePath": "/zuixjs.org/app/",
+        "libraryPath": {
+          "@lib": "/zuixjs.org/lib/1.1/"
+        }
       },
-      "zuixjs.org": {
-        "resourcePath": "/app/"
-      }
+      "siteMapUrl": "https://zuixjs.org",
+      "googleSiteId": "UA-92520304-1"
     }
   }
 }

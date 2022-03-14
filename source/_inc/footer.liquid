@@ -1,0 +1,31 @@
+{% unless options contains 'no-footer' %}
+    <footer self="size-x1">
+
+        <div layout="rows top-justify">
+            <div class="margin-16px">
+                see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT" target="_blank" rel="noreferrer">code</a>
+                and <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">documentation</a>
+                licenses
+            </div>
+            <div class="margin-16px">
+                <a href="https://github.com/zuixjs" target="_blank" rel="noreferrer">zuix.js</a>
+            </div>
+            <div class="margin-16px">
+                © 2016-to-infinity-and-beyond
+                by <a href="https://glabs.it" target="_blank" rel="noreferrer">g-labs</a>
+            </div>
+        </div>
+
+    </footer>
+    <style>
+        footer {
+            margin-top: 96px;
+            max-height: 96px;
+            min-height: 96px;
+            font-size: 120%;
+            padding: 12px 24px 0;
+            background: #bbc;
+            background: linear-gradient(#fff, #16641c22);
+        }
+    </style>
+{% endunless %}

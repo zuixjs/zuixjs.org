@@ -1,352 +1,246 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Controller implementation types, lifecycle, options, events.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controller - zuix.js</title>
-
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
-
-
-    <!-- Progressive Web App -->
-    <meta name="theme-color" content="white">
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png">
-    <link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="A zUIx website">
-    <link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png">
-    <link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5">
-
-    <!-- Tile color for Windows -->
-    <meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png">
-    <meta name="msapplication-TileColor" content="#ffc40d">
-
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png">
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
+<!doctype html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="controller-implementation-types-lifecycle-options-events"><meta name="keywords" content="documentation,api,controller,lifecycle"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Controller</title><link rel="author" href="humans.txt"><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to homescreen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to homescreen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
     <link rel="canonical" href="https://www.example.com/">
-    -->
-
-    <style>
-        :root {
-            --primary-color: #16641c;
-            --primary-color-half: #16641c88;
-            --accent-color: rgb(0 123 171);
-        }
-    </style>
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <link rel="preload" as="style" href="/css/mdl-custom-theme.css">
-    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js">
-    <link rel="stylesheet" href="/css/mdl-custom-theme.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
-
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css" />
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ia-light.min.css">
-    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ia-light.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
-
-    <!-- zuix.js https://github.com/zuixjs/zuix -->
-    <link rel="preload" as="script" href="/js/zuix/zuix.min.js">
-    <link rel="preload" as="script" href="/config.js">
-    <link rel="preload" as="script" href="/js/zuix/animate_css.js">
-    <script src="/js/zuix/zuix.min.js"></script>
-    <script src="/config.js"></script>
-    <script src="/js/zuix/animate_css.js"></script>
-
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    font-family: Helvetica, sans-serif;
-    position: relative;
-}
-
-/* prevents links dragging */
-a, a::after, a::before {
-    -webkit-user-drag: none;
-    -webkit-app-region: no-drag;
-}
-
-main {
-    padding: 0;
-}
-main div.content {
-    width: 100%;
-    max-width: 960px;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-main div.content > p {
-/*    text-align: justify; */
-}
-
-[z-field="header"] {
-    position: fixed;
-    z-index: 1;
-    top:0; left: 0; right: 0; bottom: 0;
-    height: 64px;
-    padding-left: 8px;
-    padding-right: 8px;
-    background: #f5f5f5;
-}
-h1[z-field="alt_header"] {
-    text-align: center;
-    display: block;
-    font-weight: 600;
-    margin: 24px;
-}
-
-pre {
-    overflow-x: auto !important;
-}
-
-footer {
-    margin-top: 96px;
-    min-height: 96px;
-    font-size: 120%;
-    padding: 12px 24px 0;
-    background: #bbc;
-    background: linear-gradient(#fff, #16641c22);
-}
-
-div.content > p {
-    font-size: 150% !important;
-    line-height: 160% !important;
-    margin: 24px 0 24px;
-}
-pre {
-    background: rgba(0,0,0,0.1);
-    border: solid 1px rgba(65, 98, 14, 0.15);
-    font-size: 100%;
-    line-height: 165%;
-    margin-top: 36px;
-    margin-bottom: 36px;
-    border-radius: 8px;
-}
-code {
-    color: var(--primary-color);
-    padding-left: 3px;
-    padding-right: 3px;
-}
-a code, p code, li code {
-    font-size: 95%;
-    color: var(--primary-color);
-    font-weight: normal;
-}
-
-
-.example-container {
-    position: relative;
-    margin-bottom: 48px;
-    min-height: 76px;
-}
-
-h1 {
-    font-size: 195%;
-    font-weight: 600;
-}
-h2 {
-    font-size: 185%;
-    margin-top: 56px;
-    font-weight: 600;
-}
-main .content h2:first-child {
-    margin-top: 24px;
-}
-h3 {
-    margin-top: 42px;
-    font-size: 160%;
-    font-weight: 600;
-    color: lightslategray;
-}
-label {
-    color: lightslategray;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 24px;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-}
-
-blockquote {
-    z-index: -1; /* not sure why it would overlap the header without this */
-    position: center !important;
-    font-size: 140% !important;
-    font-family: 'serif', 'Helvetica', 'sans-serif' !important;
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-main .content ul {
-    padding-left: 20px;
-}
-li {
-    line-height: 175%;
-    font-size: 100%;
-}
-li small {
-    color: dimgray;
-/*    opacity: 0.5;*/
-}
-
-code.option {
-    font-size: 80%;
-    padding: 4px;
-    border-radius: 6px;
-    border: solid 1px rgba(0,200,0,0.25);
-    background: rgba(255,255,255,0.15);
-}
-
-.header-logo {
-    cursor: pointer;
-    border: solid 1px darkgray;
-    border-radius: 56px;
-    background: white;
-}
-
-[data-ui-load]:not([z-ready=true]).visible-on-ready,
-[z-load]:not([z-ready=true]).visible-on-ready,
-[data-ui-include]:not([z-ready=true]).visible-on-ready,
-[z-include]:not([z-ready=true]).visible-on-ready
-{
-    opacity: 1;
-    transition-delay: 150ms;
-    transition-property: opacity;
-}
-[data-ui-load]:not([z-ready=true]).visible-on-ready,
-[z-load]:not([z-ready=true]).visible-on-ready,
-[data-ui-include]:not([z-ready=true]).visible-on-ready,
-[z-include]:not([z-ready=true]).visible-on-ready
-{
-    opacity: 0;
-    visibility: hidden;
-}
-
-.margin-8px {
-    margin: 8px;
-}
-.margin-16px {
-    margin: 16px;
-}
-.no-select {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
-@media screen and (max-width: 720px) {
-    .content {
-        font-size: 90%;
+    --><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css"><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"><link rel="preload" as="style" href="/css/mdl-custom-theme.min.css"><link rel="stylesheet" href="/css/mdl-custom-theme.min.css"><link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"><script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script><link rel="preload" as="script" href="/js/prism/prism.js"><link rel="preload" as="style" href="/js/prism/prism.css"><script src="/js/prism/prism.js"></script><link rel="stylesheet" href="/js/prism/prism.css"><!-- zuix.js https://github.com/zuixjs/zuix --><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="preload" as="script" href="/js/zuix/zuix.min.js"><link rel="preload" as="script" href="/config.js"><link rel="preload" as="script" href="/js/zuix/animate-css.js"><script src="/js/zuix/zuix.min.js"></script><script src="/config.js"></script><script src="/js/zuix/animate-css.js"></script><style>:root {
+        --primary-color: #16641c;
+        --primary-color-half: #16641c88;
+        --accent-color: rgb(0 123 171);
     }
-    pre {
-        font-size: 12px;
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px!important;
+        font-family: Helvetica, sans-serif;
+        position: relative;
+        min-height: 100vh;
     }
-}
-/*@media screen and (min-width: 1720px) {
-    .content {
+
+    /* prevents links dragging */
+    a, a::after, a::before {
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    h1 {
+        font-size: 195%;
+        font-weight: 600!important;
+    }
+    h1.title {
+        margin:0;
+        padding-right: 48px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        color: var(--primary-color);
+    }
+    h2 {
+        font-size: 185%;
+        margin-top: 56px;
+        font-weight: 600;
+    }
+    h3 {
+        margin-top: 42px;
+        font-size: 160%;
+        font-weight: 600;
+        color: lightslategray;
+    }
+    label {
+        color: lightslategray;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 24px;
+        display: block;
+    }
+
+    main .content ul {
+        padding-left: 20px;
+    }
+    li {
+        line-height: 175%;
+        font-size: 100%;
+    }
+    li small {
+        color: dimgray;
+        /*    opacity: 0.5;*/
+    }
+
+    blockquote {
         font-size: 140%;
-        max-width: 1400px !important;
+        opacity: 0.6;
     }
-}*/
-@media screen and (min-width: 1280px) {
+
+    p {
+        font-size: 130%;
+        line-height: 160%;
+        margin-bottom: 24px;
+    }
+
+    hr {
+        margin-bottom: 30px;
+    }
+
+    code[class*=language-], pre[class*=language-] {
+        font-size: 115%;
+    }
+    pre:not([class*="language-"]) {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+
+    pre[class*="language-"]{
+        margin-top: 32px!important;
+        margin-bottom: 32px!important;
+    }
+    code {
+        color: #0b4d2c;
+        overflow-wrap: break-word; /* for old browsers */
+        overflow-wrap: anywhere;
+    }
+    code.option {
+        font-size: 80%;
+        padding: 4px;
+        border-radius: 6px;
+        border: solid 1px rgba(0,200,0,0.25);
+        background: rgba(255,255,255,0.15);
+    }
+
+    /* prevents links dragging */
+    a, a::after, a::before {
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
+    }
+
     main {
-        padding-top: 0;
-        padding-left: 304px; /* 280px + 24px */
-        padding-right: 24px;
+        width: 100% !important;
+        padding: 0 !important;
+        transition: padding-left 150ms ease-in-out;
+    }
+    main div.content {
+        width: 100% !important;
+        max-width: 960px !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    main h2  {
+        margin-top: 56px;
+    }
+    main .content h2:first-child {
+        margin-top: 24px;
+    }
+    main h3 {
+        margin-top: 56px;
+        margin-bottom: 16px;
+    }
+    div.content > p {
+        font-size: 150% !important;
+        line-height: 160% !important;
+        margin: 24px 0 24px;
     }
     [z-field="header"] {
-        padding-left: 316px;
-        display: none;
+        position: fixed;
+        z-index: 1;
+        top:0; left: 0; right: 0; bottom: 0;
+        height: 64px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background: #f1f1f1;
+        box-shadow: 0 1px rgba(100, 100, 100, 30%);
     }
     h1[z-field="alt_header"] {
-        margin-top: 32px;
-        margin-bottom: 48px;
-        margin-left: -28px;
-        visibility: visible;
+        max-width: 100%;
+        text-align: center;
+        display: block;
+        padding: 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        margin: 24px;
     }
-    footer {
-        margin-left: 280px;
-    }
-    pre {
-        font-size: 100%;
-        line-height: 165%;
-    }
-    .header-logo {
-        display: none;
-    }
-}
 
-/*
- Various Fixes for Lighthouse accessibility score
- */
-.hljs {
-    color: #181818;
-    background: #fffff8;
-}
-.hljs-attr {
-    color: #d21811;
-}
-.hljs-comment {
-    color: #737373 !important;
-}
-.hljs-string {
-    color: #406c2d !important;
-}
-.hljs-attribute,.hljs-title {
-    color: #106bd7 !important;
-}
+    .header-menu-button {
+        cursor: pointer;
+        height: 48px!important;
+        width: 48px!important;
+    }
+    .header-menu-button i {
+        color: black;
+        font-size: 32px!important;
+        left: 20px!important;
+    }
 
-/* general UI state classes */
-.not-ready {
-    opacity: 0.5;
-    -webkit-animation: pulse .5s infinite ease-in-out;
-    -o-animation: pulse .5s infinite ease-in-out;
-    -ms-animation: pulse .5s infinite ease-in-out;
-    -moz-animation: pulse .5s infinite ease-in-out;
-    animation: pulse .5s infinite ease-in-out;
-}
-@-webkit-keyframes pulse {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0.2; }
-}
-@keyframes pulse {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0.2; }
-}
+    .margin-8px {
+        margin: 8px;
+    }
+    .margin-16px {
+        margin: 16px;
+    }
+    .no-select {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+    @media screen and (min-width: 1280px) {
+        main {
+            padding-top: 0 !important;
+            padding-left: 304px !important;
+            padding-right: 24px !important;
+        }
+        [z-field="header"] {
+            padding-left: 316px;
+            display: none;
+        }
+        h1[z-field="alt_header"] {
+            margin-top: 32px;
+            margin-bottom: 48px;
+            margin-left: -28px;
+            visibility: visible;
+        }
+        .header-menu-button {
+            display: none;
+        }
+        footer {
+            margin-left: 280px;
+        }
+    }
 
-.drawer-header {
+    /* UI state classes */
+    .not-ready {
+        opacity: 0.5;
+        -webkit-animation: pulse .5s infinite ease-in-out;
+        -o-animation: pulse .5s infinite ease-in-out;
+        -ms-animation: pulse .5s infinite ease-in-out;
+        -moz-animation: pulse .5s infinite ease-in-out;
+        animation: pulse .5s infinite ease-in-out;
+    }
+    @-webkit-keyframes pulse {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0.2; }
+    }
+    @keyframes pulse {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0.2; }
+    }
+
+    [z-load="@lib/templates/mdl-card-image"] {
+        position: relative;
+        width: 256px;
+        height: 256px;
+    }
+
+    .drawer-header {
     color:white;
     height: 128px;
     padding: 8px 8px 8px 8px;
@@ -361,6 +255,10 @@ code.option {
     border-radius: 56px;
     background: #ffffff;
 }
+[data-theme="dark"] .drawer-header img.logo {
+    background: #000;
+}
+
 .drawer-header .text-logo {
     font-size: 180%;
     font-weight: 400;
@@ -370,36 +268,55 @@ code.option {
     margin-left: 4px;
     margin-right: 4px;
     font-size: 120%;
-    font-weight: 600;
+    font-weight: 300;
+}
+.drawer-header .title code {
+    font-weight: bold;
 }
 .drawer-header .subtitle {
     margin-left: 4px;
     margin-right: 4px;
-    font-size: 120%;
+    font-size: 100%;
+    opacity: 0.75;
 }
+.drawer-header code {
+    color: yellow;
+}
+
 .drawer-content {
     background: white;
 }
+[data-theme="dark"] .drawer-content {
+    background: #24333e;
+}
+
 .drawer-content ul {
     padding: 0;
     margin-top: 8px;
     /*font-size: 120%;*/
 }
-.drawer-content li:hover {
-    background: rgba(0,0,0,0.1);
+.drawer-content li:hover a {
+    /*box-shadow: 1px 0 rgb(0 0 0 / 15%);
+    background: rgba(160,160,160,0.1);*/
+    color: var(--primary-color);
 }
 .drawer-content li {
-    border-top: solid 2px transparent;
-    border-bottom: solid 2px transparent;;
+    margin: 0;
+    min-height: 48px;
+    vertical-align: center;
+    align-content: center;
+    align-items: center;
     list-style: none;
+    border-top: solid 2px transparent;
+    border-bottom: solid 2px transparent;
 }
 .drawer-content ul li[aria-current=page] {
     border-top: solid 2px #f3f3f3;
     border-bottom: solid 2px #f3f3f3;
-    background: #f9f9f9;
+    background-color: rgba(127, 127, 127, 10%);
 }
-.drawer-content ul li[aria-current=page] [class="mdl-color-text--primary"] {
-    font-weight: bold;
+.drawer-content ul li[aria-current=page] i, .drawer-content ul li[aria-current=page] a {
+    color: var(--primary-color);
 }
 .drawer-content li a {
     color: var(--accent-color);
@@ -423,76 +340,30 @@ code.option {
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     color: lightslategray;
 }
-
+.drawer-content label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 12px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.drawer-content a {
+   color: #24333e;
+}
 [z-context="menu-drawer"]:focus {
     outline: none;
-}
-
-
-</style>
-
-
-</head>
-
-
-<!-- scroll helper is used to show/hide the header when scrolling -->
-<body ctrl z-load="controllers/scroll_helper" z-lazy="scroll"
-      z-context="scroll-helper"
-      z-options="scroll_opts"
-      layout="column stretch-stretch">
-
-    <header #header layout="row center-start" class="mdl-shadow--2dp">
-        <div self="stretch" layout="row center-start">
-            <div>
-                <img src="/images/icons/icon-192x192.png"
-                     width="56" height="56" alt="zUIx.js logo" title="zuix.js"
-                     class="header-logo animate__animated animate__bounceIn"
-                     onclick="menuDrawer.open()">
-            </div>
-            <div self="size-x1" layout="row center-center">
-                <h1 class="mdl-color-text--primary" style="margin-left: -56px">Controller</h1>
-            </div>
-        </div>
-    </header>
-
-    <!--
-    <div z-load="@lib/components/hamburger_icon"
+}</style></head><!-- scroll helper is used to show/hide the header when scrolling --><body ctrl z-load="@lib/controllers/scroll-helper" z-lazy="scroll" data-theme="" z-context="scroll-helper" z-options="scroll_opts" layout="column stretch-stretch"><nav #header layout="row center-start"><div self="stretch" layout="row center-start"><button onclick="menuDrawer.open()" class="header-menu-button mdl-button mdl-button--icon"><i class="material-icons">menu_open</i></button><h1 self="size-x1" class="title">Controller</h1></div></nav><!--
+    <div z-load="@lib/components/hamburger-icon"
          z-context="menu_hamburger"
          z-options="menuButtonOptions"
          style="position:fixed;right:0;top:6px;z-index:1001"></div>
-         -->
-
-    <main class="animate__animated animate__fadeIn animate__faster">
-        <div layout="column top-center">
-
-            <h1 #alt_header class="mdl-color-text--primary">Controller</h1>
-            <div class="content">
-                <p>A controller is a JavaScript piece of code that can be associated to a view, and it manages its data, presentation and the
-usage/interaction logic. Through a controller, it's possible to customize all aspects of a component's lifecycle since
-it's early initialization up to the disposal of the component itself. This can be done by implementing component's
-<a href="../api/zuix/ContextController/#init">lifecycle callbacks</a>.</p>
-<h2>Loading a controller</h2>
-<p>A controller can be loaded programmatically using the <a href="../api/zuix/Zuix/#load"><code>zuix-load(..)</code></a> method, or it can be
-loaded directly from the HTML template, by using the attributes <code>ctrl z-load=&quot;&lt;component_id&gt;&quot;</code> on the host element:</p>
-<pre><code class="language-html">&lt;div ctrl z-load=&quot;path/of/controller&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>when the <code>ctrl</code> attribute is present, only the <code>.js</code> controller file will be loaded and the host element (a <code>div</code> in this case)
-will be set as the view of the loaded controller. If the <code>ctrl</code> attribute is not present, then the view files will also
-be loaded from <code>.html</code> + <code>.css</code> files, unless differently specified in the <code>init</code> callback of the controller.</p>
-<p>After loading, a <a href="../api/zuix/ComponentContext">ComponentContext</a> object will be created as instance of the loaded
-component.
-A reference to a <em>ComponentContext</em> can be obtained with the <a href="../api/zuix/Zuix/#context"><code>zuix.context(..)</code></a> method:</p>
-<pre><code class="language-js">let myControllerContext;
+         --><main class="animate__animated animate__fadeIn animate__faster" layout="column top-center"><h1 #alt_header class="title">Controller</h1><div self="size-x1" class="content"><p>A controller is a JavaScript piece of code that can be associated to a view, and it manages its data, presentation and the usage/interaction logic. Through a controller, it's possible to customize all aspects of a component's lifecycle since it's early initialization up to the disposal of the component itself. This can be done by implementing component's <a href="../api/zuix/ContextController/#init">lifecycle callbacks</a>.<h2>Loading a controller</h2><p>A controller can be loaded programmatically using the <a href="../api/zuix/Zuix/#load"><code>zuix-load(..)</code></a> method, or it can be loaded directly from the HTML template, by using the attributes <code>ctrl z-load=&quot;&lt;component_id&gt;&quot;</code> on the host element:<pre><code class="language-html">&lt;div ctrl z-load=&quot;path/of/controller&quot;&gt;&lt;/div&gt;
+</code></pre><p>when the <code>ctrl</code> attribute is present, only the <code>.js</code> controller file will be loaded and the host element (a <code>div</code> in this case) will be set as the view of the loaded controller. If the <code>ctrl</code> attribute is not present, then the view files will also be loaded from <code>.html</code> + <code>.css</code> files, unless differently specified in the <code>init</code> callback of the controller.<p>After loading, a <a href="../api/zuix/ComponentContext">ComponentContext</a> object will be created as instance of the loaded component. A reference to a <em>ComponentContext</em> can be obtained with the <a href="../api/zuix/Zuix/#context"><code>zuix.context(..)</code></a> method:<pre><code class="language-js">let myControllerContext;
 zuix.context(hostElement, (context) =&gt; {
   myControllerContext = context;
 }); 
-</code></pre>
-<p>or through the <code>ready</code> callback in the controller's <a href="../api/zuix/Zuix/#ContextOptions">loading options</a>.</p>
-<h2>Lifecycle callbacks</h2>
-<h3><code>&lt;controller&gt;.init()</code></h3>
-<p>The <code>init</code> function gets called right after the JavaScript controller has been loaded and before any other resource is
-loaded. This function can be used to get, set component's options, or to load additional dependencies.</p>
-<pre><code class="language-js">cp.init = function() {
+</code></pre><p>or through the <code>ready</code> callback in the controller's <a href="../api/zuix/Zuix/#ContextOptions">loading options</a>.<h2>Lifecycle callbacks</h2><h3><code>&lt;controller&gt;.init()</code></h3><p>The <code>init</code> function gets called right after the JavaScript controller has been loaded and before any other resource is loaded. This function can be used to get, set component's options, or to load additional dependencies.<pre><code class="language-js">cp.init = function() {
   const opts = cp.options();
   // enable view style encapsulation
   opts.encapsulation = true;
@@ -505,19 +376,7 @@ loaded. This function can be used to get, set component's options, or to load ad
     // TODO: handle custom option
   }
 };
-</code></pre>
-<h3><code>&lt;controller&gt;.create()</code></h3>
-<p>The <code>create</code> function gets called right after all component's resources have been loaded. At this stage it is already possible
-to access the component's view and the data model. This method is also employed to register input event listeners and declare
-methods to expose publicly.</p>
-<h3><code>&lt;controller&gt;.update(target, key, value, path, old)</code></h3>
-<p>This function gets called anytime a bound field of the data model is updated.</p>
-<h3><code>&lt;controller&gt;.dispose()</code></h3>
-<p>This function gets called right before the component is unloaded and disposed, and it's employed to clear timers and correctly
-dispose other resources that are not automatically handled by <em>zuix.js</em>.</p>
-<h2>Implementation</h2>
-<p>A controller can be implemented in a <code>&lt;component_name&gt;.js</code> <strong>file</strong> using the following code template (ES5 class-like example):</p>
-<pre><code class="language-js">'use strict';
+</code></pre><h3><code>&lt;controller&gt;.create()</code></h3><p>The <code>create</code> function gets called right after all component's resources have been loaded. At this stage it is already possible to access the component's view and the data model. This method is also employed to register input event listeners and declare methods to expose publicly.<h3><code>&lt;controller&gt;.update(target, key, value, path, old)</code></h3><p>This function gets called anytime a bound field of the data model is updated.<h3><code>&lt;controller&gt;.dispose()</code></h3><p>This function gets called right before the component is unloaded and disposed, and it's employed to clear timers and correctly dispose other resources that are not automatically handled by <em>zuix.js</em>.<h2>Implementation</h2><p>A controller can be implemented in a <code>&lt;component_name&gt;.js</code> <strong>file</strong> using the following code template (ES5 class-like example):<pre><code class="language-js">'use strict';
 
 /*
 * Private static fields and functions
@@ -567,9 +426,7 @@ function ComponentName(cp) {
 };
 
 module.exports = ComponentName;
-</code></pre>
-<p>Or it can also be implemented inline, directly in the HTML page, as shown in the following <strong>inline component</strong> template (view + controller):</p>
-<pre><code class="language-html">&lt;div z-view=&quot;path/of/component_name&quot;&gt;
+</code></pre><p>Or it can also be implemented inline, directly in the HTML page, as shown in the following <strong>inline component</strong> template (view + controller):<pre><code class="language-html">&lt;div z-view=&quot;path/of/component_name&quot;&gt;
   &lt;!-- component's view template content --&gt;
 &lt;/div&gt;
 &lt;style media=&quot;#path/of/component_name&quot;&gt;
@@ -608,42 +465,12 @@ zuix.controller(function(cp) {
 
 }).for('path/of/component_name');
 &lt;/script&gt;
-</code></pre>
-<p>Static members are not possible in the case of an inline controller declaration.</p>
-<p>Within the controller's scope, the context object <code>this</code>, is the <a href="../api/zuix/ContextController">ContextController</a> instance through which is possible to
-access the view template's fields, querying its DOM, handling input events and triggering output events, exposing public interface
-members, and other common component's implementation tasks.</p>
-<h3>Common tasks</h3>
-<p>Consider this simple view</p>
-<pre><code class="language-html">&lt;div z-load=&quot;default&quot;&gt;
+</code></pre><p>Static members are not possible in the case of an inline controller declaration.<p>Within the controller's scope, the context object <code>this</code>, is the <a href="../api/zuix/ContextController">ContextController</a> instance through which is possible to access the view template's fields, querying its DOM, handling input events and triggering output events, exposing public interface members, and other common component's implementation tasks.<h3>Common tasks</h3><p>Consider this simple view<pre><code class="language-html">&lt;div z-load=&quot;default&quot;&gt;
     
     &lt;div #message&gt;&lt;/div&gt;
     
 &lt;/div&gt;
-</code></pre>
-<p>where, in the controller's code, <code>cp</code> is the <code>ContextController</code> instance:</p>
-<ul>
-<li>getting the view:<br>
-<code>const $view = cp.view()</code></li>
-<li>querying the view's DOM<br>
-<code>const $elements = $view.find('&lt;filter&gt;')</code> or
-<code>const $elements = cp.view('&lt;filter&gt;')</code></li>
-<li>getting the view's field <code>#message</code><br>
-<code>const $msg = cp.field('message')</code> or<br>
-<code>const $msg = cp.model().message</code></li>
-<li>listening to events<br>
-<code>$msg.on('click', eventCallbackFn)</code></li>
-<li>emitting custom component's events<br>
-<code>cp.trigger('myevent', myEventData)</code>;</li>
-<li>exposing public methods</li>
-<li><code>cp.expose('methodName', handlerFn)</code> or<br>
-<code>cp.expose({    methodName1: handlerFn1,   methodName2: handlerFn2,    /* ... */  })</code></li>
-</ul>
-<p>See the <a href="../api/zuix/ContextController">ContextController API</a> for a list of all available properties and methods.</p>
-<h3>Examples</h3>
-<p>As an example, the following controller's code, is the implementation of a Material Design Light <a href="https://getmdl.io/components/index.html#buttons-section">button</a>:</p>
-<p><label class="mdl-color-text--primary">EXAMPLE CONTROLLER</label></p>
-<pre><code class="language-js">'use strict';
+</code></pre><p>where, in the controller's code, <code>cp</code> is the <code>ContextController</code> instance:<ul><li>getting the view:<br><code>const $view = cp.view()</code><li>querying the view's DOM<br><code>const $elements = $view.find('&lt;filter&gt;')</code> or <code>const $elements = cp.view('&lt;filter&gt;')</code><li>getting the view's field <code>#message</code><br><code>const $msg = cp.field('message')</code> or<br><code>const $msg = cp.model().message</code><li>listening to events<br><code>$msg.on('click', eventCallbackFn)</code><li>emitting custom component's events<br><code>cp.trigger('myevent', myEventData)</code>;<li>exposing public methods<li><code>cp.expose('methodName', handlerFn)</code> or<br><code>cp.expose({ methodName1: handlerFn1, methodName2: handlerFn2, /* ... */ })</code></ul><p>See the <a href="../api/zuix/ContextController">ContextController API</a> for a list of all available properties and methods.<h3>Examples</h3><p>As an example, the following controller's code, is the implementation of a Material Design Light <a href="https://getmdl.io/components/index.html#buttons-section">button</a>:<p><label class="mdl-color-text--primary">EXAMPLE CONTROLLER</label><pre><code class="language-js">'use strict';
 /**
  * MdlButton class.
  * @constructor
@@ -665,55 +492,24 @@ function MdlButton() {
 
 }
 module.exports = MdlButton;
-// file: &quot;controllers/mdl_button.js&quot;
-</code></pre>
-<p>This controller just adds the required CSS classes to turn the host element into an MDL button.
-The same thing could be similarly done for Bootstrap, Materialize.CSS, or any other CSS UI Framework.</p>
-<pre><code class="language-html">&lt;a ctrl z-load=&quot;controllers/mdl_button&quot;&gt; With &lt;/a&gt;
+// file: &quot;controllers/mdl-button.js&quot;
+</code></pre><p>This controller just adds the required CSS classes to turn the host element into an MDL button. The same thing could be similarly done for Bootstrap, Materialize.CSS, or any other CSS UI Framework.<pre><code class="language-html">&lt;a ctrl z-load=&quot;@lib/controllers/mdl-button&quot;&gt; With &lt;/a&gt;
 ... or ...
 &lt;a&gt; Without &lt;/a&gt;
-</code></pre>
-<p><a ctrl z-load="controllers/mdl_button">With</a>
-... or ...
-<a>Without</a></p>
-<p>So, in the <code>create</code> lifecycle callback, the controller can access the <a href="../api/zuix/ContextController#view">view</a> element and the component's
-<a href="../api/zuix/ContextController#options">options</a>, and in this example the controller recognizes two option fields, <code>type</code> and <code>class</code>,
-that control the button appearance:</p>
-<pre><code class="language-html">&lt;a ctrl z-load=&quot;controllers/mdl_button&quot;
+</code></pre><p><a ctrl z-load="@lib/controllers/mdl-button">With</a> ... or ... <a>Without</a><p>So, in the <code>create</code> lifecycle callback, the controller can access the <a href="../api/zuix/ContextController#view">view</a> element and the component's <a href="../api/zuix/ContextController#options">options</a>, and in this example the controller recognizes two option fields, <code>type</code> and <code>class</code>, that control the button appearance:<pre><code class="language-html">&lt;a ctrl z-load=&quot;@lib/controllers/mdl-button&quot;
    z-options=&quot;{ type: 'fab', class: 'mini-fab' }&quot;&gt;
   &lt;i class=&quot;material-icons&quot;&gt;mail&lt;/i&gt;
 &lt;/a&gt;
 
-&lt;a ctrl z-load=&quot;controllers/mdl_button&quot;
+&lt;a ctrl z-load=&quot;@lib/controllers/mdl-button&quot;
    z-options=&quot;{ type: 'flat' }&quot;&gt;
     Flat
 &lt;/a&gt;
 
-&lt;a ctrl z-load=&quot;controllers/mdl_button&quot;&gt;
+&lt;a ctrl z-load=&quot;@lib/controllers/mdl-button&quot;&gt;
     Regular
 &lt;/a&gt;
-</code></pre>
-<div layout="row center-spread">
-    <div>
-        <a ctrl z-load="controllers/mdl_button" z-options="{ type: 'fab', class: 'mini-fab colored' }">
-            <i class="material-icons">mail</i>
-        </a>
-    </div>
-    <div>
-        <a ctrl z-load="controllers/mdl_button"
-           z-options="{ type: 'flat' }">
-            Flat
-        </a>
-    </div>
-    <div>
-        <a ctrl z-load="controllers/mdl_button">
-          Regular
-        </a>
-    </div>
-</div>
-<p>In this other example of an <a href="https://getmdl.io/components/index.html#menus-section">MDL menu</a>, the main <code>div</code> container
-loads the <code>mdl_menu</code> controller, and contains the menu's items list and a button to activate the menu itself:</p>
-<pre><code class="language-html">&lt;div ctrl z-load=&quot;controllers/mdl_menu&quot; z-lazy=&quot;false&quot;
+</code></pre><div layout="row center-spread"><div><a ctrl z-load="@lib/controllers/mdl-button" z-options="{ type: 'fab', class: 'mini-fab colored' }"><i class="material-icons">mail</i></a></div><div><a ctrl z-load="@lib/controllers/mdl-button" z-options="{ type: 'flat' }">Flat</a></div><div><a ctrl z-load="@lib/controllers/mdl-button">Regular</a></div></div><p>In this other example of an <a href="https://getmdl.io/components/index.html#menus-section">MDL menu</a>, the main <code>div</code> container loads the <code>mdl-menu</code> controller, and contains the menu's items list and a button to activate the menu itself:<pre><code class="language-html">&lt;div ctrl z-load=&quot;@lib/controllers/mdl-menu&quot; z-lazy=&quot;false&quot;
      z-behavior=&quot;menuButtonBehavior&quot; class=&quot;visible-on-ready&quot;&gt;
 
   &lt;!-- the menu is defined as a simple UL list --&gt;
@@ -723,47 +519,13 @@ loads the <code>mdl_menu</code> controller, and contains the menu's items list a
   &lt;/ul&gt;
 
   &lt;!-- the menu's FAB button --&gt;
-  &lt;a ctrl z-load=&quot;controllers/mdl_button&quot;
+  &lt;a ctrl z-load=&quot;@lib/controllers/mdl-button&quot;
      z-options=&quot;{ type: 'fab', class: 'mini-fab colored' }&quot;&gt;
     &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
   &lt;/a&gt;
 
 &lt;/div&gt;
-</code></pre>
-<p>this time, the menu controller, besides adding the required classes for the <em>Material Design</em> menu, it also intercepts
-when the MDL menu opens/closes, so that it can <a href="../api/zuix/ContextController/#trigger">trigger</a> the <code>menu:show</code> and <code>menu:hide</code> custom events. This controller
-also improves the MDL menu by adding auto-positioning feature, so the menu will slide up or down, based on the actual position
-of the button.</p>
-<div z-load="default" layout="column center-left" style="padding: 32px">
-    <div ctrl z-load="controllers/mdl_menu" z-lazy="false" class="visible-on-ready"
-         z-behavior="menuButtonBehavior">
-        <ul>
-            <li>Menu option 1</li>
-            <li>Menu option 2</li>
-        </ul>
-        <a ctrl z-load="controllers/mdl_button"
-           z-options="{ type: 'fab', class: 'mini-fab colored' }" class="mdl-color--pink">
-            <i class="material-icons">menu</i>
-        </a>
-    </div>
-</div>
-<script>
-menuButtonBehavior = {
-  'menu:show': function() {
-      this.find('.material-icons').html('add')
-          .css({ transform: 'rotate(135deg)' });
-  },
-  'menu:hide': function() {
-      this.find('.material-icons').html('menu')
-          .css({ transform: 'rotate(0)' });
-  }
-}
-</script>
-<p>Custom events triggered by the component, can then be used, like in this example, to animate the button with a <em>behavior</em>:
-when the <code>menu:show</code> event occurs, the behavior's code will rotate the button element (<code>a</code>) by 135 degrees and will set
-the icon <em>&quot;close&quot;</em>. When instead, the <code>menu:hide</code> event occurs, the button element is rotated back to 0 degrees and the
-icon is set back to <em>&quot;menu&quot;</em>.</p>
-<pre><code class="language-html">&lt;script&gt;
+</code></pre><p>this time, the menu controller, besides adding the required classes for the <em>Material Design</em> menu, it also intercepts when the MDL menu opens/closes, so that it can <a href="../api/zuix/ContextController/#trigger">trigger</a> the <code>menu:show</code> and <code>menu:hide</code> custom events. This controller also improves the MDL menu by adding auto-positioning feature, so the menu will slide up or down, based on the actual position of the button.<div z-load="default" layout="column center-left" style="padding: 32px"><div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" z-behavior="menuButtonBehavior"><ul><li>Menu option 1<li>Menu option 2</ul><a ctrl z-load="@lib/controllers/mdl-button" z-options="{ type: 'fab', class: 'mini-fab colored' }" class="mdl-color--pink"><i class="material-icons">menu</i></a></div></div><script>menuButtonBehavior={"menu:show":function(){this.find(".material-icons").html("add").css({transform:"rotate(135deg)"})},"menu:hide":function(){this.find(".material-icons").html("menu").css({transform:"rotate(0)"})}}</script><p>Custom events triggered by the component, can then be used, like in this example, to animate the button with a <em>behavior</em>: when the <code>menu:show</code> event occurs, the behavior's code will rotate the button element (<code>a</code>) by 135 degrees and will set the icon <em>&quot;close&quot;</em>. When instead, the <code>menu:hide</code> event occurs, the button element is rotated back to 0 degrees and the icon is set back to <em>&quot;menu&quot;</em>.<pre><code class="language-html">&lt;script&gt;
 menuButtonBehavior = {
   'menu:show': function() {
       this.find('.material-icons').html('add')
@@ -775,33 +537,7 @@ menuButtonBehavior = {
   }
 }
 &lt;/script&gt;
-</code></pre>
-<h3>Global event hooks</h3>
-<p>While component events are local to each instance, global events have only one global listener (hook) and this kind of event
-is usually employed to get notified about certain task progress, or to transform input data.</p>
-<p>There are three types of global events:</p>
-<ul>
-<li><em>zuix.js</em> loader events</li>
-<li>component's allocation events</li>
-<li>component's custom events</li>
-</ul>
-<p>Loader's events can be used to determine whether <em>zuix.js</em> is actually loading components or not, and, for instance, to
-show a visible feedback to the user.</p>
-<p>Component's allocation events can be used to process the view's HTML template and style before they are attached to the
-DOM, and also to process the view's DOM after the component is loaded and before the component is actually created.</p>
-<p>Custom component's global events can be used to allow notification or transformation for a type of components.</p>
-<p>For an example on how to use this kind of events, see <a href="../api/zuix/Zuix/#hook">zuix.hook(..)</a> in the API documentation page.</p>
-<h3>Global resources and singleton components</h3>
-<p>Like the examples in these pages, where some components depend on MDL library, a controller implementation might depend
-on some external libraries. To correctly deploy such a component then, a list of its dependencies should be provided as
-pre-requisites, so that these dependencies can be added to the page hosting these components.</p>
-<p>Alternatively, a component can declare all resources it requires in order to work properly, so that if not already loaded
-in the page, these resources will be automatically loaded along with the component.</p>
-<p>For this purpose the <a href="../api/zuix/Zuix/#using"><code>zuix.using(..)</code></a> method can be used to load common dependencies such as utility scripts,
-stylesheets or utility/service controllers that are accessible application-wide. <a href="../component#libraries-and-theming">Library shortcuts</a> can
-also be used in the URL path.</p>
-<p>Some examples:</p>
-<pre><code class="language-js">// Load library from CDN if not already included in the document
+</code></pre><h3>Global event hooks</h3><p>While component events are local to each instance, global events have only one global listener (hook) and this kind of event is usually employed to get notified about certain task progress, or to transform input data.<p>There are three types of global events:<ul><li><em>zuix.js</em> loader events<li>component's allocation events<li>component's custom events</ul><p>Loader's events can be used to determine whether <em>zuix.js</em> is actually loading components or not, and, for instance, to show a visible feedback to the user.<p>Component's allocation events can be used to process the view's HTML template and style before they are attached to the DOM, and also to process the view's DOM after the component is loaded and before the component is actually created.<p>Custom component's global events can be used to allow notification or transformation for a type of components.<p>For an example on how to use this kind of events, see <a href="../api/zuix/Zuix/#hook">zuix.hook(..)</a> in the API documentation page.<h3>Global resources and singleton components</h3><p>Like the examples in these pages, where some components depend on MDL library, a controller implementation might depend on some external libraries. To correctly deploy such a component then, a list of its dependencies should be provided as pre-requisites, so that these dependencies can be added to the page hosting these components.<p>Alternatively, a component can declare all resources it requires in order to work properly, so that if not already loaded in the page, these resources will be automatically loaded along with the component.<p>For this purpose the <a href="../api/zuix/Zuix/#using"><code>zuix.using(..)</code></a> method can be used to load common dependencies such as utility scripts, stylesheets or utility/service controllers that are accessible application-wide. <a href="../component#libraries-and-theming">Library shortcuts</a> can also be used in the URL path.<p>Some examples:<pre><code class="language-js">// Load library from CDN if not already included in the document
 zuix.using('script', 'https://some.cdn.js/moment.min.js', function(resourcePath, hashId) {
   // can start using moment.js
 });
@@ -826,329 +562,35 @@ zuix.using('component', 'controllers/my-service-api', function(resourcePath, ctx
   myService.publicMethod2('test');
   // ...
 });
-</code></pre>
-
-            </div>
-
-            
-
-
-<div -self="size-large" layout="row center-spread" style="margin-top: 96px; margin-bottom: 56px; padding-left: 8px; padding-right: 8px; font-size: 140%">
-    
-    <a href="/pages/documentation/active_refresh/">
-        <label layout="row center-center">
-            <i class="material-icons">arrow_left</i>&nbsp;
-            <span style="padding-right: 24px">Previous</span>
-        </label>
-        <div layout="row center-center" class="mdl-color-text--pink">Active&rarr;Refresh</div>
+</code></pre><div layout="rows center-spread" style="margin-top: 112px; gap:12px; margin-bottom: 32px; padding-left: 8px; padding-right: 8px; font-size: 140%"><a href="/pages/documentation/active_refresh/" style="text-align: center"><label layout="row center-center"><i class="material-icons">arrow_left</i>&nbsp; <span style="padding-right: 24px">Previous</span></label><div class="mdl-color-text--pink">Active&rarr;Refresh</div></a><a href="/pages/documentation/cli/" style="text-align: center"><label layout="row center-center"><span style="padding-left: 24px">Next</span> <i class="material-icons">arrow_right</i>&nbsp;</label><div class="mdl-color-text--pink">CLI / Templates</div></a></div></div></main><!-- Navigation Drawer --><div ctrl z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready animate__animated animate__faster" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js</div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 20px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
+<ul>
+    <li >
+    <a href="/home" class="mdl-js-ripple-effect">
+        <div layout="row center-left">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+        </div>
+        <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
     </a>
-    
-    
-    <a href="/pages/documentation/cli/">
-        <label layout="row center-center">
-            <span style="padding-left: 24px">Next</span>
-            <i class="material-icons">arrow_right</i>&nbsp;
-        </label>
-        <div layout="row center-center" class="mdl-color-text--pink">CLI / Templates</div>
+    </li>
+    <li >
+    <a href="/search" class="mdl-js-ripple-effect">
+        <div layout="row center-left">
+            <i class="material-icons">search</i>
+            <span>Search</span>
+        </div>
+        <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
     </a>
-    
-</div>
-
-
-            
-
-        </div>
-    </main>
-
-    <!-- Navigation Drawer -->
-    <div ctrl z-load="controllers/drawer_layout"
-         z-context="menu-drawer"
-         z-options="drawer_opts"
-         class="drawer-layout no-select visible-on-ready"
-         layout="column top-stretch">
-        <!-- Navigation Drawer content -->
-
-        <!-- Header -->
-        <div class="drawer-header" layout="column justify-stretch">
-            <div self="stretch" layout="row center-justify">
-                <img class="logo animate__animated animate__swing animate__fast"
-                     src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js">
-                <div class="text-logo">zuix.js</div>
-                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 20px;opacity: 0.75">
-                    <img src="/images/github-mark-light.png" alt="GitHub logo"
-                         title="zuix.js on GitHub" width="32" height="32">
-                </a>
-            </div>
-            <div style="padding-left: 6px;padding-right: 6px;">
-                JavaScript library for component-based websites and applications.
-            </div>
-        </div>
-
-        <!-- Menu items and other content -->
-        <div class="drawer-content" self="size-x1">
-            <ul>
-    <li >
-        <a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>About zuix.js</span>
-                <i class="material-icons">info_outline</i>
-            </div>
-            <div class="summary">
-                Library and CLI features in brief.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
     </li>
-    <li >
-        <a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Getting started</span>
-                <i class="material-icons">outlined_flag</i>
-            </div>
-            <div class="summary">
-                Creating a new project, bare library usage, reading this guide.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Component</span>
-                <i class="material-icons">smart_button</i>
-            </div>
-            <div class="summary">
-                Loading options, lazy-loading, the <em>default</em> component, theming.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>View</span>
-                <i class="material-icons">html</i>
-            </div>
-            <div class="summary">
-                Data binding, binding adapters, accessibility, behaviors.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Active&rarr;Refresh</span>
-                <i class="material-icons">loop</i>
-            </div>
-            <div class="summary">
-                Built-in <code>@</code> handlers, scripting scope, custom handlers.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li  aria-current="page">
-        <a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Controller</span>
-                <i class="material-icons">javascript</i>
-            </div>
-            <div class="summary">
-                Implementation types, lifecycle, options, events.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>CLI / Templates</span>
-                <i class="material-icons">terminal</i>
-            </div>
-            <div class="summary">
-                Creating a new projects, pages and components.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>API</span>
-                <i class="material-icons">emoji_nature</i>
-            </div>
-            <div class="summary">
-                Zuix, ComponentContext, ContextController, ZxQuery.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li></ul>
-
-        </div>
-
-    </div>
-
-    <!--TODO: { - % include "footer.html" % - } -->
-    <footer>
-
-        <div layout="rows top-justify">
-            <div class="margin-16px">
-                see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT">code</a>
-                and <a href="https://creativecommons.org/licenses/by/4.0/">documentation</a>
-                licenses
-            </div>
-            <div class="margin-16px">
-                <a href="https://github.com/zuixjs">zuix.js</a>
-            </div>
-            <div class="margin-16px">
-                &copy; 2016-to-infinity-and-beyond
-                by <a href="https://glabs.it">g-labs</a>
-            </div>
-        </div>
-
-    </footer>
-
-    
-<!-- Built with love using zUIx Web Starter -->
-
-<script>
-
-  // Code highlighting
-  //zuix.using('script', '@cdnjs/highlight.js/11.3.1/highlight.min.js', function () {
-    zuix.$('pre code').each(function(i, block) {
-      hljs.highlightElement(block);
-    });
-  //});
-
-  // Google Analytics: change UA-92520304-1 to be your site's ID
-  if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-92520304-1', 'auto');
-    ga('send', 'pageview');
-  }
-
-</script>
-
-
-    <!-- Common JS scripts -->
-    <script>
-    /** type {ComponentContext} */
-let menuDrawer;
-/** type {ComponentContext} */
-let menuButton;
-window.drawer_opts = {
-  autoHideWidth: 1280,
-  on: {
-    'drawer:open': function() {
-      //zuix.context('menu_hamburger', function() {
-      //  this.open();
-      //});
-    },
-    'drawer:close': function() {
-      //zuix.context('menu_hamburger', function() {
-      //  this.close();
-      //});
-    }
-  },
-  ready: function() {
-    menuDrawer = this;
-  }
-};
-window.menuButtonOptions = {
-  on: {
-    'menu:open': function() {
-      //headerMenu.open();
-    },
-    'menu:close': function() {
-      //headerMenu.close();
-    }
-  },
-  ready: function() {
-    menuButton = this;
-  }
-};
-
-let scrollHelper;
-window.scroll_opts = {
-  ready: (ctx) => {
-    scrollHelper = ctx;
-    setTimeout(enableScrollHelper, 500);
-  }
-};
-function enableScrollHelper() {
-  scrollHelper.on('scroll:change', function(e, data) {
-    switch (data.event) {
-      case 'hit-top':
-        // reached top of the page
-        showHeader();
-        break;
-      case 'scroll':
-        // show/hide header when scrolling up/down
-        if (data.info.shift.y > 0) {
-          showHeader();
-        } else {
-          hideHeader();
-        }
-        break;
-      case 'hit-bottom':
-        // reached end of the page
-        showHeader();
-        break;
-    }
-  });
-  setTimeout(function() {
-    if (location.hash && scrollbarVisible(document.body)) {
-      hideHeader();
-    }
-  }, 500);
-}
-function scrollbarVisible(element) {
-  const r = element.getBoundingClientRect();
-  return r.bottom !== r.height;
-}
-
-let headerVisible = true;
-function showHeader() {
-  if (!headerVisible) {
-    headerVisible = true;
-    zuix.field('header').animateCss('fadeInDown').show();
-  }
-  ////if (!menuButton.$.hasClass('animate__animated')) {
-  //  menuButton.$.animateCss('fadeInDown').show();
-  ////}
-}
-function hideHeader() {
-  if (headerVisible && !zuix.field('header').hasClass('animate__animated')) {
-    headerVisible = false;
-    zuix.field('header').animateCss('fadeOutUp', function() {
-      this.hide();
-    });
-  }
-  ////if (!menuButton.$.hasClass('animate__animated')) {
-  //  menuButton.$.animateCss('fadeOutUp', function() {
-  //    this.hide();
-  //  });
-  ////}
-}
-
-function processExternalLinks(view) {
-  // Force opening of all non-local links in a new window
-  zuix.$(view).find('a[href*="://"]')
-      .attr('target', '_blank')
-      .attr('rel', 'noreferrer');
-}
-
-zuix.hook('view:process', function(view) {
-  processExternalLinks(view);
-});
-processExternalLinks(document);
-
-//html = css = js = (s) => s[0];
-
-    </script>
-
-</body>
-</html>
+</ul>
+--><!--
+        <label>Documentation</label>
+--><ul><li><a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>About zuix.js</span> <i class="material-icons">info_outline</i></div><div class="summary">Library and CLI features in brief.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Getting started</span> <i class="material-icons">outlined_flag</i></div><div class="summary">Creating a new project, bare library usage, reading this guide.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Component</span> <i class="material-icons">smart_button</i></div><div class="summary">Loading options, lazy-loading, the <em>default</em> component, theming.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>View</span> <i class="material-icons">html</i></div><div class="summary">Data binding, binding adapters, accessibility, behaviors.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Active&rarr;Refresh</span> <i class="material-icons">loop</i></div><div class="summary">Built-in <code>@</code> handlers, scripting scope, custom handlers.</div><span class="mdl-ripple"></span></a><li aria-current="page"><a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Controller</span> <i class="material-icons">javascript</i></div><div class="summary">Implementation types, lifecycle, options, events.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>CLI / Templates</span> <i class="material-icons">terminal</i></div><div class="summary">Creating a new projects, pages and components.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>API</span> <i class="material-icons">emoji_nature</i></div><div class="summary">Zuix, ComponentContext, ContextController, ZxQuery.</div><span class="mdl-ripple"></span></a></ul></div></div><footer self="size-x1"><div layout="rows top-justify"><div class="margin-16px">see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT" target="_blank" rel="noreferrer">code</a> and <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">documentation</a> licenses</div><div class="margin-16px"><a href="https://github.com/zuixjs" target="_blank" rel="noreferrer">zuix.js</a></div><div class="margin-16px">© 2016-to-infinity-and-beyond by <a href="https://glabs.it" target="_blank" rel="noreferrer">g-labs</a></div></div></footer><style>footer {
+            margin-top: 96px;
+            max-height: 96px;
+            min-height: 96px;
+            font-size: 120%;
+            padding: 12px 24px 0;
+            background: #bbc;
+            background: linear-gradient(#fff, #16641c22);
+        }</style><!-- Built with love using zUIx Web Starter --><script>"localhost"!==location.hostname&&"127.0.0.1"!==location.hostname&&(!function(a,e,t,n,o,c){a.GoogleAnalyticsObject=n,a.ga=a.ga||function(){(a.ga.q=a.ga.q||[]).push(arguments)},a.ga.l=+new Date,o=e.createElement(t),c=e.getElementsByTagName(t)[0],o.async=1,o.src="https://www.google-analytics.com/analytics.js",c.parentNode.insertBefore(o,c)}(window,document,"script","ga"),ga("create","UA-92520304-1","auto"),ga("send","pageview"))</script></body><!-- page script --><script>let menuDrawer,menuButton;window.drawer_opts={autoHideWidth:1280,on:{"drawer:open":function(){},"drawer:close":function(){}},ready:function(){menuDrawer=this,menuDrawer.$.animateCss(enterAnimation,{duration:"0.2s"})}},window.menuButtonOptions={on:{"menu:open":function(){},"menu:close":function(){}},ready:function(){menuButton=this}};let scrollHelper;function enableScrollHelper(){scrollHelper.on("scroll:change",function(e,n){switch(n.event){case"hit-top":showHeader();break;case"scroll":(0<n.info.shift.y?showHeader:hideHeader)();break;case"hit-bottom":showHeader()}}),setTimeout(function(){location.hash&&scrollbarVisible(document.body)&&hideHeader()},500)}function scrollbarVisible(e){e=e.getBoundingClientRect();return e.bottom!==e.height}window.scroll_opts={ready:e=>{scrollHelper=e,setTimeout(enableScrollHelper,500)}};let headerVisible=!0;function showHeader(){headerVisible||(headerVisible=!0,zuix.field("header").animateCss("fadeInDown").show())}function hideHeader(){headerVisible&&!zuix.field("header").hasClass("animate__animated")&&(headerVisible=!1,zuix.field("header").animateCss("fadeOutUp",function(){this.hide()}))}function processExternalLinks(e){zuix.$(e).find('a[href*="://"]').attr("target","_blank").attr("rel","noreferrer")}zuix.hook("view:process",function(e){processExternalLinks(e)}),processExternalLinks(document);const referrerLink=document.createElement("a"),enterAnimation=(referrerLink.href=document.referrer,"/"===referrerLink.pathname?"fadeInLeft":"fadeIn")</script>

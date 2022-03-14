@@ -1,0 +1,39 @@
+<div layout="row center-center" z-load="default">
+    <div class="example-container" layout="column top-left" style="min-height: 132px; max-width: 230px;margin-right: 12px">
+        <label for="input-example" class="mdl-color-text--light-green-900">Nickname</label>
+        <input type="text" id="input-example"
+               z-options="enhancedInputOptions"
+               aria-describedby="input-error"
+               placeholder="Enter nickname"
+               value=""
+               message="Choose a name between 4 and 10 chars long, only letters and numbers."
+               pattern="[a-zA-Z0-9]+" minlength="4" maxlength="10">
+        <small id="input-error" class="animate__animated animate__flash animate__faster"
+               style="margin-top: 8px; margin-left: 2px"></small>
+    </div>
+    <button ctrl z-load="@lib/controllers/mdl-button" style="margin-bottom: 56px" @disable-if="!input.validity.valid || !input.value">
+        Ok
+    </button>
+    <script type="jscript">
+      const input = zuix.$('#input-example').get();
+    </script>
+</div>
+<script type="module">
+import {CheckValidityBehavior} from './CheckValidityBehavior.js';
+/** @type {ContextOptions} */
+self.enhancedInputOptions = {
+  behavior: CheckValidityBehavior(),
+  // other component's options can be used also
+  css: `
+    :host {
+        border: 0;
+        border-bottom: solid 1px green;
+        outline: none;
+        padding-top: 10px;
+        padding-bottom: 4px;
+    }
+    :host[aria-invalid=true] {
+        border-color: red;
+    }`,
+};
+</script>

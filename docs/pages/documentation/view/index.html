@@ -1,352 +1,246 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="View, Data binding, binding adapters, accessibility, behaviors.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View - zuix.js</title>
-
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
-
-
-    <!-- Progressive Web App -->
-    <meta name="theme-color" content="white">
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png">
-    <link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="A zUIx website">
-    <link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png">
-    <link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5">
-
-    <!-- Tile color for Windows -->
-    <meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png">
-    <meta name="msapplication-TileColor" content="#ffc40d">
-
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png">
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
+<!doctype html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="view-data-binding-binding-adapters-accessibility-behaviors"><meta name="keywords" content="documentation,api,view,data binding,adapters,accessibility,behavior"><meta name="viewport" content="width=device-width,initial-scale=1"><title>View</title><link rel="author" href="humans.txt"><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to homescreen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to homescreen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
     <link rel="canonical" href="https://www.example.com/">
-    -->
-
-    <style>
-        :root {
-            --primary-color: #16641c;
-            --primary-color-half: #16641c88;
-            --accent-color: rgb(0 123 171);
-        }
-    </style>
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <link rel="preload" as="style" href="/css/mdl-custom-theme.css">
-    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js">
-    <link rel="stylesheet" href="/css/mdl-custom-theme.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
-
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css" />
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ia-light.min.css">
-    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/ia-light.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
-
-    <!-- zuix.js https://github.com/zuixjs/zuix -->
-    <link rel="preload" as="script" href="/js/zuix/zuix.min.js">
-    <link rel="preload" as="script" href="/config.js">
-    <link rel="preload" as="script" href="/js/zuix/animate_css.js">
-    <script src="/js/zuix/zuix.min.js"></script>
-    <script src="/config.js"></script>
-    <script src="/js/zuix/animate_css.js"></script>
-
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    font-family: Helvetica, sans-serif;
-    position: relative;
-}
-
-/* prevents links dragging */
-a, a::after, a::before {
-    -webkit-user-drag: none;
-    -webkit-app-region: no-drag;
-}
-
-main {
-    padding: 0;
-}
-main div.content {
-    width: 100%;
-    max-width: 960px;
-    padding-left: 12px;
-    padding-right: 12px;
-}
-
-main div.content > p {
-/*    text-align: justify; */
-}
-
-[z-field="header"] {
-    position: fixed;
-    z-index: 1;
-    top:0; left: 0; right: 0; bottom: 0;
-    height: 64px;
-    padding-left: 8px;
-    padding-right: 8px;
-    background: #f5f5f5;
-}
-h1[z-field="alt_header"] {
-    text-align: center;
-    display: block;
-    font-weight: 600;
-    margin: 24px;
-}
-
-pre {
-    overflow-x: auto !important;
-}
-
-footer {
-    margin-top: 96px;
-    min-height: 96px;
-    font-size: 120%;
-    padding: 12px 24px 0;
-    background: #bbc;
-    background: linear-gradient(#fff, #16641c22);
-}
-
-div.content > p {
-    font-size: 150% !important;
-    line-height: 160% !important;
-    margin: 24px 0 24px;
-}
-pre {
-    background: rgba(0,0,0,0.1);
-    border: solid 1px rgba(65, 98, 14, 0.15);
-    font-size: 100%;
-    line-height: 165%;
-    margin-top: 36px;
-    margin-bottom: 36px;
-    border-radius: 8px;
-}
-code {
-    color: var(--primary-color);
-    padding-left: 3px;
-    padding-right: 3px;
-}
-a code, p code, li code {
-    font-size: 95%;
-    color: var(--primary-color);
-    font-weight: normal;
-}
-
-
-.example-container {
-    position: relative;
-    margin-bottom: 48px;
-    min-height: 76px;
-}
-
-h1 {
-    font-size: 195%;
-    font-weight: 600;
-}
-h2 {
-    font-size: 185%;
-    margin-top: 56px;
-    font-weight: 600;
-}
-main .content h2:first-child {
-    margin-top: 24px;
-}
-h3 {
-    margin-top: 42px;
-    font-size: 160%;
-    font-weight: 600;
-    color: lightslategray;
-}
-label {
-    color: lightslategray;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 24px;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-}
-
-blockquote {
-    z-index: -1; /* not sure why it would overlap the header without this */
-    position: center !important;
-    font-size: 140% !important;
-    font-family: 'serif', 'Helvetica', 'sans-serif' !important;
-    margin-left: 24px;
-    margin-right: 24px;
-}
-
-main .content ul {
-    padding-left: 20px;
-}
-li {
-    line-height: 175%;
-    font-size: 100%;
-}
-li small {
-    color: dimgray;
-/*    opacity: 0.5;*/
-}
-
-code.option {
-    font-size: 80%;
-    padding: 4px;
-    border-radius: 6px;
-    border: solid 1px rgba(0,200,0,0.25);
-    background: rgba(255,255,255,0.15);
-}
-
-.header-logo {
-    cursor: pointer;
-    border: solid 1px darkgray;
-    border-radius: 56px;
-    background: white;
-}
-
-[data-ui-load]:not([z-ready=true]).visible-on-ready,
-[z-load]:not([z-ready=true]).visible-on-ready,
-[data-ui-include]:not([z-ready=true]).visible-on-ready,
-[z-include]:not([z-ready=true]).visible-on-ready
-{
-    opacity: 1;
-    transition-delay: 150ms;
-    transition-property: opacity;
-}
-[data-ui-load]:not([z-ready=true]).visible-on-ready,
-[z-load]:not([z-ready=true]).visible-on-ready,
-[data-ui-include]:not([z-ready=true]).visible-on-ready,
-[z-include]:not([z-ready=true]).visible-on-ready
-{
-    opacity: 0;
-    visibility: hidden;
-}
-
-.margin-8px {
-    margin: 8px;
-}
-.margin-16px {
-    margin: 16px;
-}
-.no-select {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
-@media screen and (max-width: 720px) {
-    .content {
-        font-size: 90%;
+    --><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flex-layout-attribute/1.0.3/css/flex-layout-attribute.min.css"><link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin=""><link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap"><link rel="preload" as="style" href="/css/mdl-custom-theme.min.css"><link rel="stylesheet" href="/css/mdl-custom-theme.min.css"><link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"><script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script><link rel="preload" as="script" href="/js/prism/prism.js"><link rel="preload" as="style" href="/js/prism/prism.css"><script src="/js/prism/prism.js"></script><link rel="stylesheet" href="/js/prism/prism.css"><!-- zuix.js https://github.com/zuixjs/zuix --><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="preload" as="script" href="/js/zuix/zuix.min.js"><link rel="preload" as="script" href="/config.js"><link rel="preload" as="script" href="/js/zuix/animate-css.js"><script src="/js/zuix/zuix.min.js"></script><script src="/config.js"></script><script src="/js/zuix/animate-css.js"></script><style>:root {
+        --primary-color: #16641c;
+        --primary-color-half: #16641c88;
+        --accent-color: rgb(0 123 171);
     }
-    pre {
-        font-size: 12px;
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px!important;
+        font-family: Helvetica, sans-serif;
+        position: relative;
+        min-height: 100vh;
     }
-}
-/*@media screen and (min-width: 1720px) {
-    .content {
+
+    /* prevents links dragging */
+    a, a::after, a::before {
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    h1 {
+        font-size: 195%;
+        font-weight: 600!important;
+    }
+    h1.title {
+        margin:0;
+        padding-right: 48px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        color: var(--primary-color);
+    }
+    h2 {
+        font-size: 185%;
+        margin-top: 56px;
+        font-weight: 600;
+    }
+    h3 {
+        margin-top: 42px;
+        font-size: 160%;
+        font-weight: 600;
+        color: lightslategray;
+    }
+    label {
+        color: lightslategray;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 24px;
+        display: block;
+    }
+
+    main .content ul {
+        padding-left: 20px;
+    }
+    li {
+        line-height: 175%;
+        font-size: 100%;
+    }
+    li small {
+        color: dimgray;
+        /*    opacity: 0.5;*/
+    }
+
+    blockquote {
         font-size: 140%;
-        max-width: 1400px !important;
+        opacity: 0.6;
     }
-}*/
-@media screen and (min-width: 1280px) {
+
+    p {
+        font-size: 130%;
+        line-height: 160%;
+        margin-bottom: 24px;
+    }
+
+    hr {
+        margin-bottom: 30px;
+    }
+
+    code[class*=language-], pre[class*=language-] {
+        font-size: 115%;
+    }
+    pre:not([class*="language-"]) {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+
+    pre[class*="language-"]{
+        margin-top: 32px!important;
+        margin-bottom: 32px!important;
+    }
+    code {
+        color: #0b4d2c;
+        overflow-wrap: break-word; /* for old browsers */
+        overflow-wrap: anywhere;
+    }
+    code.option {
+        font-size: 80%;
+        padding: 4px;
+        border-radius: 6px;
+        border: solid 1px rgba(0,200,0,0.25);
+        background: rgba(255,255,255,0.15);
+    }
+
+    /* prevents links dragging */
+    a, a::after, a::before {
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
+    }
+
     main {
-        padding-top: 0;
-        padding-left: 304px; /* 280px + 24px */
-        padding-right: 24px;
+        width: 100% !important;
+        padding: 0 !important;
+        transition: padding-left 150ms ease-in-out;
+    }
+    main div.content {
+        width: 100% !important;
+        max-width: 960px !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    main h2  {
+        margin-top: 56px;
+    }
+    main .content h2:first-child {
+        margin-top: 24px;
+    }
+    main h3 {
+        margin-top: 56px;
+        margin-bottom: 16px;
+    }
+    div.content > p {
+        font-size: 150% !important;
+        line-height: 160% !important;
+        margin: 24px 0 24px;
     }
     [z-field="header"] {
-        padding-left: 316px;
-        display: none;
+        position: fixed;
+        z-index: 1;
+        top:0; left: 0; right: 0; bottom: 0;
+        height: 64px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background: #f1f1f1;
+        box-shadow: 0 1px rgba(100, 100, 100, 30%);
     }
     h1[z-field="alt_header"] {
-        margin-top: 32px;
-        margin-bottom: 48px;
-        margin-left: -28px;
-        visibility: visible;
+        max-width: 100%;
+        text-align: center;
+        display: block;
+        padding: 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        margin: 24px;
     }
-    footer {
-        margin-left: 280px;
-    }
-    pre {
-        font-size: 100%;
-        line-height: 165%;
-    }
-    .header-logo {
-        display: none;
-    }
-}
 
-/*
- Various Fixes for Lighthouse accessibility score
- */
-.hljs {
-    color: #181818;
-    background: #fffff8;
-}
-.hljs-attr {
-    color: #d21811;
-}
-.hljs-comment {
-    color: #737373 !important;
-}
-.hljs-string {
-    color: #406c2d !important;
-}
-.hljs-attribute,.hljs-title {
-    color: #106bd7 !important;
-}
+    .header-menu-button {
+        cursor: pointer;
+        height: 48px!important;
+        width: 48px!important;
+    }
+    .header-menu-button i {
+        color: black;
+        font-size: 32px!important;
+        left: 20px!important;
+    }
 
-/* general UI state classes */
-.not-ready {
-    opacity: 0.5;
-    -webkit-animation: pulse .5s infinite ease-in-out;
-    -o-animation: pulse .5s infinite ease-in-out;
-    -ms-animation: pulse .5s infinite ease-in-out;
-    -moz-animation: pulse .5s infinite ease-in-out;
-    animation: pulse .5s infinite ease-in-out;
-}
-@-webkit-keyframes pulse {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0.2; }
-}
-@keyframes pulse {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0.2; }
-}
+    .margin-8px {
+        margin: 8px;
+    }
+    .margin-16px {
+        margin: 16px;
+    }
+    .no-select {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+    @media screen and (min-width: 1280px) {
+        main {
+            padding-top: 0 !important;
+            padding-left: 304px !important;
+            padding-right: 24px !important;
+        }
+        [z-field="header"] {
+            padding-left: 316px;
+            display: none;
+        }
+        h1[z-field="alt_header"] {
+            margin-top: 32px;
+            margin-bottom: 48px;
+            margin-left: -28px;
+            visibility: visible;
+        }
+        .header-menu-button {
+            display: none;
+        }
+        footer {
+            margin-left: 280px;
+        }
+    }
 
-.drawer-header {
+    /* UI state classes */
+    .not-ready {
+        opacity: 0.5;
+        -webkit-animation: pulse .5s infinite ease-in-out;
+        -o-animation: pulse .5s infinite ease-in-out;
+        -ms-animation: pulse .5s infinite ease-in-out;
+        -moz-animation: pulse .5s infinite ease-in-out;
+        animation: pulse .5s infinite ease-in-out;
+    }
+    @-webkit-keyframes pulse {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0.2; }
+    }
+    @keyframes pulse {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0.2; }
+    }
+
+    [z-load="@lib/templates/mdl-card-image"] {
+        position: relative;
+        width: 256px;
+        height: 256px;
+    }
+
+    .drawer-header {
     color:white;
     height: 128px;
     padding: 8px 8px 8px 8px;
@@ -361,6 +255,10 @@ code.option {
     border-radius: 56px;
     background: #ffffff;
 }
+[data-theme="dark"] .drawer-header img.logo {
+    background: #000;
+}
+
 .drawer-header .text-logo {
     font-size: 180%;
     font-weight: 400;
@@ -370,36 +268,55 @@ code.option {
     margin-left: 4px;
     margin-right: 4px;
     font-size: 120%;
-    font-weight: 600;
+    font-weight: 300;
+}
+.drawer-header .title code {
+    font-weight: bold;
 }
 .drawer-header .subtitle {
     margin-left: 4px;
     margin-right: 4px;
-    font-size: 120%;
+    font-size: 100%;
+    opacity: 0.75;
 }
+.drawer-header code {
+    color: yellow;
+}
+
 .drawer-content {
     background: white;
 }
+[data-theme="dark"] .drawer-content {
+    background: #24333e;
+}
+
 .drawer-content ul {
     padding: 0;
     margin-top: 8px;
     /*font-size: 120%;*/
 }
-.drawer-content li:hover {
-    background: rgba(0,0,0,0.1);
+.drawer-content li:hover a {
+    /*box-shadow: 1px 0 rgb(0 0 0 / 15%);
+    background: rgba(160,160,160,0.1);*/
+    color: var(--primary-color);
 }
 .drawer-content li {
-    border-top: solid 2px transparent;
-    border-bottom: solid 2px transparent;;
+    margin: 0;
+    min-height: 48px;
+    vertical-align: center;
+    align-content: center;
+    align-items: center;
     list-style: none;
+    border-top: solid 2px transparent;
+    border-bottom: solid 2px transparent;
 }
 .drawer-content ul li[aria-current=page] {
     border-top: solid 2px #f3f3f3;
     border-bottom: solid 2px #f3f3f3;
-    background: #f9f9f9;
+    background-color: rgba(127, 127, 127, 10%);
 }
-.drawer-content ul li[aria-current=page] [class="mdl-color-text--primary"] {
-    font-weight: bold;
+.drawer-content ul li[aria-current=page] i, .drawer-content ul li[aria-current=page] a {
+    color: var(--primary-color);
 }
 .drawer-content li a {
     color: var(--accent-color);
@@ -423,63 +340,25 @@ code.option {
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     color: lightslategray;
 }
-
+.drawer-content label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 12px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.drawer-content a {
+   color: #24333e;
+}
 [z-context="menu-drawer"]:focus {
     outline: none;
-}
-
-
-</style>
-
-
-</head>
-
-
-<!-- scroll helper is used to show/hide the header when scrolling -->
-<body ctrl z-load="controllers/scroll_helper" z-lazy="scroll"
-      z-context="scroll-helper"
-      z-options="scroll_opts"
-      layout="column stretch-stretch">
-
-    <header #header layout="row center-start" class="mdl-shadow--2dp">
-        <div self="stretch" layout="row center-start">
-            <div>
-                <img src="/images/icons/icon-192x192.png"
-                     width="56" height="56" alt="zUIx.js logo" title="zuix.js"
-                     class="header-logo animate__animated animate__bounceIn"
-                     onclick="menuDrawer.open()">
-            </div>
-            <div self="size-x1" layout="row center-center">
-                <h1 class="mdl-color-text--primary" style="margin-left: -56px">View</h1>
-            </div>
-        </div>
-    </header>
-
-    <!--
-    <div z-load="@lib/components/hamburger_icon"
+}</style></head><!-- scroll helper is used to show/hide the header when scrolling --><body ctrl z-load="@lib/controllers/scroll-helper" z-lazy="scroll" data-theme="" z-context="scroll-helper" z-options="scroll_opts" layout="column stretch-stretch"><nav #header layout="row center-start"><div self="stretch" layout="row center-start"><button onclick="menuDrawer.open()" class="header-menu-button mdl-button mdl-button--icon"><i class="material-icons">menu_open</i></button><h1 self="size-x1" class="title">View</h1></div></nav><!--
+    <div z-load="@lib/components/hamburger-icon"
          z-context="menu_hamburger"
          z-options="menuButtonOptions"
          style="position:fixed;right:0;top:6px;z-index:1001"></div>
-         -->
-
-    <main class="animate__animated animate__fadeIn animate__faster">
-        <div layout="column top-center">
-
-            <h1 #alt_header class="mdl-color-text--primary">View</h1>
-            <div class="content">
-                <p>A <em>view</em> is the <em>visual</em> part of a component, and it consists of an <code>.html</code> template file, and a <code>.css</code> file for styles
-definition, both with the same base name, which is also the name of the view:</p>
-<ul>
-<li><code>&lt;component_id&gt;.html</code></li>
-<li><code>&lt;component_id&gt;.css</code> <small>(optional)</small></li>
-</ul>
-<p>A <em>view</em> can also be implemented inline, rather than in separate files, and can be declared by adding the <code>z-view</code>
-attribute to its container element.</p>
-<p>The value of <code>z-view</code> attribute is meant to be a unique identifier (<code>[&lt;path&gt;/]component_name</code>) and shall not match the
-identifier of any other view placed in a file or inline in the same page, unless we want to <em>override</em> it.</p>
-<p><label class="mdl-color-text--primary">Example</label>
-<small>Inline declaration of the view <code>inline/example/hello_world</code>:</small></p>
-<pre><code class="language-html">&lt;!-- HTML Template --&gt;
+         --><main class="animate__animated animate__fadeIn animate__faster" layout="column top-center"><h1 #alt_header class="title">View</h1><div self="size-x1" class="content"><p>A <em>view</em> is the <em>visual</em> part of a component, and it consists of an <code>.html</code> template file, and a <code>.css</code> file for styles definition, both with the same base name, which is also the name of the view:<ul><li><code>&lt;component_id&gt;.html</code><li><code>&lt;component_id&gt;.css</code> <small>(optional)</small></ul><p>A <em>view</em> can also be implemented inline, rather than in separate files, and can be declared by adding the <code>z-view</code> attribute to its container element.<p>The value of <code>z-view</code> attribute is meant to be a unique identifier (<code>[&lt;path&gt;/]component_name</code>) and shall not match the identifier of any other view placed in a file or inline in the same page, unless we want to <em>override</em> it.<p><label class="mdl-color-text--primary">Example</label> <small>Inline declaration of the view <code>inline/example/hello_world</code>:</small><pre><code class="language-html">&lt;!-- HTML Template --&gt;
 &lt;div z-view=&quot;inline/example/hello_world&quot;&gt;
   &lt;h1 class=&quot;animate__animated animate__bounceIn&quot;&gt;
     Hello World!
@@ -492,39 +371,13 @@ h1 {
   font-weight: 300;
 }
 &lt;/style&gt;
-</code></pre>
-<p>the above code is just a declaration of a view and <strong>will not produce any visible content</strong>, to actually load an instance
-of the <code>hello_word</code> view, the following code is used:</p>
-<pre><code class="language-html">&lt;div view z-load=&quot;inline/example/hello_world&quot;&gt;&lt;/div&gt;
-</code></pre>
-<!-- BEGIN: Inline Template -->
-<div z-view="inline/example/hello_world">
-    <h1 #title class="animate__animated animate__bounceIn">Hello World!</h1>
-</div>
-<style media="#inline/example/hello_world">
-/* TODO: view styles definitions */
+</code></pre><p>the above code is just a declaration of a view and <strong>will not produce any visible content</strong>, to actually load an instance of the <code>hello_word</code> view, the following code is used:<pre><code class="language-html">&lt;div view z-load=&quot;inline/example/hello_world&quot;&gt;&lt;/div&gt;
+</code></pre><!-- BEGIN: Inline Template --><div z-view="inline/example/hello_world"><h1 #title class="animate__animated animate__bounceIn">Hello World!</h1></div><style media="#inline/example/hello_world">/* TODO: view styles definitions */
 h1 {
   color: steelblue;
-  font-weight: 300;
+  font-weight: 300!important;
   margin: 0;
-}
-</style>
-<!-- END: Inline Template -->
-<label class="mdl-color-text--primary">Result</label>
-<div layout="row center-center" class="example-container">
-    <div view z-load="inline/example/hello_world" class="visible-on-ready"></div>
-</div>
-<p><a name="data_binding"></a></p>
-<h2>Data binding</h2>
-<p>In the previous example, the text &quot;Hello World&quot; is static and cannot be customized, but an <em>HTML template</em> can also have
-elements of the view whose value is bound to fields of a <em>data model</em> that can be provided with the component's loading
-options.</p>
-<p>To bind the value of an element in the HTML template to a field of a <em>data model</em>, the <code>#&lt;field_name&gt;</code> attribute (shorthand
-of <code>z-field=&quot;&lt;field_name&gt;&quot;</code>), is added to the element in order to specify the name of the corresponding field in the data
-model.</p>
-<p><label class="mdl-color-text--primary">Example</label>
-<small>Declaration of an inline view with <code>title</code> and <code>subtitle</code> fields:</small></p>
-<pre><code class="language-html">&lt;div z-view=&quot;inline/example/article_header&quot;&gt;
+}</style><!-- END: Inline Template --> <label class="mdl-color-text--primary">Result</label><div layout="row center-center" class="example-container"><div view z-load="inline/example/hello_world" class="visible-on-ready"></div></div><p><a name="data_binding"></a><h2>Data binding</h2><p>In the previous example, the text &quot;Hello World&quot; is static and cannot be customized, but an <em>HTML template</em> can also have elements of the view whose value is bound to fields of a <em>data model</em> that can be provided with the component's loading options.<p>To bind the value of an element in the HTML template to a field of a <em>data model</em>, the <code>#&lt;field_name&gt;</code> attribute (shorthand of <code>z-field=&quot;&lt;field_name&gt;&quot;</code>), is added to the element in order to specify the name of the corresponding field in the data model.<p><label class="mdl-color-text--primary">Example</label> <small>Declaration of an inline view with <code>title</code> and <code>subtitle</code> fields:</small><pre><code class="language-html">&lt;div z-view=&quot;inline/example/article_header&quot;&gt;
   &lt;h1 #title class=&quot;animate__animated animate__fadeInDown&quot;&gt;
     Example title
   &lt;/h1&gt;
@@ -532,51 +385,20 @@ model.</p>
     Example article subtitle
   &lt;/p&gt;
 &lt;/div&gt;
-</code></pre>
-<!-- BEGIN: Inline Template -->
-<div z-view="inline/example/article_header">
-  <h1 #title class="animate__animated animate__fadeInDown">
-      Example title
-  </h1>
-  <p #subtitle class="animate__animated animate__fadeInUp">
-      Example article subtitle
-  </p>
-</div>
-<style media="#inline/example/article_header">
-/* TODO: view styles definitions */
+</code></pre><!-- BEGIN: Inline Template --><div z-view="inline/example/article_header"><h1 #title class="animate__animated animate__fadeInDown">Example title</h1><p #subtitle class="animate__animated animate__fadeInUp">Example article subtitle</div><style media="#inline/example/article_header">/* TODO: view styles definitions */
 h1 {
   color: steelblue;
-  font-weight: 300;
+  font-weight: 300!important;
   margin: 0;
 }
-p { color: slategray; margin: 0 }
-</style>
-<!-- END: Inline Template -->
-<label class="mdl-color-text--primary">Preview</label>
-<div layout="row center-center" class="example-container">
-  <div view z-load="inline/example/article_header" class="visible-on-ready"></div>
-</div>
-<p>Then, to set the actual data to display in <code>#&lt;field_name&gt;</code> elements, the <code>z-model</code> attribute can be added to the host element,
-to pass a <em>JSON data object</em> with the actual data to display:</p>
-<pre><code class="language-html">&lt;div view z-load=&quot;inline/example/article_header&quot; z-model=&quot;{
+p { color: slategray; margin: 0 }</style><!-- END: Inline Template --> <label class="mdl-color-text--primary">Preview</label><div layout="row center-center" class="example-container"><div view z-load="inline/example/article_header" class="visible-on-ready"></div></div><p>Then, to set the actual data to display in <code>#&lt;field_name&gt;</code> elements, the <code>z-model</code> attribute can be added to the host element, to pass a <em>JSON data object</em> with the actual data to display:<pre><code class="language-html">&lt;div view z-load=&quot;inline/example/article_header&quot; z-model=&quot;{
   title: 'Image from Mars',
   subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
 }&quot;&gt;&lt;/div&gt;
-</code></pre>
-<div layout="row center-center" class="example-container">
-  <div view z-load="inline/example/article_header" z-model="{
+</code></pre><div layout="row center-center" class="example-container"><div view z-load="inline/example/article_header" z-model="{
     title: 'Image from Mars',
     subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
-  }" class="visible-on-ready"></div>
-</div>
-<p>It's also possible to map a field with a different name, other than <code>&lt;field_name&gt;</code>, by specifying a value for the <code>#</code>
-attribute with the name of the mapped field: <code>#&lt;field_name&gt;=&quot;&lt;mapped_field_name&gt;&quot;</code> (equivalent of <code>z-field=&quot;&lt;field_name&gt;&quot; z-bind=&quot;&lt;mapped_field_name&gt;&quot;</code>).</p>
-<p>To declare a <em>data model</em> with nested fields, dotted names syntax can be used, like with <code>link.url</code> and <code>link.title</code>
-fields in the following template example of a <a href="https://getmdl.io/components/index.html#cards-section">Material Design Lite</a>
-card.</p>
-<p><label class="mdl-color-text--primary">Example</label>
-<small><code>templates/mdl_card.html</code></small></p>
-<pre><code class="language-html">&lt;!-- Template of a Material Design card --&gt;
+  }" class="visible-on-ready"></div></div><p>It's also possible to map a field with a different name, other than <code>&lt;field_name&gt;</code>, by specifying a value for the <code>#</code> attribute with the name of the mapped field: <code>#&lt;field_name&gt;=&quot;&lt;mapped_field_name&gt;&quot;</code> (equivalent of <code>z-field=&quot;&lt;field_name&gt;&quot; z-bind=&quot;&lt;mapped_field_name&gt;&quot;</code>).<p>To declare a <em>data model</em> with nested fields, dotted names syntax can be used, like with <code>link.url</code> and <code>link.title</code> fields in the following template example of a <a href="https://getmdl.io/components/index.html#cards-section">Material Design Lite</a> card.<p><label class="mdl-color-text--primary">Example</label> <small><code>templates/mdl_card.html</code></small><pre><code class="language-html">&lt;!-- Template of a Material Design card --&gt;
 &lt;div class=&quot;mdl-card mdl-shadow--8dp&quot;&gt;
   &lt;div class=&quot;mdl-card__title&quot;&gt;
     &lt;img #image src=&quot;examples/images/card_placeholder.jpg&quot; class=&quot;portrait&quot; alt=&quot;Cover image&quot;&gt;
@@ -596,16 +418,7 @@ card.</p>
     &lt;/a&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre>
-<p><label class="mdl-color-text--primary">Preview</label></p>
-<div self="size-x1" layout="row center-center" class="example-container" style="min-height: 357px">
-  <div view z-load="templates/mdl_card" self="sm-full" class="visible-on-ready" style="max-width: 460px"></div>
-</div>
-<p>When loading a view, the data provided through the <code>z-model</code> attribute, can be passed in either of the following ways:</p>
-<ul>
-<li>as inline string (like in the previous example)</li>
-</ul>
-<pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot; z-model=&quot;{
+</code></pre><p><label class="mdl-color-text--primary">Preview</label><div self="size-x1" layout="row center-center" class="example-container" style="min-height: 357px"><div view z-load="templates/mdl_card" self="sm-full" class="visible-on-ready" style="max-width: 460px"></div></div><p>When loading a view, the data provided through the <code>z-model</code> attribute, can be passed in either of the following ways:<ul><li>as inline string (like in the previous example)</ul><pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot; z-model=&quot;{
   title: 'Down the rabbit hole',
   image: 'examples/images/card_cover_2.jpg',
   text: 'Luckily for Alice, the little magic bottle had now had its full effect, and she grew no larger&amp;hellip;',
@@ -614,11 +427,7 @@ card.</p>
     url: '#'
   }
 }&quot; class=&quot;visible-on-ready&quot;&gt;&lt;/div&gt;
-</code></pre>
-<ul>
-<li>or with a variable</li>
-</ul>
-<pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot; z-model=&quot;myCardData&quot;&gt;&lt;/div&gt;
+</code></pre><ul><li>or with a variable</ul><pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot; z-model=&quot;myCardData&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
 myCardData = {
   title: 'Down the rabbit hole',
@@ -630,10 +439,7 @@ myCardData = {
   }
 };
 &lt;/script&gt;
-</code></pre>
-<p><label class="mdl-color-text--primary">Result</label></p>
-<div self="size-x1" layout="row center-center" class="example-container" style="min-height: 325px">
-  <div view z-load="templates/mdl_card" z-model="{
+</code></pre><p><label class="mdl-color-text--primary">Result</label><div self="size-x1" layout="row center-center" class="example-container" style="min-height: 325px"><div view z-load="templates/mdl_card" z-model="{
     title: 'Down the rabbit hole',
     image: '/app/content/docs/examples/images/card_cover_2.jpg',
     text: 'Luckily for Alice, the little magic bottle had now had its full effect, and she grew no larger&hellip;',
@@ -641,88 +447,12 @@ myCardData = {
        title: 'Read more',
        url: 'javascript:void(0)'
     }
-  }" self="sm-full center" class="visible-on-ready" style="max-width: 460px"></div>
-</div>
-<h3>Binding Adapters</h3>
-<p>Sometimes it might be required to have more control over how the value of a data model's field affects the view. For this
-purpose <em>binding adapters</em> can be used.</p>
-<p>A <em>binding adapter</em> is a function that gets called to update bound elements of a view, based on the actual values of the
-data model's fields.</p>
-<p>A <em>binding adapter</em> gets automatically called everytime a new data model is set, or if the <code>context.modelToView()</code> method
-is called programmatically. In both cases, the <em>binding adapter</em> function, will get called for each <code>#&lt;field_name&gt;</code> or <code>z-bind</code>
-attribute declared in the view's template and will provide required code to update the view:</p>
-<pre><code class="language-javascript">/** @type {BindingAdapterCallback} */
+  }" self="sm-full center" class="visible-on-ready" style="max-width: 460px"></div></div><h3>Binding Adapters</h3><p>Sometimes it might be required to have more control over how the value of a data model's field affects the view. For this purpose <em>binding adapters</em> can be used.<p>A <em>binding adapter</em> is a function that gets called to update bound elements of a view, based on the actual values of the data model's fields.<p>A <em>binding adapter</em> gets automatically called everytime a new data model is set, or if the <code>context.modelToView()</code> method is called programmatically. In both cases, the <em>binding adapter</em> function, will get called for each <code>#&lt;field_name&gt;</code> or <code>z-bind</code> attribute declared in the view's template and will provide required code to update the view:<pre><code class="language-javascript">/** @type {BindingAdapterCallback} */
 function vm_binding_adapter($element, fieldName, $view, refreshCallback) {
   // TODO: adapter code to update `$element` bound
   //       to `fieldName` data model's field
 }
-</code></pre>
-<p>where <code>$element</code> is the element of the view with <code>#&lt;field_name&gt;</code>/<code>z-bind</code> attribute, <code>fieldName</code> is the attribute value,
-that is the name of the bound field in the data model, and <code>$view</code> is the view's element itself.</p>
-<p>The <a href="../api/zuix/ComponentContext/#BindingAdapterCallback"><code>refreshCallback</code></a> is a callback that can be used either for
-postponing the update of field's bound <code>$element</code> (eg. data is not available yet), or to request a cyclic refresh of the
-same <code>$element</code>/<code>fieldName</code>.</p>
-<p><label class="mdl-color-text--primary">Example</label></p>
-<div layout="column top-center">
-<div view z-load="templates/mdl_card"
-     z-model="sampleCardAdapter"></div>
-<script>
-counter = 0;
-sampleData = null; // example data for the card
-
-// let's pretend the data is fetched asynchronously via http
-setTimeout(() => {
-  sampleData = {
-    title: () => 'Hello! ' + counter++,
-    text: 'A binding adapter can be used to customize the way data model\'s fields are mapped to the view elements.',
-    image: () => 'https://picsum.photos/320/160?' + counter
-  }
-}, 1);
-
-function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
-
-  if (sampleData === null) {
-    // no data yet
-    // return and retry again in 500ms
-    return refreshCallback();
-  }
-
-  // data is available, update only
-  // if the `$element` is visible on screen
-  if (!$element.position().visible) {
-    // postpone field binding of 1s if element is not visible
-    return refreshCallback(1000);
-  }
-
-  // $element is visible, resolve field binding
-  switch(fieldName) {
-
-    case 'title':
-      $element.html(sampleData.title());
-      // this field will be updated every second
-      return refreshCallback(1000);
-
-    case 'image':
-      $element.attr('src', sampleData.image());
-      // get the component's context
-      const ctx = zuix.context($view);
-      // to animate the `title` field also
-      ctx.field('title')
-         .animateCss('bounce', {duration: '0.5s'});
-      // this field will be updated every 5 seconds
-      return refreshCallback(5000);
-
-    case 'text':
-      $element.html(sampleData.text);
-      // no `refreshCallback`, this field
-      // will be updated only once
-      break;
-  }
-
-}
-</script>
-</div>
-<pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot;
+</code></pre><p>where <code>$element</code> is the element of the view with <code>#&lt;field_name&gt;</code>/<code>z-bind</code> attribute, <code>fieldName</code> is the attribute value, that is the name of the bound field in the data model, and <code>$view</code> is the view's element itself.<p>The <a href="../api/zuix/ComponentContext/#BindingAdapterCallback"><code>refreshCallback</code></a> is a callback that can be used either for postponing the update of field's bound <code>$element</code> (eg. data is not available yet), or to request a cyclic refresh of the same <code>$element</code>/<code>fieldName</code>.<p><label class="mdl-color-text--primary">Example</label><div layout="column top-center"><div view z-load="templates/mdl_card" z-model="sampleCardAdapter"></div><script>function sampleCardAdapter(e,t,a,s){if(null===sampleData)return s();if(!e.position().visible)return s(1e3);switch(t){case"title":return e.html(sampleData.title()),s(1e3);case"image":e.attr("src",sampleData.image());const i=zuix.context(a);return i.field("title").animateCss("bounce",{duration:"0.5s"}),s(5e3);case"text":e.html(sampleData.text)}}counter=0,sampleData=null,setTimeout(()=>{sampleData={title:()=>"Hello! "+counter++,text:"A binding adapter can be used to customize the way data model's fields are mapped to the view elements.",image:()=>"https://picsum.photos/320/160?"+counter}},1)</script></div><pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot;
      z-model=&quot;sampleCardAdapter&quot;&gt;&lt;/div&gt;
 
 &lt;script&gt;
@@ -781,56 +511,7 @@ function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
 }
 &lt;/script&gt;
 
-</code></pre>
-<p>In the above example the <em>binding adapter</em> is used to handle all bound fields of the data model. This binding adapter
-also checks if the component is visible before updating view's fields. If it's not visible then it will enter an idle
-state postponing the refresh.</p>
-<!-- Contact Chip view template -->
-<div z-view="inline/common/contact_chip">
-  <div class="mdl-chip mdl-chip--contact mdl-color--blue mdl-color-text--white mdl-shadow--4dp animate__animated animate__fadeIn">
-    <img #image class="mdl-chip__contact" src="/app/content/docs/examples/images/avatar_00.png" alt="avatar">
-    <div #name class="mdl-chip__text">Contact Name</div>
-  </div>
-</div>
-<style media="#inline/common/contact_chip">
-    /* TODO: view styles definitions */
-</style>
-<!-- BEGIN: Inline View - Example Data Binding -->
-<div z-view="inline/chip_example_result">
-    <div layout="rows center-spread">
-        <div view z-load="inline/common/contact_chip"
-             data-id="0" z-model="chip_adapter_fn" class="visible-on-ready"></div>
-        <div view z-load="inline/common/contact_chip"
-             data-id="1" z-model="chip_adapter_fn" class="visible-on-ready"></div>
-        <script>
-            chip_items = {
-                "0": { name: 'Foo Bar', image: '/app/content/docs/examples/images/avatar_02.png'},
-                "1": { name: 'Jane Doe', image: '/app/content/docs/examples/images/avatar_01.png'},
-                "2": { name: 'Mikey M.', image: '/app/content/docs/examples/images/avatar_03.png'}
-            };
-            chip_adapter_fn = function($element, field) {
-                const id = this.attr('data-id');
-                const value = chip_items[id][field];
-                switch (field) {
-                    case 'name':
-                        $element.html(value);
-                        break;
-                    case 'image':
-                        $element.attr('src', value);
-                        break;
-                }
-            };
-        </script>
-    </div>
-</div>
-<style media="#inline/chip_example_result">
-    /* TODO: styles definitions */
-</style>
-<!-- END: Inline View - Example Data Binding -->
-<p>In the case of a <code>JSON</code> data model, it's also possible to use a <em>binding adapter</em> for each single field, like with the
-field <code>name</code> in the following example:</p>
-<p><label class="mdl-color-text--primary">Example</label></p>
-<pre><code class="language-html">&lt;!-- Foo Bar chip --&gt;
+</code></pre><p>In the above example the <em>binding adapter</em> is used to handle all bound fields of the data model. This binding adapter also checks if the component is visible before updating view's fields. If it's not visible then it will enter an idle state postponing the refresh.</p><!-- Contact Chip view template --><div z-view="inline/common/contact_chip"><div class="mdl-chip mdl-chip--contact mdl-color--blue mdl-color-text--white mdl-shadow--4dp animate__animated animate__fadeIn"><img #image class="mdl-chip__contact" src="/app/content/docs/examples/images/avatar_00.png" alt="avatar"><div #name class="mdl-chip__text">Contact Name</div></div></div><style media="#inline/common/contact_chip">/* TODO: view styles definitions */</style><!-- BEGIN: Inline View - Example Data Binding --><div z-view="inline/chip_example_result"><div layout="rows center-spread"><div view z-load="inline/common/contact_chip" data-id="0" z-model="chip_adapter_fn" class="visible-on-ready"></div><div view z-load="inline/common/contact_chip" data-id="1" z-model="chip_adapter_fn" class="visible-on-ready"></div><script>chip_items={0:{name:"Foo Bar",image:"/app/content/docs/examples/images/avatar_02.png"},1:{name:"Jane Doe",image:"/app/content/docs/examples/images/avatar_01.png"},2:{name:"Mikey M.",image:"/app/content/docs/examples/images/avatar_03.png"}},chip_adapter_fn=function(a,e){var t=this.attr("data-id"),i=chip_items[t][e];switch(e){case"name":a.html(i);break;case"image":a.attr("src",i)}}</script></div></div><style media="#inline/chip_example_result">/* TODO: styles definitions */</style><!-- END: Inline View - Example Data Binding --><p>In the case of a <code>JSON</code> data model, it's also possible to use a <em>binding adapter</em> for each single field, like with the field <code>name</code> in the following example:<p><label class="mdl-color-text--primary">Example</label><pre><code class="language-html">&lt;!-- Foo Bar chip --&gt;
 &lt;div view z-load=&quot;inline/common/contact_chip&quot;
      z-model=&quot;foo_bar_contact&quot;&gt;&lt;/div&gt;
 &lt;!-- Jane Doe chip --&gt;
@@ -857,40 +538,7 @@ function a_random_name() {
   return 'Jane Doe';
 }
 &lt;/script&gt;
-</code></pre>
-<script>
-// example inline data model
-foo_bar_contact = {
-    image: '/app/content/docs/examples/images/avatar_02.png',
-    name: 'Foo Bar '
-};
-a_random_contact = {
-    image: '/app/content/docs/examples/images/avatar_01.png',
-    name: nameUpdateFn
-};
-function nameUpdateFn(element, field, view, refreshCallback) {
-  element.html(a_random_name());
-}
-function a_random_name() {
-  return 'Jane Doe';
-}
-</script>
-<p><label class="mdl-color-text--primary">Result</label></p>
-<div class="example-container">
-  <div layout="rows center-spread">
-    <div view z-load="inline/common/contact_chip"
-      data-id="0" z-model="foo_bar_contact" class="visible-on-ready"></div>
-    <div view z-load="inline/common/contact_chip"
-      data-id="1" z-model="a_random_contact" class="visible-on-ready"></div>
-  </div>
-</div>
-<h2>Accessibility</h2>
-<p>The data model can also be set directly inside the host element through HTML tags, and this will also provide a default
-visualization in case the view's template is still loading or JavaScript is not enabled.</p>
-<p>The following example shows how to embed data model's fields with HTML code inside the host element using <code>#&lt;field_name&gt;</code>
-attribute:</p>
-<p><label class="mdl-color-text--primary">Example</label></p>
-<pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot;&gt;
+</code></pre><script>function nameUpdateFn(a,n,e,m){a.html(a_random_name())}function a_random_name(){return"Jane Doe"}foo_bar_contact={image:"/app/content/docs/examples/images/avatar_02.png",name:"Foo Bar "},a_random_contact={image:"/app/content/docs/examples/images/avatar_01.png",name:nameUpdateFn}</script><p><label class="mdl-color-text--primary">Result</label><div class="example-container"><div layout="rows center-spread"><div view z-load="inline/common/contact_chip" data-id="0" z-model="foo_bar_contact" class="visible-on-ready"></div><div view z-load="inline/common/contact_chip" data-id="1" z-model="a_random_contact" class="visible-on-ready"></div></div></div><h2>Accessibility</h2><p>The data model can also be set directly inside the host element through HTML tags, and this will also provide a default visualization in case the view's template is still loading or JavaScript is not enabled.<p>The following example shows how to embed data model's fields with HTML code inside the host element using <code>#&lt;field_name&gt;</code> attribute:<p><label class="mdl-color-text--primary">Example</label><pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot;&gt;
 
   &lt;h1 #title&gt;Let's code!&lt;/h1&gt;
   &lt;img #image src=&quot;examples/images/card_cover_3.jpg&quot; alt=&quot;Cover image&quot; role=&quot;presentation&quot;&gt;
@@ -902,47 +550,7 @@ attribute:</p>
   &lt;/a&gt;
 
 &lt;/div&gt;
-</code></pre>
-<p>and the above code, as is, will also provide a default visualization:</p>
-<p><label class="mdl-color-text--primary">Result</label></p>
-<div self="size-x1" layout="column center-center">
-  <div z-field="card-example-1" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px">
-    <h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1>
-    <img #image class="animate__animated animate__fadeIn" src="/app/content/docs/examples/images/cover_javascript.jpg" alt="cover" style="width: 100%;padding: 8px">
-    <p #text class="animate__animated animate__fadeIn">
-      Yes we can!
-    </p>
-    <a #link.url href="javascript:void(0)" class="animate__animated animate__fadeIn">
-      <span #link.title>Take me there</span>
-    </a>
-  </div>
-</div>
-<script>
-cardViewContainer1 = zuix.field('card-example-1');
-function loadMdlCard(container) {
-  zuix.loadComponent(container, 'templates/mdl_card', 'view', {
-    ready: (ctx) => ctx.$.animateCss('zoomIn', {duration: '300ms'})
-  });
-}
-</script>
-<div ctrl z-load="controllers/mdl_menu" z-lazy="false" class="visible-on-ready" layout="column center-center">
-  <a onclick="zuix.$(this).animateCss('rubberBand', {duration: '250ms'})">Try me!</a>
-  <ul>
-    <li onclick="loadMdlCard(cardViewContainer1)"
-        @disable-if="zuix.context(cardViewContainer1)">Load view "mdl_card"</li>
-    <li onclick="zuix.unload(cardViewContainer1)"
-        @disable-if="!zuix.context(cardViewContainer1)">Unload</li>
-  </ul>
-</div>
-<p>to actually load or unload the <code>templates/mdl_card</code> view, use the &quot;Try me&quot; button above.</p>
-<p>Data model's fields, in this case, are HTML elements inside the host element, that are automatically mapped to a certain
-property of the target element in the view template, depending on its type.</p>
-<p>For instance, if the target element is <code>img</code>, then the mapped property will be <code>.src</code>, while if it's a <code>div</code> or a <code>p</code>,
-it will be the <code>.innerHTML</code> property. A binding adapter can eventually be used to override the way elements are mapped
-internally.</p>
-<p>The host element body can also be used to simply provide an alternative text description for browsers where Javascript is
-disabled, and a <em>loading</em> message to show while the component is loading for browsers where Javascript is enabled:</p>
-<pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot; z-model=&quot;{
+</code></pre><p>and the above code, as is, will also provide a default visualization:<p><label class="mdl-color-text--primary">Result</label><div self="size-x1" layout="column center-center"><div z-field="card-example-1" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px"><h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1><img #image class="animate__animated animate__fadeIn" src="/app/content/docs/examples/images/cover_javascript.jpg" alt="cover" style="width: 100%;padding: 8px"><p #text class="animate__animated animate__fadeIn">Yes we can!</p><a #link.url href="javascript:void(0)" class="animate__animated animate__fadeIn"><span #link.title>Take me there</span></a></div></div><script>function loadMdlCard(a){zuix.loadComponent(a,"templates/mdl_card","view",{ready:a=>a.$.animateCss("zoomIn",{duration:"300ms"})})}cardViewContainer1=zuix.field("card-example-1")</script><div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center"><ul><li onclick="loadMdlCard(cardViewContainer1)" @disable-if="zuix.context(cardViewContainer1)">Load view "mdl_card"<li onclick="zuix.unload(cardViewContainer1)" @disable-if="!zuix.context(cardViewContainer1)">Unload</ul><a ctrl z-load="@lib/controllers/mdl-button" onclick='zuix.$(this).animateCss("rubberBand",{duration:"250ms"})'>Try me!</a></div><p>to actually load or unload the <code>templates/mdl_card</code> view, use the &quot;Try me&quot; button above.<p>Data model's fields, in this case, are HTML elements inside the host element, that are automatically mapped to a certain property of the target element in the view template, depending on its type.<p>For instance, if the target element is <code>img</code>, then the mapped property will be <code>.src</code>, while if it's a <code>div</code> or a <code>p</code>, it will be the <code>.innerHTML</code> property. A binding adapter can eventually be used to override the way elements are mapped internally.<p>The host element body can also be used to simply provide an alternative text description for browsers where Javascript is disabled, and a <em>loading</em> message to show while the component is loading for browsers where Javascript is enabled:<pre><code class="language-html">&lt;div view z-load=&quot;templates/mdl_card&quot; z-model=&quot;{
   title: 'Some title',
   image: 'examples/images/card_cover_4.jpg',
   text: 'Some great encouraging text.',
@@ -957,16 +565,12 @@ disabled, and a <em>loading</em> message to show while the component is loading 
     This component works only in JavaScript enabled browsers.
   &lt;/noscript&gt;
 &lt;/div&gt;
-</code></pre>
-<p><label class="mdl-color-text--primary">Result</label></p>
-<div self="size-x1" layout="column center-center">
-  <!--
+</code></pre><p><label class="mdl-color-text--primary">Result</label><div self="size-x1" layout="column center-center"><!--
     The `z-ready` attribute can be used to
     prevent default component from being loaded.
     The component will be loaded later with
     `loadMdlCard(..)' in js code.
-  -->
-  <div z-field="card-example-2" z-ready z-model="{
+  --><div z-field="card-example-2" z-ready z-model="{
     title: 'Some title',
     image: '/app/content/docs/examples/images/card_cover_4.jpg',
     text: 'Some great encouraging text.',
@@ -974,42 +578,7 @@ disabled, and a <em>loading</em> message to show while the component is loading 
        title: 'Just do it!',
        url: 'javascript:void(0)'
     }
-  }" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px">
-    <div layout="column center-center" style="min-height: 335px">
-        <div class="animate__animated animate__bounceIn" style="width: 100%;text-align: center; padding:24px; font-size: 160%;">
-            <code>-=| loading |=-</code>
-        </div>
-        <div class="mdl-spinner mdl-js-spinner is-active"></div>
-        <noscript>
-          This component works only in JavaScript enabled browsers.
-        </noscript>
-    </div>
-  </div>
-</div>
-<script>
-cardViewContainer2 = zuix.field('card-example-2');
-</script>
-<div ctrl z-load="controllers/mdl_menu" z-lazy="false" class="visible-on-ready" layout="column center-center">
-  <a onclick="zuix.$(this).animateCss('rubberBand', {duration: '250ms'})">Try me!</a>
-  <ul>
-    <li onclick="loadMdlCard(cardViewContainer2)"
-        @disable-if="zuix.context(cardViewContainer2)">Load view "mdl_card"</li>
-    <li onclick="cardViewContainer2.animateCss('flipOutX', {duration: '500ms'}, ()=> zuix.unload(cardViewContainer2))"
-        @disable-if="!zuix.context(cardViewContainer2)">Unload</li>
-  </ul>
-</div>
-<p>Since components can be dynamically loaded, unloaded or replaced, it is also possible to select specific components'
-layout, based for instance, on the device's screen size/orientation or a user selectable theme. All without changing the
-HTML code of the page, that will basically host the components' data models itself, and also provide through it a default
-visualization of the page that will even work without Javascript.</p>
-<h2>Behaviors</h2>
-<p><em>Behavior Handlers</em> determine how a view will react and behave upon certain events, like user interaction or state-change
-events. It's a different thing from regular events, since behavior are highly generic and reusable on groups or categories
-of elements. They are also very different from CSS animations, since behind behaviors there is a user-definable logic
-implemented with <em>JavaScript</em> code.</p>
-<p>In a similar way to <a href="../component/#events">Event Handlers</a>, <em>Behavior Handlers</em> can be declared in the <a href="..//api/zuix/Zuix/#ContextOptions"><em>component's options</em></a>
-through the property <code>behavior</code>:</p>
-<pre><code class="language-html">&lt;script&gt;
+  }" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px"><div layout="column center-center" style="min-height: 335px"><div class="animate__animated animate__bounceIn" style="width: 100%;text-align: center; padding:24px; font-size: 160%;"><code>-=| loading |=-</code></div><div class="mdl-spinner mdl-js-spinner is-active"></div><noscript>This component works only in JavaScript enabled browsers.</noscript></div></div></div><script>cardViewContainer2=zuix.field("card-example-2")</script><div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center"><ul><li onclick="loadMdlCard(cardViewContainer2)" @disable-if="zuix.context(cardViewContainer2)">Load view "mdl_card"<li onclick='cardViewContainer2.animateCss("flipOutX",{duration:"500ms"},()=>zuix.unload(cardViewContainer2))' @disable-if="!zuix.context(cardViewContainer2)">Unload</ul><a ctrl z-load="@lib/controllers/mdl-button" onclick='zuix.$(this).animateCss("rubberBand",{duration:"250ms"})'>Try me!</a></div><p>Since components can be dynamically loaded, unloaded or replaced, it is also possible to select specific components' layout, based for instance, on the device's screen size/orientation or a user selectable theme. All without changing the HTML code of the page, that will basically host the components' data models itself, and also provide through it a default visualization of the page that will even work without Javascript.<h2>Behaviors</h2><p><em>Behavior Handlers</em> determine how a view will react and behave upon certain events, like user interaction or state-change events. It's a different thing from regular events, since behavior are highly generic and reusable on groups or categories of elements. They are also very different from CSS animations, since behind behaviors there is a user-definable logic implemented with <em>JavaScript</em> code.<p>In a similar way to <a href="../component/#events">Event Handlers</a>, <em>Behavior Handlers</em> can be declared in the <a href="..//api/zuix/Zuix/#ContextOptions"><em>component's options</em></a> through the property <code>behavior</code>:<pre><code class="language-html">&lt;script&gt;
 options = {
   // behavior handlers
   behavior: {
@@ -1024,11 +593,7 @@ options = {
 }
 &lt;/script&gt;
 &lt;div z-load=&quot;my/component&quot; z-options=&quot;options&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>where <code>&lt;event_name&gt;</code> is the name of the event (eg. <code>click</code>, <code>mouseover</code>, ...), and <code>function(e, data, $el?)</code> is the associated
-<a href="../api/zuix/ComponentContext/#EventCallback">EventCallback</a> that will be called each time the <code>&lt;event_name&gt;</code> occurs.</p>
-<p><em>Behavior Handlers</em> can also be directly declared with the <code>z-behavior</code> attribute on the host element:</p>
-<pre><code class="language-html">&lt;script&gt;
+</code></pre><p>where <code>&lt;event_name&gt;</code> is the name of the event (eg. <code>click</code>, <code>mouseover</code>, ...), and <code>function(e, data, $el?)</code> is the associated <a href="../api/zuix/ComponentContext/#EventCallback">EventCallback</a> that will be called each time the <code>&lt;event_name&gt;</code> occurs.<p><em>Behavior Handlers</em> can also be directly declared with the <code>z-behavior</code> attribute on the host element:<pre><code class="language-html">&lt;script&gt;
 componentBehavior = {
     '&lt;event_name&gt;': function(e, data, $el?) {
         // the context object `this` is same as `$el`
@@ -1037,12 +602,7 @@ componentBehavior = {
 };
 &lt;/script&gt;
 &lt;div z-load=&quot;my/component&quot; z-behavior=&quot;componentBehavior&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>Using the internal <a href="../component/#defaultComponent"><em>default component</em></a>, it is possible to get advantage of behaviors
-and other component's features, also on standard HTML elements as shown in the example below, where a standard <code>input</code>
-element is enhanced with a visual feedback to report user input errors using HTML5 <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#built-in_form_validation_examples">built-in form validation</a>.</p>
-<p><label class="mdl-color-text--primary">Example</label></p>
-<pre><code class="language-html">&lt;input z-behavior=&quot;checkValidityBehavior&quot;
+</code></pre><p>Using the internal <a href="../component/#defaultComponent"><em>default component</em></a>, it is possible to get advantage of behaviors and other component's features, also on standard HTML elements as shown in the example below, where a standard <code>input</code> element is enhanced with a visual feedback to report user input errors using HTML5 <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#built-in_form_validation_examples">built-in form validation</a>.<p><label class="mdl-color-text--primary">Example</label><pre><code class="language-html">&lt;input z-behavior=&quot;checkValidityBehavior&quot;
        type=&quot;text&quot; value=&quot;&quot;
        placeholder=&quot;Enter nickname&quot;
        pattern=&quot;[a-zA-Z0-9]+&quot; minlength=&quot;4&quot; maxlength=&quot;10&quot;
@@ -1050,30 +610,7 @@ element is enhanced with a visual feedback to report user input errors using HTM
        aria-describedby=&quot;input-error&quot;&gt;
 
 &lt;small id=&quot;input-error&quot;&gt;&lt;/small&gt;
-</code></pre>
-<p><label class="mdl-color-text--primary">Result</label></p>
-<div layout="row center-center" z-load="default">
-    <div class="example-container" layout="column top-left" style="min-height: 132px; max-width: 230px;margin-right: 12px">
-        <label for="input-example" class="mdl-color-text--light-green-900">Nickname</label>
-        <input type="text" id="input-example"
-               z-options="enhancedInputOptions"
-               aria-describedby="input-error"
-               placeholder="Enter nickname"
-               value=""
-               message="Choose a name between 4 and 10 chars long, only letters and numbers."
-               pattern="[a-zA-Z0-9]+" minlength="4" maxlength="10">
-        <small id="input-error" class="animate__animated animate__flash animate__faster"
-               style="margin-top: 8px; margin-left: 2px"></small>
-    </div>
-    <button ctrl z-load="controllers/mdl_button" style="margin-bottom: 56px" @disable-if="!input.validity.valid || !input.value">
-        Ok
-    </button>
-    <script type="jscript">
-      const input = zuix.$('#input-example').get();
-    </script>
-</div>
-<script type="module">
-import {CheckValidityBehavior} from './CheckValidityBehavior.js';
+</code></pre><p><label class="mdl-color-text--primary">Result</label><div layout="row center-center" z-load="default"><div class="example-container" layout="column top-left" style="min-height: 132px; max-width: 230px;margin-right: 12px"><label for="input-example" class="mdl-color-text--light-green-900">Nickname</label> <input id="input-example" z-options="enhancedInputOptions" aria-describedby="input-error" placeholder="Enter nickname" message="Choose a name between 4 and 10 chars long, only letters and numbers." pattern="[a-zA-Z0-9]+" minlength="4" maxlength="10"> <small id="input-error" class="animate__animated animate__flash animate__faster" style="margin-top: 8px; margin-left: 2px"></small></div><button ctrl z-load="@lib/controllers/mdl-button" style="margin-bottom: 56px" @disable-if="!input.validity.valid || !input.value">Ok</button><script type="jscript">const input = zuix.$('#input-example').get();</script></div><script type="module">import {CheckValidityBehavior} from './CheckValidityBehavior.js';
 /** @type {ContextOptions} */
 self.enhancedInputOptions = {
   behavior: CheckValidityBehavior(),
@@ -1089,18 +626,7 @@ self.enhancedInputOptions = {
     :host[aria-invalid=true] {
         border-color: red;
     }`,
-};
-</script>
-<p>The behavior <code>CheckValidityBehavior</code> in this example, checks validation properties of the <code>input</code> element, and reports
-validation hints inside the element with the <code>id</code> specified by the <code>aria-describedby</code> attribute. The <code>message</code> attribute
-is used instead to configure a default hint message to show when the input value is empty.</p>
-<p>In this other example, a <em>view switch</em> behavior is applied to some buttons and text elements. Each of them, also
-specify the <code>target</code> view associated to be shown on click, and a transition <code>animation</code> to be  used. So, when a
-<em>view switch</em> button is clicked, the associated <em>view</em> will be shown using the transition animation effect specified
-or a default <code>fade</code>. <em>ViewSwitchBehavior</em> takes one argument that can be used to specify the transition direction that
-can be <em>'horizontal'</em> (default), or <em>'vertical'</em>.</p>
-<p><label class="mdl-color-text--primary">Example</label></p>
-<pre><code class="language-html">&lt;script&gt;
+};</script><p>The behavior <code>CheckValidityBehavior</code> in this example, checks validation properties of the <code>input</code> element, and reports validation hints inside the element with the <code>id</code> specified by the <code>aria-describedby</code> attribute. The <code>message</code> attribute is used instead to configure a default hint message to show when the input value is empty.<p>In this other example, a <em>view switch</em> behavior is applied to some buttons and text elements. Each of them, also specify the <code>target</code> view associated to be shown on click, and a transition <code>animation</code> to be used. So, when a <em>view switch</em> button is clicked, the associated <em>view</em> will be shown using the transition animation effect specified or a default <code>fade</code>. <em>ViewSwitchBehavior</em> takes one argument that can be used to specify the transition direction that can be <em>'horizontal'</em> (default), or <em>'vertical'</em>.<p><label class="mdl-color-text--primary">Example</label><pre><code class="language-html">&lt;script&gt;
 view_switch_h = ViewSwitchBehavior('horizontal');
 view_switch_v = ViewSwitchBehavior('vertical');
 &lt;/script&gt;
@@ -1131,121 +657,9 @@ view_switch_v = ViewSwitchBehavior('vertical');
     // ...
 
 &lt;/div&gt;
-</code></pre>
-<p>The possible values of the <code>animation</code> attribute are:</p>
-<pre><code class="language-js">'bounce', 'fade', 'slide', 'zoom', 'back',
+</code></pre><p>The possible values of the <code>animation</code> attribute are:<pre><code class="language-js">'bounce', 'fade', 'slide', 'zoom', 'back',
 'lightSpeed' // (&lt;-- this one only works with horizontal orientation)
-</code></pre>
-<p><label class="mdl-color-text--primary">Result</label></p>
-<div class="example-container" layout="column stretch-center" style="min-height: 350px">
-    <div class="example-container" style="margin-bottom: 12px">
-        <div layout="row center-start reverse" style="background: black">
-            <div class="views-container">
-<div z-field="view-1" class="view-switch" layout="column top-center"
-                    view-selected="true">
-                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
-                        Random content 1
-                    </p>
-                </div><div z-field="view-2" class="view-switch" layout="column top-center"
-                    >
-                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
-                        Random content 2
-                    </p>
-                </div><div z-field="view-3" class="view-switch" layout="column top-center"
-                    >
-                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
-                        Random content 3
-                    </p>
-                </div><div z-field="view-4" class="view-switch" layout="column top-center"
-                    >
-                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
-                        Random content 4
-                    </p>
-                </div><div z-field="view-5" class="view-switch" layout="column top-center"
-                    >
-                    <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
-                        Random content 5
-                    </p>
-                </div>
-            </div>
-            <div style="width: 72px;" layout="column">
-<img src="https://picsum.photos/320/225?1" width="72" height="40" style="margin: 2px; padding: 2px;"
-                     class="visible-on-ready" alt="Random image"
-                     z-options="mdl_button_options_2"
-                     z-behavior="viewSwitchBehaviorV"
-                     animation="back"
-                     target="view-1"><img src="https://picsum.photos/320/225?2" width="72" height="40" style="margin: 2px; padding: 2px;"
-                     class="visible-on-ready" alt="Random image"
-                     z-options="mdl_button_options_2"
-                     z-behavior="viewSwitchBehaviorV"
-                     animation="back"
-                     target="view-2"><img src="https://picsum.photos/320/225?3" width="72" height="40" style="margin: 2px; padding: 2px;"
-                     class="visible-on-ready" alt="Random image"
-                     z-options="mdl_button_options_2"
-                     z-behavior="viewSwitchBehaviorV"
-                     animation="back"
-                     target="view-3"><img src="https://picsum.photos/320/225?4" width="72" height="40" style="margin: 2px; padding: 2px;"
-                     class="visible-on-ready" alt="Random image"
-                     z-options="mdl_button_options_2"
-                     z-behavior="viewSwitchBehaviorV"
-                     animation="back"
-                     target="view-4"><img src="https://picsum.photos/320/225?5" width="72" height="40" style="margin: 2px; padding: 2px;"
-                     class="visible-on-ready" alt="Random image"
-                     z-options="mdl_button_options_2"
-                     z-behavior="viewSwitchBehaviorV"
-                     animation="back"
-                     target="view-5">
-            </div>
-        </div>
-        <div layout="row center-center">
-<button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
-                    z-options="mdl_button_options_2"
-                    z-behavior="viewSwitchBehaviorH"
-                    target="view-1">
-                1
-            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
-                    z-options="mdl_button_options_2"
-                    z-behavior="viewSwitchBehaviorH"
-                    target="view-2">
-                2
-            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
-                    z-options="mdl_button_options_2"
-                    z-behavior="viewSwitchBehaviorH"
-                    target="view-3">
-                3
-            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
-                    z-options="mdl_button_options_2"
-                    z-behavior="viewSwitchBehaviorH"
-                    target="view-4">
-                4
-            </button><button ctrl z-load="controllers/mdl_button" class="visible-on-ready margin-8px"
-                    z-options="mdl_button_options_2"
-                    z-behavior="viewSwitchBehaviorH"
-                    target="view-5">
-                5
-            </button>
-        </div>
-    </div>
-    <!-- -->
-    <div style="font-family: monospace; font-size: 140%; margin-bottom: 24px; text-align: center; line-height: 180%">
-        Ok, Let's try this <em>behavior</em> on a simple text <em>span</em> ...
-        <br>
-        <span z-behavior="viewSwitchBehaviorH" target="view-1" animation="lightSpeed">
-           TEST one</span>,
-        <span z-behavior="viewSwitchBehaviorH" target="view-2" animation="lightSpeed">
-           two</span>,
-        <span z-behavior="viewSwitchBehaviorH" target="view-3" animation="lightSpeed">
-           three</span>,
-        <span z-behavior="viewSwitchBehaviorH" target="view-4" animation="lightSpeed">
-           four</span>,
-        <span z-behavior="viewSwitchBehaviorH" target="view-5" animation="lightSpeed">
-           five</span>!
-        ... =)
-    </div>
-    <!-- -->
-</div>
-<style>
-[z-field="view-1"] {
+</code></pre><p><label class="mdl-color-text--primary">Result</label><div class="example-container" layout="column stretch-center" style="min-height: 350px"><div class="example-container" style="margin-bottom: 12px"><div layout="row center-start reverse" style="background: black"><div class="views-container"><div z-field="view-1" class="view-switch" layout="column top-center" view-selected="true"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 1</div><div z-field="view-2" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 2</div><div z-field="view-3" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 3</div><div z-field="view-4" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 4</div><div z-field="view-5" class="view-switch" layout="column top-center"><p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">Random content 5</div></div><div style="width: 72px;" layout="column"><img src="https://picsum.photos/320/225?1" width="72" height="40" style="margin: 2px; padding: 2px;" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-1"><img src="https://picsum.photos/320/225?2" width="72" height="40" style="margin: 2px; padding: 2px;" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-2"><img src="https://picsum.photos/320/225?3" width="72" height="40" style="margin: 2px; padding: 2px;" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-3"><img src="https://picsum.photos/320/225?4" width="72" height="40" style="margin: 2px; padding: 2px;" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-4"><img src="https://picsum.photos/320/225?5" width="72" height="40" style="margin: 2px; padding: 2px;" class="visible-on-ready" alt="Random image" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorV" animation="back" target="view-5"></div></div><div layout="row center-center"><button ctrl z-load="@lib/controllers/mdl-button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-1">1</button><button ctrl z-load="@lib/controllers/mdl-button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-2">2</button><button ctrl z-load="@lib/controllers/mdl-button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-3">3</button><button ctrl z-load="@lib/controllers/mdl-button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-4">4</button><button ctrl z-load="@lib/controllers/mdl-button" class="visible-on-ready margin-8px" z-options="mdl_button_options_2" z-behavior="viewSwitchBehaviorH" target="view-5">5</button></div></div><!-- --><div style="font-family: monospace; font-size: 140%; margin-bottom: 24px; text-align: center; line-height: 180%">Ok, Let's try this <em>behavior</em> on a simple text <em>span</em> ...<br><span z-behavior="viewSwitchBehaviorH" target="view-1" animation="lightSpeed">TEST one</span>, <span z-behavior="viewSwitchBehaviorH" target="view-2" animation="lightSpeed">two</span>, <span z-behavior="viewSwitchBehaviorH" target="view-3" animation="lightSpeed">three</span>, <span z-behavior="viewSwitchBehaviorH" target="view-4" animation="lightSpeed">four</span>, <span z-behavior="viewSwitchBehaviorH" target="view-5" animation="lightSpeed">five</span>! ... =)</div><!-- --></div><style>[z-field="view-1"] {
         background-repeat: no-repeat;
         background-color: antiquewhite;
         background-image: url("https://picsum.photos/320/225?1");
@@ -1288,10 +702,7 @@ view_switch_v = ViewSwitchBehavior('vertical');
         width: 320px;
         height: 225px;
         margin: 8px;
-    }
-</style>
-<script type="module">
-  import {ViewSwitchBehavior} from './ViewSwitchBehavior.js';
+    }</style><script type="module">import {ViewSwitchBehavior} from './ViewSwitchBehavior.js';
   self.viewSwitchBehaviorH = ViewSwitchBehavior('horizontal');
   self.viewSwitchBehaviorV = ViewSwitchBehavior('vertical');
   self.mdl_button_options_2 = {
@@ -1302,330 +713,35 @@ view_switch_v = ViewSwitchBehavior('vertical');
       'click': () => { /* noop */
       }
     }
-  }
-</script>
-
-            </div>
-
-            
-
-
-<div -self="size-large" layout="row center-spread" style="margin-top: 96px; margin-bottom: 56px; padding-left: 8px; padding-right: 8px; font-size: 140%">
-    
-    <a href="/pages/documentation/component/">
-        <label layout="row center-center">
-            <i class="material-icons">arrow_left</i>&nbsp;
-            <span style="padding-right: 24px">Previous</span>
-        </label>
-        <div layout="row center-center" class="mdl-color-text--pink">Component</div>
+  }</script><div layout="rows center-spread" style="margin-top: 112px; gap:12px; margin-bottom: 32px; padding-left: 8px; padding-right: 8px; font-size: 140%"><a href="/pages/documentation/component/" style="text-align: center"><label layout="row center-center"><i class="material-icons">arrow_left</i>&nbsp; <span style="padding-right: 24px">Previous</span></label><div class="mdl-color-text--pink">Component</div></a><a href="/pages/documentation/active_refresh/" style="text-align: center"><label layout="row center-center"><span style="padding-left: 24px">Next</span> <i class="material-icons">arrow_right</i>&nbsp;</label><div class="mdl-color-text--pink">Active&rarr;Refresh</div></a></div></div></main><!-- Navigation Drawer --><div ctrl z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready animate__animated animate__faster" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js</div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 20px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
+<ul>
+    <li >
+    <a href="/home" class="mdl-js-ripple-effect">
+        <div layout="row center-left">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+        </div>
+        <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
     </a>
-    
-    
-    <a href="/pages/documentation/active_refresh/">
-        <label layout="row center-center">
-            <span style="padding-left: 24px">Next</span>
-            <i class="material-icons">arrow_right</i>&nbsp;
-        </label>
-        <div layout="row center-center" class="mdl-color-text--pink">Active&rarr;Refresh</div>
+    </li>
+    <li >
+    <a href="/search" class="mdl-js-ripple-effect">
+        <div layout="row center-left">
+            <i class="material-icons">search</i>
+            <span>Search</span>
+        </div>
+        <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
     </a>
-    
-</div>
-
-
-            
-
-        </div>
-    </main>
-
-    <!-- Navigation Drawer -->
-    <div ctrl z-load="controllers/drawer_layout"
-         z-context="menu-drawer"
-         z-options="drawer_opts"
-         class="drawer-layout no-select visible-on-ready"
-         layout="column top-stretch">
-        <!-- Navigation Drawer content -->
-
-        <!-- Header -->
-        <div class="drawer-header" layout="column justify-stretch">
-            <div self="stretch" layout="row center-justify">
-                <img class="logo animate__animated animate__swing animate__fast"
-                     src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js">
-                <div class="text-logo">zuix.js</div>
-                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 20px;opacity: 0.75">
-                    <img src="/images/github-mark-light.png" alt="GitHub logo"
-                         title="zuix.js on GitHub" width="32" height="32">
-                </a>
-            </div>
-            <div style="padding-left: 6px;padding-right: 6px;">
-                JavaScript library for component-based websites and applications.
-            </div>
-        </div>
-
-        <!-- Menu items and other content -->
-        <div class="drawer-content" self="size-x1">
-            <ul>
-    <li >
-        <a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>About zuix.js</span>
-                <i class="material-icons">info_outline</i>
-            </div>
-            <div class="summary">
-                Library and CLI features in brief.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
     </li>
-    <li >
-        <a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Getting started</span>
-                <i class="material-icons">outlined_flag</i>
-            </div>
-            <div class="summary">
-                Creating a new project, bare library usage, reading this guide.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Component</span>
-                <i class="material-icons">smart_button</i>
-            </div>
-            <div class="summary">
-                Loading options, lazy-loading, the <em>default</em> component, theming.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li  aria-current="page">
-        <a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>View</span>
-                <i class="material-icons">html</i>
-            </div>
-            <div class="summary">
-                Data binding, binding adapters, accessibility, behaviors.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Active&rarr;Refresh</span>
-                <i class="material-icons">loop</i>
-            </div>
-            <div class="summary">
-                Built-in <code>@</code> handlers, scripting scope, custom handlers.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>Controller</span>
-                <i class="material-icons">javascript</i>
-            </div>
-            <div class="summary">
-                Implementation types, lifecycle, options, events.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>CLI / Templates</span>
-                <i class="material-icons">terminal</i>
-            </div>
-            <div class="summary">
-                Creating a new projects, pages and components.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li>
-    <li >
-        <a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden;">
-            <div layout="row center-justify">
-                <span>API</span>
-                <i class="material-icons">emoji_nature</i>
-            </div>
-            <div class="summary">
-                Zuix, ComponentContext, ContextController, ZxQuery.
-            </div>
-            <span class="mdl-ripple"></span>
-        </a>
-    </li></ul>
-
-        </div>
-
-    </div>
-
-    <!--TODO: { - % include "footer.html" % - } -->
-    <footer>
-
-        <div layout="rows top-justify">
-            <div class="margin-16px">
-                see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT">code</a>
-                and <a href="https://creativecommons.org/licenses/by/4.0/">documentation</a>
-                licenses
-            </div>
-            <div class="margin-16px">
-                <a href="https://github.com/zuixjs">zuix.js</a>
-            </div>
-            <div class="margin-16px">
-                &copy; 2016-to-infinity-and-beyond
-                by <a href="https://glabs.it">g-labs</a>
-            </div>
-        </div>
-
-    </footer>
-
-    
-<!-- Built with love using zUIx Web Starter -->
-
-<script>
-
-  // Code highlighting
-  //zuix.using('script', '@cdnjs/highlight.js/11.3.1/highlight.min.js', function () {
-    zuix.$('pre code').each(function(i, block) {
-      hljs.highlightElement(block);
-    });
-  //});
-
-  // Google Analytics: change UA-92520304-1 to be your site's ID
-  if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-92520304-1', 'auto');
-    ga('send', 'pageview');
-  }
-
-</script>
-
-
-    <!-- Common JS scripts -->
-    <script>
-    /** type {ComponentContext} */
-let menuDrawer;
-/** type {ComponentContext} */
-let menuButton;
-window.drawer_opts = {
-  autoHideWidth: 1280,
-  on: {
-    'drawer:open': function() {
-      //zuix.context('menu_hamburger', function() {
-      //  this.open();
-      //});
-    },
-    'drawer:close': function() {
-      //zuix.context('menu_hamburger', function() {
-      //  this.close();
-      //});
-    }
-  },
-  ready: function() {
-    menuDrawer = this;
-  }
-};
-window.menuButtonOptions = {
-  on: {
-    'menu:open': function() {
-      //headerMenu.open();
-    },
-    'menu:close': function() {
-      //headerMenu.close();
-    }
-  },
-  ready: function() {
-    menuButton = this;
-  }
-};
-
-let scrollHelper;
-window.scroll_opts = {
-  ready: (ctx) => {
-    scrollHelper = ctx;
-    setTimeout(enableScrollHelper, 500);
-  }
-};
-function enableScrollHelper() {
-  scrollHelper.on('scroll:change', function(e, data) {
-    switch (data.event) {
-      case 'hit-top':
-        // reached top of the page
-        showHeader();
-        break;
-      case 'scroll':
-        // show/hide header when scrolling up/down
-        if (data.info.shift.y > 0) {
-          showHeader();
-        } else {
-          hideHeader();
-        }
-        break;
-      case 'hit-bottom':
-        // reached end of the page
-        showHeader();
-        break;
-    }
-  });
-  setTimeout(function() {
-    if (location.hash && scrollbarVisible(document.body)) {
-      hideHeader();
-    }
-  }, 500);
-}
-function scrollbarVisible(element) {
-  const r = element.getBoundingClientRect();
-  return r.bottom !== r.height;
-}
-
-let headerVisible = true;
-function showHeader() {
-  if (!headerVisible) {
-    headerVisible = true;
-    zuix.field('header').animateCss('fadeInDown').show();
-  }
-  ////if (!menuButton.$.hasClass('animate__animated')) {
-  //  menuButton.$.animateCss('fadeInDown').show();
-  ////}
-}
-function hideHeader() {
-  if (headerVisible && !zuix.field('header').hasClass('animate__animated')) {
-    headerVisible = false;
-    zuix.field('header').animateCss('fadeOutUp', function() {
-      this.hide();
-    });
-  }
-  ////if (!menuButton.$.hasClass('animate__animated')) {
-  //  menuButton.$.animateCss('fadeOutUp', function() {
-  //    this.hide();
-  //  });
-  ////}
-}
-
-function processExternalLinks(view) {
-  // Force opening of all non-local links in a new window
-  zuix.$(view).find('a[href*="://"]')
-      .attr('target', '_blank')
-      .attr('rel', 'noreferrer');
-}
-
-zuix.hook('view:process', function(view) {
-  processExternalLinks(view);
-});
-processExternalLinks(document);
-
-//html = css = js = (s) => s[0];
-
-    </script>
-
-</body>
-</html>
+</ul>
+--><!--
+        <label>Documentation</label>
+--><ul><li><a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>About zuix.js</span> <i class="material-icons">info_outline</i></div><div class="summary">Library and CLI features in brief.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Getting started</span> <i class="material-icons">outlined_flag</i></div><div class="summary">Creating a new project, bare library usage, reading this guide.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Component</span> <i class="material-icons">smart_button</i></div><div class="summary">Loading options, lazy-loading, the <em>default</em> component, theming.</div><span class="mdl-ripple"></span></a><li aria-current="page"><a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>View</span> <i class="material-icons">html</i></div><div class="summary">Data binding, binding adapters, accessibility, behaviors.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Active&rarr;Refresh</span> <i class="material-icons">loop</i></div><div class="summary">Built-in <code>@</code> handlers, scripting scope, custom handlers.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>Controller</span> <i class="material-icons">javascript</i></div><div class="summary">Implementation types, lifecycle, options, events.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>CLI / Templates</span> <i class="material-icons">terminal</i></div><div class="summary">Creating a new projects, pages and components.</div><span class="mdl-ripple"></span></a><li><a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden;"><div layout="row center-justify"><span>API</span> <i class="material-icons">emoji_nature</i></div><div class="summary">Zuix, ComponentContext, ContextController, ZxQuery.</div><span class="mdl-ripple"></span></a></ul></div></div><footer self="size-x1"><div layout="rows top-justify"><div class="margin-16px">see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT" target="_blank" rel="noreferrer">code</a> and <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">documentation</a> licenses</div><div class="margin-16px"><a href="https://github.com/zuixjs" target="_blank" rel="noreferrer">zuix.js</a></div><div class="margin-16px">© 2016-to-infinity-and-beyond by <a href="https://glabs.it" target="_blank" rel="noreferrer">g-labs</a></div></div></footer><style>footer {
+            margin-top: 96px;
+            max-height: 96px;
+            min-height: 96px;
+            font-size: 120%;
+            padding: 12px 24px 0;
+            background: #bbc;
+            background: linear-gradient(#fff, #16641c22);
+        }</style><!-- Built with love using zUIx Web Starter --><script>"localhost"!==location.hostname&&"127.0.0.1"!==location.hostname&&(!function(a,e,t,n,o,c){a.GoogleAnalyticsObject=n,a.ga=a.ga||function(){(a.ga.q=a.ga.q||[]).push(arguments)},a.ga.l=+new Date,o=e.createElement(t),c=e.getElementsByTagName(t)[0],o.async=1,o.src="https://www.google-analytics.com/analytics.js",c.parentNode.insertBefore(o,c)}(window,document,"script","ga"),ga("create","UA-92520304-1","auto"),ga("send","pageview"))</script></body><!-- page script --><script>let menuDrawer,menuButton;window.drawer_opts={autoHideWidth:1280,on:{"drawer:open":function(){},"drawer:close":function(){}},ready:function(){menuDrawer=this,menuDrawer.$.animateCss(enterAnimation,{duration:"0.2s"})}},window.menuButtonOptions={on:{"menu:open":function(){},"menu:close":function(){}},ready:function(){menuButton=this}};let scrollHelper;function enableScrollHelper(){scrollHelper.on("scroll:change",function(e,n){switch(n.event){case"hit-top":showHeader();break;case"scroll":(0<n.info.shift.y?showHeader:hideHeader)();break;case"hit-bottom":showHeader()}}),setTimeout(function(){location.hash&&scrollbarVisible(document.body)&&hideHeader()},500)}function scrollbarVisible(e){e=e.getBoundingClientRect();return e.bottom!==e.height}window.scroll_opts={ready:e=>{scrollHelper=e,setTimeout(enableScrollHelper,500)}};let headerVisible=!0;function showHeader(){headerVisible||(headerVisible=!0,zuix.field("header").animateCss("fadeInDown").show())}function hideHeader(){headerVisible&&!zuix.field("header").hasClass("animate__animated")&&(headerVisible=!1,zuix.field("header").animateCss("fadeOutUp",function(){this.hide()}))}function processExternalLinks(e){zuix.$(e).find('a[href*="://"]').attr("target","_blank").attr("rel","noreferrer")}zuix.hook("view:process",function(e){processExternalLinks(e)}),processExternalLinks(document);const referrerLink=document.createElement("a"),enterAnimation=(referrerLink.href=document.referrer,"/"===referrerLink.pathname?"fadeInLeft":"fadeIn")</script>

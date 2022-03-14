@@ -13,6 +13,10 @@
     border-radius: 56px;
     background: #ffffff;
 }
+[data-theme="dark"] .drawer-header img.logo {
+    background: #000;
+}
+
 .drawer-header .text-logo {
     font-size: 180%;
     font-weight: 400;
@@ -22,36 +26,55 @@
     margin-left: 4px;
     margin-right: 4px;
     font-size: 120%;
-    font-weight: 600;
+    font-weight: 300;
+}
+.drawer-header .title code {
+    font-weight: bold;
 }
 .drawer-header .subtitle {
     margin-left: 4px;
     margin-right: 4px;
-    font-size: 120%;
+    font-size: 100%;
+    opacity: 0.75;
 }
+.drawer-header code {
+    color: yellow;
+}
+
 .drawer-content {
     background: white;
 }
+[data-theme="dark"] .drawer-content {
+    background: #24333e;
+}
+
 .drawer-content ul {
     padding: 0;
     margin-top: 8px;
     /*font-size: 120%;*/
 }
-.drawer-content li:hover {
-    background: rgba(0,0,0,0.1);
+.drawer-content li:hover a {
+    /*box-shadow: 1px 0 rgb(0 0 0 / 15%);
+    background: rgba(160,160,160,0.1);*/
+    color: var(--primary-color);
 }
 .drawer-content li {
-    border-top: solid 2px transparent;
-    border-bottom: solid 2px transparent;;
+    margin: 0;
+    min-height: 48px;
+    vertical-align: center;
+    align-content: center;
+    align-items: center;
     list-style: none;
+    border-top: solid 2px transparent;
+    border-bottom: solid 2px transparent;
 }
 .drawer-content ul li[aria-current=page] {
     border-top: solid 2px #f3f3f3;
     border-bottom: solid 2px #f3f3f3;
-    background: #f9f9f9;
+    background-color: rgba(127, 127, 127, 10%);
 }
-.drawer-content ul li[aria-current=page] [class="mdl-color-text--primary"] {
-    font-weight: bold;
+.drawer-content ul li[aria-current=page] i, .drawer-content ul li[aria-current=page] a {
+    color: var(--primary-color);
 }
 .drawer-content li a {
     color: var(--accent-color);
@@ -75,7 +98,17 @@
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
     color: lightslategray;
 }
-
+.drawer-content label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 12px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.drawer-content a {
+   color: #24333e;
+}
 [z-context="menu-drawer"]:focus {
     outline: none;
 }
