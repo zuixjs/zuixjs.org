@@ -239,7 +239,9 @@
         width: 256px;
         height: 256px;
     }
-
+    [z-include][z-ready=true].visible-on-ready, [z-load][z-ready=true].visible-on-ready {
+        transition: opacity 500ms ease-in-out;
+    }
     .drawer-header {
     color:white;
     height: 128px;
