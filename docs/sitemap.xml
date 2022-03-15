@@ -2,22 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://zuixjs.org/home/</loc>
-    <lastmod>2022-03-14</lastmod>
-  </url>
-
-  <url>
     <loc>https://zuixjs.org/pages/documentation/</loc>
     <lastmod>2022-03-14</lastmod>
   </url>
 
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/</loc>
-    <lastmod>2022-03-14</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/</loc>
     <lastmod>2022-03-14</lastmod>
   </url>
 
@@ -122,13 +112,18 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/search/</loc>
+    <loc>https://zuixjs.org/pages/documentation/view/</loc>
     <lastmod>2022-03-14</lastmod>
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/view/</loc>
-    <lastmod>2022-03-14</lastmod>
+    <loc>https://zuixjs.org/</loc>
+    <lastmod>2022-03-15</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/search/</loc>
+    <lastmod>2022-03-15</lastmod>
   </url>
 
 </urlset>

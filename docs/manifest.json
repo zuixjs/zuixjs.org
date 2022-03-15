@@ -1,7 +1,7 @@
 {
   "name": "zUIx.js Home",
   "short_name": "zuix.js",
-  "description": "A very cool web app powered by zUIx.js",
+  "description": "zuix.js home and documentation site.",
   "theme_color": "#178038",
   "background_color": "#dafee4",
   "display": "standalone",
