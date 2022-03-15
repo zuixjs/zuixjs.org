@@ -1,8 +1,8 @@
 {
-  "name": "zuix-web-starter",
+  "name": "zuixjs.org",
   "version": "1.0.0",
   "private": true,
-  "description": "Starter project for component oriented web development with zuixjs and Eleventy.",
+  "description": "zuix.js home and documentation site.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx @11ty/eleventy --serve",
@@ -20,16 +20,16 @@
     "eleventy",
     "javascript"
   ],
-  "license": "APACHE-2.0",
+  "license": "MIT",
   "author": {
     "name": "G-Labs",
     "email": "info@glabs.it",
     "url": "https://glabs.it/"
   },
-  "homepage": "https://github.com/zuixjs",
+  "homepage": "https://zuixjs.org/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zuixjs/zuix-web-starter.git"
+    "url": "git://github.com/zuixjs/zuix.git"
   },
   "bugs": "https://github.com/zuixjs/zuix-web-starter/issues",
   "dependencies": {
