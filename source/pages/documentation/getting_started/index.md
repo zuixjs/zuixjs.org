@@ -21,7 +21,7 @@ a new website from the command line.
 ## Creating a new web project using the CLI
 
 ```bash
-# Create a new website project named 'my-website'
+# Create a new website project named 'my-new-webapp'
 npx zuix new my-new-webapp
 ```
 
