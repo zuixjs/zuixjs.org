@@ -360,12 +360,11 @@
          z-context="menu_hamburger"
          z-options="menuButtonOptions"
          style="position:fixed;right:0;top:6px;z-index:1001"></div>
-         --><main class="animate__animated animate__fadeIn animate__faster" layout="column top-center"><h1 #alt_header class="title">Getting started</h1><div self="size-x1" class="content"><p>Start playing with <em>zuix.js</em> right away on <a href="https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start">StackBlitz</a> or you can install the <em>zuix-cli</em> tool to create a new website from the command line.<h2>Creating a new web project using the CLI</h2><p>Install <em>zuix.js CLI</em> as a global package:<pre><code class="language-shell">npm install -g zuix-cli
-</code></pre><p>The <code>zx</code> command can now be used from command shell to create a new web application project:<pre><code class="language-bash"># Create a new website project named 'my-website'
-zx new my-new-webapp
+         --><main class="animate__animated animate__fadeIn animate__faster" layout="column top-center"><h1 #alt_header class="title">Getting started</h1><div self="size-x1" class="content"><p>Start playing with <em>zuix.js</em> right away on <a href="https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start">StackBlitz</a> or you can install the <em>zuix-cli</em> tool to create a new website from the command line.<h2>Creating a new web project using the CLI</h2><pre><code class="language-bash"># Create a new website project named 'my-website'
+npx zuix new my-new-webapp
 </code></pre><p>A new folder named <em>my-new-webapp</em> will be created containing all files required to run the starter project.<p>From the new folder we can now start the local server that will watch, build and serve the web application files (by default at <em>http://localhost:8080</em>).<pre><code class="language-bash">cd my-new-webapp
-zx start
-</code></pre><p>Read more about all other <code>zx</code> command functionality from <a href="../cli/"><code>zuix-cli</code></a> documentation page.<h2>Bare library usage on an existing site</h2><p><em>zuix.js</em> can also be used on an existing website project by including the library directly in your HTML page from one of these sources:<h3>JsDeliver</h3><pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/zuix-dist&quot;&gt;&lt;/script&gt;
+npx zuix start
+</code></pre><p>Read more about all other <code>zuix</code> command functionality from <a href="../cli/"><code>zuix-cli</code></a> documentation page.<h2>Bare library usage on an existing site</h2><p><em>zuix.js</em> can also be used on an existing website project by including the library directly in your HTML page from one of these sources:<h3>JsDeliver</h3><pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/zuix-dist&quot;&gt;&lt;/script&gt;
 </code></pre><h3>GitHub</h3><pre><code class="language-html">&lt;script src=&quot;https://zuixjs.github.io/zuix/js/zuix.min.js&quot;&gt;&lt;/script&gt;
 </code></pre><h3>NPM</h3><pre><code class="language-bash">npm install zuix-dist
 </code></pre><p>then copy the library from <code>node_modules/zuix-dist/js</code> to your project's <code>js</code> folder and include it in your HTML page:<pre><code class="language-html">&lt;script src=&quot;js/zuix.min.js&quot;&gt;&lt;/script&gt;

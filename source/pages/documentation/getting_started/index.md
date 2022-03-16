@@ -20,17 +20,9 @@ a new website from the command line.
 
 ## Creating a new web project using the CLI
 
-Install *zuix.js CLI* as a global package:
-
-```shell
-npm install -g zuix-cli
-```
-
-The `zx` command can now be used from command shell to create a new web application project:
-
 ```bash
 # Create a new website project named 'my-website'
-zx new my-new-webapp
+npx zuix new my-new-webapp
 ```
 
 A new folder named *my-new-webapp* will be created containing all files required to run the starter project.
@@ -40,10 +32,10 @@ default at *http://localhost:8080*).
 
 ```bash
 cd my-new-webapp
-zx start
+npx zuix start
 ```
 
-Read more about all other `zx` command functionality from [`zuix-cli`](../cli/) documentation page.
+Read more about all other `zuix` command functionality from [`zuix-cli`](../cli/) documentation page.
 
 ## Bare library usage on an existing site
 

@@ -82,11 +82,6 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/cli/</loc>
-    <lastmod>2022-03-14</lastmod>
-  </url>
-
-  <url>
     <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
     <lastmod>2022-03-14</lastmod>
   </url>
@@ -98,11 +93,6 @@
 
   <url>
     <loc>https://zuixjs.org/pages/documentation/controller/</loc>
-    <lastmod>2022-03-14</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
     <lastmod>2022-03-14</lastmod>
   </url>
 
@@ -123,6 +113,16 @@
 
   <url>
     <loc>https://zuixjs.org/search/</loc>
+    <lastmod>2022-03-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/cli/</loc>
+    <lastmod>2022-03-16</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
     <lastmod>2022-03-16</lastmod>
   </url>
 

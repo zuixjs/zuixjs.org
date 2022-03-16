@@ -14,22 +14,14 @@ keywords:
 - CLI
 - Templates
 - Eleventy
-- zx
+- zuix
 ---
 
 ## Creating a new project
 
-Install *zuix.js CLI* as a global package:
-
-```shell
-npm install -g zuix-cli
-```
-
-The `zx` command can now be used from command shell to create a new web application project:
-
 ```bash
 # Create a new website project named 'my-website'
-zx new my-new-webapp
+npx zuix new my-new-webapp
 ```
 
 A new folder named *my-new-webapp* will be created containing all files required to run the web-starter project.  
@@ -40,12 +32,12 @@ commands and features.
 ### Creating a new component
 
 ```shell
-zx generate component "<component_name>"
+npx zuix generate component "<component_name>"
 ```
 
 <label class="mdl-color-text--primary">Examples</label>
 ```shell
-zx g component cards/my-new-card
+npx zuix g component cards/my-new-card
 ```
 
 will generate three files for the component `MyNewCard`:
@@ -57,7 +49,7 @@ will generate three files for the component `MyNewCard`:
 To generate only the view template `ArticleHeader`:
 
 ```shell
-zx g template article-header
+npx zuix g template article-header
 ```
 
 will generate:
@@ -68,7 +60,7 @@ will generate:
 To generate the controller `MyServiceApi`:
 
 ```shell
-zx g controller my-service-api
+npx zuix g controller my-service-api
 ```
 
 - `./source/app/controllers/my-service-api.js`
