@@ -33,7 +33,7 @@ to develop your next website or application.
 
 &nbsp;
 
-`zuix-cli` is a tool for the command shell for creating a starter project, adding new pages or components,
+`zuix-cli` is a tool for the command-line shell for creating a starter project, adding new pages or components,
 bundling and compressing into a single HTML file all resources used in a page, either local or remote.
 The web starter project is based on [Eleventy](https://11ty.dev/), a simple, yet powerful, static site generator
 that works very nicely together with *zuix.js*.

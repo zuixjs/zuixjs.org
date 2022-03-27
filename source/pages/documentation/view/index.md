@@ -412,7 +412,7 @@ attribute:
 <div view z-load="templates/mdl_card">
 
   <h1 #title>Let's code!</h1>
-  <img #image src="examples/images/card_cover_3.jpg" alt="Cover image" role="presentation">
+  <img #image src="examples/images/card_cover_3.jpg" alt="Cover image" role="presentation" width="460" height="190">
   <p #text>
     Yes we can!
   </p>
@@ -431,7 +431,7 @@ and the above code, as is, will also provide a default visualization:
 <div self="size-x1" layout="column center-center">
   <div z-field="card-example-1" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px">
     <h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1>
-    <img #image class="animate__animated animate__fadeIn" src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" style="width: 100%;padding: 8px">
+    <img #image class="animate__animated animate__fadeIn" src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" width="460" height="190" style="width: 100%;padding: 8px">
     <p #text class="animate__animated animate__fadeIn">
       Yes we can!
     </p>
