@@ -130,7 +130,7 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
     pre:not([class*="language-"]) {
         width: 100%;
         max-width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     pre[class*="language-"]{
@@ -619,7 +619,12 @@ main table code {
 *Source:*
 [helpers/Logger.js](../../helpers/Logger.js), [line 121](../../helpers/Logger.js#L121)
 
---><p><a name="PlayTransitionCallback"></a><h4>PlayTransitionCallback($element, transitionQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>transitionQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition class queue left to animate, <code>null</code> if the animation ended.</table><!--
+--><p><a name="PlayFxCallback"></a><h4>PlayFxCallback($element, classQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>classQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition/animation class queue left to play, <code>null</code> if the animation ended.</table><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 132](../../helpers/ZxQuery.js#L132)
+
+--><p><a name="PlayFxConfig"></a><h4>PlayFxConfig</h4><p>Configuration object for <code>playFx</code>, <code>playTransition</code>, <code>playAnimation</code> utility methods.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>type</code><td><em>'transition'</em> | <em>'animation'</em><td>The type of effect to play.<tr><td><code>target</code><td><em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element.<tr><td><code>classes</code><td><em>Array.&lt;string&gt;</em> | <em>string</em><td>List of transition or animation classes to play.<tr><td><code>options</code><td><em>object</em><td>Transition/animation options ('delay', 'duration', etc..).<tr><td><code>holdState</code><td><em>boolean</em><td>Hold last transition/animation class.<tr><td><code>onStep</code><td><em><a href="#PlayFxCallback">PlayFxCallback</a></em><td>Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.<tr><td><code>onEnd</code><td><em><a href="#PlayFxCallback">PlayFxCallback</a></em><td>Called when all transitions/animations ended.</table><!--
 
 *Source:*
 [helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 119](../../helpers/ZxQuery.js#L119)

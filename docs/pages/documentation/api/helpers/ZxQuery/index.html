@@ -130,7 +130,7 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
     pre:not([class*="language-"]) {
         width: 100%;
         max-width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     pre[class*="language-"]{
@@ -457,182 +457,197 @@ main table code {
 /* END: MARKDOWN JSDOC */</style><h2><code>ZxQuery</code> class</h2><h3>Constructor</h3><p><a name="ZxQuery"></a><h4>new ZxQuery(element) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>The constructor takes one optional argument that can be a DOM element, a node list or a valid DOM query selector string expression. If no parameter is given, the resulting ZxQuery object will wrap the root <em>document</em> element.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>element</code><td><em>Object</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>Array.&lt;Node&gt;</em> | <em>Node</em> | <em>NodeList</em> | <em>string</em> | <em>undefined</em><td><em>optional</em><td>Element or list of elements to include in the ZxQuery object or any valid DOM query selector string</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 195](../../helpers/ZxQuery.js#L195)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 208](../../helpers/ZxQuery.js#L208)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object containing the given element(s).<h3>Methods</h3><p><a name="addClass"></a><h4>addClass(className) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Adds the given CSS class to the class list of all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>className</code><td><em>string</em><td>The CSS class name.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 551](../../helpers/ZxQuery.js#L551)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 564](../../helpers/ZxQuery.js#L564)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="append"></a><h4>append(el) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Appends the given element or HTML string to the first element in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>el</code><td><em>Object</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>Array.&lt;Node&gt;</em> | <em>Node</em> | <em>NodeList</em> | <em>string</em><td>Element or HTML to append.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 643](../../helpers/ZxQuery.js#L643)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 656](../../helpers/ZxQuery.js#L656)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="attach"></a><h4>attach() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Re-attaches to its parent the first element in the ZxQuery object.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 704](../../helpers/ZxQuery.js#L704)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 717](../../helpers/ZxQuery.js#L717)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><p><a name="attr"></a><h4>attr(attr, val) → {string|<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the value of an attribute for the first element in the ZxQuery object, or sets one or more attributes for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>attr</code><td><em>string</em> | <em>JSON</em><td><td>The attribute name.<tr><td><code>val</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>The attribute value.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 373](../../helpers/ZxQuery.js#L373)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 386](../../helpers/ZxQuery.js#L386)
 
 --><h5>Returns</h5><p><em>string</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>attr</em> attribute value when no <em>val</em> specified, otherwise the <em>ZxQuery</em> object itself.<p><a name="checked"></a><h4>checked(check) → {<a href="../../helpers/ZxQuery">ZxQuery</a>|boolean}</h4><p>Gets the <code>checked</code> attribute of the first element in the ZxQuery object, or sets the <code>checked</code> attribute value for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>check</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Value to assign to the 'checked' attribute.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 611](../../helpers/ZxQuery.js#L611)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 624](../../helpers/ZxQuery.js#L624)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>boolean</em><p><a name="children"></a><h4>children(filter) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the children matching the given selector filter. This only applies to the first element in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>filter</code><td><em>string</em><td><em>optional</em><td>A valid DOM query selector filter (<strong>default:</strong> <em>all children</em>).</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 252](../../helpers/ZxQuery.js#L252)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 265](../../helpers/ZxQuery.js#L265)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the selected <em>children</em>.<p><a name="css"></a><h4>css(prop, val) → {string|<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the value of a CSS property for the first element in the ZxQuery object, or sets one or more CSS property for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>prop</code><td><em>string</em> | <em>JSON</em><td><td>The CSS property name or JSON list of property/value pairs.<tr><td><code>val</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>The CSS property value.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 528](../../helpers/ZxQuery.js#L528)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 541](../../helpers/ZxQuery.js#L541)
 
 --><h5>Returns</h5><p><em>string</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The CSS property value when no <em>val</em> specified, otherwise the <em>ZxQuery</em> object itself.<p><a name="detach"></a><h4>detach() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Detaches from its parent the first element in the ZxQuery object.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 688](../../helpers/ZxQuery.js#L688)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 701](../../helpers/ZxQuery.js#L701)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><p><a name="display"></a><h4>display(mode) → {string|<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the CSS <code>display</code> property of the first element in the ZxQuery object, or sets the <code>display</code> property value for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>mode</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>The display value.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 724](../../helpers/ZxQuery.js#L724)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 737](../../helpers/ZxQuery.js#L737)
 
 --><h5>Returns</h5><p><em>string</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>display</em> value when no <em>mode</em> specified, otherwise the <em>ZxQuery</em> object itself.<p><a name="each"></a><h4>each(iterationCallback) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Iterates through all <em>DOM</em> elements in the selection. The context object <em>this</em>, passed to the <em>iterationCallback</em><code>(index, item)</code> function, will be the <em>DOM</em> element corresponding the current iteration. <code>index</code> will be the iteration count, and <code>item</code> the current Element. The function context <code>this</code> will be a <code>{ZxQuery}</code> instance containing the current <code>item</code>. To interrupt the iteration loop, return <code>false</code> in the callback function or return <code>true</code> to continue to the next iteration.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>iterationCallback</code><td><em><a href="#ElementsIterationCallback">ElementsIterationCallback</a></em><td>The callback function to call for each element in the ZxQuery object.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 361](../../helpers/ZxQuery.js#L361)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 374](../../helpers/ZxQuery.js#L374)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="eq"></a><h4>eq(i) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets a new ZxQuery object containing the element located at the given position in the current ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>i</code><td><em>number</em><td>Position of element.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 287](../../helpers/ZxQuery.js#L287)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 300](../../helpers/ZxQuery.js#L300)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the selected element.<p><a name="find"></a><h4>find(selector) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Selects all descendants matching the given <em>DOM</em> query selector filter. This only applies to the first element in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>selector</code><td><em>string</em><td>A valid <em>DOM</em> query selector.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 343](../../helpers/ZxQuery.js#L343)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 356](../../helpers/ZxQuery.js#L356)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the selected elements.<p><a name="get"></a><h4>get(i) → {Node|Element|HTMLElement}</h4><p>Gets the DOM Element located at the given position in the ZxQuery object. If no index is provided, the default element will be returned.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>i</code><td><em>number</em><td><em>optional</em><td>Position of element (<strong>default:</strong> 0).</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 276](../../helpers/ZxQuery.js#L276)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 289](../../helpers/ZxQuery.js#L289)
 
 --><h5>Returns</h5><p><em>Node</em> | <em>Element</em> | <em>HTMLElement</em> ‐ The <em>DOM</em> element.<p><a name="hasClass"></a><h4>hasClass(className) → {boolean}</h4><p>Returns <em>true</em> if the first element in the ZxQuery object contains the given CSS class.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>className</code><td><em>string</em><td>The CSS class name.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 568](../../helpers/ZxQuery.js#L568)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 581](../../helpers/ZxQuery.js#L581)
 
 --><h5>Returns</h5><p><em>boolean</em> ‐ <em>true</em> if the element contains the given CSS class, <em>false</em> otherwise.<p><a name="hide"></a><h4>hide() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Sets the CSS <code>display</code> property to 'none'.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 763](../../helpers/ZxQuery.js#L763)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 776](../../helpers/ZxQuery.js#L776)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="html"></a><h4>html(htmlText) → {<a href="../../helpers/ZxQuery">ZxQuery</a>|string}</h4><p>Gets the HTML string of the first element in the ZxQuery object, or sets the HTML string for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>htmlText</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>HTML text.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 595](../../helpers/ZxQuery.js#L595)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 608](../../helpers/ZxQuery.js#L608)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>string</em><p><a name="index"></a><h4>index(el) → {number}</h4><p>If no <code>el</code> is given, returns the position of the first element in the ZxQuery object relative to its parent's children list, otherwise the position of the given <code>el</code> in the ZxQuery object selection.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>el</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><em>optional</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 326](../../helpers/ZxQuery.js#L326)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 339](../../helpers/ZxQuery.js#L339)
 
 --><h5>Returns</h5><p><em>number</em><p><a name="insert"></a><h4>insert(index, el) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Inserts the given child element before the one located at the specified index to the first element in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>index</code><td><em>number</em><td>Position where to insert <code>el</code> Element.<tr><td><code>el</code><td><em>Object</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>Array.&lt;Node&gt;</em> | <em>Node</em> | <em>NodeList</em><td>Element to insert.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 659](../../helpers/ZxQuery.js#L659)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 672](../../helpers/ZxQuery.js#L672)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="isEmpty"></a><h4>isEmpty() → {boolean}</h4><p>Returns <em>true</em> if the first element markup code is empty.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 503](../../helpers/ZxQuery.js#L503)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 516](../../helpers/ZxQuery.js#L516)
 
---><h5>Returns</h5><p><em>boolean</em> ‐ <em>true</em> if the element is empty, <em>false</em> otherwise.<p><a name="length"></a><h4>length() → {Number}</h4><p>Gets the number of elements in the ZxQuery object.</p><!--
+--><h5>Returns</h5><p><em>boolean</em> ‐ <em>true</em> if the element is empty, <em>false</em> otherwise.<p><a name="isPlaying"></a><h4>isPlaying() → {boolean|*}</h4><p>Returns true if a transition or animation is running.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 229](../../helpers/ZxQuery.js#L229)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 831](../../helpers/ZxQuery.js#L831)
+
+--><h5>Returns</h5><p><em>boolean</em> | ***<p><a name="length"></a><h4>length() → {Number}</h4><p>Gets the number of elements in the ZxQuery object.</p><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 242](../../helpers/ZxQuery.js#L242)
 
 --><h5>Returns</h5><p><em>Number</em> ‐ Number of DOM elements.<p><a name="next"></a><h4>next() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Moves to the next sibling in the DOM. This only applies to the first element in the ZxQuery object.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 315](../../helpers/ZxQuery.js#L315)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 328](../../helpers/ZxQuery.js#L328)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the next sibling element.<p><a name="off"></a><h4>off(eventPath, eventHandler) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Stops listening for the given event.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em> | <em>Array.&lt;Object&gt;</em> | <em>JSON</em><td><td>Event path or object with event/handler pairs.<tr><td><code>eventHandler</code><td><em>function</em><td><em>optional</em><td>Event handler. Not used if eventPath is an object with event/handler pairs.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 471](../../helpers/ZxQuery.js#L471)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 484](../../helpers/ZxQuery.js#L484)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="on"></a><h4>on(eventPath, eventHandler) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Listens to the given event for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em> | <em>Array.&lt;Object&gt;</em> | <em>JSON</em><td><td>Event path or object with event/handler pairs.<tr><td><code>eventHandler</code><td><em>function</em><td><em>optional</em><td>Event handler. Not used if eventPath is an object with event/handler pairs.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 443](../../helpers/ZxQuery.js#L443)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 456](../../helpers/ZxQuery.js#L456)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="one"></a><h4>one(eventPath, eventHandler) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Listens once to the given event for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em> | <em>Array.&lt;Object&gt;</em> | <em>JSON</em><td><td>Event path or object with event/handler pairs.<tr><td><code>eventHandler</code><td><em>function</em><td><em>optional</em><td>Event handler. Not used if eventPath is an object with event/handler pairs.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 417](../../helpers/ZxQuery.js#L417)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 430](../../helpers/ZxQuery.js#L430)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="parent"></a><h4>parent(filter) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the closest parent matching the given selector filter. This only applies to the first element in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>filter</code><td><em>string</em><td><em>optional</em><td>A valid DOM query selector filter (<strong>default:</strong> <em>first parent</em>).</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 239](../../helpers/ZxQuery.js#L239)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 252](../../helpers/ZxQuery.js#L252)
 
---><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the matching parent element.<p><a name="position"></a><h4>position() → {<a href="#ElementPosition">ElementPosition</a>}</h4><p>Gets coordinates and visibility status of the first element.</p><!--
+--><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the matching parent element.<p><a name="playAnimation"></a><h4>playAnimation(options) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Plays the animation specified by the given animation class list. If no class list is provided, the callback function can be used to wait for the end of any currently running animation.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>options</code><td><em>Array.&lt;string&gt;</em> | <em>string</em> | <em><a href="#PlayFxConfig">PlayFxConfig</a></em><td>This parameter can be either: a list of classes (Array<string>), or a string with whitespace-separated class names, or a {PlayFxConfig} object.</string></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 511](../../helpers/ZxQuery.js#L511)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 810](../../helpers/ZxQuery.js#L810)
+
+--><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><p><a name="playTransition"></a><h4>playTransition(options) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Plays the transition effect specified by the given transition class list. If no class list is provided, the callback function can be used to wait for the end of any currently running animation.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>options</code><td><em>Array.&lt;string&gt;</em> | <em>string</em> | <em><a href="#PlayFxConfig">PlayFxConfig</a></em><td>This parameter can be either: a list of classes (Array<string>), or a string with whitespace-separated class names, or a {PlayFxConfig} object.</string></table><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 786](../../helpers/ZxQuery.js#L786)
+
+--><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><p><a name="position"></a><h4>position() → {<a href="#ElementPosition">ElementPosition</a>}</h4><p>Gets coordinates and visibility status of the first element.</p><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 524](../../helpers/ZxQuery.js#L524)
 
 --><h5>Returns</h5><p><em><a href="#ElementPosition">ElementPosition</a></em><p><a name="prepend"></a><h4>prepend(el) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Prepends the given element or HTML string to the first element in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>el</code><td><em>Object</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>Array.&lt;Node&gt;</em> | <em>Node</em> | <em>NodeList</em> | <em>string</em><td>Element to append.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 675](../../helpers/ZxQuery.js#L675)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 688](../../helpers/ZxQuery.js#L688)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="prev"></a><h4>prev() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Moves to the previous sibling in the DOM. This only applies to the first element in the ZxQuery object.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 306](../../helpers/ZxQuery.js#L306)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 319](../../helpers/ZxQuery.js#L319)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the previous sibling element.<p><a name="removeClass"></a><h4>removeClass(className) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Removes the given CSS class from all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>className</code><td><em>string</em><td>The CSS class name.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 577](../../helpers/ZxQuery.js#L577)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 590](../../helpers/ZxQuery.js#L590)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="reset"></a><h4>reset() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>De-registers all event handlers of all elements in the ZxQuery object.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 492](../../helpers/ZxQuery.js#L492)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 505](../../helpers/ZxQuery.js#L505)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="reverse"></a><h4>reverse() → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Reverses order of the elements in the current set.</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 264](../../helpers/ZxQuery.js#L264)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 277](../../helpers/ZxQuery.js#L277)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="show"></a><h4>show(mode) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Sets the CSS <code>display</code> property to '' if no argument value is provided, otherwise set it to the given value.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>mode</code><td><em>string</em><td><em>optional</em><td>Set the display mode to be used to show element (eg. block, inline, etc..).</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 755](../../helpers/ZxQuery.js#L755)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 768](../../helpers/ZxQuery.js#L768)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="trigger"></a><h4>trigger(eventPath, eventData) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Triggers the given event for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em><td>Path of the event to trigger.<tr><td><code>eventData</code><td><em>object</em><td>Value of the event.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 397](../../helpers/ZxQuery.js#L397)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 410](../../helpers/ZxQuery.js#L410)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>ZxQuery</em> object itself.<p><a name="value"></a><h4>value(value) → {<a href="../../helpers/ZxQuery">ZxQuery</a>|string}</h4><p>Gets the <code>value</code> attribute of the first element in the ZxQuery object, or sets the <code>value</code> attribute value for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>value</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>Value to assign to the 'value' attribute.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 628](../../helpers/ZxQuery.js#L628)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 641](../../helpers/ZxQuery.js#L641)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>string</em><p><a name="visibility"></a><h4>visibility(mode) → {string|<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the CSS <code>visibility</code> property of the first element in the ZxQuery object, or sets the <code>visibility</code> property value for all elements in the ZxQuery object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>mode</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>The visibility value.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 740](../../helpers/ZxQuery.js#L740)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 753](../../helpers/ZxQuery.js#L753)
 
 --><h5>Returns</h5><p><em>string</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ The <em>visibility</em> value when no <em>mode</em> specified, otherwise the <em>ZxQuery</em> object itself.<h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
 
@@ -729,7 +744,12 @@ main table code {
 *Source:*
 [helpers/Logger.js](../../helpers/Logger.js), [line 121](../../helpers/Logger.js#L121)
 
---><p><a name="PlayTransitionCallback"></a><h4>PlayTransitionCallback($element, transitionQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>transitionQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition class queue left to animate, <code>null</code> if the animation ended.</table><!--
+--><p><a name="PlayFxCallback"></a><h4>PlayFxCallback($element, classQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>classQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition/animation class queue left to play, <code>null</code> if the animation ended.</table><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 132](../../helpers/ZxQuery.js#L132)
+
+--><p><a name="PlayFxConfig"></a><h4>PlayFxConfig</h4><p>Configuration object for <code>playFx</code>, <code>playTransition</code>, <code>playAnimation</code> utility methods.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>type</code><td><em>'transition'</em> | <em>'animation'</em><td>The type of effect to play.<tr><td><code>target</code><td><em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element.<tr><td><code>classes</code><td><em>Array.&lt;string&gt;</em> | <em>string</em><td>List of transition or animation classes to play.<tr><td><code>options</code><td><em>object</em><td>Transition/animation options ('delay', 'duration', etc..).<tr><td><code>holdState</code><td><em>boolean</em><td>Hold last transition/animation class.<tr><td><code>onStep</code><td><em><a href="#PlayFxCallback">PlayFxCallback</a></em><td>Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.<tr><td><code>onEnd</code><td><em><a href="#PlayFxCallback">PlayFxCallback</a></em><td>Called when all transitions/animations ended.</table><!--
 
 *Source:*
 [helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 119](../../helpers/ZxQuery.js#L119)

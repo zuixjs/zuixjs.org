@@ -130,7 +130,7 @@ div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z
     pre:not([class*="language-"]) {
         width: 100%;
         max-width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     pre[class*="language-"]{
@@ -457,74 +457,74 @@ main table code {
 /* END: MARKDOWN JSDOC */</style><h2><code>ZxQueryStatic</code> class</h2><p><a name="ZxQueryStatic"></a><h4>ZxQueryStatic(what) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Creates a ZxQuery wrapped element.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>what</code><td><em>Object</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>Array.&lt;Node&gt;</em> | <em>Node</em> | <em>NodeList</em> | <em>string</em> | <em>undefined</em><td><em>optional</em><td>Query target</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 779](../../helpers/ZxQuery.js#L779)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 847](../../helpers/ZxQuery.js#L847)
 
---><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><h3>Methods</h3><p><a name="appendCss"></a><h4>appendCss(css, target, cssId) → {Element|HTMLElement}</h4><p>Appends a new stylesheet, or replaces an existing one, to the document.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>css</code><td><em>string</em><td>Stylesheet text<tr><td><code>target</code><td><em>Element</em> | <em>HTMLElement</em> | <em>null</em><td>Existing style element to replace<tr><td><code>cssId</code><td><em>string</em><td>id to assign to the stylesheet</table><!--
+--><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><h3>Methods</h3><p><a name="addTransition"></a><h4>addTransition(cssId, scope, className, properties, options)</h4><p>Adds a CSS transition effect to the component stylesheet.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>cssId</code><td><td><tr><td><code>scope</code><td><td><tr><td><code>className</code><td><em>string</em><td>CSS class name to assign to this transition.<tr><td><code>properties</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>List of CSS properties/values to set.<tr><td><code>options</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>List of transition options.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1031](../../helpers/ZxQuery.js#L1031)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1351](../../helpers/ZxQuery.js#L1351)
+
+--><p><a name="appendCss"></a><h4>appendCss(css, target, cssId) → {Element|HTMLElement}</h4><p>Appends a new stylesheet, or replaces an existing one, to the document.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>css</code><td><em>string</em><td>Stylesheet text<tr><td><code>target</code><td><em>Element</em> | <em>HTMLElement</em> | <em>null</em><td>Existing style element to replace<tr><td><code>cssId</code><td><em>string</em><td>id to assign to the stylesheet</table><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1099](../../helpers/ZxQuery.js#L1099)
 
 --><h5>Returns</h5><p><em>Element</em> | <em>HTMLElement</em> ‐ The new style element created out of the given css text.<p><a name="classExists"></a><h4>classExists(className) → {boolean}</h4><p>Checks if a class exists by searching for it in all document stylesheets.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>className</code><td><em>string</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 895](../../helpers/ZxQuery.js#L895)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 963](../../helpers/ZxQuery.js#L963)
 
 --><h5>Returns</h5><p><em>boolean</em><p><a name="each"></a><h4>each(items, iterationCallback) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Iterates through all objects in the given <code>items</code> collection. The context object <em>this</em>, passed to the <em>iterationCallback</em><code>(index, item)</code>, will be the object corresponding the current iteration and the <code>index</code> passed to the callback will be the iteration count.<p>If the callback returns <em>false</em>, the iteration loop will interrupt.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>items</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>Enumerable objects collection.<tr><td><code>iterationCallback</code><td><em><a href="#IterationCallback">IterationCallback</a></em><td>The callback <em>fn</em> to call at each iteration</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 795](../../helpers/ZxQuery.js#L795)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 863](../../helpers/ZxQuery.js#L863)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ <code>this</code>.<p><a name="find"></a><h4>find(selector) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Selects document elements matching the given <em>DOM</em> query selector.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>selector</code><td><em>string</em><td>A valid <em>DOM</em> query selector.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 783](../../helpers/ZxQuery.js#L783)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 851](../../helpers/ZxQuery.js#L851)
 
---><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the selected elements.<p><a name="getClosest"></a><h4>getClosest(elem, selector) → {Element|HTMLElement|null}</h4><p>Gets the closest parent mathing the given query selector<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>elem</code><td><em>Element</em> | <em>HTMLElement</em><td><tr><td><code>selector</code><td><em>string</em><td>A valid DOM query selector string expression.</table><!--
+--><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A new <em>ZxQuery</em> object containing the selected elements.<p><a name="getClosest"></a><h4>getClosest(elem, selector) → {Element|HTMLElement|null}</h4><p>Gets the closest parent matching the given query selector<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>elem</code><td><em>Element</em> | <em>HTMLElement</em><td><tr><td><code>selector</code><td><em>string</em><td>A valid DOM query selector string expression.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1161](../../helpers/ZxQuery.js#L1161)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1229](../../helpers/ZxQuery.js#L1229)
 
 --><h5>Returns</h5><p><em>Element</em> | <em>HTMLElement</em> | <em>null</em><p><a name="getPosition"></a><h4>getPosition(el, tolerance) → {<a href="#ElementPosition">ElementPosition</a>}</h4><p>Gets the position of an element.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>el</code><td><em>Element</em> | <em>HTMLElement</em><td><td><tr><td><code>tolerance</code><td><em>number</em><td><em>optional</em><td>Distance from viewport's boundaries for the element to be considered 'visible' (this is mainly used for lazy-loading).</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1179](../../helpers/ZxQuery.js#L1179)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1247](../../helpers/ZxQuery.js#L1247)
 
 --><h5>Returns</h5><p><em><a href="#ElementPosition">ElementPosition</a></em><p><a name="hasClass"></a><h4>hasClass(el, className) → {boolean}</h4><p>Checks if an element has got the specified CSS class.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>el</code><td><em>Element</em> | <em>HTMLElement</em><td><tr><td><code>className</code><td><em>string</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 872](../../helpers/ZxQuery.js#L872)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 940](../../helpers/ZxQuery.js#L940)
 
 --><h5>Returns</h5><p><em>boolean</em><p><a name="http"></a><h4>http(options) → {<a href="../../helpers/ZxQueryStatic">ZxQueryStatic</a>}</h4><p>Makes an HTTP request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>options</code><td><em><a href="#ZxQueryHttpOptions">ZxQueryHttpOptions</a></em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 834](../../helpers/ZxQuery.js#L834)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 902](../../helpers/ZxQuery.js#L902)
 
---><h5>Returns</h5><p><em><a href="../../helpers/ZxQueryStatic">ZxQueryStatic</a></em><p><a name="replaceBraces"></a><h4>replaceBraces(html, callback) → {string|null}</h4><p>Parses variables enclosed in single or double braces and calls the given callback for each parsed variable name. If the callback returns a value, then the variable will be replaced with the given value.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>html</code><td><em>string</em><td>The source HTML template.<tr><td><code>callback</code><td><em>function</em><td>A callback function with one argument (the currently parsed variable name).</table><!--
+--><h5>Returns</h5><p><em><a href="../../helpers/ZxQueryStatic">ZxQueryStatic</a></em><p><a name="playFx"></a><h4>playFx(config)</h4><p>Plays transition effects or animations on a given element inside the component.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>config</code><td><em><a href="#PlayFxConfig">PlayFxConfig</a></em><td>Options.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1119](../../helpers/ZxQuery.js#L1119)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1389](../../helpers/ZxQuery.js#L1389)
+
+--><p><a name="replaceBraces"></a><h4>replaceBraces(html, callback) → {string|null}</h4><p>Parses variables enclosed in single or double braces and calls the given callback for each parsed variable name. If the callback returns a value, then the variable will be replaced with the given value.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>html</code><td><em>string</em><td>The source HTML template.<tr><td><code>callback</code><td><em>function</em><td>A callback function with one argument (the currently parsed variable name).</table><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1187](../../helpers/ZxQuery.js#L1187)
 
 --><h5>Returns</h5><p><em>string</em> | <em>null</em> ‐ The new html code with variables replaced with values or null if no variable was replaced.<p><a name="replaceCssVars"></a><h4>replaceCssVars(css, model) → {string}</h4><p>Replaces CSS variables with provided values.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>css</code><td><em>string</em><td>Stylesheet text<tr><td><code>model</code><td><em>object</em><td>Object containing variables fields and values.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1071](../../helpers/ZxQuery.js#L1071)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1139](../../helpers/ZxQuery.js#L1139)
 
 --><h5>Returns</h5><p><em>string</em> ‐ The new stylesheet text with variables replaced with values<p><a name="wrapElement"></a><h4>wrapElement(containerTag, element) → {Element|HTMLElement}</h4><p>Wraps an <code>Element</code> inside a container specified by a given tag name.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>containerTag</code><td><em>string</em><td>Container element tag name<tr><td><code>element</code><td><em>Element</em> | <em>HTMLElement</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 934](../../helpers/ZxQuery.js#L934)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1002](../../helpers/ZxQuery.js#L1002)
 
---><h5>Returns</h5><p><em>Element</em> | <em>HTMLElement</em> ‐ The new wrapped element<p><a name="addTransition"></a><h4>&lt;<em>static</em>&gt; addTransition(cssId, scope, className, properties, options)</h4><p>Adds a CSS transition effect to the component stylesheet.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>cssId</code><td><td><tr><td><code>scope</code><td><td><tr><td><code>className</code><td><em>string</em><td>CSS class name to assign to this transition.<tr><td><code>properties</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>List of CSS properties/values to set.<tr><td><code>options</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>List of transition options.</table><!--
-
-*Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1292](../../helpers/ZxQuery.js#L1292)
-
---><p><a name="playTransition"></a><h4>&lt;<em>static</em>&gt; playTransition(element, classNames, callback)</h4><p>Plays transition effects or animations on a given element inside the component.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>element</code><td><em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>The target element.<tr><td><code>classNames</code><td><em>Array.&lt;string&gt;</em><td><td>List of transition/animation classes to apply.<tr><td><code>callback</code><td><em><a href="#PlayTransitionCallback">PlayTransitionCallback</a></em><td><em>optional</em><td>Callback function to call when all transitions/animations ended.</table><!--
-
-*Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 1325](../../helpers/ZxQuery.js#L1325)
-
---><h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
+--><h5>Returns</h5><p><em>Element</em> | <em>HTMLElement</em> ‐ The new wrapped element<h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
 
 *Source:*
 [zuix/ActiveRefresh.js](../../zuix/ActiveRefresh.js), [line 40](../../zuix/ActiveRefresh.js#L40)
@@ -619,7 +619,12 @@ main table code {
 *Source:*
 [helpers/Logger.js](../../helpers/Logger.js), [line 121](../../helpers/Logger.js#L121)
 
---><p><a name="PlayTransitionCallback"></a><h4>PlayTransitionCallback($element, transitionQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>transitionQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition class queue left to animate, <code>null</code> if the animation ended.</table><!--
+--><p><a name="PlayFxCallback"></a><h4>PlayFxCallback($element, classQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>classQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition/animation class queue left to play, <code>null</code> if the animation ended.</table><!--
+
+*Source:*
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 132](../../helpers/ZxQuery.js#L132)
+
+--><p><a name="PlayFxConfig"></a><h4>PlayFxConfig</h4><p>Configuration object for <code>playFx</code>, <code>playTransition</code>, <code>playAnimation</code> utility methods.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>type</code><td><em>'transition'</em> | <em>'animation'</em><td>The type of effect to play.<tr><td><code>target</code><td><em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element.<tr><td><code>classes</code><td><em>Array.&lt;string&gt;</em> | <em>string</em><td>List of transition or animation classes to play.<tr><td><code>options</code><td><em>object</em><td>Transition/animation options ('delay', 'duration', etc..).<tr><td><code>holdState</code><td><em>boolean</em><td>Hold last transition/animation class.<tr><td><code>onStep</code><td><em><a href="#PlayFxCallback">PlayFxCallback</a></em><td>Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.<tr><td><code>onEnd</code><td><em><a href="#PlayFxCallback">PlayFxCallback</a></em><td>Called when all transitions/animations ended.</table><!--
 
 *Source:*
 [helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 119](../../helpers/ZxQuery.js#L119)
