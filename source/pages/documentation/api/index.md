@@ -29,8 +29,7 @@ events and all other aspect of a *zuix.js* component.
 
 ## [ZxQuery](helpers/ZxQuery) class
 
-*ZxQuery* is a class that implements a very lite subset of jQuery-like functionality.
-It can wrap elements of the DOM and provides useful methods for manipulating them.
+*ZxQuery* is a class that provides a few utility methods for manipulating the DOM.
 
 <!--
 

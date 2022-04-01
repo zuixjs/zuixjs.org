@@ -43,7 +43,7 @@ function sampleCardAdapter($element, fieldName, $view, refreshCallback) {
       const ctx = zuix.context($view);
       // to animate the `title` field also
       ctx.field('title')
-         .animateCss('bounce', {duration: '0.5s'});
+         .playAnimation('animate__fadeInDown animate__bounce');
       // this field will be updated every 5 seconds
       return refreshCallback(5000);
 

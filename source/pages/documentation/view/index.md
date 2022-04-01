@@ -398,7 +398,7 @@ function a_random_name() {
 ```
 {% endunpre %}
 
-
+<a name="accessibility"></a>
 ## Accessibility
 
 The data model can also be set directly inside the host element through HTML tags, and this will also provide a default
@@ -429,7 +429,7 @@ and the above code, as is, will also provide a default visualization:
 ```html
 <label class="mdl-color-text--primary">Result</label>
 <div self="size-x1" layout="column center-center">
-  <div z-field="card-example-1" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px">
+  <div #card-example-1 self="sm-full" class="animate__animated" style="width:100%; max-width: 460px;min-height: 335px">
     <h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1>
     <img #image class="animate__animated animate__fadeIn" src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" width="460" height="190" style="width: 100%;padding: 8px">
     <p #text class="animate__animated animate__fadeIn">
@@ -444,7 +444,7 @@ and the above code, as is, will also provide a default visualization:
 cardViewContainer1 = zuix.field('card-example-1');
 function loadMdlCard(container) {
   zuix.loadComponent(container, 'templates/mdl_card', 'view', {
-    ready: (ctx) => ctx.$.animateCss('zoomIn', {duration: '300ms'})
+    ready: (ctx) => ctx.$.playAnimation({classes:'animate__zoomIn', options: {duration: '300ms'}})
   });
 }
 </script>
@@ -456,7 +456,7 @@ function loadMdlCard(container) {
     <li onclick="zuix.unload(cardViewContainer1)"
         @disable-if="!zuix.context(cardViewContainer1)">Unload</li>
   </ul>
-  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).animateCss('rubberBand', {duration: '250ms'})">Try me!</a>
+  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</a>
 </div>
 ```
 {% endunpre %}
@@ -529,10 +529,10 @@ cardViewContainer2 = zuix.field('card-example-2');
   <ul>
     <li onclick="loadMdlCard(cardViewContainer2)"
         @disable-if="zuix.context(cardViewContainer2)">Load view "mdl_card"</li>
-    <li onclick="cardViewContainer2.animateCss('flipOutX', {duration: '500ms'}, ()=> zuix.unload(cardViewContainer2))"
+    <li onclick="cardViewContainer2.playAnimation({classes:'animate__flipOutX', options: {duration: '500ms'}, onEnd: ($this) => {zuix.unload(cardViewContainer2)}})"
         @disable-if="!zuix.context(cardViewContainer2)">Unload</li>
   </ul>
-  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).animateCss('rubberBand', {duration: '250ms'})">Try me!</a>
+  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})">Try me!</a>
 </div>
 ```
 {% endunpre %}
@@ -542,7 +542,7 @@ layout, based for instance, on the device's screen size/orientation or a user se
 HTML code of the page, that will basically host the components' data models itself, and also provide through it a default
 visualization of the page that will even work without Javascript.
 
-
+<a name="behaviors"></a>
 ## Behaviors
 
 *Behavior Handlers* determine how a view will react and behave upon certain events, like user interaction or state-change

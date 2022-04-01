@@ -2,16 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/api/</loc>
-    <lastmod>2022-03-14</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/component/</loc>
-    <lastmod>2022-03-14</lastmod>
-  </url>
-
-  <url>
     <loc>https://zuixjs.org/pages/documentation/controller/</loc>
     <lastmod>2022-03-14</lastmod>
   </url>
@@ -32,23 +22,8 @@
   </url>
 
   <url>
-    <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
-    <lastmod>2022-03-16</lastmod>
-  </url>
-
-  <url>
     <loc>https://zuixjs.org/pages/documentation/</loc>
     <lastmod>2022-03-17</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/about/</loc>
-    <lastmod>2022-03-22</lastmod>
-  </url>
-
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/view/</loc>
-    <lastmod>2022-03-25</lastmod>
   </url>
 
   <url>
@@ -124,6 +99,31 @@
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
     <lastmod>2022-03-30</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/</loc>
+    <lastmod>2022-03-31</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
+    <lastmod>2022-04-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/component/</loc>
+    <lastmod>2022-04-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/view/</loc>
+    <lastmod>2022-04-01</lastmod>
+  </url>
+
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/about/</loc>
+    <lastmod>2022-04-01</lastmod>
   </url>
 
 </urlset>

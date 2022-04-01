@@ -107,7 +107,7 @@ testOptions = {
     },
   },
   ready: function(ctx) {
-    //zuix.$(ctx.view()).animateCss('bounceIn', { duration: '2s' });
+      /* ... */
   }
 };
 </script>
@@ -159,10 +159,10 @@ opts = {
     'gesture:swipe': function(e, tp) {
       switch(tp.direction) {
         case 'left':
-          this.animateCss('fadeOutLeft');
+          this.playAnimation('animate__fadeInDown animate__fadeOutLeft');
           break;
         case 'right':
-          this.animateCss('fadeOutRight');
+          this.playAnimation('animate__fadeInDown animate__fadeOutRight');
           break;
       }
     }
@@ -173,7 +173,7 @@ opts = {
 {% unpre '---------------------------------' %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
-<div class="example-container">
+<div class="example-container" style="overflow-x: hidden">
   <div layout="row center-center">
   <div ctrl z-load="@lib/controllers/gesture-helper"
        z-options="opts"
@@ -219,16 +219,16 @@ opts = {
           case 'down':
             break;
           case 'left':
-            this.animateCss('fadeOutLeft');
+            this.playAnimation('animate__fadeInDown animate__fadeOutLeft');
             break;
           case 'right':
-            this.animateCss('fadeOutRight');
+            this.playAnimation('animate__fadeInDown animate__fadeOutRight');
             break;
         }
       }
     },
     ready: function(ctx) {
-      //zuix.$(ctx.view()).animateCss('fadeIn', { duration: '2s' });
+      /* ... */
     }
   }
   </script>
@@ -435,13 +435,15 @@ standard HTML elements.
 <script>
 function onSimpleDivReady(ctx) {
   const msg = ' and now also a <code>zuix.js</code> component!';
-  ctx.$
-   .append(msg)
-   .animateCss('bounce', {
-       delay: '1s',
-       duration: '1s',
-       'iteration-count': 5
-   });
+  ctx.$.append(msg).addClass('animate__animated')
+          .playAnimation({
+              classes: 'animate__bounce',
+              options: {
+                delay: '1s',
+                duration: '1s',
+                'iteration-count': 5
+              }
+          });
 }
 </script>
 ```
@@ -454,11 +456,14 @@ function onSimpleDivReady(ctx) {
   const fn = function() {
     const msg = ' and now also a <code>zuix.js</code> component!';
     ctx.$
-      .append(msg)
-      .animateCss('bounce', {
-        delay: '1s',
-        duration: '1s',
-        'iteration-count': 5
+      .append(msg).addClass('animate__animated')
+      .playAnimation({
+          classes: 'animate__bounce',
+          options: {
+            delay: '1s',
+            duration: '1s',
+            'iteration-count': 5
+          }
       });
   }
   setTimeout(fn, 2000);

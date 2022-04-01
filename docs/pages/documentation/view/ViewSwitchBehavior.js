@@ -26,7 +26,8 @@ function ViewSwitchBehavior(defaultOrientation) {
     target.on('select', evt.cb.select);
     target.on('deselect', evt.cb.deselect);
     if (target.attr(viewSelectedOption)) {
-      target.show().animateCss('flip');
+      target.addClass('animate__animated').show()
+          .playAnimation('animate__flip');
       target.trigger('select');
     } else {
       target.hide();
@@ -69,7 +70,7 @@ function ViewSwitchBehavior(defaultOrientation) {
     // Animation effects values:
     // 'bounce', 'fade', 'slide', 'zoom', 'back'
     // 'lightSpeed' (<-- this one only works with horizontal orientation)
-    const animation = $el.attr('animation') || 'fade';
+    const animation = 'animate__' + ($el.attr('animation') || 'fade');
     const direction = indexOld > indexNew ? 0 : 1;
     let outFx;
     let inFx;
@@ -80,17 +81,23 @@ function ViewSwitchBehavior(defaultOrientation) {
       inFx = (direction === 1 ? 'Right' : 'Left');
     }
     const opts = {duration: '500ms'};
-    current.animateCss(animation + 'Out' + outFx, opts,
-        () => {
-          // deselect current view
-          current.hide().attr(viewSelectedOption, null);
-        });
-    target.animateCss(animation + 'In' + inFx, opts,
-        () => {
-          // select new one
-          target.attr(viewSelectedOption, 'true');
-          busy = false;
-        }).show();
+    current.addClass('animate__animated').playAnimation({
+      classes: animation + 'Out' + outFx,
+      options: opts,
+      onEnd: () => {
+        // deselect current view
+        current.hide().attr(viewSelectedOption, null);
+      }
+    });
+    target.addClass('animate__animated').playAnimation({
+      classes: animation + 'In' + inFx,
+      options: opts,
+      onEnd: () => {
+        // select new one
+        target.attr(viewSelectedOption, 'true');
+        busy = false;
+      }
+    }).show();
     // trigger sate change in bound elements
     current.trigger('deselect');
     target.trigger('select');

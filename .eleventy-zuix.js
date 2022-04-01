@@ -307,6 +307,13 @@ function configure(eleventyConfig) {
   eleventyConfig.addPairedShortcode('wrapCss', function(content, cssId, encapsulate) {
     return wrapCss(`[${cssId}]`, content, encapsulate);
   });
+
+  eleventyConfig.addShortcode('tryLink', function(text, link) {
+    return `<div layout="column center-left"><div><a layout="row center-start" href="${link}">
+         <i class="material-icons mdl-color-text--primary">try</i>
+         <span style="font-size: 120%;margin-left:2px;margin-bottom: 2px">${text}</span>
+       </a></div></div>`;
+  });
 }
 
 module.exports = {

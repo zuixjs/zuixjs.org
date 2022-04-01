@@ -16,8 +16,15 @@ keywords:
 
 `zuix.js` is a lightweight library for creating modular and component based web applications
 by using standard HTML, CSS and JavaScript.
-It's framework-agnostic, so you can pair it with your favourite framework and tools
-to develop your next website or application.
+
+One of the main feature of *zuix.js* is the ability to transform basic HTML content into components,
+at runtime and progressively, only when needed (lazy-loading components).
+
+This enables designing web pages that can work even with JavaScript disabled, and where JavaScript is enabled,
+the same page is animated and brought to life with components that use the very page content as its data source.
+
+What even more interesting, is that is possible to load such components also from external websites, making infinite
+the possibilities in sharing and reusing components.
 
 **Features in brief**
 - Components loading either from a local or remote servers
@@ -27,7 +34,8 @@ to develop your next website or application.
 - Events, Behaviors, Refresh *@* Handlers
 - Automatic events unbinding
 - Resource loader with caching
-- Integrated jQuery-alike DOM helper
+- Integrated DOM helper
+- Animations and transitions handling
 - Inline components definition
 
 
@@ -35,13 +43,14 @@ to develop your next website or application.
 
 `zuix-cli` is a tool for the command-line shell for creating a starter project, adding new pages or components,
 bundling and compressing into a single HTML file all resources used in a page, either local or remote.
-The web starter project is based on [Eleventy](https://11ty.dev/), a simple, yet powerful, static site generator
-that works very nicely together with *zuix.js*.
+The web starter project is based on [Eleventy](https://11ty.dev/), a versatile static site generator that works
+very nicely together with *zuix.js*.
 
 **Features in brief**
 
-- Single page bundling of components, styles, scripts
-- Starter project based on *Eleventy*:
+- Page bundling (components, styles, scripts)
+- Assets mirroring (creates a local copy of external resources such as scripts, images and videos)
+- *Eleventy* site generator:
   * Integrated web server (*BrowserSync*)
   * Automatic rebuild and client refresh on files change
   * Partials and include
@@ -49,10 +58,10 @@ that works very nicely together with *zuix.js*.
   * Multiple template languages:
     - [Liquid](https://shopify.github.io/liquid/basics/introduction/)
     - [Nunjucks](https://mozilla.github.io/nunjucks/templating.html)
+    - Markdown
     - Handlebars
     - Mustache
     - Pug
-    - Markdown
     - and [more](https://11ty.dev/docs/)
   * Custom filters and shortcodes
 - [LESS](https://lesscss.org/) to CSS style compiler
