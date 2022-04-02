@@ -17,14 +17,14 @@ keywords:
 `zuix.js` is a lightweight library for creating modular and component based web applications
 by using standard HTML, CSS and JavaScript.
 
-One of the main feature of *zuix.js* is the ability to transform basic HTML content into components,
-at runtime and progressively, only when needed (lazy-loading components).
+One of the main feature of *zuix.js* is the ability to "morph" basic HTML content into components,
+by loading them at runtime and only when needed (lazy-loading).
 
-This enables designing web pages that can work even with JavaScript disabled, and where JavaScript is enabled,
-the same page is animated and brought to life with components that use the very page content as its data source.
+This makes possible to design web pages that can work even with JavaScript disabled, and where JavaScript is enabled,
+the same page is brought to life with components that use the very page content as its data source.
 
 What even more interesting, is that is possible to load such components also from external websites, making infinite
-the possibilities in sharing and reusing components.
+the possibilities in sharing and reusing components across a network of sites.
 
 **Features in brief**
 - Components loading either from a local or remote servers
@@ -41,10 +41,10 @@ the possibilities in sharing and reusing components.
 
 &nbsp;
 
-`zuix-cli` is a tool for the command-line shell for creating a starter project, adding new pages or components,
-bundling and compressing into a single HTML file all resources used in a page, either local or remote.
-The web starter project is based on [Eleventy](https://11ty.dev/), a versatile static site generator that works
-very nicely together with *zuix.js*.
+`zuix-cli` is a tool for the command-line shell for creating new projects, adding pages or components,
+bundling and compressing into a single HTML file all resources used in a page, either local or remote ones.
+Project starter templates are using [Eleventy](https://11ty.dev/) as site generator, which works very nicely
+together with *zuix.js*.
 
 **Features in brief**
 
@@ -68,7 +68,7 @@ very nicely together with *zuix.js*.
 - Page indexing and search engine [ElasticLunr](http://elasticlunr.com/)
 - Code linting and minifying
 - Service worker generator for assets pre-caching and other optimizations
-- Responsive templates optimized for both desktop and mobile
+- Responsive starter templates optimized for both desktop and mobile
 - Progressive Web App (PWA) with 95-100/100/100/100 score in Lighthouse test for mobile devices
 
 
