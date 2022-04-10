@@ -45,6 +45,7 @@ const buildFolder = zuixConfig.get('build.output');
 const copyFiles = zuixConfig.get('build.copy');
 const ignoreFiles = zuixConfig.get('build.ignore');
 const componentsFolders = zuixConfig.get('build.componentsFolders');
+const contentFolder = zuixConfig.get('build.contentFolder', 'content');
 const dataFolder = zuixConfig.get('build.dataFolder');
 const includesFolder = zuixConfig.get('build.includesFolder');
 // this file is a temporary file create to trigger 11ty build
@@ -72,6 +73,8 @@ function getZuixConfig() {
     all: zuixConfig
   }
 }
+
+let wrappedCssIds = [];
 
 function startWatcher(eleventyConfig, browserSync) {
   // Watch zuix.js folders and files (`./source/lib`, `./source/app`, zuixConfig.copy), ignored by 11ty
@@ -168,6 +171,7 @@ function initEleventyZuix(eleventyConfig) {
       // TODO: check result code and report
     });
     postProcessFiles.length = 0;
+    wrappedCssIds = [];
     if (zuixConfig.build.serviceWorker) {
       console.log('Updating Service Worker... ');
       await generateServiceWorker().then(function () {
@@ -255,7 +259,7 @@ function configure(eleventyConfig) {
 
   // this is used by the searchFilter
   eleventyConfig.addCollection('posts_searchIndex', (collection) => {
-    return [...collection.getFilteredByGlob(path.join(zuixConfig.build.input, 'pages/**/*.md'))];
+    return [...collection.getFilteredByGlob(path.join(zuixConfig.build.input, contentFolder, '**/*.md'))];
   });
 
   /*
@@ -265,8 +269,8 @@ function configure(eleventyConfig) {
   // TODO: maybe scan folder and add automatically
   const filtersPath = path.resolve(sourceFolder, '_filters');
   eleventyConfig.addFilter(
-      'search',
-      require(path.join(filtersPath, 'searchFilter'))
+    'search',
+    require(path.join(filtersPath, 'searchFilter'))
   );
   eleventyConfig.addFilter(
     'date',
@@ -305,14 +309,22 @@ function configure(eleventyConfig) {
     return wrapDom(content, cssId);
   });
   eleventyConfig.addPairedShortcode('wrapCss', function(content, cssId, encapsulate) {
-    return wrapCss(`[${cssId}]`, content, encapsulate);
-  });
-
-  eleventyConfig.addShortcode('tryLink', function(text, link) {
-    return `<div layout="column center-left"><div><a layout="row center-start" href="${link}">
-         <i class="material-icons mdl-color-text--primary">try</i>
-         <span style="font-size: 120%;margin-left:2px;margin-bottom: 2px">${text}</span>
-       </a></div></div>`;
+    const path = this.page.inputPath;
+    const processedCss = wrappedCssIds.find((item) => item.id === cssId && item.path === path);
+    if (processedCss == null) {
+      wrappedCssIds.push({id: cssId, path});
+      content = content.replace(/^\s+|\s+$/g, '');
+      let styleTag = false;
+      if (content.startsWith('<style')) {
+        styleTag = content.substring(0, content.indexOf('>') + 1);
+        content = content.substring(content.indexOf('>') + 1);
+        content = content.substring(0, content.indexOf('</style>'));
+      }
+      content = wrapCss(`[${cssId}]`, content, encapsulate);
+      return styleTag ? `${styleTag}${content}</style>` : content;
+    }
+    // cssId already outputted for this page
+    return '';
   });
 }
 
