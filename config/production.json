@@ -26,6 +26,7 @@
       "dataFolder": "_data",
       "includesFolder": "_inc",
       "componentsFolders": [ "app", "lib" ],
+      "contentFolder": "pages",
       "bundle": {
         "js": true,
         "css": true,

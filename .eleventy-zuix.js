@@ -326,6 +326,13 @@ function configure(eleventyConfig) {
     // cssId already outputted for this page
     return '';
   });
+
+  eleventyConfig.addShortcode('tryLink', function(text, link) {
+    return `<div layout="column center-left"><div><a layout="row center-start" href="${link}">
+         <i class="material-icons mdl-color-text--primary">try</i>
+         <span style="font-size: 120%;margin-left:2px;margin-bottom: 2px">${text}</span>
+       </a></div></div>`;
+  });
 }
 
 module.exports = {

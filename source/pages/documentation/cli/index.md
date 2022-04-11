@@ -24,9 +24,10 @@ keywords:
 npx zuix new my-new-webapp
 ```
 
-A new folder named *my-new-webapp* will be created containing all files required to run the web-starter project.  
-See *zuix.js* [Web Starter documentation](https://zuixjs.github.io/zuix-web-starter/) for a complete overview of 
-commands and features.
+A new folder named *my-new-webapp* will be created containing all files required to run the web-starter project.
+
+Different starter project templates are available and can be specified using the `-t` option. See *zuix.js* [Web Starter documentation](https://zuixjs.github.io/zuix-web-starter/)
+for a list of available templates and a complete overview of commands and features.
 
 
 ### Creating a new component
