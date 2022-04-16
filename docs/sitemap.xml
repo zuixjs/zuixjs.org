@@ -18,10 +18,6 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
-    <lastmod>2022-03-29</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/api/</loc>
     <lastmod>2022-03-31</lastmod>
   </url>
@@ -100,5 +96,9 @@
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
     <lastmod>2022-04-15</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
+    <lastmod>2022-04-16</lastmod>
   </url>
 </urlset>

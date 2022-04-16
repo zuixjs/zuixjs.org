@@ -66,6 +66,14 @@ Along with the *@disable-if* handler, the following active&rarr;refresh handlers
 - `@set` &rarr; sets code to execute (works also without *@get*)
 - `@on:<event>` &rarr; sets an event handler 
 
+Next to any active&rarr;refresh handler it is also possible to specify the following options:
+
+- `@delay="<refresh_delay_ms>"`
+- `@active`
+
+The `@delay` option can be used to set the refresh rate in milliseconds (default is 100ms), while the `@active`
+option will force the execution of the refresh handler even if the element is not visible on screen.
+
 
 In the next  example, a default component context is created using the *z-load="default"* attribute on the container
 `div`. It's then possible to use `@` handlers and other component features inside its view.
@@ -147,9 +155,14 @@ so applied only to the component's view.
 ## The default refresh handler
 
 The *default refresh handler* of a component, like the others *active &rarr; refresh* handlers, will run only when the
-component become visible in the viewport. The main body of the script's code will be executed only once, as initialization
-code, while the `refresh()` function, if present, will be executed, as long as the component is visible, circa ten times
-a second or as differently specified by the `refreshDelay` attribute of the `<script>` tag (value is expressed in milliseconds).
+component become visible in the viewport.
+
+When the component is not visible in the viewport, the refresh handler will enter a paused state and the event
+`refresh:inactive` will be triggered. If it becomes visible again, the event `refresh:active` will be triggered.
+
+The main body of the script's code will be executed only once, as initialization code, while the `refresh()` function,
+if present, will be executed, as long as the component is visible, circa ten times a second or as differently specified
+by the `refreshDelay` attribute of the `<script>` tag (value is expressed in milliseconds).
 
 Any member declared in this script it's only visible to the component, and can be referenced also in `@` handlers' value
 expression employed in the view's template. And so, the two state variables `validFormData`, `bothChecked`, and the
