@@ -10,7 +10,9 @@
  * @this {ContextController}
  */
 function MdlButton() {
+  const cp = this;
   this.create = () => {
+    this.context.isReady = false;
     const view = this.view();
     const options = this.options();
     const type = options.type || 'raised';
@@ -29,6 +31,7 @@ function MdlButton() {
     zuix.activeRefresh(view, view, null, ($view, $element, data, nextCallback) => {
       if (window['componentHandler']) {
         componentHandler.upgradeElements($view.get());
+        cp.context.isReady = true;
       } else {
         nextCallback(data, 100, true);
       }

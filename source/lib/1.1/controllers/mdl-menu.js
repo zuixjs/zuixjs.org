@@ -19,6 +19,7 @@ function MdlMenu() {
   }
 
   function onCreate() {
+    cp.context.isReady = false;
     // position relative must be set on the container
     // in order to make MaterialMenu positioning work properly
     this.view().css('position', 'relative');
@@ -103,6 +104,7 @@ function MdlMenu() {
             });
           });
         }
+        cp.context.isReady = true;
       } else {
         nextCallback(data, 100, true);
       }

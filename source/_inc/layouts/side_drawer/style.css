@@ -235,6 +235,13 @@
         100% { opacity: 0.2; }
     }
 
+    .mdl-tabs__panel pre {
+        margin-top: 0!important;
+    }
+    .mdl-tabs__tab-bar {
+        justify-content: left!important;
+    }
+
     [z-load="@lib/templates/mdl-card-image"] {
         position: relative;
         width: 256px;

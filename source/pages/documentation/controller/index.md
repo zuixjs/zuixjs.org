@@ -39,24 +39,137 @@ A reference to a *ComponentContext* can be obtained with the [`zuix.context(..)`
 
 ```js
 let myControllerContext;
-zuix.context(hostElement, (context) => {
-  myControllerContext = context;
+zuix.context(hostElement, (ctx) => {
+  myControllerContext = ctx;
 }); 
 ```
 
 or through the `ready` callback in the controller's [loading options](../api/zuix/Zuix/#ContextOptions).
 
 
-## Lifecycle callbacks 
+## Implementation
 
-### `<controller>.init()`
+A controller can be implemented in a `<component_name>.js` **file** using one of the following code templates:
 
-The `init` function gets called right after the JavaScript controller has been loaded and before any other resource is
-loaded. This function can be used to get, set component's options, or to load additional dependencies.
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#es6-class" class="mdl-tabs__tab is-active">ES6+</a>
+      <a href="#es5-function" class="mdl-tabs__tab">ES5</a>
+  </div>
+  <div class="mdl-tabs__panel is-active" id="es6-class">
 
 ```js
-cp.init = function() {
-  const opts = cp.options();
+
+class ComponentName extends ControllerInstance {
+
+  /* Life-cycle callbacks */
+  onInit() { }
+  onCreate() { }
+  onDispose() { }
+  onUpdate(target, key, value, path, old) { }
+
+}
+module.exports = ComponentName;
+```
+  
+  </div>
+  <div class="mdl-tabs__panel" id="es5-function">
+
+```js
+'use strict';
+function ComponentName() {
+    
+  /* Life-cycle callbacks */
+  this.init = function() { };
+  this.create = function() { };
+  this.dispose = function() { };
+  this.update = function(target, key, value, path, old) { };
+
+}
+module.exports = ComponentName;
+```
+
+  </div>
+</div>
+
+
+
+
+{% unpre %}
+```html
+<div z-view="path/of/component-name">
+  <!-- component's view template content -->
+  aa
+</div>
+<style media="#path/of/component-name">
+  /* styles definitions of this component's view */
+</style>
+<script>
+  class Pippo extends ControllerInstance {
+    onInit() {
+      console.log('Pippo!', this);
+    }
+    onCreate() {
+      console.log('Pluto!', this);
+        this.view().html('Hello world!');
+    }
+    onUpdate(target, key, value, path, old) {
+        console.log(target, key, value, path, old);
+    }
+  }
+
+  zuix.controller(Pippo).for('path/of/component-name');
+</script>
+```
+{% endunpre %}
+
+
+Within the controller's scope, the context object `this`, is the [ContextController](../api/zuix/ContextController) instance through which is possible to
+access the view template's fields, querying its DOM, handling input events and triggering output events, exposing public interface
+members, and other common component's implementation tasks.
+
+
+<div z-load="path/of/component-name"></div>
+
+
+
+## Lifecycle callbacks
+
+### `onInit()` <small>( `<controller>.init()` )</small>
+
+The `onInit` method gets called right after the JavaScript controller has been loaded and before any other resource is
+loaded. This function can be used to get, set component's options, or to load additional dependencies.
+
+
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#es6-class" class="mdl-tabs__tab is-active">ES6+</a>
+      <a href="#es5-function" class="mdl-tabs__tab">ES5</a>
+  </div>
+  <div class="mdl-tabs__panel is-active" id="es6-class">
+
+```js
+onInit() {
+  const opts = this.options();
+  // enable view style encapsulation
+  opts.encapsulation = true;
+  // do not inherit styles from parent
+  opts.resetCss = true;
+  // do not load template's CSS file
+  opts.css = false;
+  // custom option
+  if (opts.myCustomOption === 'some-value') {
+    // TODO: handle custom option
+  }
+}
+```
+
+  </div>
+  <div class="mdl-tabs__panel" id="es5-function">
+
+```js
+this.init = function() {
+  const opts = this.options();
   // enable view style encapsulation
   opts.encapsulation = true;
   // do not inherit styles from parent
@@ -70,132 +183,63 @@ cp.init = function() {
 };
 ```
 
+  </div>
+</div>
 
-### `<controller>.create()`
+At this stage it's also possible to change the ready status of the component to `false` (`this.context.isReady = false`).
+This can be useful in case the component will load other dependencies before becoming fully operational and setting back
+`this.context.isReady = true`. During this *"not ready"* interval, the class `.not-ready` will be added to the component's
+view so that it can be used to customize how to component will look like while not ready.
 
-The `create` function gets called right after all component's resources have been loaded. At this stage it is already possible
+
+### `onCreate()` <small>( `<controller>.create()` )</small>
+
+The `onCreate` method gets called right after all component's resources have been loaded. At this stage it is already possible
 to access the component's view and the data model. This method is also employed to register input event listeners and declare
 methods to expose publicly.
 
 
-### `<controller>.update(target, key, value, path, old)`
+### `onUpdate()` <small>( `<controller>.update(target, key, value, path, old)` )</small>
 
-This function gets called anytime a bound field of the data model is updated.
+This method gets called anytime a bound field of the data model is updated.
 
 
-### `<controller>.dispose()`
+### `onDispose()` <small>( `<controller>.dispose()` )</small>
 
-This function gets called right before the component is unloaded and disposed, and it's employed to clear timers and correctly
+This method gets called right before the component is unloaded and disposed, and it's employed to clear timers and correctly
 dispose other resources that are not automatically handled by *zuix.js*.
 
 
+## Inline implementation
 
-## Implementation
-
-A controller can be implemented in a `<component_name>.js` **file** using the following code template (ES5 class-like example):
-
-```js
-'use strict';
-
-/*
-* Private static fields and functions
-*/
-// TODO: private static fields/methods declaration
-
-/**
- * ComponentName class
- * 
- * @class
- * @author Author Name
- * @version v1.0
- * @constructor
- * @param {ContextController} [cp] Same as `this`
- * @this {ContextController}
- */
-function ComponentName(cp) {
-
-  /*
-   * Private fields
-   */
-  // TODO: private fields declaration
-
-
-  /*
-   * Lifecycle callbacks declaration
-   */
-
-  // called before component is loaded and before applying context options
-  this.init = function() { /* ... */ };
-
-  // called after loading, when the component is created
-  this.create = function() { /* ... */ };
-
-  // called when the component is disposed
-  this.dispose = function() { /* ... */ }
-
-  // called each time the data model is updated
-  this.update = function(target, key, value, path, old) { /* ... */ }
-
-
-  /*
-   * Private functions
-   */
-  // TODO: private methods implementation
-
-};
-
-module.exports = ComponentName;
-```
-
-Or it can also be implemented inline, directly in the HTML page, as shown in the following **inline component** template (view + controller):
+A component can also be implemented inline, directly in the HTML page, as shown in the following **inline component** template (view + controller):
 
 ```html
-<div z-view="path/of/component_name">
+<div z-view="path/of/component-name">
   <!-- component's view template content -->
 </div>
-<style media="#path/of/component_name">
+<style media="#path/of/component-name">
   /* styles definitions of this component's view */
 </style>
 <script>
-zuix.controller(function(cp) {
-    
-  /*
-   * Private fields
-   */
-  // TODO: private fields declaration
-    
-    
-  /*
-   * Lifecycle callbacks declaration
-   */
-    
-  // called before component is loaded and before applying context options
-  cp.init = function() { /* ... */ };
-    
-  // called after loading, when the component is created
-  cp.create = function() { /* ... */ };
-    
-  // called when the component is disposed
-  cp.dispose = function() { /* ... */ }
-    
-  // called each time the data model is updated
-  cp.update = function(target, key, value, path, old) { /* ... */ }
-    
-    
-  /*
-   * Private functions
-   */
-  // TODO: private methods implementation
-
-}).for('path/of/component_name');
+class ComponentName extends ControllerInstance {
+    onCreate() { /* ... */ }
+    // ...
+}
+zuix.controller(ComponentName).for('path/of/component-name');
 </script>
 ```
 
-Static members are not possible in the case of an inline controller declaration.
 
-Within the controller's scope, the context object `this`, is the [ContextController](../api/zuix/ContextController) instance through which is possible to
-access the view template's fields, querying its DOM, handling input events and triggering output events, exposing public interface
-members, and other common component's implementation tasks.
+A component declared inline can be loaded as any other component:
+
+```html
+<div z-load="path/of/component-name"></div>
+```
+
+
+
+
 
 ### Common tasks
 
@@ -207,23 +251,23 @@ Consider this simple view
     
 </div>
 ```
-where, in the controller's code, `cp` is the `ContextController` instance:
+where, in the controller's code, `this` is the `ContextController` instance:
 
 - getting the view:  
-  `const $view = cp.view()`
+  `const $view = this.view()`
 - querying the view's DOM  
   `const $elements = $view.find('<filter>')` or
-  `const $elements = cp.view('<filter>')`
+  `const $elements = this.view('<filter>')`
 - getting the view's field `#message`  
-  `const $msg = cp.field('message')` or  
-  `const $msg = cp.model().message`
+  `const $msg = this.field('message')` or  
+  `const $msg = this.model().message`
 - listening to events  
   `$msg.on('click', eventCallbackFn)`
 - emitting custom component's events  
-  `cp.trigger('myevent', myEventData)`;
+  `this.trigger('myevent', myEventData)`;
 - exposing public methods
-- `cp.expose('methodName', handlerFn)` or  
-  `cp.expose({ 
+- `this.expose('methodName', handlerFn)` or  
+  `this.expose({ 
     methodName1: handlerFn1,
     methodName2: handlerFn2, 
     /* ... */ 
@@ -238,11 +282,46 @@ See the [ContextController API](../api/zuix/ContextController) for a list of all
 As an example, the following controller's code, is the implementation of a Material Design Light [button](https://getmdl.io/components/index.html#buttons-section):
 
 
-<label class="mdl-color-text--primary">EXAMPLE CONTROLLER</label>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#es6-class" class="mdl-tabs__tab is-active">ES6+</a>
+      <a href="#es5-function" class="mdl-tabs__tab">ES5</a>
+  </div>
+  <div class="mdl-tabs__panel is-active" id="es6-class">
+
+```js
+
+/**
+ * MdlButton class.
+ * @constructor
+ * @this {ContextController}
+ */
+class MdlButton extends ControllerInstance {
+
+  onCreate() {
+
+    const $view = this.view();
+    const options = this.options();
+    const type = options.type || 'raised';
+    $view.addClass('mdl-button mdl-js-button mdl-button--' + type + ' mdl-js-ripple-effect');
+    if (options.class) {
+      $view.addClass('mdl-button--' + options.class);
+    }
+
+  }
+
+}
+module.exports = MdlButton;
+// file: "controllers/mdl-button.js"
+```
+
+  </div>
+  <div class="mdl-tabs__panel" id="es5-function">
+
 ```js
 'use strict';
 /**
- * MdlButton class.
+ * @class MdlButton
  * @constructor
  * @this {ContextController}
  */
@@ -264,6 +343,9 @@ function MdlButton() {
 module.exports = MdlButton;
 // file: "controllers/mdl-button.js"
 ```
+
+  </div>
+</div>
 
 
 This controller just adds the required CSS classes to turn the host element into an MDL button.

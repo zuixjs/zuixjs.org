@@ -15,6 +15,7 @@ function MdlCheckbox() {
   cp.create = onCreate;
 
   function onCreate() {
+    cp.context.isReady = false;
     view = cp.view();
     view.addClass('mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect')
         .css({margin: '12px'});
@@ -80,6 +81,7 @@ function MdlCheckbox() {
     zuix.activeRefresh(view, view, null, ($view, $element, data, nextCallback) => {
       if (window['componentHandler']) {
         componentHandler.upgradeElements($view.get());
+        cp.context.isReady = true;
       } else {
         nextCallback(data, 100, true);
       }
