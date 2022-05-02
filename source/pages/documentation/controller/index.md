@@ -93,44 +93,9 @@ module.exports = ComponentName;
 </div>
 
 
-
-
-{% unpre %}
-```html
-<div z-view="path/of/component-name">
-  <!-- component's view template content -->
-  aa
-</div>
-<style media="#path/of/component-name">
-  /* styles definitions of this component's view */
-</style>
-<script>
-  class Pippo extends ControllerInstance {
-    onInit() {
-      console.log('Pippo!', this);
-    }
-    onCreate() {
-      console.log('Pluto!', this);
-        this.view().html('Hello world!');
-    }
-    onUpdate(target, key, value, path, old) {
-        console.log(target, key, value, path, old);
-    }
-  }
-
-  zuix.controller(Pippo).for('path/of/component-name');
-</script>
-```
-{% endunpre %}
-
-
 Within the controller's scope, the context object `this`, is the [ContextController](../api/zuix/ContextController) instance through which is possible to
 access the view template's fields, querying its DOM, handling input events and triggering output events, exposing public interface
 members, and other common component's implementation tasks.
-
-
-<div z-load="path/of/component-name"></div>
-
 
 
 ## Lifecycle callbacks

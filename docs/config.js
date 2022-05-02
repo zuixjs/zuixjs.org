@@ -1,7 +1,9 @@
 /* eslint-disable quotes */
 (function() {
   zuix.store('config', {
-    "title": "zUIx.js presentation and documentation website.",
+    "title": "zuix.js",
+    "subtitle": "Presentation and documentation website.",
+    "language": "en",
     "baseUrl": "/",
     "resourcePath": "/app/",
     "libraryPath": {

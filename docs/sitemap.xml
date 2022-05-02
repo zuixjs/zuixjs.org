@@ -2,10 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://zuixjs.org/</loc>
-    <lastmod>2022-03-15</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/</loc>
     <lastmod>2022-03-17</lastmod>
   </url>
@@ -99,6 +95,6 @@
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/controller/</loc>
-    <lastmod>2022-05-01</lastmod>
+    <lastmod>2022-05-02</lastmod>
   </url>
 </urlset>
