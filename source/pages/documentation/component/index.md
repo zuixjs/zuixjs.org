@@ -6,8 +6,8 @@ group: documentation
 order: 3
 icon: smart_button
 title: Component
-summary: Loading options, lazy-loading, the <em>default</em> component, theming.
-description: Components, loading options, lazy-loading, the <em>default</em> component, theming.
+summary: Custom elements, options, lazy-loading, the <em>default</em> component, theming.
+description: Components, custom elements, loading options, lazy-loading, the <em>default</em> component, theming.
 keywords:
 - documentation
 - api
@@ -18,17 +18,17 @@ keywords:
 ---
 
 A *component*, here intended as a reusable part of a web page, consists of a **[View](../view)**, that is implemented
-with an HTML template with its own CSS, and a **[Controller](../controller)**, that is the Javascript code that controls the *view*,
+as HTML template with its own CSS, and a **[Controller](../controller)** that is the Javascript code that controls the *view*,
 its presentation and interaction logic.
 
-Component's files are placed in the same *path* location, and the base name of its `.html`, `.css` and `.js` files, is
-the same, and it represents itself the *component's name*:
+Component's files are placed in the same *path* location and their base name is the same, and it represents itself
+the *component's name*:
 - `[<path>/]<component_name>.html`
 - `[<path>/]<component_name>.css` <small>(optional)</small>
 - `[<path>/]<component_name>.js`
 
 The *unique component's identifier* is then its full path, formed by the component's `<path>` plus the `<component_name>`,
-without the extension.
+without any extension.
 
 ```
 <component_id> :== [<path>/]<component_name>
@@ -44,6 +44,7 @@ identifier*:
 The `<path>` of the component, can be either relative to the page requesting the component, or an absolute path, even
 if pointing to a different server. In the latter case, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) must
 be enabled on the server end in order to allow fetching of components from the remote server.
+
 
 As an example, consider this *time-clock* component with its view and controller files placed inside a *widgets* folder:
 - `widgets/time-clock.html`
@@ -71,6 +72,98 @@ the `<component_id>` is `widgets/time-clock`, and the component can be loaded us
 
 so, basically, the component's view template's files (*time-clock.html* + *time-clock.css*) are rendered inside the host
 element `div`, and the controller code (*time-clock.js*) is activated and begins to animate the clock's digits.
+
+
+## Custom element
+
+It is possible to define a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for a *zuix.js* component
+by using the [`zuix.loadComponent(..)`](../api/zuix/Zuix/#loadComponent) method:
+
+```js
+customElements.define('component-name', class extends HTMLElement {
+  connectedCallback() {
+    zuix.loadComponent(this, 'path/of/component-name');
+  }
+});
+```
+
+After defining a custom element, the component can be added to the page by using the custom element tag:
+
+```html
+<component-name></component-name>
+```
+
+which has the same effect of using the `z-load` attribute on a host element:
+
+```html
+<div z-load="path/of/component-name"></div>
+```
+
+<label class="mdl-color-text--primary">Example</label>
+
+Defining a custom element for a Material Design button component.
+
+```js
+customElements.define('mdl-button', class extends HTMLElement {
+  connectedCallback() {
+    zuix.loadComponent(this, '@lib/controllers/mdl-button', 'ctrl');
+  }
+});
+```
+
+The third parameter `<type>` can be supplied to the [`zuix.loadComponent(..)`](../api/zuix/Zuix/#loadComponent) in case we are loading only a controller (`ctrl`)
+or only a view template (`view`), rather than a complete component (*.html + .css + .js*).
+
+Using the `mdl-button` element in the page:
+
+```html
+<mdl-button primary>
+    Hello
+</mdl-button>
+<mdl-button>
+    Web
+</mdl-button>
+<mdl-button accent>
+    Components
+</mdl-button>
+```
+
+<label class="mdl-color-text--primary">Result</label>
+{% unpre %}
+```html
+<script>
+customElements.define('mdl-button', class extends HTMLElement {
+  connectedCallback() {
+      this.classList.add('visible-on-ready');
+      this.style.display = 'inline-block';
+      this.style.height = '36px';
+      this.style.margin = '4px';
+      let className = '';
+      if (this.getAttribute('primary') != null) {
+          className = 'primary';
+      }
+      if (this.getAttribute('accent') != null) {
+          className = 'accent';
+      }
+      zuix.loadComponent(this, '@lib/controllers/mdl-button', 'ctrl', {class: className});
+  }
+});
+</script>
+<!-- unity -->
+<mdl-button primary>
+    Hello
+</mdl-button>
+<!-- freedom -->
+<mdl-button>
+    Web
+</mdl-button>
+<!-- justice -->
+<mdl-button accent>
+    Components
+</mdl-button>
+
+```
+{% endunpre %}
 
 
 <a name="type_view"></a>
@@ -136,11 +229,9 @@ To load a *controller* the type-attribute `ctrl` is added to the host element.
 </div> 
 ```
 
-A *controller* consists only of a *Javascript* file and can be implemented using *CommonJS* or *ES Module* format:
+A *controller* consists only of a *Javascript* file:
 
 - `<component_id>.js`
-
-A controller can also be declared inline (as explained later in this guide) using the callback function to the [`zuix.controller(..)`](../api/zuix/Zuix/#controller) method.
 
 <a name="example_controller"></a>
 <label class="mdl-color-text--primary">Example</label>
@@ -268,8 +359,12 @@ opts = {
     'view:attach': function(e, element) {
       // the view has been attached to the host element
     },
+    'component:loaded': function(e, element) {
+      // the component has been loaded, but it might
+      // be waiting for other dependencies before starting   
+    },
     'component:ready': function(e, element) {
-      // the component is loaded and initialized
+      // the component is now ready and fully operational
     },
     // standard DOM events
     'mouseout': function(e) {
@@ -294,8 +389,8 @@ opts = {
 </script>
 ```
 
-the `ready` and `error` option fields can be used to provide callbacks for handling component's loading events. *Event handlers*
-can also be directly provided using the `z-on` attribute.
+the `ready` and `error` option fields can be used to provide callbacks for handling component's loading events.  
+*Event handlers* can also be directly provided using the `z-on` attribute.
 
 
 ### View's styles
@@ -419,6 +514,7 @@ With the `zuix.lazyLoad(false)` method is possible to disable lazy loading at a 
 
 These described so far are the more commonly used options. A list of all available option fields is provided in the
 [ContextOptions](../api/zuix/Zuix/#ContextOptions) API.
+
 
 <a name="defaultComponent"></a>
 ## The `default` component

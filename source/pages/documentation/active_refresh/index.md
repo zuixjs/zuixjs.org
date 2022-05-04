@@ -147,10 +147,12 @@ There, four fields are declared using the `#<field_name>` attribute (equivalent 
 ```
 
 The type `jscript` might sound unusual, but that's just because this way the browser will not recognize the type and
-will ignore this script, instead it will be loaded by *zuix.js* as the **default refresh handler** of the component.
-Furthermore, the `jscript` type, will be automatically recognized as JavaScript syntax by some IDE, without requiring
-additional plugins for syntax highlighting. Next to the *jscript*, it's also possible to add a scoped CSS that will be
-so applied only to the component's view.
+will ignore this script without the need of wrapping it inside a `<template>` container, instead it will be loaded by *zuix.js*
+as the **default refresh handler** of the component. Furthermore, the `jscript` type, will be automatically recognized as
+JavaScript syntax by some IDE, without requiring additional plugins for syntax highlighting. Next to the *jscript*, it's also
+possible to add a scoped CSS that will be so applied only to the component's view.  
+A `jscript` can also be defined outside the component's host element if the attribute `for="<context_id>"` is added to it.
+If multiple `jscript` occurrences are found, they will be merged into a single script.
 
 ## The default refresh handler
 
@@ -281,14 +283,14 @@ expression in the value of a `@` handler:
 | `<field_name>`  | For each element in the view with a `#` (`z-field`) attribute, there will be a variable (only one for each distinct field) |
 | `$<field_name>` | Same as above but *ZxQuery-wrapped*, allowing multiple element instances for each field                                    |
 | `_<field_name>` | If the field is also a component, then, this will be its component's context object                                        |
-| `context`       | The component's context that contains this element                                                                         |
+| `context`       | The component's context that contains this element, also available with the name of the `contextId` property's value        |
 | `model`         | The component's data model                                                                                                 |
 | `$`             | The component's view as *ZxQuery* object                                                                                   |
 | `args`          | Optional arguments object                                                                                                  |
 
-additionally, like seen in the previous example, to the *default refresh handler* script, will be also available as variables,
-all `#` fields declared in the view's template, and vice-versa, to any of the `@` handlers employed in the view, will be
-also available all local variables and functions declared in the *default refresh handler*.
+additionally, like seen in the previous example, to the *default refresh handler* script (jscript), will be also available
+as variables, all `#` fields declared in the view's template, and vice-versa, to any of the `@` handlers employed in the view,
+will be also available all local variables and functions declared in the *default refresh handler* (jscript).
 
 **Notice** that members starting with an underscore `_`, since they are components, are loaded asynchronously, so they will be `null`
 until the component context of the underlying element has been loaded. So if there is any value's expression in the
@@ -399,8 +401,8 @@ the preview rectangle will change accordingly.
 {% endunpre %}
 
 So, setting directly `model.color = '<color_name>'` will also synchronize any bound element of the view, with the new
-field value, as shown in the following example where the `model` of the *color-select* component, is accessed from the
-following component to get or set the selected color:
+field value, as shown in the following example where the `model` of the *color-select* component above, is accessed from
+the following component to get or set the selected color:
 
 {% unpre %}
 ```html
@@ -523,9 +525,9 @@ zuix.store('handlers')['hide-if'] = ($view, $el, lastResult, refreshCallback) =>
 };
 ```
 
-that basically read the code to evaluate from the `@hide-if` attribute's value, then it executes the code using the utility
-method `zuix.runScriptlet(..)` and if the result is truthy and not equal to the previous evaluation, then it will set the
-target element (`$el`) visibility to `hidden`, or, if the result is false and different from the previous evaluation, then
+that basically reads the code to evaluate from the `@hide-if` attribute's value, then it executes the code using the utility
+method `zuix.runScriptlet(..)` and, if the result is truthy and not equal to the previous evaluation, then it will set the
+target element's (`$el`) visibility to `hidden`, or, if the result is false and different from the previous evaluation, then
 it will set the visibility to `visible`. It will finally call the method `refreshCallback(lastResult)` to request a new
 refresh call, passing to it the last result.
 

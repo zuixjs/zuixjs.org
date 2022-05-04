@@ -5,13 +5,16 @@
             <div class="views-container">
 {% for i in items %}<div z-field="view-{{ i }}" class="view-switch" layout="column top-center"
                     {% if i == 1 %}view-selected="true"{% endif %}>
+                    <img src="https://picsum.photos/320/225?{{ i }}" loading="lazy">
                     <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
                         Random content {{ i }}
                     </p>
                 </div>{% endfor %}
             </div>
             <div style="width: 72px;" layout="column">
-{% for i in items %}<img src="https://picsum.photos/320/225?{{ i }}" width="72" height="40" style="margin: 2px; padding: 2px;"
+{% for i in items %}<img src="https://picsum.photos/320/225?{{ i }}"
+                         loading="lazy"
+                         width="72" height="40" style="margin: 2px; padding: 2px;"
                      class="visible-on-ready" alt="Random image"
                      z-options="mdl_button_options_2"
                      z-behavior="viewSwitchBehaviorV"
@@ -50,7 +53,11 @@
 {% for i in items %}[z-field="view-{{ i }}"] {
         background-repeat: no-repeat;
         background-color: antiquewhite;
-        background-image: url("https://picsum.photos/320/225?{{ i }}");
+/*        background-image: url("https://picsum.photos/320/225?{{ i }}");*/
+    }
+    [z-field="view-{{ i }}"] img {
+        position: absolute;
+        top: 0; left: 0;
     }{% endfor %}
     .view-switch {
         width: 100%;

@@ -6,8 +6,8 @@ group: documentation
 order: 2
 icon: outlined_flag
 title: Getting started
-summary: Creating a new project, bare library usage, reading this guide.
-description: Creating a new project, bare library usage, reading this guide.
+summary: Creating a new project using the CLI, bare library usage.
+description: Creating a new project using *zuix.js* CLI tool and bare library usage.
 keywords:
 - documentation
 - api

@@ -89,7 +89,8 @@ together with *zuix.js*.
 ## Demos
 
 - [zKit web enhancing bits](https://zuixjs.github.io/zkit/)
-- [zuix.js Web Starter](https://zuixjs.github.io/zuix-web-starter/)
+- [Web Starter template](https://zuixjs.github.io/zuix-web-starter/)
+- [Web App template](https://zuixjs.github.io/web-app/)
 - [News-Blog template](https://zuixjs.github.io/news-blog/)
 
 

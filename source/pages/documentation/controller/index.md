@@ -22,19 +22,18 @@ it's early initialization up to the disposal of the component itself. This can b
 
 ## Loading a controller
 
-A controller can be loaded programmatically using the [`zuix-load(..)`](../api/zuix/Zuix/#load) method, or it can be
-loaded directly from the HTML template, by using the attributes `ctrl z-load="<component_id>"` on the host element:
+A controller can be loaded programmatically using the [`zuix.loadComponent(..)`](../api/zuix/Zuix/#loadComponent) method, or it can be
+loaded directly in the HTML page, by using the attributes `ctrl z-load="<component_id>"` on the host element:
 
 ```html
 <div ctrl z-load="path/of/controller"></div>
 ```
 
-when the `ctrl` attribute is present, only the `.js` controller file will be loaded and the host element (a `div` in this case)
+when the `ctrl` attribute is present, only the `.js` controller file will be loaded, and the host element (a `div` in this case)
 will be set as the view of the loaded controller. If the `ctrl` attribute is not present, then the view files will also
-be loaded from `.html` + `.css` files, unless differently specified in the `init` callback of the controller.
+be loaded from `.html` + `.css` files, unless differently specified in the controller's [`onInit()`](#onInit) callback.
 
-After loading, a [ComponentContext](../api/zuix/ComponentContext) object will be created as instance of the loaded
-component.
+After loading, a [ComponentContext](../api/zuix/ComponentContext) object will be created as instance of the loaded component.
 A reference to a *ComponentContext* can be obtained with the [`zuix.context(..)`](../api/zuix/Zuix/#context) method:
 
 ```js
@@ -44,7 +43,7 @@ zuix.context(hostElement, (ctx) => {
 }); 
 ```
 
-or through the `ready` callback in the controller's [loading options](../api/zuix/Zuix/#ContextOptions).
+or through the `ready` callback in the [loading options](../api/zuix/Zuix/#ContextOptions).
 
 
 ## Implementation
@@ -100,6 +99,7 @@ members, and other common component's implementation tasks.
 
 ## Lifecycle callbacks
 
+<a name="onInit"></a>
 ### `onInit()` <small>( `<controller>.init()` )</small>
 
 The `onInit` method gets called right after the JavaScript controller has been loaded and before any other resource is
@@ -175,7 +175,7 @@ This method gets called right before the component is unloaded and disposed, and
 dispose other resources that are not automatically handled by *zuix.js*.
 
 
-## Inline implementation
+## Inline implementation of a component
 
 A component can also be implemented inline, directly in the HTML page, as shown in the following **inline component** template (view + controller):
 
@@ -183,15 +183,18 @@ A component can also be implemented inline, directly in the HTML page, as shown 
 <div z-view="path/of/component-name">
   <!-- component's view template content -->
 </div>
+
 <style media="#path/of/component-name">
   /* styles definitions of this component's view */
 </style>
+
 <script>
 class ComponentName extends ControllerInstance {
     onCreate() { /* ... */ }
     // ...
 }
-zuix.controller(ComponentName).for('path/of/component-name');
+zuix.controller(ComponentName)
+    .for('path/of/component-name');
 </script>
 ```
 
@@ -202,8 +205,11 @@ A component declared inline can be loaded as any other component:
 <div z-load="path/of/component-name"></div>
 ```
 
+of, if a custom element tag has been defined:
 
-
+```html
+<component-name></component-name>
+```
 
 
 ### Common tasks

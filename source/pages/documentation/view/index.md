@@ -31,10 +31,58 @@ identifier of any other view placed in a file or inline in the same page, unless
 
 <label class="mdl-color-text--primary">Example</label>
 <small>Inline declaration of the view `inline/example/hello_world`:</small>
+
+
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#view-mtd-1" class="mdl-tabs__tab is-active">Method #1</a>
+      <a href="#view-mtd-2" class="mdl-tabs__tab">Method #2</a>
+      <a href="#view-mtd-3" class="mdl-tabs__tab">Method #3</a>
+  </div>
+  <div class="mdl-tabs__panel is-active" id="view-mtd-1">
+
+```html
+<!-- HTML Template -->
+<template z-view="inline/example/hello_world">
+  <h1>
+    Hello World!
+  </h1>
+  <!-- CSS styles -->
+  <style>
+    h1 {
+      color: steelblue;
+      font-weight: 300;
+    }
+  </style>
+</template>
+```
+
+  </div>
+  <div class="mdl-tabs__panel" id="view-mtd-2">
+
 ```html
 <!-- HTML Template -->
 <div z-view="inline/example/hello_world">
-  <h1 class="animate__animated animate__bounceIn">
+  <h1>
+    Hello World!
+  </h1>
+  <!-- CSS styles -->
+  <style media="#">
+    h1 {
+      color: steelblue;
+      font-weight: 300;
+    }
+  </style>
+</div>
+```
+
+  </div>
+  <div class="mdl-tabs__panel" id="view-mtd-3">
+
+```html
+<!-- HTML Template -->
+<div z-view="inline/example/hello_world">
+  <h1>
     Hello World!
   </h1>
 </div>
@@ -47,6 +95,10 @@ h1 {
 </style>
 ```
 
+  </div>
+</div>
+
+
 the above code is just a declaration of a view and **will not produce any visible content**, to actually load an instance
 of the `hello_word` view, the following code is used:
 
@@ -54,24 +106,40 @@ of the `hello_word` view, the following code is used:
 <div view z-load="inline/example/hello_world"></div>
 ```
 
+or, if a custom element tag has been defined like in the example below,
+
+```js
+customElements.define('hello-world', class extends HTMLElement {
+  connectedCallback() {
+    zuix.loadComponent(this, 'inline/example/hello_world', 'view');
+  }
+});
+```
+
+then the view template can be loaded using the custom element tag:
+
+```html
+<hello-world></hello-world>
+```
+
+
 {% unpre %}
 ```html
 <!-- BEGIN: Inline Template -->
 <div z-view="inline/example/hello_world">
-    <h1 #title class="animate__animated animate__bounceIn">Hello World!</h1>
+    <h1 #title class="animate__animated animate__bounceIn animate__slow">Hello World!</h1>
 </div>
 <style media="#inline/example/hello_world">
-/* TODO: view styles definitions */
-h1 {
-  color: steelblue;
-  font-weight: 300!important;
-  margin: 0;
-}
+    /* TODO: view styles definitions */
+    h1 {
+        color: steelblue;
+        font-weight: 300!important;
+    }
 </style>
 <!-- END: Inline Template -->
 
 <label class="mdl-color-text--primary">Result</label>
-<div layout="row center-center" class="example-container">
+<div layout="row center-center" class="example-container" style="height: 80px">
     <div view z-load="inline/example/hello_world" class="visible-on-ready"></div>
 </div>
 ```
@@ -471,7 +539,7 @@ it will be the `.innerHTML` property. A binding adapter can eventually be used t
 internally.
 
 The host element body can also be used to simply provide an alternative text description for browsers where Javascript is
-disabled, and a *loading* message to show while the component is loading for browsers where Javascript is enabled:
+disabled, or a *loading* message to show while the component is loading for browsers where Javascript is enabled:
 
 ```html
 <div view z-load="templates/mdl_card" z-model="{
