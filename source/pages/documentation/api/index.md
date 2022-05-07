@@ -1,6 +1,6 @@
 ---
 layout: side_drawer.liquid
-options: mdl
+options: mdl sponsor
 tags: documentation
 group: documentation
 order: 8

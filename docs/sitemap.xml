@@ -6,10 +6,6 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/api/</loc>
-    <lastmod>2022-03-31</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/cli/</loc>
     <lastmod>2022-04-11</lastmod>
   </url>
@@ -27,10 +23,6 @@
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/controller/</loc>
-    <lastmod>2022-05-04</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/about/</loc>
     <lastmod>2022-05-04</lastmod>
   </url>
   <url>
@@ -100,5 +92,13 @@
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
     <lastmod>2022-05-04</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/about/</loc>
+    <lastmod>2022-05-07</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/</loc>
+    <lastmod>2022-05-07</lastmod>
   </url>
 </urlset>

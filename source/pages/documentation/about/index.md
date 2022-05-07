@@ -1,6 +1,6 @@
 ---
 layout: side_drawer.liquid
-options: mdl
+options: mdl sponsor
 tags: documentation
 group: documentation
 order: 1
@@ -86,7 +86,7 @@ together with *zuix.js*.
 {% endunpre %}
 
 
-## Demos
+## Demos and templates
 
 - [zKit web enhancing bits](https://zuixjs.github.io/zkit/)
 - [Web Starter template](https://zuixjs.github.io/zuix-web-starter/)
