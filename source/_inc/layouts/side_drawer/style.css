@@ -197,6 +197,9 @@
             padding-left: 304px !important;
             padding-right: 24px !important;
         }
+        .sponsorship {
+            margin-left: 280px;
+        }
         [\#header] {
             padding-left: 316px;
             display: none;
