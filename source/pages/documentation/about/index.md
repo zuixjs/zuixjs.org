@@ -65,7 +65,7 @@ together with *zuix.js*.
     - and [more](https://11ty.dev/docs/)
   * Custom filters and shortcodes
 - [LESS](https://lesscss.org/) to CSS style compiler
-- Page indexing and search engine [ElasticLunr](http://elasticlunr.com/)
+- Page indexing and search engine [Fuse.js](https://fusejs.io/)
 - Code linting and minifying
 - Service worker generator for assets pre-caching and other optimizations
 - Responsive starter templates optimized for both desktop and mobile
