@@ -250,10 +250,10 @@ opts = {
     'gesture:swipe': function(e, tp) {
       switch(tp.direction) {
         case 'left':
-          this.playAnimation('animate__fadeInDown animate__fadeOutLeft');
+          this.playAnimation('animate__fadeOutLeft');
           break;
         case 'right':
-          this.playAnimation('animate__fadeInDown animate__fadeOutRight');
+          this.playAnimation('animate__fadeOutRight');
           break;
       }
     }
@@ -310,10 +310,10 @@ opts = {
           case 'down':
             break;
           case 'left':
-            this.playAnimation('animate__fadeInDown animate__fadeOutLeft');
+            this.playAnimation('animate__fadeOutLeft');
             break;
           case 'right':
-            this.playAnimation('animate__fadeInDown animate__fadeOutRight');
+            this.playAnimation('animate__fadeOutRight');
             break;
         }
       }

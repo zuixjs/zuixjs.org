@@ -14,10 +14,6 @@
     <lastmod>2022-04-20</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/component/</loc>
-    <lastmod>2022-05-04</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/view/</loc>
     <lastmod>2022-05-04</lastmod>
   </url>
@@ -100,5 +96,9 @@
   <url>
     <loc>https://zuixjs.org/pages/documentation/about/</loc>
     <lastmod>2022-05-09</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/component/</loc>
+    <lastmod>2022-05-11</lastmod>
   </url>
 </urlset>
