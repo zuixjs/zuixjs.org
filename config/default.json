@@ -72,9 +72,7 @@
         "libraryPath": {
           "@lib": "/zuixjs.org/lib/1.1/"
         }
-      },
-      "siteMapUrl": "https://zuixjs.org",
-      "googleSiteId": "UA-92520304-1"
+      }
     }
   }
 }

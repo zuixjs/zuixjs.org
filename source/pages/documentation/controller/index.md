@@ -68,7 +68,6 @@ class ComponentName extends ControllerInstance {
   onUpdate(target, key, value, path, old) { }
 
 }
-module.exports = ComponentName;
 ```
   
   </div>
@@ -85,7 +84,6 @@ function ComponentName() {
   this.update = function(target, key, value, path, old) { };
 
 }
-module.exports = ComponentName;
 ```
 
   </div>
@@ -282,7 +280,6 @@ class MdlButton extends ControllerInstance {
   }
 
 }
-module.exports = MdlButton;
 // file: "controllers/mdl-button.js"
 ```
 
@@ -311,7 +308,6 @@ function MdlButton() {
   }
 
 }
-module.exports = MdlButton;
 // file: "controllers/mdl-button.js"
 ```
 
