@@ -34,71 +34,71 @@
     <lastmod>2022-05-09</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/component/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <loc>https://zuixjs.org/pages/documentation/controller/</loc>
+    <lastmod>2022-05-22</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/helpers/Logger/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/helpers/TaskQueue/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/helpers/ZxQuery/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/helpers/ZxQueryStatic/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/localizer/Localizer/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/observable/ObjectObserver/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/observable/ObservableListener/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/observable/ObservableObject/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/ActiveRefresh/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/ComponentContext/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Componentizer/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/ContextController/</loc>
-    <lastmod>2022-05-22</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/ViewObserver/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/</loc>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <lastmod>2022-05-25</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/controller/</loc>
-    <lastmod>2022-05-22</lastmod>
+    <loc>https://zuixjs.org/pages/documentation/component/</loc>
+    <lastmod>2022-05-25</lastmod>
   </url>
 </urlset>

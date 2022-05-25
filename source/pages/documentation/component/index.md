@@ -166,6 +166,49 @@ customElements.define('mdl-button', class extends HTMLElement {
 {% endunpre %}
 
 
+### Shadow DOM
+
+With custom elements it is also possible to enable the [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM).  
+**zuix.js** will auto-detect if a custom element is using shadow DOM, if the `attachShadow` method is called with the `mode`
+option set to `open`. If the `mode` is otherwise set to `closed`, then the shadow DOM must be passed explicitly with the
+[`zuix.loadComponent(..)`](../api/zuix/Zuix/#loadComponent) options as shown in the following example:
+
+**JS**
+```js
+customElements.define('time-clock', class extends HTMLElement {
+    connectedCallback() {
+        zuix.loadComponent(this, 'widgets/time-clock', '', {
+            container: this.attachShadow({mode: 'closed'})
+        });
+    }
+});
+```
+
+**HTML**
+```html
+<time-clock></time-clock>
+```
+
+<label class="mdl-color-text--primary">Result</label>
+{% unpre %}
+```html
+<script>
+customElements.define('time-clock', class extends HTMLElement {
+    constructor() {
+        super();
+        zuix.loadComponent(this, 'widgets/time-clock', '', {
+            container: this.attachShadow({mode: 'closed'})
+        });
+    }
+    connectedCallback() {
+    }
+});
+</script>
+
+<time-clock></time-clock>
+```
+{% endunpre %}
+
 <a name="type_view"></a>
 ## View-only component
 
