@@ -194,13 +194,10 @@ customElements.define('time-clock', class extends HTMLElement {
 ```html
 <script>
 customElements.define('time-clock', class extends HTMLElement {
-    constructor() {
-        super();
+    connectedCallback() {
         zuix.loadComponent(this, 'widgets/time-clock', '', {
             container: this.attachShadow({mode: 'closed'})
         });
-    }
-    connectedCallback() {
     }
 });
 </script>
@@ -208,6 +205,54 @@ customElements.define('time-clock', class extends HTMLElement {
 <time-clock></time-clock>
 ```
 {% endunpre %}
+
+
+## Stand-alone components
+
+Stand-alone components can be easily implemented as JavaScript modules. The name of the module will have the same
+base name of the widget but ending with `.module.js`.
+
+**File:** `widgets/time-clock.module.js`
+<a name="import-example"></a>
+
+```js
+import 'https://cdn.jsdelivr.net/npm/zuix-dist/js/zuix.module.min.js';
+customElements.define('time-clock', class extends HTMLElement {
+    connectedCallback() {
+        zuix.loadComponent(this, 'widgets/time-clock');
+    }
+});
+```
+
+Then the component module can be imported in the `head` section of the page:
+
+```html
+...
+<head>
+    ...
+    <script type="module">
+        import '/app/widgets/time-clock.module.js';
+        // any additional imports and application code
+        // might be placed here as well
+    </script>
+    ...
+</head>
+...
+```
+
+and it can be loaded in the page's `body` using the defined tag: 
+
+```html
+<time-clock></time-clock>
+```
+
+Since the component module is already loading `zuix.js` library with the `import` at line [#1](#import-example), there's no need to
+include `zuix.min.js` in the `head` section of the page and so, the component can be loaded with just one line of
+*JavaScript* `import` and the relative HTML tag.  
+The *URL* of the component's module can also be an absolute *URL* pointing to a different server.
+
+{% tryLink "Example on CodePen" "https://codepen.io/genielabs/pen/KKQZdga" %}
+
 
 <a name="type_view"></a>
 ## View-only component

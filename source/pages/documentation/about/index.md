@@ -37,6 +37,7 @@ the possibilities in sharing and reusing components across a network of sites.
 - Integrated DOM helper
 - Animations and transitions handling
 - Inline components definition
+- Standalone components
 
 
 &nbsp;
