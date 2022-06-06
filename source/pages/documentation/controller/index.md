@@ -3,7 +3,7 @@ layout: side_drawer.liquid
 options: mdl highlight
 tags: documentation
 group: documentation
-order: 6
+order: 7
 icon: javascript
 title: Controller
 summary: Implementation types, lifecycle, options, events.
@@ -203,7 +203,7 @@ A component declared inline can be loaded as any other component:
 <div z-load="path/of/component-name"></div>
 ```
 
-of, if a custom element tag has been defined:
+or, if a custom element tag has been defined:
 
 ```html
 <component-name></component-name>
@@ -339,12 +339,12 @@ that control the button appearance:
 
 ```html
 <a ctrl z-load="@lib/controllers/mdl-button"
-   z-options="{ type: 'fab', class: 'mini-fab' }">
+   :type="'fab'" :class="'mini-fab'">
   <i class="material-icons">mail</i>
 </a>
 
 <a ctrl z-load="@lib/controllers/mdl-button"
-   z-options="{ type: 'flat' }">
+   :type="'flat'">
     Flat
 </a>
 
@@ -356,13 +356,14 @@ that control the button appearance:
 ```html
 <div layout="row center-spread">
     <div>
-        <a ctrl z-load="@lib/controllers/mdl-button" z-options="{ type: 'fab', class: 'mini-fab colored' }">
+        <a ctrl z-load="@lib/controllers/mdl-button"
+           :type="'fab'" :class="'mini-fab colored'">
             <i class="material-icons">mail</i>
         </a>
     </div>
     <div>
         <a ctrl z-load="@lib/controllers/mdl-button"
-           z-options="{ type: 'flat' }">
+           :type="'flat'">
             Flat
         </a>
     </div>
@@ -380,7 +381,7 @@ loads the `mdl-menu` controller, and contains the menu's items list and a button
 
 ```html
 <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false"
-     z-behavior="menuButtonBehavior" class="visible-on-ready">
+     :behavior="menuButtonBehavior" class="visible-on-ready">
 
   <!-- the menu is defined as a simple UL list -->
   <ul>
@@ -390,7 +391,7 @@ loads the `mdl-menu` controller, and contains the menu's items list and a button
 
   <!-- the menu's FAB button -->
   <a ctrl z-load="@lib/controllers/mdl-button"
-     z-options="{ type: 'fab', class: 'mini-fab colored' }">
+     :type="'fab'" :class="'mini-fab colored'">
     <i class="material-icons">add</i>
   </a>
 
@@ -407,13 +408,13 @@ of the button.
 ```html
 <div z-load="default" layout="column center-left" style="padding: 32px">
     <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready"
-         z-behavior="menuButtonBehavior">
+         :behavior="menuButtonBehavior">
         <ul>
             <li>Menu option 1</li>
             <li>Menu option 2</li>
         </ul>
-        <a ctrl z-load="@lib/controllers/mdl-button"
-           z-options="{ type: 'fab', class: 'mini-fab colored' }" class="mdl-color--pink">
+        <a ctrl z-load="@lib/controllers/mdl-button" class="mdl-color--pink"
+           :type="'fab'" :class="'mini-fab colored'">
             <i class="material-icons">menu</i>
         </a>
     </div>

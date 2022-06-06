@@ -1,6 +1,6 @@
 ---
 layout: side_drawer.liquid
-options: mdl highlight
+options: mdl highlight sponsor
 tags: documentation
 group: documentation
 order: 2
@@ -39,20 +39,28 @@ Read more about all other `zuix` command functionality from [`zuix-cli`](../cli/
 
 ## Bare library usage on an existing site
 
-*zuix.js* can also be used on an existing website project by including the library directly in your HTML page from one
-of these sources:
+*zuix.js* can also be used on an existing website project by including the library directly in the HTML page or a JavaScript
+module:
 
 ### JsDeliver
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/zuix-dist"></script>
+<script src="https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}"></script>
 ```
 
-### GitHub
+or as a module:
 
 ```html
-<script src="https://zuixjs.github.io/zuix/js/zuix.min.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}/js/zuix.module.min.js"></script>
 ```
+
+or as a dependency of another module:
+
+```js
+// file: my-class.module.js
+import 'https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}/js/zuix.module.min.js'; 
+```
+
 
 ### NPM
 
@@ -60,8 +68,5 @@ of these sources:
 npm install zuix-dist
 ```
 
-then copy the library from `node_modules/zuix-dist/js` to your project's `js` folder and include it in your HTML page:
-
-```html
-<script src="js/zuix.min.js"></script>
-```
+then copy the library from `node_modules/zuix-dist/js` to your project's `js` folder and include it in your HTML page or
+JavaScript module.

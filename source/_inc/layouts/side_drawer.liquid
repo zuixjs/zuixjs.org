@@ -51,8 +51,13 @@ date: Last Modified
                     <img class="logo animate__animated animate__swing animate__fast"
                          src="{{ '/images/icons/icon-192x192.png' | url }}" alt="Logo" title="zuix.js">
                 </a>
-                <div class="text-logo">zuix.js</div>
-                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 20px;opacity: 0.75">
+                <div class="text-logo">
+                    zuix.js
+                    <small>
+                        v{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}
+                    </small>
+                </div>
+                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75">
                     <img src="{{ '/images/github-mark-light.png' | url }}" alt="GitHub logo"
                          title="zuix.js on GitHub" width="32" height="32">
                 </a>

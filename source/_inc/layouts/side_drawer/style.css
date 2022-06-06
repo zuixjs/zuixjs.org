@@ -80,6 +80,16 @@
 
     hr {
         margin-bottom: 30px;
+        padding: 4px;
+        margin: 0;
+    }
+
+    th {
+        border: 1px solid rgba(100,100,100, 0.5);
+    }
+    td:not(:first-child) {
+        border-left: 1px solid rgba(100,100,100, 0.5);
+        padding: 4px;
     }
 
     code[class*=language-], pre[class*=language-] {
@@ -96,7 +106,10 @@
         margin-bottom: 32px!important;
     }
     code {
-        color: #0b4d2c;
+        color: #0b753f;
+        font-weight: 500;
+        margin-left: 2px;
+        margin-right: 2px;
         overflow-wrap: break-word; /* for old browsers */
         overflow-wrap: anywhere;
     }
@@ -106,6 +119,14 @@
         border-radius: 6px;
         border: solid 1px rgba(0,200,0,0.25);
         background: rgba(255,255,255,0.15);
+    }
+    p code {
+        font-size: 93%;
+    }
+    table {
+        /*margin-left: auto;
+        margin-right: auto;*/
+        border: 1px solid rgba(0,0,0,0.2);
     }
 
     /* prevents links dragging */

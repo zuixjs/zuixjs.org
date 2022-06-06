@@ -31,7 +31,7 @@ the possibilities in sharing and reusing components across a network of sites.
 - View templates (featuring hot swapping)
 - Data binding
 - Lazy loading
-- Events, Behaviors, Refresh *@* Handlers
+- Events, Behaviors, Refresh *@* Handlers, Scoped scripts
 - Automatic events unbinding
 - Resource loader with caching
 - Integrated DOM helper
@@ -70,7 +70,7 @@ together with *zuix.js*.
 - Code linting and minifying
 - Service worker generator for assets pre-caching and other optimizations
 - Responsive starter templates optimized for both desktop and mobile
-- Progressive Web App (PWA) with 95-100/100/100/100 score in Lighthouse test for mobile devices
+- Progressive Web App (PWA) templates with 95-100/100/100/100 score in *Lighthouse* test for mobile devices
 
 
 {% unpre %}

@@ -3,11 +3,11 @@ layout: side_drawer.liquid
 options: mdl highlight
 tags: documentation
 group: documentation
-order: 4
+order: 5
 icon: html
 title: View
-summary: Data binding, binding adapters, accessibility, behaviors.
-description: View, Data binding, binding adapters, accessibility, behaviors.
+summary: Data binding, binding adapters, accessibility, behaviors, events.
+description: View, Data binding, binding adapters, accessibility, behaviors, events.
 keywords:
 - documentation
 - api
@@ -198,11 +198,11 @@ p { color: slategray; margin: 0 }
 ```
 {% endunpre %}
 
-Then, to set the actual data to display in `#<field_name>` elements, the `z-model` attribute can be added to the host element,
+Then, to set the actual data to display in `#<field_name>` elements, the `:model` attribute can be added to the host element,
 to pass a *JSON data object* with the actual data to display:
 
 ```html
-<div view z-load="inline/example/article_header" z-model="{
+<div view z-load="inline/example/article_header" :model="{
   title: 'Image from Mars',
   subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
 }"></div>
@@ -211,7 +211,7 @@ to pass a *JSON data object* with the actual data to display:
 {% unpre '----------------------------' %}
 ```html
 <div layout="row center-center" class="example-container">
-  <div view z-load="inline/example/article_header" z-model="{
+  <div view z-load="inline/example/article_header" :model="{
     title: 'Image from Mars',
     subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
   }" class="visible-on-ready"></div>
@@ -262,11 +262,11 @@ card.
 {% endunpre %}
 
 
-When loading a view, the data provided through the `z-model` attribute, can be passed in either of the following ways:
+When loading a view, the data provided through the `:model` attribute, can be passed in either of the following ways:
 
 - as inline string (like in the previous example)
 ```html
-<div view z-load="templates/mdl_card" z-model="{
+<div view z-load="templates/mdl_card" :model="{
   title: 'Down the rabbit hole',
   image: 'examples/images/card_cover_2.jpg',
   text: 'Luckily for Alice, the little magic bottle had now had its full effect, and she grew no larger&hellip;',
@@ -279,7 +279,7 @@ When loading a view, the data provided through the `z-model` attribute, can be p
 
 - or with a variable
 ```html
-<div view z-load="templates/mdl_card" z-model="myCardData"></div>
+<div view z-load="templates/mdl_card" :model="myCardData"></div>
 <script>
 myCardData = {
   title: 'Down the rabbit hole',
@@ -297,7 +297,7 @@ myCardData = {
 {% unpre '----------------------------' %}
 ```html
 <div self="size-x1" layout="row center-center" class="example-container" style="min-height: 325px">
-  <div view z-load="templates/mdl_card" z-model="{
+  <div view z-load="templates/mdl_card" :model="{
     title: 'Down the rabbit hole',
     image: '{{app.resourcePath}}content/docs/examples/images/card_cover_2.jpg',
     text: 'Luckily for Alice, the little magic bottle had now had its full effect, and she grew no larger&hellip;',
@@ -368,9 +368,9 @@ state postponing the refresh.
 <div z-view="inline/chip_example_result">
     <div layout="rows center-spread">
         <div view z-load="inline/common/contact_chip"
-             data-id="0" z-model="chip_adapter_fn" class="visible-on-ready"></div>
+             data-id="0" :model="chip_adapter_fn" class="visible-on-ready"></div>
         <div view z-load="inline/common/contact_chip"
-             data-id="1" z-model="chip_adapter_fn" class="visible-on-ready"></div>
+             data-id="1" :model="chip_adapter_fn" class="visible-on-ready"></div>
         <script>
             chip_items = {
                 "0": { name: 'Foo Bar', image: '{{app.resourcePath}}content/docs/examples/images/avatar_02.png'},
@@ -406,10 +406,10 @@ field `name` in the following example:
 ```html
 <!-- Foo Bar chip -->
 <div view z-load="inline/common/contact_chip"
-     z-model="foo_bar_contact"></div>
+     :model="foo_bar_contact"></div>
 <!-- Jane Doe chip -->
 <div view z-load="inline/common/contact_chip"
-     z-model="a_random_contact"></div>
+     :model="a_random_contact"></div>
 
 <script>
 // example inline data model
@@ -458,9 +458,9 @@ function a_random_name() {
 <div class="example-container">
   <div layout="rows center-spread">
     <div view z-load="inline/common/contact_chip"
-      data-id="0" z-model="foo_bar_contact" class="visible-on-ready"></div>
+      data-id="0" :model="foo_bar_contact" class="visible-on-ready"></div>
     <div view z-load="inline/common/contact_chip"
-      data-id="1" z-model="a_random_contact" class="visible-on-ready"></div>
+      data-id="1" :model="a_random_contact" class="visible-on-ready"></div>
   </div>
 </div>
 ```
@@ -491,7 +491,7 @@ attribute:
 </div>
 ```
 
-and the above code, as is, will also provide a default visualization:
+and the above code, as is, will also provide a default visualization, that will also work without JavaScript:
 
 {% unpre '---------------------------------' %}
 ```html
@@ -520,19 +520,21 @@ function loadMdlCard(container) {
 <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer1)"
-        @disable-if="zuix.context(cardViewContainer1)">Load view "mdl_card"</li>
+        @disable-if="zuix.context(cardViewContainer1)" @active>Load view "mdl_card"</li>
     <li onclick="zuix.unload(cardViewContainer1)"
-        @disable-if="!zuix.context(cardViewContainer1)">Unload</li>
+        @disable-if="!zuix.context(cardViewContainer1)" @active>Unload</li>
   </ul>
   <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</a>
 </div>
 ```
 {% endunpre %}
 
-to actually load or unload the `templates/mdl_card` view, use the "Try me" button above.
+to actually load or unload the `templates/mdl_card` view, use the "Try me" button above. The manual component loading is
+in this example used only to show what happen when the HTML view code is enhanced by the component that in a real
+situation, with a JavaScript enabled browser, would just get loaded straight forward.
 
-Data model's fields, in this case, are HTML elements inside the host element, that are automatically mapped to a certain
-property of the target element in the view template, depending on its type.
+Component's data model's fields, in this case, are HTML elements inside the host element (attributes with the `#` prefix), that are
+automatically mapped to a certain property of the target element in the view template, depending on its type.
 
 For instance, if the target element is `img`, then the mapped property will be `.src`, while if it's a `div` or a `p`,
 it will be the `.innerHTML` property. A binding adapter can eventually be used to override the way elements are mapped
@@ -542,7 +544,7 @@ The host element body can also be used to simply provide an alternative text des
 disabled, or a *loading* message to show while the component is loading for browsers where Javascript is enabled:
 
 ```html
-<div view z-load="templates/mdl_card" z-model="{
+<div view z-load="templates/mdl_card" :model="{
   title: 'Some title',
   image: 'examples/images/card_cover_4.jpg',
   text: 'Some great encouraging text.',
@@ -569,7 +571,7 @@ disabled, or a *loading* message to show while the component is loading for brow
     The component will be loaded later with
     `loadMdlCard(..)' in js code.
   -->
-  <div z-field="card-example-2" z-ready z-model="{
+  <div z-field="card-example-2" z-ready :model="{
     title: 'Some title',
     image: '{{app.resourcePath}}content/docs/examples/images/card_cover_4.jpg',
     text: 'Some great encouraging text.',
@@ -596,9 +598,9 @@ cardViewContainer2 = zuix.field('card-example-2');
 <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer2)"
-        @disable-if="zuix.context(cardViewContainer2)">Load view "mdl_card"</li>
+        @disable-if="zuix.context(cardViewContainer2)" @active>Load view "mdl_card"</li>
     <li onclick="cardViewContainer2.playAnimation({classes:'animate__flipOutX', options: {duration: '500ms'}, onEnd: ($this) => {zuix.unload(cardViewContainer2)}})"
-        @disable-if="!zuix.context(cardViewContainer2)">Unload</li>
+        @disable-if="!zuix.context(cardViewContainer2)" @active>Unload</li>
   </ul>
   <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})">Try me!</a>
 </div>
@@ -636,13 +638,13 @@ options = {
   // other component's options...
 }
 </script>
-<div z-load="my/component" z-options="options"></div>
+<div z-load="my/component" :options="options"></div>
 ```
 
 where `<event_name>` is the name of the event (eg. `click`, `mouseover`, ...), and `function(e, data, $el?)` is the associated
 [EventCallback](../api/zuix/ComponentContext/#EventCallback) that will be called each time the `<event_name>` occurs.
 
-*Behavior Handlers* can also be directly declared with the `z-behavior` attribute on the host element:
+*Behavior Handlers* can also be directly declared with the `:behavior` attribute on the host element:
 
 ```html
 <script>
@@ -653,7 +655,7 @@ componentBehavior = {
     // other behaviors ...
 };
 </script>
-<div z-load="my/component" z-behavior="componentBehavior"></div>
+<div z-load="my/component" :behavior="componentBehavior"></div>
 ```
 
 Using the internal [*default component*](../component/#defaultComponent), it is possible to get advantage of behaviors
@@ -662,7 +664,7 @@ element is enhanced with a visual feedback to report user input errors using HTM
 
 <label class="mdl-color-text--primary">Example</label>
 ```html
-<input z-behavior="checkValidityBehavior"
+<input :behavior="checkValidityBehavior"
        type="text" value=""
        placeholder="Enter nickname"
        pattern="[a-zA-Z0-9]+" minlength="4" maxlength="10"
@@ -693,13 +695,13 @@ view_switch_v = ViewSwitchBehavior('vertical');
 </script>
 
 <!-- Clicking the "1" button, will show "view-1" -->
-<button z-behavior="view_switch_h"
+<button :behavior="view_switch_h"
         target="view_1" animation="bounce">
     1
 </button>
 
 <!-- Clicking the "2" button, will show "view-2" -->
-<button z-behavior="view_switch_h"
+<button :behavior="view_switch_h"
         target="view_2">
     2
 </button>

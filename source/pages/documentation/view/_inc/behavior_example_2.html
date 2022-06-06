@@ -5,14 +5,14 @@
             <div class="views-container">
 {% for i in items %}<div z-field="view-{{ i }}" class="view-switch" layout="column top-center"
                     {% if i == 1 %}view-selected="true"{% endif %}>
-                    <img src="https://picsum.photos/320/225?{{ i }}">
+                    <img src="https://picsum.photos/320/225?{{ i }}" loading="lazy">
                     <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
                         Random content {{ i }}
                     </p>
                 </div>{% endfor %}
             </div>
             <div style="width: 72px;" layout="column">
-{% for i in items %}<img src="https://picsum.photos/320/225?{{ i }}"
+{% for i in items %}<img src="https://picsum.photos/320/225?{{ i }}" loading="lazy"
                          width="72" height="40" style="margin: 2px; padding: 2px;"
                      class="visible-on-ready" alt="Random image"
                      z-options="mdl_button_options_2"

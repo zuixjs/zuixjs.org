@@ -56,7 +56,8 @@ function GestureHelper() {
     }).on('mousedown', {
       handler: function(e) {
         const targetElement = zuix.$(e.target);
-        if (e.which === 1 && targetElement.parent('[class*="no-gesture"]').length() === 0 && e.x > startGap) {
+        ignoreSession = document.elementsFromPoint(e.x, e.y).indexOf(cp.view().get()) === -1;
+        if (!ignoreSession && e.which === 1 && targetElement.parent('[class*="no-gesture"]').length() === 0 && e.x > startGap) {
           mouseButtonDown = true;
           ignoreSession = false;
           // targetElement.css('touch-action', 'none');
@@ -81,7 +82,8 @@ function GestureHelper() {
     }).on('touchstart', {
       handler: function(e) {
         const targetElement = zuix.$(e.target);
-        if (targetElement.parent('[class*="no-gesture"]').length() === 0 && e.touches[0].clientX > startGap) {
+        ignoreSession = document.elementsFromPoint(e.touches[0].clientX, e.touches[0].clientY).indexOf(cp.view().get()) === -1;
+        if (!ignoreSession && targetElement.parent('[class*="no-gesture"]').length() === 0 && e.touches[0].clientX > startGap) {
           ignoreSession = false;
           // targetElement.css('touch-action', 'none');
           targetElement.get().draggable = false;

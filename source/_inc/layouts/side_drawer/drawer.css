@@ -18,9 +18,14 @@
 }
 
 .drawer-header .text-logo {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 180%;
     font-weight: 400;
-    margin-right: 48px;
+}
+.drawer-header .text-logo small {
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 8px;
 }
 .drawer-header .title {
     margin-left: 4px;

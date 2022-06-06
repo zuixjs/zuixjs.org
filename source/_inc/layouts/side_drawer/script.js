@@ -1,6 +1,7 @@
 /** type {ComponentContext} */
 let menuDrawer;
 window.drawer_opts = {
+  priority: -10,
   autoHideWidth: 1280,
   on: {
     'drawer:open': function() {

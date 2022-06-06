@@ -3,11 +3,11 @@ layout: side_drawer.liquid
 options: mdl highlight
 tags: documentation
 group: documentation
-order: 5
+order: 6
 icon: loop
-title: Active&rarr;Refresh
-summary: Built-in <code>@</code> handlers, scripting scope, custom handlers.
-description: About refresh-handlers, built-in @ handlers, scripting scope, custom handlers.
+title: Events and Active&rarr;Refresh
+summary: Events, scoped scripts, interop., active <code>@</code> refresh, observables.
+description: About scoped scripts, dependencies, refresh-handlers, built-in @ handlers, custom handlers.
 keywords:
 - documentation
 - api
@@ -16,44 +16,313 @@ keywords:
 - handlers
 ---
 
-*Active&rarr;Refresh* handlers are user-definable functions that are associated with elements of a component's view and
-that get executed only when the component is visible on screen, or enter a *paused* state otherwise. Refresh handlers
-can be activated on any component's element, directly in the HTML template by using the special element's attribute prefix
-`@` (here thus intended as a symbol for "*refresh/loop*").
+<a name="scripting_scope"></a>
 
-This kind of functions are very small and very little CPU time-consuming, even because they might get executed already a
-bunch of times in a second. For instance think of a function that validates the user input and that enables/disables a
-button accordingly:
+Inside the view of a component, other than standard HTML event handlers, it's possible to add event handlers that live
+in the component's context scripting scope, where the following predefined objects are available: 
 
+
+| Name            | Description                                                                                                                |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------|
+| `this`          | The target HTMLElement                                                                                                     | 
+| `$this`         | Same as `"this"`, but *ZxQuery-wrapped*                                                                                    |
+| `_this`         | If this element is also a component, `_this` is its component's context object                                             |
+| `<field_name>`  | For each element in the view with a `#` (`z-field`) attribute, there will be a variable (only one for each distinct field) |
+| `$<field_name>` | Same as above but *ZxQuery-wrapped*, allowing multiple element instances for each field                                    |
+| `_<field_name>` | If the field is also a component, then, this will be its component's context object                                        |
+| `context`       | The component's context that contains the target element                                                                   |
+| `<context_id>`  | Alias of `context`, with the name of the component's `contextId` transformed to *camelCase*                                
+| `model`         | The component's data model, shortcut of `context.model()`                                                                  |
+| `$`             | The component's view as *ZxQuery* object, shortcut of `context.$`                                                          |
+| `args`          | Optional arguments object                                                                                                  |
+
+
+This kind of event handler can be added to an element as tag's attribute with the same name of the event enclosed in
+parentheses: 
+
+`(<event_name>)="<inline_code_or_handler_fn>"`
+
+The value o such event attribute is evaluated as JavaScript expression and can contain reference to variables and functions
+defined in the component's scripting scope.
+
+
+## Scoped scripts
+
+Scoped scripts are executed inside the component's context, and anything declared in it is only visible within the same
+component's context. They can only be declared inline, wrapped in a `<script>` tag, with the attribute `type="jscript"`
+and as direct children of the component's host element, or outside it, if the script tag's attribute `for="<context_id>"`
+is added (where `<context_id>` is the value of `z-context` attribute).  
+If multiple `jscript` occurrences are found, they will be merged into a single script.
+
+
+{% capture example %}
 ```html
-<form z-load="default">
-  <label for="firstName">First name</label>
-  <input id="firstName" type="text" minlength="3">
-  <button @disable-if="!firstName.value || !firstName.validity.valid">
-      Ok
-  </button>
-</form>
+<div z-context="scope-test">
+
+  <mdl-button :class="'primary'"
+              (click)="localFunctionTest">
+    Test Local
+  </mdl-button>
+  
+  <mdl-button :class="'primary'"
+              (click)="globalFunctionTest">
+    Test Global
+  </mdl-button>
+
+  <div #test-message></div>
+  
+</div>
+
+<script type="jscript" for="scope-test">
+
+  function localFunctionTest(e, $el) {
+    $testMessage
+      .html(`I run inside the "${scopeTest.contextId}"'s component context.`);
+          
+    setTimeout(() => testMessage.innerHTML = '', 3000);
+  }
+
+</script>
+
+<script>
+
+  function globalFunctionTest(e, $el) {
+    alert('I run in the global scope and cannot access component-local members.');
+  }
+
+</script>
 ```
+{% endcapture %}
 
+{{ example }}
+
+
+<script>
+customElements.define('mdl-button', class extends HTMLElement {
+  static get observedAttributes() { return ['disabled']; }
+  context = null;
+  connectedCallback() {
+      this.classList.add('visible-on-ready');
+      this.style.display = 'inline-block';
+      this.style.margin = '4px';
+      zuix.loadComponent(this, '@lib/controllers/mdl-button', 'ctrl', {
+          container: this.attachShadow({mode: 'closed'}),
+          ready: (ctx) => this.context = ctx
+      });
+  }
+  attributeChangedCallback(name, oldValue, newValue) {
+    this.context.$.attr(name, newValue);
+  }
+});
+</script>
+<div style="min-height: 64px">
 {% unpre %}
+{{ example }}
+{% endunpre %}
+</div>
+
+So, in the above example, the `localFunctionTest` runs inside the component's context and can access the
+objects `scopeTest`, `testMessage`, `$testMessage` and other members available in the [scripting scope](#scripting_scope)
+of the component.
+
+The type `jscript` might sound unusual, but that's just because this way the browser will not recognize the type and
+will ignore this script without the need of wrapping it inside a `<template>` container.
+Furthermore, the `jscript` type, will be automatically recognized as
+JavaScript syntax by some IDE, without requiring additional plugins for syntax highlighting.
+
+<a name="default_refresh_handler"></a>
+### The default *refresh()* handler
+
+Inside its scripting scope, a component can be provided with a *default refresh handler*, a function that will be
+called only when the component is visible in the viewport.
+
+The *default refresh handler* can be implemented by adding the `refresh()` callback function to a scoped script.
+
+When the component is not visible in the viewport, the refresh handler will enter a paused state and the event
+`refresh:inactive` will be triggered. If it becomes visible again, the event `refresh:active` will be triggered.
+
+While the main body of a scoped script is executed only once as initialization code, the `refresh()` function,
+if defined, will be executed as long as the component is visible, with a delay of 100ms between each call or as
+differently specified by the `refreshdelay` attribute of the enclosing `<script>` tag (value is expressed in
+milliseconds).
+
+{% capture example %}
 ```html
-<div z-load="default">
-  <label for="firstName">Name</label>
-  <input id="firstName" type="text" minlength="3" autocomplete="off">
-  <button @disable-if="!firstName.value || !firstName.validity.valid">
-      Ok
-  </button>
+<div z-context="refresh-example">
+  
+  <mdl-button #button 
+              :class="'primary'"
+              :on:click="model.counter = 0"
+              :model:counter="0">
+
+    <span #counter></span>
+
+  </mdl-button>
+
+  <script type="jscript" refreshdelay="250">
+
+    function refresh() {
+      _button.model().counter++;
+    }
+    
+  </script>
+
 </div>
 ```
+{% endcapture %}
+
+{{ example }}
+
+<div style="min-height: 64px">
+{% unpre %}
+{{ example }}
 {% endunpre %}
+</div>
 
-In the above example the built-in handler `@disable-if`, evaluates the condition specified in the attribute's value and
-if the condition is truthy, then the button is disabled, in this case if the input text is less than 3 characters long.
+So, when the above button is not visible on the screen, the component will be paused and the `refresh()` function will
+not be called.
+
+In this example, by using the context option `:on:click` it is possible to handle the `click` event from inside the
+`mdl-button` component's context, and access the `model.counter` property directly. Otherwise, using the `(click)` event
+handler, it would have been seen as an event handler running inside the context of the `refresh-example` component, where
+to access the `#counter` field of the `mdl-button` component, we should have been using `_button.model().counter` in order
+to address the field correctly.
 
 
-## Built-in `@` handlers
+### The default *ready()* handler
 
-Along with the *@disable-if* handler, the following active&rarr;refresh handlers are available:
+A component might be using other components, libraries and other dependencies. *zuix.js* tries to automatically detect
+used dependencies and start the component only when all of them have been loaded to prevent runtime errors when
+evaluating component's code that might reference one or more dependencies.
+
+It's anyway possible to add custom code logic to determine when to start the component, by implementing the `ready()`
+callback function, and that can be added to a scoped script to prevent errors from ahead of time evaluation of component's code.
+
+When implemented, the `ready()` function, will simply return `false` if the conditions to start the component aren't
+there yet, for instance if an asynchronously loaded object, used in the code of the view's template, is null.  
+When the condition for starting the component are finally met, the `ready()` function will return `true` to let the
+template's refresh handlers start safely.
+
+As long as the `ready()` function returns `false`, the CSS class `.not-ready` will be applied to the
+view of the component, and this can be used to customize a visible feedback of the *not ready* state.
+
+<label class="mdl-color-text--primary">Example ready() handler</label>
+
+{% capture example %}
+```html
+<div z-context="ready-example">
+
+    <div #test>Not ready yet =/</div>
+  
+    <script type="jscript">
+    let counter = 0;
+
+    function refresh() {
+        test.innerHTML = `Ready! =) ${counter++}`;
+    }
+    
+    function ready() {
+        return self.testIsReady;
+    }
+    </script>
+</div>
+
+<mdl-button @disable-if="self.testIsReady"
+            (click)="self.testIsReady = true">
+  Set ready
+</mdl-button>
+```
+{% endcapture %}
+
+{{ example }}
+
+<div style="min-height: 120px">
+{% unpre %}
+{{ example }}
+{% endunpre %}
+</div>
+<style>
+  [z-context="ready-example"] {
+    font-size: 200%;
+    width: 200px;
+    padding: 12px;
+    margin-bottom:24px;
+    border-radius: 4px;
+    border: solid 1px purple; 
+  }
+</style>
+
+This is the style used for the `.not-ready` class effect in the above example.
+
+```html
+<style>
+  .not-ready {
+    opacity: 0.5;
+    animation: pulse .5s infinite ease-in-out;
+  }
+</style>
+```
+
+
+### Using a component from another
+
+In a scoped script it's also possible to reference other components loaded in the page by adding the `using` attribute
+to the `script` tag, with its value containing a comma separated list of the contexts' identifiers of required components.
+A variable for each referenced context id, with its name equals to the component id converted to *camel case*, will be
+available in the script scope.  
+
+```html
+<script type="jscript" for="my-component"
+        using="color-select,other-component">
+  
+  // ...
+  let color = colorSelect.getSelected();
+  let test = otherComponent.test;
+  // ...
+  
+</script>
+```
+
+### Exposing public methods or properties
+
+With a scoped script it's also possible to add public methods and properties to a component so that these can be invoked
+from other components as well:
+
+```html
+<script type="jscript">
+
+  expose = {
+    // adds a public property getter (read only)
+    get test() {
+      console.log('test getter');
+      return 'ok';
+    },
+    // add a public method
+    getSelected: function() {
+      return _selected;
+    }
+  };
+
+</script>
+```
+
+
+
+
+
+## Active&rarr;Refresh handlers
+
+*Active&rarr;Refresh* handlers are user-definable functions that are associated with elements of a component's view and
+that, like the *[default refresh handler](#default_refresh_handler)*, get executed only when the component is visible on screen,
+or enter a *paused* state otherwise. Refresh handlers can be activated on any component's element, directly in the HTML
+template by using the special element's attribute prefix `@` (here thus intended as a symbol for "*refresh/loop*").
+
+This kind of functions are very small and very little CPU time-consuming, even because they might get executed already a
+bunch of times in a second.
+
+### Built-in `@` handlers
+
+The following active&rarr;refresh handlers are available:
 
 - `@if` &rarr; evaluates the given condition; if true, executes the code specified by the `@then` attribute, otherwise
   the `@else` one
@@ -64,7 +333,6 @@ Along with the *@disable-if* handler, the following active&rarr;refresh handlers
 - `@get` &rarr; gets new values from evaluating the given expression and passes them as arguments of the script specified by the `@set`
   attribute
 - `@set` &rarr; sets code to execute (works also without *@get*)
-- `@on:<event>` &rarr; sets an event handler 
 
 Next to any active&rarr;refresh handler it is also possible to specify the following options:
 
@@ -75,16 +343,16 @@ The `@delay` option can be used to set the refresh rate in milliseconds (default
 option will force the execution of the refresh handler even if the element is not visible on screen.
 
 
-In the next  example, a default component context is created using the *z-load="default"* attribute on the container
-`div`. It's then possible to use `@` handlers and other component features inside its view.
+In the next example, a component context with id `form-test` is created on a `div` container. It's then possible to use
+`@` handlers and other component features inside its view.
 
-There, four fields are declared using the `#<field_name>` attribute (equivalent of `z-field="<field_name>"`): `#check1`,
-`#check2`, `#check3` and `#proceed-button`. Declared fields are then available as variables in the  script of type
-"`jscript`", that is put at the end of the view and that adds a few more declarations.
+There, four fields are declared using the `#<field_name>` attribute: `#check1`, `#check2`, `#check3` and `#proceed-button`.
+Declared fields are then available as variables in the scoped script that is put at the end of the view and
+that adds a few more declarations to the scripting scope.
 
 <label class="mdl-color-text--primary">Example 1</label>
 ```html
-<div z-load="default">
+<div z-context="form-test">
 
   <label for="agreed1">
       <input id="agreed1" type="checkbox" #check1>
@@ -103,7 +371,7 @@ There, four fields are declared using the `#<field_name>` attribute (equivalent 
 
   <button #proceed-button
           @disable-if="!validFormData"
-          @on:click="handleClick">
+          (click)="handleClick">
       Proceed
   </button>
   
@@ -111,8 +379,7 @@ There, four fields are declared using the `#<field_name>` attribute (equivalent 
       Please check both options in order to proceed.
   </div>
 
-  <!-- Main View's Refresh Script -->
-  <script type="jscript" refreshDelay="150">
+  <script type="jscript">
     let validFormData;
     let bothChecked;
     
@@ -130,52 +397,18 @@ There, four fields are declared using the `#<field_name>` attribute (equivalent 
       alert('Yay! This worked! =)');
     }
   </script>
-  
-  <!-- This CSS will be applied only to this view -->
-  <style media="#">
-    :host {
-      /* the special selector :host referrers to the component's view */
-      border: solid 1px whitesmoke;
-      max-width: 460px;
-      padding: 8px;
-    }
-    label[disabled] {
-      opacity: 0.5;
-    }
-  </style>
 </div>
 ```
 
-The type `jscript` might sound unusual, but that's just because this way the browser will not recognize the type and
-will ignore this script without the need of wrapping it inside a `<template>` container, instead it will be loaded by *zuix.js*
-as the **default refresh handler** of the component. Furthermore, the `jscript` type, will be automatically recognized as
-JavaScript syntax by some IDE, without requiring additional plugins for syntax highlighting. Next to the *jscript*, it's also
-possible to add a scoped CSS that will be so applied only to the component's view.  
-A `jscript` can also be defined outside the component's host element if the attribute `for="<context_id>"` is added to it.
-If multiple `jscript` occurrences are found, they will be merged into a single script.
+The two state variables `validFormData`, `bothChecked`, and the function `handleClick`, declared in the scoped script,
+can be employed in the view template as values for `@disable-if` and `@hide-if` handlers, so that basically, the "*Proceed*"
+button will be enabled only if all the three checkboxes are checked.
 
-## The default refresh handler
-
-The *default refresh handler* of a component, like the others *active &rarr; refresh* handlers, will run only when the
-component become visible in the viewport.
-
-When the component is not visible in the viewport, the refresh handler will enter a paused state and the event
-`refresh:inactive` will be triggered. If it becomes visible again, the event `refresh:active` will be triggered.
-
-The main body of the script's code will be executed only once, as initialization code, while the `refresh()` function,
-if present, will be executed, as long as the component is visible, circa ten times a second or as differently specified
-by the `refreshDelay` attribute of the `<script>` tag (value is expressed in milliseconds).
-
-Any member declared in this script it's only visible to the component, and can be referenced also in `@` handlers' value
-expression employed in the view's template. And so, the two state variables `validFormData`, `bothChecked`, and the
-function `handleClick`, declared in the example script, can be employed in the template as values for `@disable-if`
-and `@hide-if` handlers, so that basically, the "*Proceed*" button will be enabled only if all the three checkboxes are
-checked.
 
 ```html
 <button #proceed-button
         @disable-if="!validFormData"
-        @on:click="handleClick"> Proceed </button>
+        (click)="handleClick"> Proceed </button>
 ```
 
 <label class="mdl-color-text--primary">Result</label>
@@ -200,7 +433,7 @@ checked.
     <div layout="rows center-left">
         <button ctrl z-load="@lib/controllers/mdl-button" style="min-width: 120px"
                 @disable-if="!state.validFormData" #proceed-button
-                @on:click="handleClick">
+                (click)="handleClick">
           <span #label>Proceed</span>
         </button>
         <i @hide-if="state.validFormData" class="material-icons animate__animated animate__flash animate__infinite mdl-color-text--orange-500 warning-sign">
@@ -210,7 +443,7 @@ checked.
             Please check all options to proceed.
         </div>
     </div>
-  <script type="jscript" refreshDelay="175">
+  <script type="jscript" refreshdelay="175">
     const $label = $.field('label');
     const state = zuix.observable({
       validFormData: false,
@@ -269,48 +502,19 @@ checked.
 {% endunpre %}
 
 
-## "Active &rarr; Refresh" scripting scope
-
-When the code of a refresh handler is run, beside the context object `this`, which references the target HTML element itself,
-also a few more predefined variables are available, either if it's the code of a *default refresh handler*, or an
-expression in the value of a `@` handler:
-
-| Member          | Description                                                                                                                |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------|
-| `this`          | The target HTMLElement                                                                                                     | 
-| `$this`         | Same as `"this"`, but *ZxQuery-wrapped*                                                                                    |
-| `_this`         | If this element is also a component, `_this` is its component's context object                                             |
-| `<field_name>`  | For each element in the view with a `#` (`z-field`) attribute, there will be a variable (only one for each distinct field) |
-| `$<field_name>` | Same as above but *ZxQuery-wrapped*, allowing multiple element instances for each field                                    |
-| `_<field_name>` | If the field is also a component, then, this will be its component's context object                                        |
-| `context`       | The component's context that contains this element, also available with the name of the `contextId` property's value        |
-| `model`         | The component's data model                                                                                                 |
-| `$`             | The component's view as *ZxQuery* object                                                                                   |
-| `args`          | Optional arguments object                                                                                                  |
-
-additionally, like seen in the previous example, to the *default refresh handler* script (jscript), will be also available
-as variables, all `#` fields declared in the view's template, and vice-versa, to any of the `@` handlers employed in the view,
-will be also available all local variables and functions declared in the *default refresh handler* (jscript).
-
-**Notice** that members starting with an underscore `_`, since they are components, are loaded asynchronously, so they will be `null`
-until the component context of the underlying element has been loaded. So if there is any value's expression in the
-template that involves such asynchronous objects, the `ready()` function should be provided in the *default refresh handler*
-to prevent errors from evaluating expressions before async objects become available.
-
-When implemented, the `ready()` function, will simply return `false` if any of the async objects used in template's value's
-expressions is null, and otherwise, will finally return `true` to let the template's refresh handlers start safely.
-As long as the `ready()` function returns `false`, the CSS class `.not-ready` will be applied to the
-view of the component, and this can be used to customize a visible feedback of the *not ready* state.
+### `@sync` and two-way binding
 
 View's fields are also accessible through the "`model`" object, that is the component's data model. In this case the
 two-way data binding will automatically sync and map any value's change, as shown in the next example.
 
+When using the data model to update component's field, the update is instantaneous because data model is
+implemented using the platform's built-in [Proxy](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) object, there's no need in using any refresh loop.
 
 {% assign colors = "Black,DarkRed,GoldenRod,LimeGreen,DarkGreen" | split:"," %}
 
 <label class="mdl-color-text--primary">Example 2</label>
 ```html
-<div z-load="default" z-context="color-select">
+<div z-context="color-select">
 
   <label for="color">Color</label>
   <select id="color" #color @sync>
@@ -402,7 +606,7 @@ the preview rectangle will change accordingly.
 
 So, setting directly `model.color = '<color_name>'` will also synchronize any bound element of the view, with the new
 field value, as shown in the following example where the `model` of the *color-select* component above, is accessed from
-the following component to get or set the selected color:
+the following component to get or set the currently selected color:
 
 {% unpre %}
 ```html
@@ -418,7 +622,7 @@ the following component to get or set the selected color:
          @if="cm.color === '{{ c }}'"
          @then="$this.addClass('selected')"
          @else="$this.removeClass('selected')"
-         @on:click="cm.color = '{{ c }}'"></div>{% endfor %}
+         (click)="cm.color = '{{ c }}'"></div>{% endfor %}
   </div>
   <script type="jscript" using="color-select">
     const cm = colorSelect.model();
@@ -453,7 +657,7 @@ the following component to get or set the selected color:
   </label>
 
   <div layout="rows center-left">
-{% for c in colors %}    <div @on:click="cm.color = '{{ c }}'" class="color-{{ c }}"></div>
+{% for c in colors %}    <div (click)="cm.color = '{{ c }}'" class="color-{{ c }}"></div>
 {% endfor %}  </div>
 
   <script type="jscript" using="color-select">
@@ -462,55 +666,22 @@ the following component to get or set the selected color:
 </div>
 ```
 
-As shown in the *jscript* above, to reference another component, the `using` attribute is added to the `script` tag, with
-its value containing a comma separated list of the contexts' identifiers of the required components. 
-In this example the *context id* is `color-select` and it was assigned to the color select component using the attribute
-`z-context="color-select"` on its container.
-Like in other cases, names containing the `-` symbol will be converted to *camel case*, so in this case the assigned
-variable name will be `colorSelect`.
-
-Like seen for the `ready()` function and view's `@` handlers, also in this case the *default refresh handler* of the
-component will not be started until the components specified with the `using` attribute are loaded. And also in this case
-the class `.not-ready` is added to the container and removed only once all components are loaded.
-Then the default refresh handler is started, and so, in this example, the `const cm = colorSelect.model()`, will assign
-to the local `cm` variable, the *data model* of the *color-select* component.
-
-Clicking a color will then assign a new value to the "color" field of the data model, `@on:click="cm.color = '<color_name>'"`,
+Clicking a color will then assign a new value to the "color" field of the data model, `(click)="cm.color = '<color_name>'"`,
 and the data binding will do the rest by synchronizing the *color-select* component automatically.
 
 
-It's also possible to add public methods and properties to a component so that these can be invoked from other components
-as well:
-
-```html
-<script type="jscript">
-
-  expose = {
-    // adds a public property getter (read only)
-    get test() {
-      console.log('test getter');
-      return 'ok';
-    },
-    // add a public method
-    getSelected: function() {
-      return _selected;
-    }
-  };
-
-</script>
-```
-
-
-## Adding or overriding a `@` handler
+### Adding or overriding a `@` handler
 
 An [ActiveRefreshHandler](../api/zuix/Zuix/#ActiveRefreshHandler) can be global or component-local. In the first case, it's stored in the global [store](../api/zuix/Zuix/#store) named
 "*handlers*" and can be employed in any component's view. Or it can be added to the [handlers](../api/zuix/ComponentContext/#handlers) list of a
 component's context, in which case is recognized only within the view of the component.
 
 Refresh handlers will call the [refreshCallback](../api/zuix/Zuix/#ActiveRefreshCallback) to request a new "refresh" after the given delay
-or as soon as it becomes visible again. If the *refresh handler* does not call the *refreshCallback*, the refresh loop will end.
+or as soon as it becomes visible again. If the *refresh handler* does not call the *refreshCallback*, the refresh loop will end.  
+This is the case of the `@sync` handler, that it's not a *refresh-based* handler, but rather an event based one, and
+will not call the *refreshCallback*. 
 
-For example, this is the built-in `@hide-if` handler that is a *refresh-based* handler:
+The following code, for instance, is the built-in `@hide-if` handler that is a *refresh-based* handler:
 
 ```js
 zuix.store('handlers')['hide-if'] = ($view, $el, lastResult, refreshCallback) => {
@@ -531,20 +702,37 @@ target element's (`$el`) visibility to `hidden`, or, if the result is false and 
 it will set the visibility to `visible`. It will finally call the method `refreshCallback(lastResult)` to request a new
 refresh call, passing to it the last result.
 
-Instead below, the built-in `@on` handler is an *event-based* handler that gets executed only once, and will never call the `refreshCallback`: 
+<a name="#observables"></a>
+## Observables
 
-```html
-<script>
-zuix.store('handlers').on = ($view, $el, lastResult, refreshCallback, attributeName) => {
-  const handlerArgs = zuix.parseAttributeArgs(attributeName, $el, $view, lastResult);
-  const code = $el.attr(attributeName);
-  const eventName = handlerArgs.slice(1).join(':');
-  $el.on(eventName, (e) => {
-    const eventHandler = zuix.runScriptlet(code, $el, $view);
-    if (typeof eventHandler === 'function') {
-      eventHandler.call($el.get(), e, $el);
-    }
-  });
+[`zuix.observable(...)`](../api/zuix/Zuix/#observable) is a helper method built around the [`Proxy`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+object, and returns an observable instance of the given object in order to be able to detect changes made to it.
+
+```js
+
+const formState = {
+  validFormData: false,
+  bothChecked: false
 };
-</script>
+
+const state = zuix.observable(formState).subscribe({
+  change: function(target, key, value, path, old) {
+    if (key === 'validFormData') {
+      if (value === true) {
+        $label.html('Let\'s go! =)');
+      } else {
+        $label.html('Proceed');
+      }
+    }
+  }
+}).proxy;
+
+// ...
+// the line below, for example, will trigger
+// the `change` callback implemented above 
+state.validFormData = false;
+
+// ...
+
 ```
+

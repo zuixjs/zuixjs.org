@@ -3,7 +3,7 @@ layout: side_drawer.liquid
 options: mdl highlight
 tags: documentation
 group: documentation
-order: 7
+order: 8
 icon: terminal
 title: CLI / Templates
 summary: Creating a new projects, pages and components.
