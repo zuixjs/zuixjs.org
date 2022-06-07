@@ -322,7 +322,7 @@ to detect *swipe left* and *swipe right* gestures over it.
 
 ```html
 <div ctrl z-load="@lib/controllers/gesture-helper"
-     :on:gesture:swipe="swipeGestureHandler">
+     :on:gesture:swipe="handleSwipeGesture">
   <strong>
       Gesture detection area
   </strong>
@@ -332,16 +332,19 @@ to detect *swipe left* and *swipe right* gestures over it.
 </div>
 
 <script>
-    function swipeGestureHandler(e, tp) {
-        switch (tp.direction) {
-            case 'left':
-                this.playAnimation('animate__fadeOutLeft');
-                break;
-            case 'right':
-                this.playAnimation('animate__fadeOutRight');
-                break;
-        }
-    }
+  function handleSwipeGesture(e, tp) {
+    switch (tp.direction) {
+
+      case 'left':
+        this.playAnimation('animate__fadeOutLeft');
+        break;
+ 
+      case 'right':
+        this.playAnimation('animate__fadeOutRight');
+        break;
+ 
+      }
+  }
 }
 </script>
 ```
@@ -399,7 +402,7 @@ to detect *swipe left* and *swipe right* gestures over it.
 <a name="defaultComponent"></a>
 ## The `default` component
 
-By using the internal `default` component, it is possible to get advantage of *zuix.js* components' features, also on
+By using the internal `default` component it's possible to get advantage of *zuix.js* components' features also on
 standard HTML elements.  
 For instance, adding the attribute `z-load="default"` to a `div`, will turn that `div` into a *zuix.js* component's view,
 where it will be possible to use all templating and scripting capabilities of *zuix.js* components:

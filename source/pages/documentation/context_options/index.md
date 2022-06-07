@@ -127,7 +127,7 @@ So, the previous example can be written also like this:
 <div :model:title=" 'Test' "
      :model:text=" 'Just testing component options' "
      :on="testEventHandlers"
-     :on:click="() => console.log('clicked')">
+     :on:click="console.log('clicked')">
 
     <!-- ... -->
 
@@ -177,9 +177,11 @@ As another example, the `mdl-button` component, already introduced in previous c
 ```
 {% endunpre %}
 
+To read passed options, the `mdl-button` controller is using the method `this.options()`, that is part of the
+[Context Controller](../api/zuix/ContextController/#options) API.
 
 It's also possible to create new option fields that are not declared elsewhere in the component, so in the following example
-it is possible to create a counter and display the current date without actually writing any script: 
+it is possible to create a counter and display the current date without actually writing any controller or script: 
 
 {% capture example %}
 ```html
@@ -211,14 +213,15 @@ The attributes starting with `@` in this example, are [*Active Refresh Handlers*
 <a name="events"></a>
 ### Component's events
 
-In the `{ContextOptions}` object there are three fields to for handling component's events:
+In the [ContextOptions](../api/zuix/Zuix/#ContextOptions) object there are four fields for handling component's events:
 
+- `loaded`
 - `ready`
 - `error`
 - `on`
 
-Loading events can be trapped using the `ready` and `error` option fields, while DOM events, including component's
-life-cycle and custom events, can be trapped using the `on` field.
+Loading events can be trapped using the `loaded`, `ready` and `error` option fields, while DOM events, including
+component's life-cycle and custom events, can be trapped using the `on` field.
 
 Note that life-cycle events `view:create` and `component:loaded` can be only trapped when used from a `z-*` attribute,
 because these events are triggered before the component is actually ready and won't work from a `:` option setter.
@@ -308,7 +311,7 @@ For instance, this is how the banner in the previous chapter example would look 
 ```
 {% endunpre %}
 
-and it can also be used to provide a custom CSS style for the view instance:
+The `css` option can also be used to provide a custom CSS style for the view instance:
 
 ```html
 <!-- 'links.css' file will not be loaded -->

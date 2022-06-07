@@ -1068,25 +1068,25 @@ of the component's host element.
 
 ##### Properties
 
-|Name|Type|Description|
-|----|----|-----------|
-|`contextId`|*Object* \| *undefined*|The context id. HTML attribute equivalent: *z-context*. If not specified it will be randomly generated.  HTML attribute equivalent: *z-context*.|
-|`container`|*Element* \| *undefined*|The container element.|
-|`model`|*JSON* \| *undefined*|The data model. HTML attribute equivalent: *z-model*.|
-|`view`|*Element* \| *undefined*|The view element.|
-|`controller`|*[ContextControllerHandler](#ContextControllerHandler)* \| *undefined*|The controller handler.|
-|`on`|*Object.&lt;string, <a href="#EventCallback">EventCallback</a>>* \| *Object.&lt;string, string>* \| *undefined*|The map of event handlers for standard and component's events. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: *z-on*.|
-|`behavior`|*Object.&lt;string, <a href="#EventCallback">EventCallback</a>>* \| *Object.&lt;string, string>* \| *undefined*|The map of event handlers for behaviors. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: *z-behavior*.|
-|`css`|*HTMLStyleElement* \| *string* \| *boolean* \| *undefined*|Custom stylesheet to apply to the component's view.|
-|`encapsulation`|*boolean* \| *undefined*|Whether to use style encapsulation or not (**default:** false).|
-|`resetCss`|*boolean* \| *undefined*|Whether to reset view style to prevent inheriting from parent containers (**default:** false).|
-|`cext`|*string* \| *undefined*|When loading content of the view, appends the specified extension instead of *.html*.|
-|`html`|*boolean* \| *string* \| *undefined*|It can be set to `false`, to disable HTML template loading, or it can be set to a string containing the inline HTML template code.|
-|`lazyLoad`|*boolean* \| *undefined*|Enables or disables lazy-loading (**default:** false). HTML attribute equivalent: *z-lazy*.|
-|`priority`|*number* \| *undefined*|Loading priority (**default:** 0). HTML attribute equivalent: *z-priority*.|
-|`ready`|*[ContextLoadedCallback](#ContextLoadedCallback)* \| *undefined*|The loaded callback, triggered once the component is successfully loaded.|
-|`ready`|*[ContextReadyCallback](#ContextReadyCallback)* \| *undefined*|The ready callback, triggered once all component's dependencies have been loaded.|
-|`error`|*[ContextErrorCallback](#ContextErrorCallback)* \| *undefined*|The error callback, triggered when an error occurs.|
+| Name            |Type|Description|
+|-----------------|----|-----------|
+| `contextId`     |*Object* \| *undefined*|The context id. HTML attribute equivalent: *z-context*. If not specified it will be randomly generated.  HTML attribute equivalent: *z-context*.|
+| `container`     |*Element* \| *undefined*|The container element.|
+| `model`         |*JSON* \| *undefined*|The data model. HTML attribute equivalent: *z-model*.|
+| `view`          |*Element* \| *undefined*|The view element.|
+| `controller`    |*[ContextControllerHandler](#ContextControllerHandler)* \| *undefined*|The controller handler.|
+| `on`            |*Object.&lt;string, <a href="#EventCallback">EventCallback</a>>* \| *Object.&lt;string, string>* \| *undefined*|The map of event handlers for standard and component's events. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: *z-on*.|
+| `behavior`      |*Object.&lt;string, <a href="#EventCallback">EventCallback</a>>* \| *Object.&lt;string, string>* \| *undefined*|The map of event handlers for behaviors. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: *z-behavior*.|
+| `css`           |*HTMLStyleElement* \| *string* \| *boolean* \| *undefined*|Custom stylesheet to apply to the component's view.|
+| `encapsulation` |*boolean* \| *undefined*|Whether to use style encapsulation or not (**default:** false).|
+| `resetCss`      |*boolean* \| *undefined*|Whether to reset view style to prevent inheriting from parent containers (**default:** false).|
+| `cext`          |*string* \| *undefined*|When loading content of the view, appends the specified extension instead of *.html*.|
+| `html`          |*boolean* \| *string* \| *undefined*|It can be set to `false`, to disable HTML template loading, or it can be set to a string containing the inline HTML template code.|
+| `lazyLoad`      |*boolean* \| *undefined*|Enables or disables lazy-loading (**default:** false). HTML attribute equivalent: *z-lazy*.|
+| `priority`      |*number* \| *undefined*|Loading priority (**default:** 0). HTML attribute equivalent: *z-priority*.|
+| `loaded`        |*[ContextLoadedCallback](#ContextLoadedCallback)* \| *undefined*|The loaded callback, triggered once the component is successfully loaded.|
+| `ready`         |*[ContextReadyCallback](#ContextReadyCallback)* \| *undefined*|The ready callback, triggered once all component's dependencies have been loaded.|
+| `error`         |*[ContextErrorCallback](#ContextErrorCallback)* \| *undefined*|The error callback, triggered when an error occurs.|
 
 <!--
 

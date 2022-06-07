@@ -149,8 +149,8 @@ then the view template can be loaded using the custom element tag:
 ## Data binding
 
 In the previous example, the text "Hello World" is static and cannot be customized, but an *HTML template* can also have
-elements of the view whose value is bound to fields of a *data model* that can be provided with the component's loading
-options.
+elements of the view whose value is bound to fields of a *data model* that can be provided with the component's [loading
+options](../context_options/).
 
 To bind the value of an element in the HTML template to a field of a *data model*, the `#<field_name>` attribute (shorthand
 of `z-field="<field_name>"`), is added to the element in order to specify the name of the corresponding field in the data

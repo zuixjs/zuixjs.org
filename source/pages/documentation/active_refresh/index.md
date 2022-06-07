@@ -730,7 +730,7 @@ const state = zuix.observable(formState).subscribe({
 // ...
 // the line below, for example, will trigger
 // the `change` callback implemented above 
-state.validFormData = false;
+state.validFormData = true;
 
 // ...
 

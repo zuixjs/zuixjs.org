@@ -70,24 +70,12 @@
     <lastmod>2022-06-03</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
-    <lastmod>2022-06-03</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/view/</loc>
-    <lastmod>2022-06-03</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/cli/</loc>
     <lastmod>2022-06-04</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/</loc>
     <lastmod>2022-06-04</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/component/</loc>
-    <lastmod>2022-06-05</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/about/</loc>
@@ -98,11 +86,23 @@
     <lastmod>2022-06-06</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
-    <lastmod>2022-06-06</lastmod>
+    <loc>https://zuixjs.org/pages/documentation/component/</loc>
+    <lastmod>2022-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
+    <lastmod>2022-06-07</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/context_options/</loc>
-    <lastmod>2022-06-06</lastmod>
+    <lastmod>2022-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/view/</loc>
+    <lastmod>2022-06-07</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
+    <lastmod>2022-06-07</lastmod>
   </url>
 </urlset>
