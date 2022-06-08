@@ -14,6 +14,13 @@ keywords:
 - active
 - refresh
 - handlers
+- scoped scripts
+- scripting context
+- scripting scope
+- observable
+- proxy
+- events
+- using
 ---
 
 <a name="scripting_scope"></a>
@@ -263,13 +270,61 @@ This is the style used for the `.not-ready` class effect in the above example.
 </style>
 ```
 
+<a name="interoperability"></a>
+## Interoperability
 
 ### Using a component from another
 
-In a scoped script it's also possible to reference other components loaded in the page by adding the `using` attribute
-to the `script` tag, with its value containing a comma separated list of the contexts' identifiers of required components.
+Inside the component's view, it's also possible to reference other components loaded in the page by adding the `z-using`
+option attribute to the host element.  
+This option attribute will contain a comma separated list of the contexts' identifiers of required components.
+
 A variable for each referenced context id, with its name equals to the component id converted to *camel case*, will be
-available in the script scope.  
+then available in the component's scripting scope.
+
+
+{% capture example %}
+```html
+<div z-using="my-menu">
+  
+  <!-- 'myMenu' component is injected
+       in this scripting scope -->
+
+  <mdl-button (click)="myMenu.show()">
+    Open menu
+  </mdl-button>
+
+</div>
+
+<context-menu z-context="my-menu">
+  
+  <template #menu>
+    <button>Option 1</button>
+    <button>Option 2</button>
+    <button>Option 3</button>
+  </template>
+  
+</context-menu>
+```
+{% endcapture %}
+
+{{ example }}
+
+<div style="min-height: 80px" layout="row center-left">
+<script type="module">
+  import "https://zuixjs.github.io/zkit/lib/1.2/components/context-menu.module.js";
+</script>
+{% unpre %}
+{{ example }}
+{% endunpre %}
+</div>
+
+In the example above the `div` containing the button is referencing the component with context id `my-menu`,
+which is the `context-menu` from [zKit components](https://zuixjs.github.io/zkit/content/components/context-menu/).  
+So, in the `click` event handler of the button it is possible to address the menu directly and make it open calling the
+`show()` method of the `context-menu` component.
+
+It's also possible to add the `using` attribute directly on a scoped `script`.
 
 ```html
 <script type="jscript" for="my-component"
@@ -283,6 +338,17 @@ available in the script scope.
 </script>
 ```
 
+The name of the variable assigned to contexts referenced with the `z-using/using` attribute can also be explicitly
+assigned by using the `as` keyword:
+
+```html
+<div z-using="my-menu as m">
+  
+  <button (click)="m.show()">Open Menu</button>
+  
+</div>
+```
+
 ### Exposing public methods or properties
 
 With a scoped script it's also possible to add public methods and properties to a component so that these can be invoked
@@ -292,15 +358,18 @@ from other components as well:
 <script type="jscript">
 
   expose = {
+
     // adds a public property getter (read only)
     get test() {
       console.log('test getter');
       return 'ok';
     },
+
     // add a public method
     getSelected: function() {
       return _selected;
     }
+
   };
 
 </script>

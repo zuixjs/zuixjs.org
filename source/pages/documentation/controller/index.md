@@ -94,6 +94,9 @@ Within the controller's scope, the context object `this`, is the [ContextControl
 access the view template's fields, querying its DOM, handling input events and triggering output events, exposing public interface
 members, and other common component's implementation tasks.
 
+Using *zuix.js* ES5 class format it is also possible to have static and private members.
+See the [example ES5 class](https://codepen.io/genielabs/pen/eYVLevb).
+
 
 ## Lifecycle callbacks
 

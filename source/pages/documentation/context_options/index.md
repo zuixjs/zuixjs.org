@@ -12,8 +12,13 @@ keywords:
 - documentation
 - api
 - component
-- options
-- lazy
+- option attributes
+- option setter
+- context options
+- lazy loading
+- priority
+- view style
+- themes
 ---
 
 <!--
@@ -97,14 +102,15 @@ component's data model and event handlers for component emitted events:
 For convenience, next to the `z-options` attribute, also a few more attributes are available as  shortcuts to directly
 address most commonly used option fields:
 
-| HTTML Attribute | ContextOptions field | description                                        |
-|-----------------|----------------------|----------------------------------------------------|
-| `z-context`     | `contextId`          | Assigns an identifier name to the loaded component |
-| `z-priority`    | `priority`           | Sets the loading priority                          |
-| `z-lazy`        | `lazyLoad`           | Enables or disables lazy-loading                   |
-| `z-on`          | `on`                 | Sets component's events handlers                   |
-| `z-behavior`    | `behavior`           | Sets component's behaviors handlers                |
-| `z-model`       | `model`              | Sets the data model                                |
+| HTTML Attribute | ContextOptions field | description                                                          |
+|-----------------|----------------------|----------------------------------------------------------------------|
+| `z-context`     | `contextId`          | Assigns an identifier name to the loaded component                   |
+| `z-on`          | `on`                 | Sets component's events handlers                                     |
+| `z-behavior`    | `behavior`           | Sets component's behaviors handlers                                  |
+| `z-model`       | `model`              | Sets the data model                                                  |
+| `z-using`       | `using`              | Comma separated contexts' id list of components used in this context |
+| `z-priority`    | `priority`           | Sets the loading priority                                            |
+| `z-lazy`        | `lazyLoad`           | Enables or disables lazy-loading                                     |
 
 So, using shortcuts, the `z-options` attribute in the previous example can be replaced by:
 

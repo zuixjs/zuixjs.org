@@ -15,6 +15,10 @@ keywords:
 - lazy
 - default
 - theming
+- custom elements
+- web components
+- default
+- standalone
 ---
 
 A *component*, here intended as a reusable part of a web page, consists of a **[View](../view)**, that is implemented
@@ -444,5 +448,5 @@ where it will be possible to use all templating and scripting capabilities of *z
 </div>
 
 
-The `z-load="default"` attribute can be omitted if any of the other `z-*` option attributes are in place (`z-behavior`, `z-on`,
-`z-options`, `z-model`).  
+The `z-load="default"` attribute can be omitted if any of the other `z-*` option attributes are in place (`z-context`,
+`z-options`, `z-model`, `z-behavior`, `z-on`).  
