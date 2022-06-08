@@ -324,6 +324,8 @@ which is the `context-menu` from [zKit components](https://zuixjs.github.io/zkit
 So, in the `click` event handler of the button it is possible to address the menu directly and make it open calling the
 `show()` method of the `context-menu` component.
 
+{% tryLink "Example on CodePen" "https://codepen.io/genielabs/pen/RwQepbV" %}
+
 It's also possible to add the `using` attribute directly on a scoped `script`.
 
 ```html
@@ -374,9 +376,6 @@ from other components as well:
 
 </script>
 ```
-
-
-
 
 
 ## Active&rarr;Refresh handlers

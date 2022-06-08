@@ -42,10 +42,6 @@
     <lastmod>2022-06-08</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
-    <lastmod>2022-06-08</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/api/helpers/Logger/</loc>
     <lastmod>2022-06-08</lastmod>
   </url>
@@ -103,6 +99,10 @@
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
+    <lastmod>2022-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/active_refresh/</loc>
     <lastmod>2022-06-08</lastmod>
   </url>
 </urlset>
