@@ -200,7 +200,7 @@ customElements.define('time-clock', class extends HTMLElement {
 ```
 
 <label class="mdl-color-text--primary">Result</label>
-<div style="min-height: 120px">
+<div style="min-height: 120px" layout="row center-center">
 
 {% unpre %}
 ```html
