@@ -294,7 +294,9 @@ In the example below the view template named *links* is loaded using an absolute
 <!-- TODO: create a custom liquid tag for including examples -->
 <label class="mdl-color-text--primary">Result</label>
 <div class="example-container" style="min-height: 120px">
-  <div view z-load="https://zuixjs.org/app/content/docs/examples/links" z-options="testOptions" layout="column center-stretch" style="min-height: 52px">
+  <div view z-load="https://zuixjs.org/app/content/docs/examples/links"
+       z-options="testOptions" class="visible-on-ready"
+       layout="column center-stretch" style="min-height: 52px">
       <div class="animate__animated animate__flash animate__infinite" layout="row center-center">
           Loading component <code>examples/links</code>...
       </div>

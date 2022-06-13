@@ -529,15 +529,13 @@ button will be enabled only if all the three checkboxes are checked.
     }).proxy;
     function refresh() {
       // these are async components!
-      if (_check1 && _check2 && _check3) {
-        state.validFormData =
-                _check1.checked
-                && _check2.checked
-                && _check3.checked;
-        state.bothChecked =
-                _check1.checked
-                && _check2.checked;
-      }
+      state.validFormData =
+              _check1.checked
+              && _check2.checked
+              && _check3.checked;
+      state.bothChecked =
+              _check1.checked
+              && _check2.checked;
     }
     function handleClick() {
       alert('Yay! This worked! =)');
