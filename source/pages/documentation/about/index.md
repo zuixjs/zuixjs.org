@@ -14,7 +14,7 @@ keywords:
 - about
 ---
 
-`zuix.js` is a lightweight library for creating modular and component based web applications
+🐝 `zuix.js` is a lightweight library for creating modular and component based web applications
 by using standard HTML, CSS and JavaScript.
 
 One of the main feature of *zuix.js* is the ability to "morph" basic HTML content into components,
@@ -42,7 +42,7 @@ the possibilities in sharing and reusing components across a network of sites.
 
 &nbsp;
 
-`zuix-cli` is a tool for the command-line shell for creating new projects, adding pages or components,
+🧰 `zuix-cli` is a tool for the command-line shell for creating new projects, adding pages or components,
 bundling and compressing into a single HTML file all resources used in a page, either local or remote ones.
 Project starter templates are using [Eleventy](https://11ty.dev/) as site generator, which works very nicely
 together with *zuix.js*.
