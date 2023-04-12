@@ -484,220 +484,219 @@ main table code {
 /* END: MARKDOWN JSDOC */</style><h2><code>ContextController</code> class</h2><h3>Constructor</h3><p><a name="ContextController"></a><h4>new ContextController(context) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>ContextController constructor.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>context</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em><td></table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 78](../../zuix/ContextController.js#L78)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 79](../../zuix/ContextController.js#L79)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em><h3>Properties</h3><p><a name="log"></a><h4>log → <em><a href="../../helpers/Logger">Logger</a></em></h4><p>The component's built-in logger.<p><a name="init"></a><h4>init → <em><a href="#ContextControllerInitCallback">ContextControllerInitCallback</a></em></h4><p>If set, this function gets called before component is created and before applying context options.<p><a name="create"></a><h4>create → <em><a href="#ContextControllerCreateCallback">ContextControllerCreateCallback</a></em></h4><p>If set, this function gets called after loading, when the component is created and its view (if provided) is loaded.<p><a name="update"></a><h4>update → <em><a href="#ContextControllerUpdateCallback">ContextControllerUpdateCallback</a></em></h4><p>If set, this function gets called each time the data model is updated.<p><a name="dispose"></a><h4>dispose → <em><a href="#ContextControllerDisposeCallback">ContextControllerDisposeCallback</a></em></h4><p>If set, this function gets called when the component is about to be disposed.<h3>Methods</h3><p><a name="addBehavior"></a><h4>addBehavior(eventPath, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Adds a behavior handler.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em><td>Event path.<tr><td><code>handler</code><td><em><a href="#EventCallback">EventCallback</a></em><td>Behavior handler.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 191](../../zuix/ContextController.js#L191)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 196](../../zuix/ContextController.js#L196)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em><p><a name="addEvent"></a><h4>addEvent(eventPath, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Adds an event handler.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em><td>Event path.<tr><td><code>handler</code><td><em><a href="#EventCallback">EventCallback</a></em><td>Event hanler.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 180](../../zuix/ContextController.js#L180)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 185](../../zuix/ContextController.js#L185)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em><p><a name="addTransition"></a><h4>addTransition(className, properties, options)</h4><p>Adds a CSS transition effect to the component stylesheet.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>className</code><td><em>string</em><td>CSS class name to assign to this transition.<tr><td><code>properties</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>List of CSS properties/values to set.<tr><td><code>options</code><td><em>Array.&lt;Object&gt;</em> | <em>JSON</em><td>List of transition options.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 202](../../zuix/ContextController.js#L202)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 207](../../zuix/ContextController.js#L207)
 
 --><p><a name="clearCache"></a><h4>clearCache()</h4><p>Clears the fields cache.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 229](../../zuix/ContextController.js#L229)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 234](../../zuix/ContextController.js#L234)
 
 --><p><a name="expose"></a><h4>expose(name, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Exposes a method or property declared in the private scope of the controller, as a public member of the component context object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>name</code><td><em>string</em> | <em>JSON</em><td><td>Name of the exposed method/property, or list of name/value pairs<tr><td><code>handler</code><td><em>function</em><td><em>optional</em><td>Function or property descriptor.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 343](../../zuix/ContextController.js#L343)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 348](../../zuix/ContextController.js#L348)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<p><a name="field"></a><h4>field(fieldName) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets view's field(s) with the specified name. Same as <a href="../ComponentContext/#field">ComponentContext–field</a>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>fieldName</code><td><em>string</em><td>Value to match in the <em>z-field</em> attribute</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 223](../../zuix/ContextController.js#L223)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 228](../../zuix/ContextController.js#L228)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A <code>{ZxQuery}</code> object wrapping the matching element(s).<p><a name="for"></a><h4>for(componentId) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Registers this one as the default controller for the given component type.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>componentId</code><td><em>string</em><td>Component identifier</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 436](../../zuix/ContextController.js#L436)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 441](../../zuix/ContextController.js#L441)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// Controller of component 'path/to/component_name'</span><br><span class="token keyword">var</span> ctrl <span class="token operator">=</span> zuix<span class="token punctuation">.</span><span class="token function">controller</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token comment">// `cp` is the {ContextController}</span><br>    cp<span class="token punctuation">.</span><span class="token function-variable function">create</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">;</span><br>    cp<span class="token punctuation">.</span><span class="token function-variable function">dispose</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'path/to/component_name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="loadCss"></a><h4>loadCss(options) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Loads the <code>.css</code> file and replace the current view style of the component. If no <code>options.path</code> is specified, it will try to load the file with the same base-name as the <code>componentId</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>options</code><td><em>object</em><td><em>optional</em><td>The options object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 379](../../zuix/ContextController.js#L379)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 384](../../zuix/ContextController.js#L384)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// loads 'path/to/component_name.css' by default</span><br>cp<span class="token punctuation">.</span><span class="token function">loadCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// or loads the view css with provided options</span><br>cp<span class="token punctuation">.</span><span class="token function">loadCss</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'url/of/style/file.css'</span><span class="token punctuation">,</span><br>    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token function-variable function">error</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token function-variable function">then</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="loadHtml"></a><h4>loadHtml(options) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Loads the <code>.html</code> file and replace the view markup of the component. If no <code>options.path</code> is specified, it will try to load the file with the same base-name as the <code>componentId</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>options</code><td><em>object</em><td><em>optional</em><td>The options object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 405](../../zuix/ContextController.js#L405)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 410](../../zuix/ContextController.js#L410)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// loads 'path/to/component_name.html' by default</span><br>cp<span class="token punctuation">.</span><span class="token function">loadHtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// or loads the view html with provided options</span><br>cp<span class="token punctuation">.</span><span class="token function">loadHtml</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'url/of/view/file.html'</span><span class="token punctuation">,</span><br>    <span class="token function-variable function">success</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token function-variable function">error</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br>    <span class="token function-variable function">then</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="model"></a><h4>model(model) → {<a href="../../zuix/ContextController">ContextController</a>|object}</h4><p>Gets/Sets the data model of the component. Same as <a href="../ComponentContext/#model">ComponentContext–model</a>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>model</code><td><em>object</em> | <em>undefined</em><td><em>optional</em><td>The model object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 277](../../zuix/ContextController.js#L277)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 282](../../zuix/ContextController.js#L282)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> | <em>object</em><p><a name="options"></a><h4>options() → {<a href="#ContextOptions">ContextOptions</a>|any}</h4><p>Gets the component options. Same as <a href="../ComponentContext/#options">ComponentContext–options</a>.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 289](../../zuix/ContextController.js#L289)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 294](../../zuix/ContextController.js#L294)
 
 --><h5>Returns</h5><p><em><a href="#ContextOptions">ContextOptions</a></em> | <em>any</em> ‐ The component options.<p><a name="trigger"></a><h4>trigger(eventPath, eventData, isHook) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Triggers the component event <code>eventPath</code> with the given <code>eventData</code> object. To listen to a component event use the <code>{ComponentContext}.on(eventPath, handler)</code> method or in case <code>isHook</code> is set to true, use the <code>zuix.hook(eventPath, handler)</code> method (global hook event).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em><td><td>The event path<tr><td><code>eventData</code><td><em>object</em><td><td>The event data<tr><td><code>isHook</code><td><em>boolean</em><td><em>optional</em><td>Trigger as global hook event</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 316](../../zuix/ContextController.js#L316)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 321](../../zuix/ContextController.js#L321)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em><h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// somewhere inside the slide-show component controller</span><br>cp<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token string">'slide:change'</span><span class="token punctuation">,</span> slideIndex<span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// somewhere in a page hosting the slide-show component</span><br><span class="token comment">// set component event listeners</span><br>zuix<span class="token punctuation">.</span><span class="token function">context</span><span class="token punctuation">(</span><span class="token string">'my-slide-show'</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'slide:change'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">slideIndex</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>  <span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="view"></a><h4>view(filter) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the component view or if <code>filter</code> argument is passed, gets the view elements matching the given <code>filter</code> (shorthand for <code>cp.view().find(filter)</code>).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>filter</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td></table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 250](../../zuix/ContextController.js#L250)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 255](../../zuix/ContextController.js#L255)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// get all `checkbox` elements with `.checked` class.</span><br><span class="token keyword">var</span> choices <span class="token operator">=</span> cp<span class="token punctuation">.</span><span class="token function">view</span><span class="token punctuation">(</span><span class="token string">'input[type="checkbox"].checked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>choices<span class="token punctuation">.</span><span class="token function">removeClass</span><span class="token punctuation">(</span><span class="token string">'.checked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// ...</span><br><span class="token comment">// hide the component's view</span><br>cp<span class="token punctuation">.</span><span class="token function">view</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
 
 *Source:*
-[zuix/ActiveRefresh.js](../../zuix/ActiveRefresh.js), [line 40](../../zuix/ActiveRefresh.js#L40)
+[zuix/ActiveRefresh.js](../../zuix/ActiveRefresh.js), [line 41](../../zuix/ActiveRefresh.js#L41)
 
 --><p><a name="ActiveRefreshHandler"></a><h4>ActiveRefreshHandler($view, $element, data, nextCallback, attributeName)</h4><p>The Active-Refresh function that will be called for each refresh request.<h5>This</h5><ul><li>{HTMLElement}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>$view</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>The component's view<tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>The target element as <em>ZxQuery</em> object<tr><td><code>data</code><td><em>object</em><td><td>Custom data that ca be passed from call to call<tr><td><code>nextCallback</code><td><em><a href="#ActiveRefreshCallback">ActiveRefreshCallback</a></em><td><td>Callback for scheduling the next refresh call<tr><td><code>attributeName</code><td><em>string</em><td><em>optional</em><td>Source attribute name if it's a '@' handler</table><!--
 
 *Source:*
-[zuix/ActiveRefresh.js](../../zuix/ActiveRefresh.js), [line 28](../../zuix/ActiveRefresh.js#L28)
+[zuix/ActiveRefresh.js](../../zuix/ActiveRefresh.js), [line 29](../../zuix/ActiveRefresh.js#L29)
 
 --><p><a name="BindingAdapterCallback"></a><h4>BindingAdapterCallback($element, fieldName, $view, refreshCallback)</h4><p>Binding adapter callback.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>The view's element bound to the data model's <em>fieldName</em><tr><td><code>fieldName</code><td><em>string</em><td><td>The element's bound field name<tr><td><code>$view</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>The view<tr><td><code>refreshCallback</code><td><em><a href="#BindingAdapterRefreshCallback">BindingAdapterRefreshCallback</a></em><td><em>optional</em><td>Refresh loop callback</table><!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 62](../../zuix/ComponentContext.js#L62)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 63](../../zuix/ComponentContext.js#L63)
 
 --><p><a name="BindingAdapterRefreshCallback"></a><h4>BindingAdapterRefreshCallback(refreshMs)</h4><p>Binding adapter refresh callback<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Milliseconds to wait before refresh (<strong>default</strong>: <em>500ms</em>)</table><!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 72](../../zuix/ComponentContext.js#L72)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 73](../../zuix/ComponentContext.js#L73)
 
 --><p><a name="BundleItem"></a><h4>BundleItem</h4><p>Bundle item object.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>view</code><td><em>Element</em><td><tr><td><code>css</code><td><em>string</em><td><tr><td><code>controller</code><td><em><a href="#ContextControllerHandler">ContextControllerHandler</a></em><td></table><!--
 
 *Source:*
-[zuix/ComponentCache.js](../../zuix/ComponentCache.js), [line 38](../../zuix/ComponentCache.js#L38)
+[zuix/ComponentCache.js](../../zuix/ComponentCache.js), [line 39](../../zuix/ComponentCache.js#L39)
 
 --><p><a name="ComponentCache"></a><h4>ComponentCache</h4><p>Component cache object.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>componentId</code><td><em>string</em><td>The id of the cached component.<tr><td><code>view</code><td><em>Element</em><td>The view element.<tr><td><code>css</code><td><em>string</em><td>The CSS style text.<tr><td><code>css_applied</code><td><em>boolean</em><td>Whether the CSS style has been applied to the view or not.<tr><td><code>controller</code><td><em><a href="#ContextControllerHandler">ContextControllerHandler</a></em><td>The controller handler function.<tr><td><code>using</code><td><em>string</em><td>The url/path if this is a resource loaded with <code>zuix.using(..)</code> method.</table><!--
 
 *Source:*
-[zuix/ComponentCache.js](../../zuix/ComponentCache.js), [line 26](../../zuix/ComponentCache.js#L26)
+[zuix/ComponentCache.js](../../zuix/ComponentCache.js), [line 27](../../zuix/ComponentCache.js#L27)
 
 --><p><a name="ContextControllerCreateCallback"></a><h4>ContextControllerCreateCallback()</h4><p>Function that gets called after loading, when the component is actually created and ready.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 52](../../zuix/ContextController.js#L52)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 53](../../zuix/ContextController.js#L53)
 
 --><p><a name="ContextControllerDisposeCallback"></a><h4>ContextControllerDisposeCallback()</h4><p>Function called when the component is about to be disposed.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 58](../../zuix/ContextController.js#L58)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 59](../../zuix/ContextController.js#L59)
 
 --><p><a name="ContextControllerHandler"></a><h4>ContextControllerHandler(cp)</h4><p>This function is called after the component is loaded and it is used to initialize its controller.<h5>This</h5><ul><li>{<a href="../../zuix/ContextController">ContextController</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>cp</code><td><em><a href="../../zuix/ContextController">ContextController</a></em><td>The component controller object</table><!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 42](../../zuix/ComponentContext.js#L42)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 43](../../zuix/ComponentContext.js#L43)
 
 --><p><a name="ContextControllerInitCallback"></a><h4>ContextControllerInitCallback()</h4><p>Function that gets called after loading and before the component is created.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 46](../../zuix/ContextController.js#L46)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 47](../../zuix/ContextController.js#L47)
 
 --><p><a name="ContextControllerUpdateCallback"></a><h4>ContextControllerUpdateCallback(target, key, value, path, old)</h4><p>Function called when the data model of the component is updated<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>target</code><td><em>Object</em><td>The target object.<tr><td><code>key</code><td><em>string</em><td>The name of the property.<tr><td><code>value</code><td><em>Object</em><td>The value of the property.<tr><td><code>path</code><td><em>string</em><td>The full property path (dotted notation).<tr><td><code>old</code><td><em>Object</em><td>The target object before the update.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 34](../../zuix/ContextController.js#L34)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 35](../../zuix/ContextController.js#L35)
 
 --><h5>Returns</h5><p>‐ undefined<p><a name="ContextErrorCallback"></a><h4>ContextErrorCallback(error, ctx)</h4><p>Callback function triggered if an error occurs when loading a component.<h5>This</h5><ul><li>{<a href="../../zuix/ComponentContext">ComponentContext</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>error</code><td><em>Object</em><td><tr><td><code>ctx</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em><td>The component context object (same as <code>this</code>).</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 82](../../zuix/Zuix.js#L82)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 83](../../zuix/Zuix.js#L83)
 
 --><p><a name="ContextLoadedCallback"></a><h4>ContextLoadedCallback(ctx)</h4><p>Callback function triggered when a component is created, after all of its dependencies have been loaded.<h5>This</h5><ul><li>{<a href="../../zuix/ComponentContext">ComponentContext</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>ctx</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em><td>The component context (same as <code>this</code>).</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 91](../../zuix/Zuix.js#L91)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 92](../../zuix/Zuix.js#L92)
 
 --><p><a name="ContextOptions"></a><h4>ContextOptions</h4><p>This object can be supplied when loading a component. It can be either passed as argument for the <code>zuix.load(...) / zuix.loadComponent(...)</code> methods, in the javascript code, or with the <code>z-options</code> attribute in the HTML code of the component's host element.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>contextId</code><td><em>Object</em> | <em>undefined</em><td>The context id. HTML attribute equivalent: <em>z-context</em>. If not specified it will be randomly generated. HTML attribute equivalent: <em>z-context</em>.<tr><td><code>container</code><td><em>Element</em> | <em>undefined</em><td>The container element.<tr><td><code>model</code><td><em>JSON</em> | <em>undefined</em><td>The data model. HTML attribute equivalent: <em>z-model</em>.<tr><td><code>view</code><td><em>Element</em> | <em>undefined</em><td>The view element.<tr><td><code>controller</code><td><em><a href="#ContextControllerHandler">ContextControllerHandler</a></em> | <em>undefined</em><td>The controller handler.<tr><td><code>on</code><td><em>Object.&lt;string, <a href="#EventCallback">EventCallback</a>&gt;</em> | <em>Object.&lt;string, string&gt;</em> | <em>undefined</em><td>The map of event handlers for standard and component's events. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: <em>z-on</em>.<tr><td><code>behavior</code><td><em>Object.&lt;string, <a href="#EventCallback">EventCallback</a>&gt;</em> | <em>Object.&lt;string, string&gt;</em> | <em>undefined</em><td>The map of event handlers for behaviors. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: <em>z-behavior</em>.<tr><td><code>css</code><td><em>HTMLStyleElement</em> | <em>string</em> | <em>boolean</em> | <em>undefined</em><td>Custom stylesheet to apply to the component's view.<tr><td><code>encapsulation</code><td><em>boolean</em> | <em>undefined</em><td>Whether to use style encapsulation or not (<strong>default:</strong> false).<tr><td><code>resetCss</code><td><em>boolean</em> | <em>undefined</em><td>Whether to reset view style to prevent inheriting from parent containers (<strong>default:</strong> false).<tr><td><code>cext</code><td><em>string</em> | <em>undefined</em><td>When loading content of the view, appends the specified extension instead of <em>.html</em>.<tr><td><code>html</code><td><em>boolean</em> | <em>string</em> | <em>undefined</em><td>It can be set to <code>false</code>, to disable HTML template loading, or it can be set to a string containing the inline HTML template code.<tr><td><code>lazyLoad</code><td><em>boolean</em> | <em>undefined</em><td>Enables or disables lazy-loading (<strong>default:</strong> false). HTML attribute equivalent: <em>z-lazy</em>.<tr><td><code>priority</code><td><em>number</em> | <em>undefined</em><td>Loading priority (<strong>default:</strong> 0). HTML attribute equivalent: <em>z-priority</em>.<tr><td><code>using</code><td><em>string</em> | <em>undefined</em><td>Comma separated contexts' id list of components used in this context. A variable with camel-case converted name for each referenced context, will be available in the local scripting scope.<tr><td><code>loaded</code><td><em><a href="#ContextLoadedCallback">ContextLoadedCallback</a></em> | <em>undefined</em><td>The loaded callback, triggered once the component is successfully loaded.<tr><td><code>ready</code><td><em><a href="#ContextReadyCallback">ContextReadyCallback</a></em> | <em>undefined</em><td>The ready callback, triggered once all component's dependencies have been loaded.<tr><td><code>error</code><td><em><a href="#ContextErrorCallback">ContextErrorCallback</a></em> | <em>undefined</em><td>The error callback, triggered when an error occurs.</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 56](../../zuix/Zuix.js#L56)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 57](../../zuix/Zuix.js#L57)
 
 --><p><a name="ContextReadyCallback"></a><h4>ContextReadyCallback(ctx)</h4><p>Callback function triggered when a component has been successfully loaded.<h5>This</h5><ul><li>{<a href="../../zuix/ComponentContext">ComponentContext</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>ctx</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em><td>The component context (same as <code>this</code>).</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 100](../../zuix/Zuix.js#L100)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 101](../../zuix/Zuix.js#L101)
 
 --><p><a name="ElementPosition"></a><h4>ElementPosition</h4><p>The <code>ElementPosition</code> object returned by the <code>position()</code> method.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>x</code><td><em>number</em><td>X coordinate of the element in the viewport<tr><td><code>y</code><td><em>number</em><td>Y coordinate of the element in the viewport<tr><td><code>frame</code><td><em><a href="#Position">Position</a></em><td>Position of the element relative to the viewport<tr><td><code>event</code><td><em>string</em><td>Current state change event description (<em>enter</em>, <em>exit</em>, <em>scroll</em>, <em>off-scroll</em>)<tr><td><code>visible</code><td><em>boolean</em><td>Boolean value indicating whether the element is visible in the viewport</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 54](../../helpers/ZxQuery.js#L54)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 55](../../helpers/ZxQuery.js#L55)
 
 --><p><a name="ElementsIterationCallback"></a><h4>ElementsIterationCallback(count, item, $item)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>count</code><td><em>number</em><td>Iteration count.<tr><td><code>item</code><td><em>Element</em><td>Current element.<tr><td><code>$item</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>ZxQuery wrapped element (same as 'this').</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 36](../../helpers/ZxQuery.js#L36)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 37](../../helpers/ZxQuery.js#L37)
 
 --><p><a name="EventCallback"></a><h4>EventCallback(event, data, $el)</h4><p>Callback function triggered when an event registered with the <code>on</code> method occurs.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>event</code><td><em>string</em><td>Event name<tr><td><code>data</code><td><em>Object</em><td>Event data<tr><td><code>$el</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>ZxQuery wrapped element that sourced the event (same as <code>this</code>)</table><!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 51](../../zuix/ComponentContext.js#L51)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 52](../../zuix/ComponentContext.js#L52)
 
 --><p><a name="IterationCallback"></a><h4>IterationCallback(k, item)</h4><p>The <code>IterationCallback</code> function.<h5>This</h5><ul><li>{object}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>k</code><td><em>number</em> | <em>object</em><td>Iteration count / item key.<tr><td><code>item</code><td><em>object</em><td>Current element (same as <code>this</code>).</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 65](../../helpers/ZxQuery.js#L65)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 66](../../helpers/ZxQuery.js#L66)
 
 --><p><a name="LoggerMonitorCallback"></a><h4>LoggerMonitorCallback(ctx, level)</h4><p>Callback function for monitoring all log messages.<h5>This</h5><ul><li>{object}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>ctx</code><td><em>Object</em><td><tr><td><code>level</code><td><em>string</em><td><tr><td><code>...args</code><td><em>Array.&lt;Object&gt;</em><td></table><!--
 
 *Source:*
-[helpers/Logger.js](../../helpers/Logger.js), [line 117](../../helpers/Logger.js#L117)
+[helpers/Logger.js](../../helpers/Logger.js), [line 118](../../helpers/Logger.js#L118)
 
 --><p><a name="PlayFxCallback"></a><h4>PlayFxCallback($element, classQueue)</h4><p>Callback function used with the <code>each(..)</code> method.<h5>This</h5><ul><li>{<a href="../../helpers/ZxQuery">ZxQuery</a>}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>Target element (same as 'this').<tr><td><code>classQueue</code><td><em>Array.&lt;string&gt;</em><td>Transition/animation class queue left to play, <code>null</code> if the animation ended.</table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 132](../../helpers/ZxQuery.js#L132)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 133](../../helpers/ZxQuery.js#L133)
 
---><p><a name="PlayFxConfig"></a><h4>PlayFxConfig</h4><p>Configuration object for <code>playFx</code>, <code>playTransition</code>, <code>playAnimation</code> utility methods.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>type</code><td><em>'transition'</em> | <em>'animation'</em><td><td></table><pre><code>       |The type of effect to play.|
-</code></pre><p>|<code>target</code>|<em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em>|| |Target element.| |<code>classes</code>|<em>Array.&lt;string&gt;</em> | <em>string</em>|| |List of transition or animation classes to play.| |<code>options</code>|<em>object</em>||<em>optional</em><br>|Transition/animation options ('delay', 'duration', etc..).| |<code>holdState</code>|<em>boolean</em>||<em>optional</em><br>|Hold last transition/animation class.| |<code>onStep</code>|<em><a href="#PlayFxCallback">PlayFxCallback</a></em>||<em>optional</em><br>|Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.| |<code>onEnd</code>|<em><a href="#PlayFxCallback">PlayFxCallback</a></em>||<em>optional</em><br>|Called when all transitions/animations ended.|</p><!--
+--><p><a name="PlayFxConfig"></a><h4>PlayFxConfig</h4><p>Configuration object for <code>playFx</code>, <code>playTransition</code>, <code>playAnimation</code> utility methods.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>type</code><td><em>'transition'</em> | <em>'animation'</em><td><td></table><p>|The type of effect to play.| |<code>target</code>|<em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em>|| |Target element.| |<code>classes</code>|<em>Array.&lt;string&gt;</em> | <em>string</em>|| |List of transition or animation classes to play.| |<code>options</code>|<em>object</em>||<em>optional</em><br>|Transition/animation options ('delay', 'duration', etc..).| |<code>holdState</code>|<em>boolean</em>||<em>optional</em><br>|Hold last transition/animation class.| |<code>onStep</code>|<em><a href="#PlayFxCallback">PlayFxCallback</a></em>||<em>optional</em><br>|Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.| |<code>onEnd</code>|<em><a href="#PlayFxCallback">PlayFxCallback</a></em>||<em>optional</em><br>|Called when all transitions/animations ended.|</p><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 119](../../helpers/ZxQuery.js#L119)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 120](../../helpers/ZxQuery.js#L120)
 
 --><p><a name="Position"></a><h4>Position</h4><p>Relative position.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>dx</code><td><em>number</em><td><tr><td><code>dy</code><td><em>number</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 46](../../helpers/ZxQuery.js#L46)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 47](../../helpers/ZxQuery.js#L47)
 
 --><p><a name="ResourceUsingCallback"></a><h4>ResourceUsingCallback(resourcePath, hashIdOrContext)</h4><p>Callback in response to a <code>zuix.using</code> request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>resourcePath</code><td><em>string</em><td><tr><td><code>hashIdOrContext</code><td><em>string</em> | <em>object</em><td></table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 108](../../zuix/Zuix.js#L108)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 109](../../zuix/Zuix.js#L109)
 
 --><p><a name="ZxQueryHttpBeforeSendCallback"></a><h4>ZxQueryHttpBeforeSendCallback(xhr)</h4><p>The <code>ZxQueryHttpBeforeSendCallback</code> function.<h5>This</h5><ul><li>{undefined}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>xhr</code><td><em>XMLHttpRequest</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 74](../../helpers/ZxQuery.js#L74)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 75](../../helpers/ZxQuery.js#L75)
 
 --><p><a name="ZxQueryHttpErrorCallback"></a><h4>ZxQueryHttpErrorCallback(xhr, statusText, statusCode)</h4><p>The <code>ZxQueryHttpErrorCallback</code> function.<h5>This</h5><ul><li>{undefined}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>xhr</code><td><em>XMLHttpRequest</em><td><tr><td><code>statusText</code><td><em>string</em><td><tr><td><code>statusCode</code><td><em>number</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 90](../../helpers/ZxQuery.js#L90)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 91](../../helpers/ZxQuery.js#L91)
 
 --><p><a name="ZxQueryHttpOptions"></a><h4>ZxQueryHttpOptions</h4><p>zuix.$.http options object.<h5>Properties</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>url</code><td><em>string</em><td><tr><td><code>beforeSend</code><td><em><a href="#ZxQueryHttpBeforeSendCallback">ZxQueryHttpBeforeSendCallback</a></em> | <em>undefined</em><td><tr><td><code>success</code><td><em><a href="#ZxQueryHttpSuccessCallback">ZxQueryHttpSuccessCallback</a></em> | <em>undefined</em><td><tr><td><code>error</code><td><em><a href="#ZxQueryHttpErrorCallback">ZxQueryHttpErrorCallback</a></em> | <em>undefined</em><td><tr><td><code>then</code><td><em><a href="#ZxQueryHttpThenCallback">ZxQueryHttpThenCallback</a></em> | <em>undefined</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 108](../../helpers/ZxQuery.js#L108)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 109](../../helpers/ZxQuery.js#L109)
 
 --><p><a name="ZxQueryHttpSuccessCallback"></a><h4>ZxQueryHttpSuccessCallback(responseText)</h4><p>The <code>ZxQueryHttpSuccessCallback</code> function.<h5>This</h5><ul><li>{undefined}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>responseText</code><td><em>string</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 82](../../helpers/ZxQuery.js#L82)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 83](../../helpers/ZxQuery.js#L83)
 
 --><p><a name="ZxQueryHttpThenCallback"></a><h4>ZxQueryHttpThenCallback(xhr)</h4><p>The <code>ZxQueryHttpThenCallback</code> function.<h5>This</h5><ul><li>{undefined}</ul><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>xhr</code><td><em>XMLHttpRequest</em><td></table><!--
 
 *Source:*
-[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 100](../../helpers/ZxQuery.js#L100)
+[helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 101](../../helpers/ZxQuery.js#L101)
 
---></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.13</small></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
+--></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.15</small></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
 <ul>
     <li >
     <a href="/home" class="mdl-js-ripple-effect">
