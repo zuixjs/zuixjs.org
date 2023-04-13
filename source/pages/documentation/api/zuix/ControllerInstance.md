@@ -109,7 +109,7 @@ Adds a behavior handler.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 196](../../zuix/ContextController.js#L196)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 208](../../zuix/ContextController.js#L208)
 
 -->
 
@@ -135,7 +135,7 @@ Adds an event handler.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 185](../../zuix/ContextController.js#L185)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 197](../../zuix/ContextController.js#L197)
 
 -->
 
@@ -162,7 +162,7 @@ Adds a CSS transition effect to the component stylesheet.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 207](../../zuix/ContextController.js#L207)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 219](../../zuix/ContextController.js#L219)
 
 -->
 
@@ -177,15 +177,41 @@ Clears the fields cache.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 234](../../zuix/ContextController.js#L234)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 246](../../zuix/ContextController.js#L246)
 
 -->
+
+<a name="declare"></a>
+#### declare(name, handler) &rarr; {[ContextController](../../zuix/ContextController)}
+
+Declare fields that are available in the view's scripting scope.
+
+##### Parameters
+
+|Name|Type|Argument|Description|
+|----|----|--------|-----------|
+|`name`|*string* \| *JSON*|  |Name of the declared method/property, or list of name/value pairs|
+|`handler`|*function*|*optional*  |Function or property descriptor.|
+
+*Inherited From:*
+    - [ContextController#declare](#declare)
+
+<!--
+
+*Source:*
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 385](../../zuix/ContextController.js#L385)
+
+-->
+
+##### Returns
+
+*[ContextController](../../zuix/ContextController)*
+ &dash; The `{ContextController}` itself.
 
 <a name="expose"></a>
 #### expose(name, handler) &rarr; {[ContextController](../../zuix/ContextController)}
 
-Exposes a method or property declared in the private
-scope of the controller, as a public member of the
+Declare fields that are available as public members of the
 component context object.
 
 ##### Parameters
@@ -201,7 +227,7 @@ component context object.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 348](../../zuix/ContextController.js#L348)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 359](../../zuix/ContextController.js#L359)
 
 -->
 
@@ -228,7 +254,7 @@ Same as [ComponentContext&ndash;field](../ComponentContext/#field).
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 228](../../zuix/ContextController.js#L228)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 240](../../zuix/ContextController.js#L240)
 
 -->
 
@@ -255,7 +281,7 @@ for the given component type.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 441](../../zuix/ContextController.js#L441)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 482](../../zuix/ContextController.js#L482)
 
 -->
 
@@ -294,7 +320,7 @@ the file with the same base-name as the `componentId`.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 384](../../zuix/ContextController.js#L384)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 425](../../zuix/ContextController.js#L425)
 
 -->
 
@@ -336,7 +362,7 @@ file with the same base-name as the `componentId`.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 410](../../zuix/ContextController.js#L410)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 451](../../zuix/ContextController.js#L451)
 
 -->
 
@@ -377,7 +403,7 @@ Same as [ComponentContext&ndash;model](../ComponentContext/#model).
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 282](../../zuix/ContextController.js#L282)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 294](../../zuix/ContextController.js#L294)
 
 -->
 
@@ -437,7 +463,7 @@ Same as [ComponentContext&ndash;options](../ComponentContext/#options).
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 294](../../zuix/ContextController.js#L294)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 306](../../zuix/ContextController.js#L306)
 
 -->
 
@@ -469,7 +495,7 @@ in case `isHook` is set to true, use the
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 321](../../zuix/ContextController.js#L321)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 333](../../zuix/ContextController.js#L333)
 
 -->
 
@@ -509,7 +535,7 @@ gets the view elements matching the given `filter`
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 255](../../zuix/ContextController.js#L255)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 267](../../zuix/ContextController.js#L267)
 
 -->
 
@@ -592,7 +618,7 @@ Binding adapter callback.
 <!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 63](../../zuix/ComponentContext.js#L63)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 65](../../zuix/ComponentContext.js#L65)
 
 -->
 
@@ -610,7 +636,7 @@ Binding adapter refresh callback
 <!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 73](../../zuix/ComponentContext.js#L73)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 75](../../zuix/ComponentContext.js#L75)
 
 -->
 
@@ -699,7 +725,7 @@ and it is used to initialize its controller.
 <!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 43](../../zuix/ComponentContext.js#L43)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 45](../../zuix/ComponentContext.js#L45)
 
 -->
 
@@ -759,7 +785,7 @@ Callback function triggered if an error occurs when loading a component.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 83](../../zuix/Zuix.js#L83)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 85](../../zuix/Zuix.js#L85)
 
 -->
 
@@ -780,7 +806,7 @@ Callback function triggered when a component is created, after all of its depend
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 92](../../zuix/Zuix.js#L92)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 94](../../zuix/Zuix.js#L94)
 
 -->
 
@@ -817,7 +843,7 @@ of the component's host element.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 57](../../zuix/Zuix.js#L57)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 59](../../zuix/Zuix.js#L59)
 
 -->
 
@@ -838,7 +864,7 @@ Callback function triggered when a component has been successfully loaded.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 101](../../zuix/Zuix.js#L101)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 103](../../zuix/Zuix.js#L103)
 
 -->
 
@@ -907,7 +933,7 @@ with the `on` method occurs.
 <!--
 
 *Source:*
-[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 52](../../zuix/ComponentContext.js#L52)
+[zuix/ComponentContext.js](../../zuix/ComponentContext.js), [line 54](../../zuix/ComponentContext.js#L54)
 
 -->
 
@@ -987,20 +1013,13 @@ Configuration object for `playFx`, `playTransition`, `playAnimation` utility met
 
 |Name|Type|Argument|Description|
 |----|----|--------|-----------|
-|`type`|*'transition'* \| *'animation'*||
-           |The type of effect to play.|
-|`target`|*Element* \| *[ZxQuery](../../helpers/ZxQuery)*||
-           |Target element.|
-|`classes`|*Array.&lt;string>* \| *string*||
-           |List of transition or animation classes to play.|
-|`options`|*object*||*optional*<br>
-           |Transition/animation options ('delay', 'duration', etc..).|
-|`holdState`|*boolean*||*optional*<br>
-           |Hold last transition/animation class.|
-|`onStep`|*[PlayFxCallback](#PlayFxCallback)*||*optional*<br>
-           |Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.|
-|`onEnd`|*[PlayFxCallback](#PlayFxCallback)*||*optional*<br>
-           |Called when all transitions/animations ended.|
+|`type`|*'transition'* \| *'animation'*||The type of effect to play.|
+|`target`|*Element* \| *[ZxQuery](../../helpers/ZxQuery)*||Target element.|
+|`classes`|*Array.&lt;string>* \| *string*||List of transition or animation classes to play.|
+|`options`|*object*|*optional* |Transition/animation options ('delay', 'duration', etc..).|
+|`holdState`|*boolean*|*optional* |Hold last transition/animation class.|
+|`onStep`|*[PlayFxCallback](#PlayFxCallback)*|*optional* |Since class list can contain more than just two classes, this callback will be called after each pair of transition/animation ended.|
+|`onEnd`|*[PlayFxCallback](#PlayFxCallback)*|*optional* |Called when all transitions/animations ended.|
 
 <!--
 
@@ -1043,7 +1062,7 @@ Callback in response to a `zuix.using` request.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 109](../../zuix/Zuix.js#L109)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 111](../../zuix/Zuix.js#L111)
 
 -->
 

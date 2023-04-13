@@ -25,9 +25,16 @@ keywords:
 
 <a name="scripting_scope"></a>
 
-Inside the view of a component, other than standard HTML event handlers, it's possible to add event handlers that live
-in the component's context scripting scope, where the following predefined objects are available: 
+Inside the view of a component, other than standard HTML event handlers, it is possible to add event handlers that live
+inside the component's scripting scope.
 
+This kind of event handlers can be added to an element as an attribute having the name of the event wrapped
+between parentheses:
+
+`(<event_name>)="<inline_code_or_handler_fn>"`
+
+The value o such event attribute is evaluated as JavaScript expression and can contain reference to variables and functions
+defined in the component's scripting scope, where the following predefined objects are available:
 
 | Name            | Description                                                                                                                |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------|
@@ -43,14 +50,9 @@ in the component's context scripting scope, where the following predefined objec
 | `$`             | The component's view as *ZxQuery* object, shortcut of `context.$`                                                          |
 | `args`          | Optional arguments object                                                                                                  |
 
-
-This kind of event handler can be added to an element as tag's attribute with the same name of the event enclosed in
-parentheses: 
-
-`(<event_name>)="<inline_code_or_handler_fn>"`
-
-The value o such event attribute is evaluated as JavaScript expression and can contain reference to variables and functions
-defined in the component's scripting scope.
+Additionally, any other member explicitly declared in the [component's controller](../controller) code using the
+[{ContextController}.declare(..)](../api/zuix/ContextController#declare)
+method, will be also available.
 
 
 ## Scoped scripts

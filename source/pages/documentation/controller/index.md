@@ -155,14 +155,14 @@ this.init = function() {
 At this stage it's also possible to change the ready status of the component to `false` (`this.context.isReady = false`).
 This can be useful in case the component will load other dependencies before becoming fully operational and setting back
 `this.context.isReady = true`. During this *"not ready"* interval, the class `.not-ready` will be added to the component's
-view so that it can be used to customize how to component will look like while not ready.
+view so that it can be used to customize how to component will look like while it's still loading.
 
 
 ### `onCreate()` <small>( `<controller>.create()` )</small>
 
 The `onCreate` method gets called right after all component's resources have been loaded. At this stage it is already possible
-to access the component's view and the data model. This method is also employed to register input event listeners and declare
-methods to expose publicly.
+to access the component's view and the data model. This method is also employed to register input event listeners, to declare
+members to expose publicly and to declare members available in the view's scripting scope.
 
 
 ### `onUpdate()` <small>( `<controller>.update(target, key, value, path, old)` )</small>
@@ -223,28 +223,67 @@ Consider this simple view
     
 </div>
 ```
-where, in the controller's code, `this` is the `ContextController` instance:
+where, in the controller's code, `this` is the [ContextController](../api/zuix/ContextController) instance:
 
 - getting the view:  
+  
   `const $view = this.view()`
+  
 - querying the view's DOM  
-  `const $elements = $view.find('<filter>')` or
+  
+  `const $elements = $view.find('<filter>')`  
+  
+  or  
+  
   `const $elements = this.view('<filter>')`
+  
 - getting the view's field `#message`  
-  `const $msg = this.field('message')` or  
-  `const $msg = this.model().message`
+  
+  `const $msg = this.field('message')`  
+  
+  or  
+  
+  `const $msg = this.model().message`  
+  
 - listening to events  
-  `$msg.on('click', eventCallbackFn)`
+  
+  `$msg.on('click', eventCallbackFn)`  
+  
 - emitting custom component's events  
-  `this.trigger('myevent', myEventData)`;
-- exposing public methods
-- `this.expose('methodName', handlerFn)` or  
-  `this.expose({ 
-    methodName1: handlerFn1,
-    methodName2: handlerFn2, 
-    /* ... */ 
-  })`
+  
+  `this.trigger('myevent', myEventData)`  
+  
+- declaring component's public fields and methods  
+  
+  `this.expose('memberName', handlerFn)`  
+  
+  or  
+  
+  ```
+  this.expose({  
+     method1: handlerFn1,  
+     method2: handlerFn2,  
+     get property1() { return _property1; },  
+     set property1(v) { _property1 = v; },  
+     /* ... */  
+   })
+  ```  
+  
+- declaring fields that are available in the view's scripting scope  
+  
+  `this.delcare('memberName', handlerFn)`  
+  
+  or  
 
+  ```
+  this.declare( 
+     method1: handlerFn1, 
+     method2: handlerFn2, 
+     get property1() { return _property1; }, 
+     set property1(v) { _property1 = v; }, 
+     /* ... */ 
+   })
+  ```  
 
 See the [ContextController API](../api/zuix/ContextController) for a list of all available properties and methods.
 
