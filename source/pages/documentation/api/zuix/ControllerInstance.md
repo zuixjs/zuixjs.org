@@ -109,7 +109,7 @@ Adds a behavior handler.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 208](../../zuix/ContextController.js#L208)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 211](../../zuix/ContextController.js#L211)
 
 -->
 
@@ -135,7 +135,7 @@ Adds an event handler.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 197](../../zuix/ContextController.js#L197)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 200](../../zuix/ContextController.js#L200)
 
 -->
 
@@ -162,7 +162,7 @@ Adds a CSS transition effect to the component stylesheet.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 219](../../zuix/ContextController.js#L219)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 222](../../zuix/ContextController.js#L222)
 
 -->
 
@@ -177,7 +177,7 @@ Clears the fields cache.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 246](../../zuix/ContextController.js#L246)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 249](../../zuix/ContextController.js#L249)
 
 -->
 
@@ -199,7 +199,7 @@ Declare fields that are available in the view's scripting scope.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 385](../../zuix/ContextController.js#L385)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 388](../../zuix/ContextController.js#L388)
 
 -->
 
@@ -227,7 +227,7 @@ component context object.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 359](../../zuix/ContextController.js#L359)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 362](../../zuix/ContextController.js#L362)
 
 -->
 
@@ -254,7 +254,7 @@ Same as [ComponentContext&ndash;field](../ComponentContext/#field).
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 240](../../zuix/ContextController.js#L240)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 243](../../zuix/ContextController.js#L243)
 
 -->
 
@@ -281,7 +281,7 @@ for the given component type.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 482](../../zuix/ContextController.js#L482)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 485](../../zuix/ContextController.js#L485)
 
 -->
 
@@ -320,7 +320,7 @@ the file with the same base-name as the `componentId`.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 425](../../zuix/ContextController.js#L425)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 428](../../zuix/ContextController.js#L428)
 
 -->
 
@@ -362,7 +362,7 @@ file with the same base-name as the `componentId`.
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 451](../../zuix/ContextController.js#L451)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 454](../../zuix/ContextController.js#L454)
 
 -->
 
@@ -403,7 +403,7 @@ Same as [ComponentContext&ndash;model](../ComponentContext/#model).
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 294](../../zuix/ContextController.js#L294)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 297](../../zuix/ContextController.js#L297)
 
 -->
 
@@ -463,7 +463,7 @@ Same as [ComponentContext&ndash;options](../ComponentContext/#options).
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 306](../../zuix/ContextController.js#L306)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 309](../../zuix/ContextController.js#L309)
 
 -->
 
@@ -495,7 +495,7 @@ in case `isHook` is set to true, use the
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 333](../../zuix/ContextController.js#L333)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 336](../../zuix/ContextController.js#L336)
 
 -->
 
@@ -535,7 +535,7 @@ gets the view elements matching the given `filter`
 <!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 267](../../zuix/ContextController.js#L267)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 270](../../zuix/ContextController.js#L270)
 
 -->
 
@@ -785,7 +785,7 @@ Callback function triggered if an error occurs when loading a component.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 85](../../zuix/Zuix.js#L85)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 86](../../zuix/Zuix.js#L86)
 
 -->
 
@@ -806,7 +806,7 @@ Callback function triggered when a component is created, after all of its depend
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 94](../../zuix/Zuix.js#L94)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 95](../../zuix/Zuix.js#L95)
 
 -->
 
@@ -826,6 +826,7 @@ of the component's host element.
 |`model`|*JSON* \| *undefined*|The data model. HTML attribute equivalent: *z-model*.|
 |`view`|*Element* \| *undefined*|The view element.|
 |`controller`|*[ContextControllerHandler](#ContextControllerHandler)* \| *undefined*|The controller handler.|
+|`controllerMembers`|*Object*|Additional methods/properties to add to the context controller.|
 |`on`|*Object.&lt;string, <a href="#EventCallback">EventCallback</a>>* \| *Object.&lt;string, string>* \| *undefined*|The map of event handlers for standard and component's events. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: *z-on*.|
 |`behavior`|*Object.&lt;string, <a href="#EventCallback">EventCallback</a>>* \| *Object.&lt;string, string>* \| *undefined*|The map of event handlers for behaviors. An event can also be simply routed to another component's event by specifying the mapped event name string. HTML attribute equivalent: *z-behavior*.|
 |`css`|*HTMLStyleElement* \| *string* \| *boolean* \| *undefined*|Custom stylesheet to apply to the component's view.|
@@ -864,7 +865,7 @@ Callback function triggered when a component has been successfully loaded.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 103](../../zuix/Zuix.js#L103)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 104](../../zuix/Zuix.js#L104)
 
 -->
 
@@ -1062,7 +1063,7 @@ Callback in response to a `zuix.using` request.
 <!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 111](../../zuix/Zuix.js#L111)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 112](../../zuix/Zuix.js#L112)
 
 -->
 
