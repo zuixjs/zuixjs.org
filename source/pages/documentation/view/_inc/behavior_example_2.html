@@ -5,7 +5,7 @@
             <div class="views-container">
 {% for i in items %}<div z-field="view-{{ i }}" class="view-switch" layout="column top-center"
                     {% if i == 1 %}view-selected="true"{% endif %}>
-                    <img src="https://picsum.photos/320/225?{{ i }}" loading="lazy">
+                    <img src="https://picsum.photos/320/225?{{ i }}" loading="lazy" alt="Random image">
                     <p class="animate__animated animate__fadeOut animate__slower animate__delay-2s">
                         Random content {{ i }}
                     </p>

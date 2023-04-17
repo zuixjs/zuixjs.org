@@ -45,7 +45,7 @@ function MdlMenu() {
         // is used to pass custom data
           cp.trigger('menu:select', {action: $el.attr('action'), $el});
         });
-    let a = this.view('a');
+    let a = this.view('a,button');
     if (a.length() >= 1) {
       a = a.eq(a.length() - 1);
       a.attr('id', menuId)

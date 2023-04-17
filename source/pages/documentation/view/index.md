@@ -480,7 +480,7 @@ attribute:
 <div view z-load="templates/mdl_card">
 
   <h1 #title>Let's code!</h1>
-  <img #image src="examples/images/card_cover_3.jpg" alt="Cover image" role="presentation" width="460" height="190">
+  <img #image src="examples/images/card_cover_3.jpg" alt="Cover image" role="presentation" width="460">
   <p #text>
     Yes we can!
   </p>
@@ -499,13 +499,13 @@ and the above code, as is, will also provide a default visualization, that will 
 <div self="size-x1" layout="column center-center">
   <div #card-example-1 self="sm-full" class="animate__animated" style="width:100%; max-width: 460px;min-height: 335px">
     <h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1>
-    <img #image class="animate__animated animate__fadeIn" src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" width="460" height="190" style="width: 100%;padding: 8px">
+    <img #image class="animate__animated animate__fadeIn" src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" width="444" height="164" >
     <p #text class="animate__animated animate__fadeIn">
       Yes we can!
     </p>
-    <a #link.url href="javascript:void(0)" class="animate__animated animate__fadeIn">
+    <div #link.url class="animate__animated animate__fadeIn">
       <span #link.title>Take me there</span>
-    </a>
+    </div>
   </div>
 </div>
 <script>
@@ -524,7 +524,7 @@ function loadMdlCard(container) {
     <li onclick="zuix.unload(cardViewContainer1)"
         @disable-if="!zuix.context(cardViewContainer1)" @active>Unload</li>
   </ul>
-  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</a>
+  <button ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</button>
 </div>
 ```
 {% endunpre %}
@@ -602,7 +602,7 @@ cardViewContainer2 = zuix.field('card-example-2');
     <li onclick="cardViewContainer2.playAnimation({classes:'animate__flipOutX', options: {duration: '500ms'}, onEnd: ($this) => {zuix.unload(cardViewContainer2)}})"
         @disable-if="!zuix.context(cardViewContainer2)" @active>Unload</li>
   </ul>
-  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})">Try me!</a>
+  <button ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})">Try me!</button>
 </div>
 ```
 {% endunpre %}
