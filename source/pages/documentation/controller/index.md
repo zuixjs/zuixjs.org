@@ -529,7 +529,7 @@ Alternatively, a component can declare all resources it requires in order to wor
 in the page, these resources will be automatically loaded along with the component.
 
 For this purpose the [`zuix.using(..)`](../api/zuix/Zuix/#using) method can be used to load common dependencies such as utility scripts,
-stylesheets or utility/service controllers that are accessible application-wide. [Library shortcuts](../component#libraries-and-theming) can
+stylesheets or utility/service controllers that are accessible application-wide. [Library shortcuts](../context_options#libraries-and-theming) can
 also be used in the URL path.
 
 Some examples:

@@ -160,10 +160,10 @@ model.
 <small>Declaration of an inline view with `title` and `subtitle` fields:</small> 
 ```html
 <div z-view="inline/example/article_header">
-  <h1 #title class="animate__animated animate__fadeInDown">
+  <h1 #title>
     Example title
   </h1>
-  <p #subtitle class="animate__animated animate__fadeInUp">
+  <p #subtitle>
     Example article subtitle
   </p>
 </div>
