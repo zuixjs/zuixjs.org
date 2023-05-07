@@ -37,7 +37,17 @@ html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}[layout]{display:
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-}</style><!-- zuix.js https://github.com/zuixjs/zuix --><link rel="preload" as="script" href="/js/zuix/zuix.min.js"><script src="/js/zuix/zuix.min.js"></script><style>body {
+}</style><!-- custom style --><style>.rotate{
+            animation: loading 3s linear infinite;
+        }
+        @keyframes loading {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }</style><!-- zuix.js https://github.com/zuixjs/zuix --><link rel="preload" as="script" href="/js/zuix/zuix.js"><script src="/js/zuix/zuix.js"></script><style>body {
     margin:0; padding: 0;
     font-size: 14px;
 }

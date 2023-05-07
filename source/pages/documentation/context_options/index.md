@@ -429,7 +429,7 @@ zuix.store('config', {
   // default values
   "resourcePath": "/app/",
   "libraryPath": {
-    "@lib": "https://zuixjs.github.io/zkit/lib/1.1/",
+    "@lib": "https://zuixjs.github.io/zkit/lib/1.2/",
     "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",
     "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
   },
@@ -437,7 +437,7 @@ zuix.store('config', {
   "my_repo.github.io": {
     "resourcePath": "/my_repo/app/",
     "libraryPath": {
-      "@lib": "https://zuixjs.github.io/zkit/lib/1.1/",
+      "@lib": "https://zuixjs.github.io/zkit/lib/1.2/",
       "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",
       "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
     }

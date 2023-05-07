@@ -310,7 +310,7 @@ myCardData = {
 ```
 {% endunpre %}
 
-
+<a name="bindingadapters"></a>
 ### Binding Adapters
 
 Sometimes it might be required to have more control over how the value of a data model's field affects the view. For this
@@ -469,7 +469,7 @@ function a_random_name() {
 <a name="accessibility"></a>
 ## Accessibility
 
-The data model can also be set directly inside the host element through HTML tags, and this will also provide a default
+The data model can also be set directly inside the host element through HTML tags, and this will provide a default
 visualization in case the view's template is still loading or JavaScript is not enabled.
 
 The following example shows how to embed data model's fields with HTML code inside the host element using `#<field_name>`
@@ -480,7 +480,8 @@ attribute:
 <div view z-load="templates/mdl_card">
 
   <h1 #title>Let's code!</h1>
-  <img #image src="examples/images/card_cover_3.jpg" alt="Cover image" role="presentation" width="460">
+  <img #image src="examples/images/card_cover_3.jpg"
+              alt="Cover image" role="presentation" width="460">
   <p #text>
     Yes we can!
   </p>
@@ -499,13 +500,14 @@ and the above code, as is, will also provide a default visualization, that will 
 <div self="size-x1" layout="column center-center">
   <div #card-example-1 self="sm-full" class="animate__animated" style="width:100%; max-width: 460px;min-height: 335px">
     <h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1>
-    <img #image class="animate__animated animate__fadeIn" src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" width="444" height="164" >
+    <img #image class="animate__animated animate__fadeIn" style="max-width: 100%"
+         src="{{app.resourcePath}}content/docs/examples/images/cover_javascript.jpg" alt="cover" width="444" height="164">
     <p #text class="animate__animated animate__fadeIn">
       Yes we can!
     </p>
-    <div #link.url class="animate__animated animate__fadeIn">
+    <a #link.url href="javascript:" class="animate__animated animate__fadeIn">
       <span #link.title>Take me there</span>
-    </div>
+    </a>
   </div>
 </div>
 <script>
@@ -524,21 +526,23 @@ function loadMdlCard(container) {
     <li onclick="zuix.unload(cardViewContainer1)"
         @disable-if="!zuix.context(cardViewContainer1)" @active>Unload</li>
   </ul>
-  <button ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</button>
+  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</a>
 </div>
 ```
 {% endunpre %}
 
-to actually load or unload the `templates/mdl_card` view, use the "Try me" button above. The manual component loading is
-in this example used only to show what happen when the HTML view code is enhanced by the component that in a real
-situation, with a JavaScript enabled browser, would just get loaded straight forward.
+to actually load or unload the `templates/mdl_card` view, use the **Try Me** button above.
 
-Component's data model's fields, in this case, are HTML elements inside the host element (attributes with the `#` prefix), that are
-automatically mapped to a certain property of the target element in the view template, depending on its type.
+This is just an example to show what happen when the HTML view code is enhanced by the component,
+since by default, in JavaScript enabled browsers, components loading starts right away.
+
+So, in the previous example, the component data model fields are HTML elements within the host element (attributes with the `#` prefix),
+which are automatically mapped to a certain property of the corresponding element in the loaded component's view,
+depending on its type.
 
 For instance, if the target element is `img`, then the mapped property will be `.src`, while if it's a `div` or a `p`,
-it will be the `.innerHTML` property. A binding adapter can eventually be used to override the way elements are mapped
-internally.
+it will be the `.innerHTML` property. A binding adapter can eventually be used to override the default elements mapping
+strategy.
 
 The host element body can also be used to simply provide an alternative text description for browsers where Javascript is
 disabled, or a *loading* message to show while the component is loading for browsers where Javascript is enabled:
@@ -607,8 +611,8 @@ cardViewContainer2 = zuix.field('card-example-2');
 ```
 {% endunpre %}
 
-Since components can be dynamically loaded, unloaded or replaced, it is also possible to select specific components'
-layout, based for instance, on the device's screen size/orientation or a user selectable theme. All without changing the
+Since components can be dynamically loaded, unloaded or replaced, it is also possible to select a specific layout of the component,
+based for instance, on the device screen size/orientation or a user selectable theme. All without changing the
 HTML code of the page, that will basically host the components' data models itself, and also provide through it a default
 visualization of the page that will even work without Javascript.
 

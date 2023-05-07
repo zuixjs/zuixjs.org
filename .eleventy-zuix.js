@@ -557,9 +557,9 @@ function configure(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode('tryLink', function(text, link) {
-    return `<div layout="column center-left"><div><a layout="row center-start" href="${link}">
+    return `<div layout="column center-left" style="margin-left: 16px"><div><a layout="row center-start" href="${link}">
          <i class="material-icons mdl-color-text--primary">try</i>
-         <span style="font-size: 120%;margin-left:2px;margin-bottom: 2px">${text}</span>
+         <span style="font-size: 120%;margin-left:6px;margin-bottom: 2px">${text}</span>
        </a></div></div>`;
   });
 }

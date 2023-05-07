@@ -7,16 +7,13 @@
     "baseUrl": "/",
     "resourcePath": "/app/",
     "libraryPath": {
-      "@lib": "/lib/1.1/",
+      "@lib": "https://zuixjs.github.io/zkit/lib/1.2/",
       "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",
       "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
     },
     "zuixjs.github.io": {
       "baseUrl": "/zuixjs.org/",
-      "resourcePath": "/zuixjs.org/app/",
-      "libraryPath": {
-        "@lib": "/zuixjs.org/lib/1.1/"
-      }
+      "resourcePath": "/zuixjs.org/app/"
     },
     "siteMapUrl": "https://zuixjs.org",
     "googleSiteId": "UA-92520304-1"

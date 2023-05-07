@@ -15,10 +15,22 @@ keywords:
 - helper
 ---
 
-Start playing with *zuix.js* right away on [StackBlitz](https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start) or you can install the *zuix-cli* tool to create
-a new website from the command line.
+See **zuix.js** in action using the online playground, where is possible to create and download 
+ready to use components directly in the browser!
+
+{% unpre %}
+```html
+<a layout="row center-start" class="mdl-color-text--accent" href="/playground/#/app/widgets/analog-clock">
+    <i class="material-icons rotate">sports_soccer</i>
+    <span style="font-size: 160%; margin-left: 6px">Playground</span>
+</a>
+```
+{% endunpre %}
 
 ## Creating a new web project using the CLI
+
+The `zuix-cli` tool can be used to create a new web project, the only prerequisite is that
+[node.js](https://nodejs.org/en/download/package-manager) must be installed first. 
 
 ```bash
 # Create a new website project named 'my-new-webapp'
@@ -36,6 +48,9 @@ npx zuix start
 ```
 
 Read more about all other `zuix` command functionality from [`zuix-cli`](../cli/) documentation page.
+
+You can also try the web-starter template live on [StackBlitz](https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start).
+
 
 ## Bare library usage on an existing site
 

@@ -110,14 +110,19 @@ If multiple `jscript` occurrences are found, they will be merged into a single s
 customElements.define('mdl-button', class extends HTMLElement {
   static get observedAttributes() { return ['disabled']; }
   context = null;
-  connectedCallback() {
-      this.classList.add('visible-on-ready');
-      this.style.display = 'inline-block';
-      this.style.margin = '4px';
+  constructor() {
+    super();
+    setTimeout(() => {
       zuix.loadComponent(this, '@lib/controllers/mdl-button', 'ctrl', {
-          container: this.attachShadow({mode: 'closed'}),
-          ready: (ctx) => this.context = ctx
+        container: this.attachShadow({mode: 'closed'}),
+        ready: (ctx) => this.context = ctx
       });
+    });
+  }
+  connectedCallback() {
+    this.classList.add('visible-on-ready');
+    this.style.display = 'inline-block';
+    this.style.margin = '4px';
   }
   attributeChangedCallback(name, oldValue, newValue) {
     this.context.$.attr(name, newValue);
@@ -161,8 +166,8 @@ milliseconds).
   
   <mdl-button #button 
               :class="'primary'"
-              :on:click="model.counter = 0"
-              :model:counter="0">
+              :model:counter="1000"
+              (click)="_this.model().counter = 0">
 
     <span #counter></span>
 

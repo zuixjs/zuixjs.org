@@ -1,0 +1,862 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Client-side embeddable components editor.">
+    <meta name="keywords" content="playground,embedded web components editor,zuix.js" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <link rel="author" href="humans.txt" />
+    <link rel="alternate" type="application/rss+xml"
+          title="RSS Feed for Playground"
+          href="/feed/rss.xml" />
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Progressive Web App -->
+    <meta name="theme-color" content="white">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Add to home screen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png">
+
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="A zUIx website">
+    <link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png">
+    <link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Tile color for Windows -->
+    <meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="https://www.example.com/">
+    -->
+
+    <link rel="preload" as="style" href="/css/fla/flex-layout-attribute.min.css" />
+    <link rel="stylesheet" href="/css/fla/flex-layout-attribute.min.css" />
+    <link rel="preload" as="style" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/animate.min.css" />
+
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+
+    <!-- custom style -->
+    <style>
+        .rotate{
+            animation: loading 3s linear infinite;
+        }
+        @keyframes loading {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+    <link rel="preload" as="style" href="/js/mdl/material.custom-theme.min.css">
+    <link rel="stylesheet" href="/js/mdl/material.custom-theme.min.css">
+    <link rel="preload" as="script" href="/js/mdl/material.min.js">
+    <script src="/js/mdl/material.min.js"></script>
+
+
+
+    <link rel="preload" as="style" href="/css/prism.css" />
+    <link rel="stylesheet" href="/css/prism.css" />
+
+
+    <!-- zuix.js https://github.com/zuixjs/zuix -->
+    <link rel="preload" as="script" href="/js/zuix/zuix.js">
+    <link rel="preload" as="script" href="/config.js">
+    <script src="/js/zuix/zuix.js"></script>
+    <script src="/config.js"></script>
+
+<style>
+    :root {
+        --primary-color: #16641c;
+        --primary-color-half: #16641c88;
+        --accent-color: rgb(0 123 171);
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px!important;
+        font-family: Helvetica, sans-serif;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    /* prevents links dragging */
+    a, a::after, a::before {
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    h1 {
+        font-size: 195%;
+        font-weight: 600!important;
+    }
+    h1.title {
+        margin:0;
+        padding-right: 48px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        color: var(--primary-color);
+    }
+    h2 {
+        font-size: 185%;
+        margin-top: 56px;
+        font-weight: 600;
+    }
+    h3 {
+        margin-top: 42px;
+        font-size: 160%;
+        font-weight: 600;
+        color: lightslategray;
+    }
+    label {
+        color: lightslategray;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 24px;
+        display: block;
+    }
+
+    main .content ul {
+        padding-left: 20px;
+    }
+    li {
+        line-height: 175%;
+        font-size: 100%;
+    }
+    li small {
+        color: dimgray;
+        /*    opacity: 0.5;*/
+    }
+
+    blockquote {
+        font-size: 140%;
+        opacity: 0.6;
+    }
+
+    p {
+        font-size: 130%;
+        line-height: 160%;
+        margin-bottom: 24px;
+    }
+
+    hr {
+        margin-bottom: 30px;
+        padding: 4px;
+        margin: 0;
+    }
+
+    th {
+        border: 1px solid rgba(100,100,100, 0.5);
+    }
+    td:not(:first-child) {
+        border-left: 1px solid rgba(100,100,100, 0.5);
+        padding: 4px;
+    }
+
+    code[class*=language-], pre[class*=language-] {
+        font-size: 115%;
+    }
+    pre:not([class*="language-"]) {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    pre[class*="language-"]{
+        margin-top: 32px!important;
+        margin-bottom: 32px!important;
+    }
+    code {
+        color: #0b753f;
+        font-size: 115%;
+        font-weight: 400;
+        margin-left: 2px;
+        margin-right: 2px;
+        overflow-wrap: break-word; /* for old browsers */
+        overflow-wrap: anywhere;
+    }
+    code.option {
+        font-size: 80%;
+        padding: 4px;
+        border-radius: 6px;
+        border: solid 1px rgba(0,200,0,0.25);
+        background: rgba(255,255,255,0.15);
+    }
+    p code {
+        font-size: 90%;
+    }
+    table {
+        /*margin-left: auto;
+        margin-right: auto;*/
+        border: 1px solid rgba(0,0,0,0.2);
+    }
+
+    /* prevents links dragging */
+    a, a::after, a::before {
+        -webkit-user-drag: none;
+        -webkit-app-region: no-drag;
+    }
+
+    main {
+        width: 100% !important;
+        padding: 0 !important;
+        transition: padding-left 150ms ease-in-out;
+    }
+    main div.content {
+        width: 100% !important;
+        max-width: 960px !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    main h2  {
+        margin-top: 56px;
+    }
+    main .content h2:first-child {
+        margin-top: 24px;
+    }
+    main h3 {
+        margin-top: 56px;
+        margin-bottom: 16px;
+    }
+    div.content > p {
+        font-size: 150% !important;
+        line-height: 160% !important;
+        margin: 24px 0 24px;
+    }
+    [\#header] {
+        position: fixed;
+        z-index: 1;
+        top:0; left: 0; right: 0; bottom: 0;
+        height: 64px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background: #f1f1f1;
+        box-shadow: 0 1px rgba(100, 100, 100, 30%);
+    }
+    h1[\#alt_header] {
+        max-width: 100%;
+        text-align: center;
+        display: block;
+        padding: 0 !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        margin: 24px;
+    }
+
+    .header-menu-button {
+        cursor: pointer;
+        height: 48px!important;
+        width: 48px!important;
+    }
+    .header-menu-button i {
+        color: black;
+        font-size: 32px!important;
+        left: 20px!important;
+    }
+
+    .margin-8px {
+        margin: 8px;
+    }
+    .margin-10px {
+        margin: 10px;
+    }
+    .margin-16px {
+        margin: 16px;
+    }
+    .no-select {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Edge, Opera and Firefox */
+    }
+    @media screen and (min-width: 1280px) {
+        main {
+            padding-top: 0 !important;
+            padding-left: 304px !important;
+            padding-right: 24px !important;
+        }
+        .sponsorship {
+            margin-left: 280px;
+        }
+        [\#header] {
+            padding-left: 316px;
+            display: none;
+        }
+        h1[\#alt_header] {
+            margin-top: 32px;
+            margin-bottom: 48px;
+            /*margin-left: -28px;*/
+            visibility: visible;
+        }
+        .header-menu-button {
+            display: none;
+        }
+        footer {
+            margin-left: 280px;
+        }
+    }
+
+    /* UI state classes */
+    .not-ready {
+        opacity: 0.5;
+        -webkit-animation: pulse .5s infinite ease-in-out;
+        -o-animation: pulse .5s infinite ease-in-out;
+        -ms-animation: pulse .5s infinite ease-in-out;
+        -moz-animation: pulse .5s infinite ease-in-out;
+        animation: pulse .5s infinite ease-in-out;
+    }
+    @-webkit-keyframes pulse {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0.2; }
+    }
+    @keyframes pulse {
+        0% { opacity: 0.2; }
+        50% { opacity: 0.4; }
+        100% { opacity: 0.2; }
+    }
+
+    .mdl-tabs__panel pre {
+        margin-top: 0!important;
+    }
+    .mdl-tabs__tab-bar {
+        justify-content: left!important;
+    }
+
+    [z-load="@lib/templates/mdl-card-image"] {
+        position: relative;
+        width: 256px;
+        height: 256px;
+    }
+    .drawer-header {
+    color:white;
+    height: 128px;
+    padding: 8px 8px 8px 8px;
+    background: #7b9170;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7b9170, #0b4d2c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7b9170, #0b4d2c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.drawer-header img.logo {
+    width: 64px;
+    height: 64px;
+    border: solid 1px rgba(0,0,0,0.75);
+    border-radius: 56px;
+    background: #ffffff;
+}
+[data-theme="dark"] .drawer-header img.logo {
+    background: #000;
+}
+
+.drawer-header .text-logo {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 180%;
+    font-weight: 400;
+}
+.drawer-header .text-logo small {
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+.drawer-header .title {
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 120%;
+    font-weight: 300;
+}
+.drawer-header .title code {
+    font-weight: bold;
+}
+.drawer-header .subtitle {
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 100%;
+    opacity: 0.75;
+}
+.drawer-header code {
+    color: yellow;
+}
+
+.drawer-content {
+    background: white;
+}
+[data-theme="dark"] .drawer-content {
+    background: #24333e;
+}
+
+.drawer-content ul {
+    padding: 0;
+    margin-top: 8px;
+    /*font-size: 120%;*/
+}
+.drawer-content li:hover a {
+    /*box-shadow: 1px 0 rgb(0 0 0 / 15%);
+    background: rgba(160,160,160,0.1);*/
+    color: var(--primary-color);
+}
+.drawer-content li {
+    margin: 0;
+    min-height: 48px;
+    vertical-align: center;
+    align-content: center;
+    align-items: center;
+    list-style: none;
+    border-top: solid 2px transparent;
+    border-bottom: solid 2px transparent;
+}
+.drawer-content ul li[aria-current=page] {
+    border-top: solid 2px #f3f3f3;
+    border-bottom: solid 2px #f3f3f3;
+    background-color: rgba(127, 127, 127, 10%);
+}
+.drawer-content ul li[aria-current=page] i, .drawer-content ul li[aria-current=page] a {
+    color: var(--primary-color);
+}
+.drawer-content li a {
+    color: var(--accent-color);
+    position: relative;
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.drawer-content ul li[aria-current=page] a {
+    /*pointer-events: none;*/
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.drawer-content ul li a div.summary {
+    font-size: 95%;
+    line-height: 150%;
+    margin-top: 4px;
+    margin-right: 32px;
+    font-style: italic;
+    font-weight: 400!important;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    color: lightslategray;
+}
+.drawer-content label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 12px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+.drawer-content a {
+   color: #24333e;
+}
+[z-context="menu-drawer"]:focus {
+    outline: none;
+}
+
+
+</style>
+
+</head>
+
+
+<!-- scroll helper is used to show/hide the header when scrolling -->
+<body ctrl z-load="@lib/controllers/header-auto-hide" :header="'header'"
+      z-lazy="scroll" data-theme=""
+      layout="column stretch-stretch">
+
+    <nav #header layout="row center-start">
+        <div self="stretch" layout="row center-start">
+            <button onclick="menuDrawer.open()" class="header-menu-button mdl-button mdl-button--icon">
+                <i class="material-icons">menu_open</i>
+            </button>
+            <h1 self="size-x1" class="title">Playground</h1>
+        </div>
+    </nav>
+
+
+    <main layout="column top-center">
+
+        
+            <h1 #alt_header class="title">Playground</h1>
+        
+
+        <div self="size-x1" class="content">
+            <div z-load="https://zuixjs.github.io/zkit/lib/1.2/components/zx-playground" :menu-items="menuItems" style="min-height: 80vh"></div>
+<script>
+const menuItems = [
+{link: '#/app/examples/new-component', description: 'New component'},
+{link: '#/app/examples/custom-elements-01', description: 'Custom elements #1'},
+{link: '#/app/examples/custom-elements-02', description: 'Custom elements #2'},
+{link: '#/app/examples/default-component', description: 'Default component'},
+{link: '#/app/widgets/time-clock', description: 'Time clock'},
+{link: '#/app/widgets/analog-clock', description: 'Analog clock'}
+];
+</script>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- Navigation Drawer -->
+    <div ctrl z-load="@lib/controllers/drawer-layout"
+         z-context="menu-drawer" z-lazy="false"
+         z-options="drawer_opts"
+         class="drawer-layout no-select visible-on-ready"
+         layout="column top-stretch">
+        <!-- Navigation Drawer content -->
+
+        <!-- Header -->
+        <div class="drawer-header" layout="column justify-stretch">
+            <div self="stretch" layout="row center-justify">
+                <a href="/" title="Home">
+                    <img class="logo animate__animated animate__swing animate__fast"
+                         src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js">
+                </a>
+                <div class="text-logo">
+                    zuix.js
+                    <small>
+                        v1.1.24
+                    </small>
+                    <script>
+                        self.zuixVersion = "1.1.24";
+                    </script>
+                </div>
+                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75">
+                    <img src="/images/github-mark-light.png" alt="GitHub logo"
+                         title="zuix.js on GitHub" width="32" height="32">
+                </a>
+            </div>
+            <div style="padding-left: 6px;padding-right: 6px;">
+                JavaScript library for component-based websites and applications.
+            </div>
+        </div>
+
+        <!-- Menu items and other content -->
+        <div class="drawer-content" self="size-x1">
+            <!--
+<ul>
+    <li >
+    <a href="/home" class="mdl-js-ripple-effect">
+        <div layout="row center-left">
+            <i class="material-icons">home</i>
+            <span>Home</span>
+        </div>
+        <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
+    </a>
+    </li>
+    <li >
+    <a href="/search" class="mdl-js-ripple-effect">
+        <div layout="row center-left">
+            <i class="material-icons">search</i>
+            <span>Search</span>
+        </div>
+        <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
+    </a>
+    </li>
+</ul>
+-->
+
+<!--
+        <label>Documentation</label>
+-->
+        <ul>
+            
+            <li >
+                <a href="/pages/documentation/about/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>About zuix.js</span>
+                        <i class="material-icons">info_outline</i>
+                    </div>
+                    <div class="summary">
+                        Library and CLI features in brief.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/getting_started/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>Getting started</span>
+                        <i class="material-icons">outlined_flag</i>
+                    </div>
+                    <div class="summary">
+                        Creating a new project using the CLI, bare library usage.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/component/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>Component</span>
+                        <i class="material-icons">smart_button</i>
+                    </div>
+                    <div class="summary">
+                        Custom elements, standalone components, the <em>default</em> component.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/context_options/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>Context Options</span>
+                        <i class="material-icons">bolt</i>
+                    </div>
+                    <div class="summary">
+                        Options, component's events, style, lazy-loading, priority, theming.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/view/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>View</span>
+                        <i class="material-icons">html</i>
+                    </div>
+                    <div class="summary">
+                        Data binding, binding adapters, accessibility, behaviors, events.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/active_refresh/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>Events and Active&rarr;Refresh</span>
+                        <i class="material-icons">loop</i>
+                    </div>
+                    <div class="summary">
+                        Events, scoped scripts, interop., active <code>@</code> refresh, observables.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/controller/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>Controller</span>
+                        <i class="material-icons">javascript</i>
+                    </div>
+                    <div class="summary">
+                        Implementation types, lifecycle, options, events.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/cli/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>CLI / Templates</span>
+                        <i class="material-icons">terminal</i>
+                    </div>
+                    <div class="summary">
+                        Creating a new projects, pages and components.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li  aria-current="page">
+                <a href="/playground/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>Playground</span>
+                        <i class="material-icons">sports_soccer</i>
+                    </div>
+                    <div class="summary">
+                        Embeddable components editor with live preview.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li>
+            <li >
+                <a href="/pages/documentation/api/" class="mdl-js-ripple-effect" style="overflow:hidden;">
+                    <div layout="row center-justify">
+                        <span>API</span>
+                        <i class="material-icons">emoji_nature</i>
+                    </div>
+                    <div class="summary">
+                        Zuix, ComponentContext, ContextController, ZxQuery.
+                    </div>
+                    <span class="mdl-ripple"></span>
+                </a>
+            </li></ul>
+
+    
+
+
+        </div>
+
+    </div>
+<div class="sponsorship">
+<div layout="column center-center" style="padding-top: 64px; padding-bottom: 12px">
+    <!--
+    Support zuix.js works, become a patron!
+    <a href="https://www.patreon.com/bePatron?u=73679823" data-patreon-widget-type="become-patron-button" title="Become a Patron">
+        <img src="/images/patreon.png" width="256" alt="Support zuix.js works, become a Patron!">
+    </a>
+    -->
+    <div style="padding-bottom: 6px; font-weight: bold">Support this work</div>
+    <iframe src="https://github.com/sponsors/genemars/button" title="Sponsor my works." height="32" width="320" style="border: 0;max-width: 180px"></iframe>
+</div>
+
+</div>
+
+
+
+    <footer self="size-x1">
+
+        <div layout="rows top-spread">
+            <div class="margin-10px">
+                see <a href="https://github.com/zuixjs/zuix/blob/master/LICENSE.TXT" target="_blank" rel="noreferrer">code</a>
+                and <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">documentation</a>
+                licenses
+            </div>
+            <div class="margin-10px">
+                <a href="https://github.com/zuixjs" target="_blank" rel="noreferrer">zuix.js</a>
+            </div>
+            <div class="margin-10px">
+                © 2016-to-infinity-and-beyond
+                by <a href="https://glabs.it" target="_blank" rel="noreferrer">g-labs</a>
+            </div>
+        </div>
+
+    </footer>
+    <style>
+        footer {
+            margin-top: 96px;
+            max-height: 96px;
+            min-height: 96px;
+            font-size: 120%;
+            padding: 12px 24px 0;
+            background: #bbc;
+            background: linear-gradient(#fff, #16641c22);
+        }
+    </style>
+
+
+<!-- Built with love using zUIx Web Starter -->
+
+<script>
+
+  // Google Analytics: change UA-92520304-1 to be your site's ID
+  if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-92520304-1', 'auto');
+    ga('send', 'pageview');
+  }
+
+</script>
+
+
+
+</body>
+
+<!-- page script -->
+<script>
+/** type {ComponentContext} */
+let menuDrawer;
+window.drawer_opts = {
+  priority: -10,
+  autoHideWidth: 1280,
+  on: {
+    'drawer:open': function() {
+      /* ... */
+    },
+    'drawer:close': function() {
+      /* ... */
+    }
+  },
+  ready: function() {
+    menuDrawer = this;
+    menuDrawer.$.playAnimation(['animate__fadeIn', enterAnimation]);
+  }
+};
+
+function scrollbarVisible(element) {
+  const r = element.getBoundingClientRect();
+  return r.bottom !== r.height;
+}
+
+const header = zuix.field('header');
+let headerVisible = true;
+function showHeader() {
+  if (!headerVisible) {
+    headerVisible = true;
+    header
+        .playAnimation(['animate__fadeOutUp', 'animate__fadeInDown'])
+        .show();
+  }
+}
+function hideHeader() {
+  if (headerVisible && !header.isPlaying()) {
+    headerVisible = false;
+    header
+        .playAnimation({
+          classes: ['animate__fadeInDown', 'animate__fadeOutUp'],
+          onEnd: function() {
+            this.hide();
+          }
+        });
+  }
+}
+
+function processExternalLinks(view) {
+  // Force opening of all non-local links in a new window
+  view.find('a[href*="://"]')
+      .attr('target', '_blank')
+      .attr('rel', 'noreferrer');
+}
+
+zuix.hook('view:process', function(view) {
+  processExternalLinks(view);
+});
+processExternalLinks(zuix.$(document));
+
+// add presentation anim to the drawer
+const referrerLink = document.createElement('a');
+referrerLink.href = document.referrer;
+const enterAnimation =
+  (referrerLink.pathname === '/') ?
+    'animate__fadeInLeft' : 'animate__fadeIn';
+
+</script>
+
+
+</html>
+

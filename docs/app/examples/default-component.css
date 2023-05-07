@@ -1,0 +1,13 @@
+:host {
+    border: solid 1px var(--accent-color);
+    border-radius: 24px;
+    padding: 12px;
+    min-width: 250px;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 180px;
+}

@@ -1,0 +1,11 @@
+:host {
+    text-align: center;
+}
+.message {
+    color: #00b0ff;
+}
+button {
+    border-radius: 12px;
+    padding: 8px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,86 @@
+<div class="container">
+
+    <!-- using any `z-*` attribute will create a
+         new component context where SCOPED CSS
+         and SCOPED JavaScript can be used -->
+
+    <div z-model="{number: 42}">
+
+        <!-- Data model ^^^ is declared via
+             inline attribute `z-model` -->
+
+        <mdl-button :type="'fab'"
+                    :class="'primary'"
+                    (pointerdown)="model.number--">
+            remove
+        </mdl-button>
+
+        <!-- Attributes starting with "#" is used
+             to bind an element to a data model field -->
+
+        <strong #number></strong>
+
+        <mdl-button :type="'fab'" :class="'primary'"
+                    (pointerdown)="model.number++"> add </mdl-button>
+
+        <!-- SCOPED CSS: the following style
+             will be only applied to this context (media="#") -->
+        <style media="#">
+            strong {
+                color: var(--primary-color);
+                font-size: 200%;
+                text-align: center;
+                display: inline-block;
+                min-width: 100px;
+            }
+        </style>
+
+    </div>
+
+    <!-- create another component context -->
+    <div z-load="default">
+        <!-- This time, the data model will be defined
+            using the context script -->
+
+        <mdl-button :type="'fab'" :class="'mini-fab'"
+                    (click)="dec()"> remove </mdl-button>
+
+        <!-- "#number" declares a field of the data model -->
+        <strong #number></strong>
+
+        <mdl-button :type="'fab'" :class="'mini-fab'"
+                    (click)="inc()"> add </mdl-button>
+
+        <!-- SCOPED SCRIPT: this script will execute
+            in this context only (type="jscript") -->
+        <script type="jscript">
+            // TIP: try changing the field "model.number" in the
+            //      dev console: the associated view element will
+            //      automatically get the new value
+            console.log(context, model);
+            model.number = 23;
+            function inc() {
+                if (model.number < 42) model.number++;
+            }
+
+            function dec() {
+                if (model.number > 0) model.number--;
+            }
+        </script>
+
+        <!-- SCOPED CSS: the following style
+             will be only applied to this context (media="#") -->
+        <style media="#">
+            :host { text-align: center;}
+            strong {
+                color: var(--accent-color);
+                font-size: 150%;
+                text-align: center;
+                display: inline-block;
+                min-width: 100px;
+            }
+        </style>
+
+    </div>
+
+</div>

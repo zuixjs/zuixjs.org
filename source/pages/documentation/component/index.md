@@ -81,9 +81,11 @@ the `<component_id>` is `widgets/time-clock`, and the component can be loaded us
 </script>
 <div>
   <label class="mdl-color-text--primary">Result</label>
-  <div z-load="widgets/time-clock" style="width: 100%;min-height: 121px" z-options="testOptions" layout="column center-center">
-      <div class="animate__animated animate__flash animate__infinite margin-8px">
-          Loading <code>widgets/time-clock</code>...
+  <div layout="row center-center">
+      <div z-load="widgets/time-clock" z-options="testOptions" layout="column center-center" style="min-height: 90px">
+          <div class="animate__animated animate__flash animate__infinite margin-8px">
+              Loading <code>widgets/time-clock</code>...
+          </div>
       </div>
   </div>
 </div>
@@ -92,6 +94,8 @@ the `<component_id>` is `widgets/time-clock`, and the component can be loaded us
 
 so, basically, the component's view template's files (*time-clock.html* + *time-clock.css*) are rendered inside the host
 element `div`, and the controller code (*time-clock.js*) is activated and begins to animate the clock's digits.
+
+{% include "fragments/playground-button" component_id: "/app/widgets/time-clock" %}
 
 
 ## Custom element
@@ -175,6 +179,8 @@ customElements.define('mdl-button', class extends HTMLElement {
 ```
 {% endunpre %}
 
+{% include "fragments/playground-button" component_id: "/app/examples/custom-elements-01" %}
+
 
 ### Shadow DOM
 
@@ -200,7 +206,7 @@ customElements.define('time-clock', class extends HTMLElement {
 ```
 
 <label class="mdl-color-text--primary">Result</label>
-<div style="min-height: 120px" layout="row center-center">
+<div layout="row center-center">
 
 {% unpre %}
 ```html
@@ -268,6 +274,8 @@ The *URL* of the component's module can also be an absolute *URL* pointing to a 
 
 {% tryLink "Example on CodePen" "https://codepen.io/genielabs/pen/KKQZdga" %}
 
+{% include "fragments/playground-button" component_id: "/app/examples/custom-elements-02" %}
+
 
 <a name="type_view"></a>
 ## View-only component
@@ -328,7 +336,7 @@ to detect *swipe left* and *swipe right* gestures over it.
 
 ```html
 <div ctrl z-load="@lib/controllers/gesture-helper"
-     :on:gesture:swipe="handleSwipeGesture">
+     (gesture:swipe)="handleSwipeGesture">
   <strong>
       Gesture detection area
   </strong>
@@ -361,7 +369,7 @@ to detect *swipe left* and *swipe right* gestures over it.
   <div layout="row center-center">
   <div ctrl z-load="@lib/controllers/gesture-helper"
        z-options="opts"
-       :on:gesture:swipe="console.log(event, args, context)"
+       (gesture:swipe)="console.log(event, args, context)"
        class="no-select visible-on-ready"
        style="border: solid 1px lightgray;border-radius:24px;height:120px;background:aliceblue;padding:16px;cursor:ew-resize;margin-top: 12px;"
        self="size-1of2 sm-full">
@@ -408,17 +416,15 @@ to detect *swipe left* and *swipe right* gestures over it.
 <a name="defaultComponent"></a>
 ## The `default` component
 
-By using the internal `default` component it's possible to get advantage of *zuix.js* components' features also on
+Using the internal `default` component it is possible to get advantage of *zuix.js* components' features also on
 standard HTML elements.  
-For instance, adding the attribute `z-load="default"` to a `div`, will turn that `div` into a *zuix.js* component's view,
-where it will be possible to use all templating and scripting capabilities of *zuix.js* components:
-
-
+Adding the `z-load="default"` attribute or any other `z-*` attribute to a `div`, will create a new component context
+where the `div` is its view template, and where it will be possible to use all templating and scripting capabilities
+of *zuix.js* components:
 
 {% capture example %}
 ```html
-<div z-load="default"
-    :model:number="0">
+<div z-model="{number: 42}">
     
     <mdl-button :type="'fab'"
                 (pointerdown)="model.number--">
@@ -432,6 +438,9 @@ where it will be possible to use all templating and scripting capabilities of *z
         add
     </mdl-button>
 
+    <!-- SCOPED CSS: `media="#"` attribute 
+         will apply styles only to the enclosing
+         component context -->
     <style media="#">
         :host {text-align: center}
         strong {margin: 12px}
@@ -449,6 +458,4 @@ where it will be possible to use all templating and scripting capabilities of *z
 {% endunpre %}
 </div>
 
-
-The `z-load="default"` attribute can be omitted if any of the other `z-*` option attributes are in place (`z-context`,
-`z-options`, `z-model`, `z-behavior`, `z-on`).  
+{% include "fragments/playground-button" component_id: "/app/examples/default-component" %}

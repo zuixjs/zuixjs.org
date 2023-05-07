@@ -229,7 +229,7 @@
         h1[\#alt_header] {
             margin-top: 32px;
             margin-bottom: 48px;
-            margin-left: -28px;
+            /*margin-left: -28px;*/
             visibility: visible;
         }
         .header-menu-button {

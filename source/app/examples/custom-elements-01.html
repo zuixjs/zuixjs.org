@@ -1,0 +1,57 @@
+<div class="example-container">
+
+    <mdl-button :class="'primary'">
+        Hello
+    </mdl-button>
+
+    <mdl-button :type="'flat'">
+        Web
+    </mdl-button>
+
+    <mdl-button :class="'accent'">
+        Components
+    </mdl-button>
+
+</div>
+
+<div class="example-container">
+
+    <mdl-button :type="'fab'" :class="'mini-fab accent'">
+        email
+    </mdl-button>
+
+    <mdl-button :type="'fab'">
+        home
+    </mdl-button>
+
+    <mdl-button #menu-button
+                :type="'icon'" :class="'primary'">
+        menu
+    </mdl-button>
+
+    <mdl-menu #menu :behavior="buttonBehavior"
+              :forel="menuButton">
+        <ul>
+            <li>Menu option 1</li>
+            <li>Menu option 2</li>
+            <li>Menu option 3</li>
+        </ul>
+    </mdl-menu>
+
+</div>
+
+
+<script type="jscript">
+    const buttonBehavior = {
+        'menu:show': function(e, btn) {
+            btn.context.$.find('.material-icons')
+                .html('add')
+                .css({ transform: 'rotate(135deg)' });
+        },
+        'menu:hide': function(e, btn) {
+            btn.context.$.find('.material-icons')
+                .html('menu')
+                .css({ transform: 'rotate(0)' });
+        }
+    }
+</script>
