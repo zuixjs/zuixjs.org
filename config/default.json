@@ -61,6 +61,7 @@
       "language": "en",
       "baseUrl": "/",
       "resourcePath": "/app/",
+      "siteRoot": "/",
       "libraryPath": {
         "@lib": "https://zuixjs.github.io/zkit/lib/1.2/",
         "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",

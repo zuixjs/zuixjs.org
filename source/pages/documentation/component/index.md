@@ -235,12 +235,19 @@ base name of the widget but ending with `.module.js`.
 <a name="import-example"></a>
 
 ```js
-import 'https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}/js/zuix.module.min.js';
-customElements.define('time-clock', class extends HTMLElement {
+const setup = () => {
+  // Create custom element <time-clock></time-clock>
+  customElements.define('time-clock', class extends HTMLElement {
     connectedCallback() {
-        zuix.loadComponent(this, 'widgets/time-clock');
+      zuix.loadComponent(this, 'widgets/time-clock');
     }
-});
+  });
+};
+// Load zuix.js if not already loaded  
+if (self.zuix === undefined) {
+  import('https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}/js/zuix.module.min.js')
+    then(() => setup());
+} else setup();
 ```
 
 Then the component module can be imported in the `head` section of the page

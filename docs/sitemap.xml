@@ -90,14 +90,6 @@
     <lastmod>2023-05-03</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/playground/</loc>
-    <lastmod>2023-05-08</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/component/</loc>
-    <lastmod>2023-05-08</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/context_options/</loc>
     <lastmod>2023-05-08</lastmod>
   </url>
@@ -107,6 +99,14 @@
   </url>
   <url>
     <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
+    <lastmod>2023-05-08</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/component/</loc>
+    <lastmod>2023-05-08</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/playground/</loc>
     <lastmod>2023-05-08</lastmod>
   </url>
 </urlset>
