@@ -196,12 +196,6 @@ milliseconds).
 So, when the above button is not visible on the screen, the component will be paused and the `refresh()` function will
 not be called.
 
-In this example, by using the context option `:on:click` it is possible to handle the `click` event from inside the
-`mdl-button` component's context, and access the `model.counter` property directly. Otherwise, using the `(click)` event
-handler, it would have been seen as an event handler running inside the context of the `refresh-example` component, where
-to access the `#counter` field of the `mdl-button` component, we should have been using `_button.model().counter` in order
-to address the field correctly.
-
 
 ### The default *ready()* handler
 
