@@ -29,7 +29,8 @@
         menu
     </mdl-button>
 
-    <mdl-menu #menu :behavior="buttonBehavior"
+    <mdl-menu #menu
+              :behavior="buttonBehavior"
               :forel="menuButton">
         <ul>
             <li>Menu option 1</li>
@@ -42,16 +43,22 @@
 
 
 <script type="jscript">
-    const buttonBehavior = {
-        'menu:show': function(e, btn) {
-            btn.context.$.find('.material-icons')
-                .html('add')
-                .css({ transform: 'rotate(135deg)' });
-        },
-        'menu:hide': function(e, btn) {
-            btn.context.$.find('.material-icons')
-                .html('menu')
-                .css({ transform: 'rotate(0)' });
-        }
-    }
+buttonBehavior = {
+  'menu:show': function(e, btn) {
+    btn.context.$.find('.material-icons')
+      .html('add')
+      .css({
+        transform: 'rotate(135deg)',
+        transition: 'transform .2s ease-in-out'
+      });
+  },
+  'menu:hide': function(e, btn) {
+    btn.context.$.find('.material-icons')
+      .html('menu')
+      .css({
+        transform: 'rotate(0)',
+        transition: 'transform .2s ease-in-out'
+      });
+  }
+}
 </script>

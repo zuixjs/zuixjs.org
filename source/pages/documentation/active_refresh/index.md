@@ -34,21 +34,22 @@ between parentheses:
 `(<event_name>)="<inline_code_or_handler_fn>"`
 
 The value o such event attribute is evaluated as JavaScript expression and can contain reference to variables and functions
-defined in the component's scripting scope, where the following predefined objects are available:
+defined in the component's scripting scope, where the following predefined members are available:
 
-| Name            | Description                                                                                                                |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------|
-| `this`          | The target HTMLElement                                                                                                     | 
-| `$this`         | Same as `"this"`, but *ZxQuery-wrapped*                                                                                    |
-| `_this`         | If this element is also a component, `_this` is its component's context object                                             |
-| `<field_name>`  | For each element in the view with a `#` (`z-field`) attribute, there will be a variable (only one for each distinct field) |
-| `$<field_name>` | Same as above but *ZxQuery-wrapped*, allowing multiple element instances for each field                                    |
-| `_<field_name>` | If the field is also a component, then, this will be its component's context object                                        |
-| `context`       | The component's context that contains the target element                                                                   |
-| `<context_id>`  | Alias of `context`, with the name of the component's `contextId` transformed to *camelCase*                                
-| `model`         | The component's data model, shortcut of `context.model()`                                                                  |
-| `$`             | The component's view as *ZxQuery* object, shortcut of `context.$`                                                          |
-| `args`          | Optional arguments object                                                                                                  |
+| Name               | Description                                                                                                                |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `this`             | The target HTMLElement                                                                                                     | 
+| `$this`            | Same as `"this"`, but *ZxQuery-wrapped*                                                                                    |
+| `_this`            | If this element is also a component, `_this` is its component's context object                                             |
+| `<field_name>`     | For each element in the view with a `#` (`z-field`) attribute, there will be a variable (only one for each distinct field) |
+| `$<field_name>`    | Same as above but *ZxQuery-wrapped*, allowing multiple element instances for each field                                    |
+| `_<field_name>`    | If the field is also a component, then, this will be its component's context object                                        |
+| `context`          | The component's context that contains the target element                                                                   |
+| `<context_id>`     | Alias of `context`, with the name of the component's `contextId` transformed to *camelCase*                                
+| `model`            | The component's data model, shortcut of `context.model()`                                                                  |
+| `$`                | The component's view as *ZxQuery* object, shortcut of `context.$`                                                          |
+| `args`             | Optional arguments object                                                                                                  |
+| `trigger(ev, dt)`  | Triggers a component event                                                                                                 | 
 
 Additionally, any other member explicitly declared in the [component's controller](../controller) code using the
 [{ContextController}.declare(..)](../api/zuix/ContextController#declare)
@@ -167,7 +168,7 @@ milliseconds).
   <mdl-button #button 
               :class="'primary'"
               :model:counter="1000"
-              (click)="_this.model().counter = 0">
+              (click)="_button.model().counter = 0">
 
     <span #counter></span>
 
