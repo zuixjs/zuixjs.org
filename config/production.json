@@ -36,7 +36,7 @@
       "bundle": {
         "js": true,
         "css": true,
-        "zuix": true
+        "zuix": false
       },
       "mirror": "",
       "serviceWorker": true,
