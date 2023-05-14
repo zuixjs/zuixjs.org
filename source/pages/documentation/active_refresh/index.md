@@ -55,11 +55,11 @@ Additionally, any other member explicitly declared in the [component's controlle
 [{ContextController}.declare(..)](../api/zuix/ContextController#declare)
 method, will be also available.
 
-
+<a id="scoped_scripts"></a>
 ## Scoped scripts
 
-Scoped scripts are executed inside the component's context, and anything declared in it is only visible within the same
-component's context. They can only be declared inline, wrapped in a `<script>` tag, with the attribute `type="jscript"`
+Scoped scripts are executed within the context of a component, and anything declared inside of it is visible only within that
+component's context. They can be only declared inline, wrapped in a `<script>` tag, with the attribute `type="jscript"`
 and as direct children of the component's host element, or outside it, if the script tag's attribute `for="<context_id>"`
 is added (where `<context_id>` is the value of `z-context` attribute).  
 If multiple `jscript` occurrences are found, they will be merged into a single script.
