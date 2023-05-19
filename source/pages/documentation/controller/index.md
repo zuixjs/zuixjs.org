@@ -461,18 +461,27 @@ of the button.
         </a>
     </div>
 </div>
+{% capture example_behavior -%}
 <script>
 menuButtonBehavior = {
   'menu:show': function() {
       this.find('.material-icons').html('add')
-          .css({ transform: 'rotate(135deg)' });
+          .css({
+            transform: 'rotate(135deg)',
+            transition: 'transform .2s ease-in'
+          });
   },
   'menu:hide': function() {
       this.find('.material-icons').html('menu')
-          .css({ transform: 'rotate(0)' });
+          .css({
+            transform: 'rotate(0)',
+            transition: 'transform .2s ease-in'
+          });
   }
 }
 </script>
+{% endcapture %}
+{{ example_behavior }}
 ```
 {% endunpre %}
 
@@ -483,18 +492,7 @@ icon is set back to *"menu"*.
 
 
 ```html
-<script>
-menuButtonBehavior = {
-  'menu:show': function() {
-      this.find('.material-icons').html('add')
-          .css({ transform: 'rotate(135deg)' });
-  },
-  'menu:hide': function() {
-      this.find('.material-icons').html('menu')
-          .css({ transform: 'rotate(0)' });
-  }
-}
-</script>
+{{ example_behavior }}
 ```
 
 

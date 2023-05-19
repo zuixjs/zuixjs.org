@@ -228,18 +228,24 @@ customElements.define('time-clock', class extends HTMLElement {
 
 ## Standalone components
 
-Standalone components can be easily implemented as JavaScript modules. The name of the module will have the same
-base name of the widget but ending with `.module.js`.
+Standalone components are components that can be loaded by just importing a single JavaScript module.
+They can be easily implemented by adding the following lines at the end of the controller code:
 
-**File:** `widgets/time-clock.module.js`
 <a name="import-example"></a>
+**File:** `widgets/time-clock.js` <small>(example)</small>
 
 ```js
+// bottom of controller class code... 
+const customTag = 'time-clock';
+const componentId = 'widgets/time-clock';
+// register component class
+zuix.controller(TimeClock, {componentId});
+
 const setup = () => {
   // Create custom element <time-clock></time-clock>
-  customElements.define('time-clock', class extends HTMLElement {
+  customElements.define(customTag, class extends HTMLElement {
     connectedCallback() {
-      zuix.loadComponent(this, 'widgets/time-clock');
+      zuix.loadComponent(this, componentId);
     }
   });
 };
@@ -256,13 +262,15 @@ Then the component module can be imported in the `head` section of the page
 ...
 <head>
     ...
-    <script type="module" src="/app/widgets/time-clock.module.js"></script>
+    <script type="module" src="/app/widgets/time-clock.js"></script>
     ...
 </head>
 ...
 ```
 
-or using the `import` statement, or the dynamic `import()` function, inside another module
+or using the [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) statement,
+or the dynamic [`import()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import) function,
+inside another module
 
 ```js
 import "/app/widgets/time-clock.module.js"
@@ -274,14 +282,20 @@ then, the component, can be added inside the page's `body` using the defined tag
 <time-clock></time-clock>
 ```
 
-Since the component module is already loading `zuix.js` library with the `import` at line [#1](#import-example), there's no need to
+Since the code above is already loading `zuix.js` library with the `import` at line [#1](#import-example), there's no need to
 include `zuix.min.js` in the `head` section of the page and so, the component can be loaded with just one line of
-*JavaScript* `import` and the relative HTML tag.  
-The *URL* of the component's module can also be an absolute *URL* pointing to a different server.
+of code.
+
+The *URL* of the imported module can also be an absolute *URL* pointing to a different server.
+
+Note that the additional code above, can also be implemented into a separate file, e.g.
+`time-clock.module.js`, but the registration of component class must be removed (lines [#4-5](#import-example)).  
 
 {% tryLink "Example on CodePen" "https://codepen.io/genielabs/pen/KKQZdga" %}
 
 {% include "fragments/playground-button" component_id: "/app/examples/custom-elements-02" %}
+
+
 
 
 <a name="type_view"></a>

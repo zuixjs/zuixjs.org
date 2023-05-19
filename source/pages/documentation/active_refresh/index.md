@@ -198,14 +198,15 @@ So, when the above button is not visible on the screen, the component will be pa
 not be called.
 
 
+<a name="default_ready_handler"></a>
 ### The default *ready()* handler
 
-A component might be using other components, libraries and other dependencies. *zuix.js* tries to automatically detect
-used dependencies and start the component only when all of them have been loaded to prevent runtime errors when
+A component might be using other components, libraries and other resources. *zuix.js* tries to automatically detect
+used dependencies and start the component only when all of them have been loaded, to prevent runtime errors when
 evaluating component's code that might reference one or more dependencies.
 
-It's anyway possible to add custom code logic to determine when to start the component, by implementing the `ready()`
-callback function, and that can be added to a scoped script to prevent errors from ahead of time evaluation of component's code.
+It's anyway possible to add custom code logic and set when to start the component, by implementing the `ready()` function,
+that can be added to a scoped script to prevent such runtime errors.
 
 When implemented, the `ready()` function, will simply return `false` if the conditions to start the component aren't
 there yet, for instance if an asynchronously loaded object, used in the code of the view's template, is null.  

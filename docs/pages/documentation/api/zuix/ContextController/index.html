@@ -520,12 +520,12 @@ main table code {
 --><p><a name="declare"></a><h4>declare(name, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Declare fields that are available in the view's scripting scope.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>name</code><td><em>string</em> | <em>JSON</em><td><td>Name of the declared method/property, or list of name/value pairs<tr><td><code>handler</code><td><em>function</em><td><em>optional</em><td>Function or property descriptor.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 416](../../zuix/ContextController.js#L416)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 417](../../zuix/ContextController.js#L417)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<p><a name="expose"></a><h4>expose(name, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Declare fields that are available as public members of the component context object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>name</code><td><em>string</em> | <em>JSON</em><td><td>Name of the exposed method/property, or list of name/value pairs<tr><td><code>handler</code><td><em>function</em><td><em>optional</em><td>Function or property descriptor.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 390](../../zuix/ContextController.js#L390)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 391](../../zuix/ContextController.js#L391)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<p><a name="field"></a><h4>field(fieldName) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets view's field(s) with the specified name. Same as <a href="../ComponentContext/#field">ComponentContext–field</a>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>fieldName</code><td><em>string</em><td>Value to match in the <em>z-field</em> attribute</table><!--
 
@@ -535,7 +535,7 @@ main table code {
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A <code>{ZxQuery}</code> object wrapping the matching element(s).<p><a name="for"></a><h4>for(componentId) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Registers this one as the default controller for the given component type.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>componentId</code><td><em>string</em><td>Component identifier</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 513](../../zuix/ContextController.js#L513)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 514](../../zuix/ContextController.js#L514)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// Controller of component 'path/to/component_name'</span>
 <span class="token keyword">var</span> ctrl <span class="token operator">=</span> zuix<span class="token punctuation">.</span><span class="token function">controller</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -545,7 +545,7 @@ main table code {
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'path/to/component_name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="loadCss"></a><h4>loadCss(options) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Loads the <code>.css</code> file and replace the current view style of the component. If no <code>options.path</code> is specified, it will try to load the file with the same base-name as the <code>componentId</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>options</code><td><em>object</em><td><em>optional</em><td>The options object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 456](../../zuix/ContextController.js#L456)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 457](../../zuix/ContextController.js#L457)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// loads 'path/to/component_name.css' by default</span>
 cp<span class="token punctuation">.</span><span class="token function">loadCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -558,7 +558,7 @@ cp<span class="token punctuation">.</span><span class="token function">loadCss</
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="loadHtml"></a><h4>loadHtml(options) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Loads the <code>.html</code> file and replace the view markup of the component. If no <code>options.path</code> is specified, it will try to load the file with the same base-name as the <code>componentId</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>options</code><td><em>object</em><td><em>optional</em><td>The options object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 482](../../zuix/ContextController.js#L482)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 483](../../zuix/ContextController.js#L483)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// loads 'path/to/component_name.html' by default</span>
 cp<span class="token punctuation">.</span><span class="token function">loadHtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -752,7 +752,7 @@ cp<span class="token punctuation">.</span><span class="token function">view</spa
 *Source:*
 [helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 101](../../helpers/ZxQuery.js#L101)
 
---></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.26</small><script>self.zuixVersion="1.1.26"</script></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
+--></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.27</small><script>self.zuixVersion="1.1.27"</script></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
 <ul>
     <li >
     <a href="/home" class="mdl-js-ripple-effect">

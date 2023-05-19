@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="zUIx.js API documentation, Class: Localizer"><meta name="keywords" content="Documentation,API"><meta name="viewport" content="width=device-width,initial-scale=1"><title>zuix.js emoji_nature API</title><link rel="author" href="humans.txt"><link rel="alternate" type="application/rss+xml" title="RSS Feed for zuix.js emoji_nature API" href="/feed/rss.xml"><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to home screen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to home screen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
+<!DOCTYPE html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="zUIx.js API documentation, Namespace: Utils"><meta name="keywords" content="Documentation,API"><meta name="viewport" content="width=device-width,initial-scale=1"><title>zuix.js emoji_nature API</title><link rel="author" href="humans.txt"><link rel="alternate" type="application/rss+xml" title="RSS Feed for zuix.js emoji_nature API" href="/feed/rss.xml"><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to home screen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to home screen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
     <link rel="canonical" href="https://www.example.com/">
     --><style z-ref="/css/fla/flex-layout-attribute.min.css">/**
  * Flex layout attribute
@@ -492,32 +492,52 @@ main table td {
 main table code {
     color: #8d5802;
 }
-/* END: MARKDOWN JSDOC */</style><h2><code>Localizer</code> class</h2><h3>Constructor</h3><p><a name="Localizer"></a><h4>new Localizer()</h4><p>Localization helper class.</p><!--
+/* END: MARKDOWN JSDOC */</style><h2><code>Utils</code> namespace</h2><p>Common utility functions.</p><!--
 
 *Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 39](../../localizer/Localizer.js#L39)
+[helpers/Util.js](../../helpers/Util.js), [line 36](../../helpers/Util.js#L36)
 
---><h3>Methods</h3><p><a name="getDateEndianType"></a><h4>getDateEndianType() → {string}</h4><p>Get client date format endian type. This value can be used as a rough-guess of other locale settings such as measuring units.</p><!--
-
-*Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 105](../../localizer/Localizer.js#L105)
-
---><h5>Returns</h5><p><em>string</em> ‐ 'L' if date format is 'Little Endian -&gt; DMY' or 'M' for 'Middle Endian -&gt; MDY'<p><a name="getLocaleString"></a><h4>getLocaleString(localeId, defaultText, localeDictionary) → {string}</h4><p>Get translated text for element with the specified <code>data-locale-id</code> attribute.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>localeId</code><td><em>string</em><td><td>The <code>data-locale-id</code> identifier.<tr><td><code>defaultText</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>Use this value as default if no translated text if found.<tr><td><code>localeDictionary</code><td><em>object</em> | <em>undefined</em><td><em>optional</em><td>Use the provided locale dictionary.</table><!--
+--><h3>Namespaces</h3><p>[<a href="../../helpers/Utils.dom">dom</a>](namespaces.html#Utils.dom)||<h3>Methods</h3><p><a name="camelCaseToHyphens"></a><h4>&lt;<em>static</em>&gt; camelCaseToHyphens(s) → {string}</h4><p>Converts the given string to <code>kebab-case</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>s</code><td><em>string</em><td>The string to convert.</table><!--
 
 *Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 70](../../localizer/Localizer.js#L70)
+[helpers/Util.js](../../helpers/Util.js), [line 165](../../helpers/Util.js#L165)
 
---><h5>Returns</h5><p><em>string</em> ‐ The translated text.<p><a name="getUserLanguage"></a><h4>getUserLanguage() → {string}</h4><p>Get client language settings.</p><!--
-
-*Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 95](../../localizer/Localizer.js#L95)
-
---><h5>Returns</h5><p><em>string</em> ‐ Locale identifier string (eg. 'en' ,'fr', 'it', ...)<p><a name="Localize"></a><h4>Localize(container)</h4><p>Localize the specified element by replacing all <code>data-locale-id</code> fields with the translated text.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>container</code><td><em>Element</em><td></table><!--
+--><h5>Returns</h5><p><em>string</em> ‐ The converted string.<p><a name="catchContextError"></a><h4>&lt;<em>static</em>&gt; catchContextError(ctx, fn, errorCallback)</h4><p>Catches errors occurred in the specified component context.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>ctx</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em><td>The component context.<tr><td><code>fn</code><td><em>function</em><td>Function code to execute.<tr><td><code>errorCallback</code><td><em>function</em><td>Error callback.</table><!--
 
 *Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 47](../../localizer/Localizer.js#L47)
+[helpers/Util.js](../../helpers/Util.js), [line 206](../../helpers/Util.js#L206)
 
---><h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
+--><p><a name="cloneObject"></a><h4>&lt;<em>static</em>&gt; cloneObject(obj) → {object}</h4><p>Creates a copy of a given object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>obj</code><td><em>object</em><td>The source object.</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 107](../../helpers/Util.js#L107)
+
+--><h5>Returns</h5><p><em>object</em> ‐ The object copy.<p><a name="hasPassiveEvents"></a><h4>&lt;<em>static</em>&gt; hasPassiveEvents() → {boolean}</h4><p>Returns true if browser supports passive events.</p><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 132](../../helpers/Util.js#L132)
+
+--><h5>Returns</h5><p><em>boolean</em> ‐ True if supported, otherwise false.<p><a name="hyphensToCamelCase"></a><h4>&lt;<em>static</em>&gt; hyphensToCamelCase(s) → {string}</h4><p>Converts the given string to <code>camelCase</code><h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>s</code><td><em>string</em><td>The string to convert.</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 152](../../helpers/Util.js#L152)
+
+--><h5>Returns</h5><p><em>string</em> ‐ The converted string.<p><a name="isNoU"></a><h4>&lt;<em>static</em>&gt; isNoU(obj) → {boolean}</h4><p>Returns true only if object is null || undefined<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>obj</code><td><em>object</em><td>The object to test.</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 48](../../helpers/Util.js#L48)
+
+--><h5>Returns</h5><p><em>boolean</em> ‐ True if null or undefined, otherwise false.<p><a name="normalizeControllerCode"></a><h4>&lt;<em>static</em>&gt; normalizeControllerCode(javascriptCode) → {string}</h4><p>Normalizes controller code (ES5/ES6+).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>javascriptCode</code><td><em>string</em><td>The JS code to normalize.</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 179](../../helpers/Util.js#L179)
+
+--><h5>Returns</h5><p><em>string</em> ‐ Normalized JS controller code.<p><a name="propertyFromPath"></a><h4>&lt;<em>static</em>&gt; propertyFromPath(o, s) → {object|undefined}</h4><p>Gets object property given its name<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>o</code><td><em>object</em><td>The object to get property from.<tr><td><code>s</code><td><em>string</em><td>The property path (dotted/indexed form).</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 58](../../helpers/Util.js#L58)
+
+--><h5>Returns</h5><p><em>object</em> | <em>undefined</em> ‐ The property matching the given path.<h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
 
 *Source:*
 [zuix/ActiveRefresh.js](../../zuix/ActiveRefresh.js), [line 41](../../zuix/ActiveRefresh.js#L41)

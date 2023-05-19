@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="zUIx.js API documentation, Class: Localizer"><meta name="keywords" content="Documentation,API"><meta name="viewport" content="width=device-width,initial-scale=1"><title>zuix.js emoji_nature API</title><link rel="author" href="humans.txt"><link rel="alternate" type="application/rss+xml" title="RSS Feed for zuix.js emoji_nature API" href="/feed/rss.xml"><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to home screen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to home screen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
+<!DOCTYPE html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content="zUIx.js API documentation, Namespace: dom"><meta name="keywords" content="Documentation,API"><meta name="viewport" content="width=device-width,initial-scale=1"><title>zuix.js emoji_nature API</title><link rel="author" href="humans.txt"><link rel="alternate" type="application/rss+xml" title="RSS Feed for zuix.js emoji_nature API" href="/feed/rss.xml"><!-- Disable tap highlight on IE --><meta name="msapplication-tap-highlight" content="no"><!-- Progressive Web App --><meta name="theme-color" content="white"><link rel="manifest" href="/manifest.json"><!-- Add to home screen for Chrome on Android --><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="/images/icons/desktop/android-chrome-192x192.png"><link rel="icon" sizes="512x512" href="/images/icons/desktop/android-chrome-512x512.png"><!-- Add to home screen for Safari on iOS --><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="A zUIx website"><link rel="apple-touch-icon-precomposed" href="/images/icons/desktop/apple-touch-icon.png"><link rel="mask-icon" href="/images/icons/desktop/safari-pinned-tab.svg" color="#5bbad5"><!-- Tile color for Windows --><meta name="msapplication-TileImage" content="/images/icons/desktop/mstile-150x150.png"><meta name="msapplication-TileColor" content="#ffc40d"><!-- Place favicon.ico in the root directory --><link rel="icon" type="image/png" sizes="32x32" href="/images/icons/desktop/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/icons/desktop/favicon-16x16.png"><!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones --><!--
     <link rel="canonical" href="https://www.example.com/">
     --><style z-ref="/css/fla/flex-layout-attribute.min.css">/**
  * Flex layout attribute
@@ -492,30 +492,35 @@ main table td {
 main table code {
     color: #8d5802;
 }
-/* END: MARKDOWN JSDOC */</style><h2><code>Localizer</code> class</h2><h3>Constructor</h3><p><a name="Localizer"></a><h4>new Localizer()</h4><p>Localization helper class.</p><!--
+/* END: MARKDOWN JSDOC */</style><h2><a href="../../helpers/Utils">Utils</a>#<code>dom</code> namespace</h2><!--
 
 *Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 39](../../localizer/Localizer.js#L39)
+[helpers/Util.js](../../helpers/Util.js), [line 214](../../helpers/Util.js#L214)
 
---><h3>Methods</h3><p><a name="getDateEndianType"></a><h4>getDateEndianType() → {string}</h4><p>Get client date format endian type. This value can be used as a rough-guess of other locale settings such as measuring units.</p><!--
-
-*Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 105](../../localizer/Localizer.js#L105)
-
---><h5>Returns</h5><p><em>string</em> ‐ 'L' if date format is 'Little Endian -&gt; DMY' or 'M' for 'Middle Endian -&gt; MDY'<p><a name="getLocaleString"></a><h4>getLocaleString(localeId, defaultText, localeDictionary) → {string}</h4><p>Get translated text for element with the specified <code>data-locale-id</code> attribute.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>localeId</code><td><em>string</em><td><td>The <code>data-locale-id</code> identifier.<tr><td><code>defaultText</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td>Use this value as default if no translated text if found.<tr><td><code>localeDictionary</code><td><em>object</em> | <em>undefined</em><td><em>optional</em><td>Use the provided locale dictionary.</table><!--
+--><h3>Methods</h3><p><a name="cssNot"></a><h4>&lt;<em>static</em>&gt; cssNot(name, value) → {QuerySelectors}</h4><p>Gets the CSS <code>:not</code> selector for the given comma-separated list of attributes with the specified value (if any).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>name</code><td><em>string</em><td>Comma separated list of attributes.<tr><td><code>value</code><td><em>string</em><td>The value to match.</table><!--
 
 *Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 70](../../localizer/Localizer.js#L70)
+[helpers/Util.js](../../helpers/Util.js), [line 293](../../helpers/Util.js#L293)
 
---><h5>Returns</h5><p><em>string</em> ‐ The translated text.<p><a name="getUserLanguage"></a><h4>getUserLanguage() → {string}</h4><p>Get client language settings.</p><!--
-
-*Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 95](../../localizer/Localizer.js#L95)
-
---><h5>Returns</h5><p><em>string</em> ‐ Locale identifier string (eg. 'en' ,'fr', 'it', ...)<p><a name="Localize"></a><h4>Localize(container)</h4><p>Localize the specified element by replacing all <code>data-locale-id</code> fields with the translated text.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>container</code><td><em>Element</em><td></table><!--
+--><h5>Returns</h5><p><em>QuerySelectors</em> ‐ The query selectors.<p><a name="getAttribute"></a><h4>&lt;<em>static</em>&gt; getAttribute(element, name) → {string}</h4><p>Gets the first non-null value for the given comma-separated list of element attributes.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>element</code><td><em>Element</em><td>The target element.<tr><td><code>name</code><td><em>string</em><td>Comma separated list of attributes.</table><!--
 
 *Source:*
-[localizer/Localizer.js](../../localizer/Localizer.js), [line 47](../../localizer/Localizer.js#L47)
+[helpers/Util.js](../../helpers/Util.js), [line 251](../../helpers/Util.js#L251)
+
+--><h5>Returns</h5><p><em>string</em> ‐ The attribute value.<p><a name="getShadowRoot"></a><h4>&lt;<em>static</em>&gt; getShadowRoot(node) → {ShadowRoot|boolean}</h4><p>Return the ShadowRoot node containing the given element, or false if not in a shadow DOM.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>node</code><td><em>Node</em><td>The node element.</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 327](../../helpers/Util.js#L327)
+
+--><h5>Returns</h5><p><em>ShadowRoot</em> | <em>boolean</em> ‐ The ShadowRoot or false.<p><a name="queryAttribute"></a><h4>&lt;<em>static</em>&gt; queryAttribute(name, value, appendValue) → {string}</h4><p>Gets CSS query for matching the given value in a list of specified attributes.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>name</code><td><em>string</em><td>Comma separated list of attribute names.<tr><td><code>value</code><td><em>string</em><td>The value to match.<tr><td><code>appendValue</code><td><em>QuerySelectors</em><td>Additional CSS query to append</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 228](../../helpers/Util.js#L228)
+
+--><h5>Returns</h5><p><em>string</em> ‐ The query string.<p><a name="setAttribute"></a><h4>&lt;<em>static</em>&gt; setAttribute(element, name, value)</h4><p>Sets the value of the given comma-separated list of attributes.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>element</code><td><em>Element</em><td>The target element.<tr><td><code>name</code><td><em>string</em><td>Comma separated list of attributes.<tr><td><code>value</code><td><em>object</em> | <em>string</em><td>The value to set.</table><!--
+
+*Source:*
+[helpers/Util.js](../../helpers/Util.js), [line 273](../../helpers/Util.js#L273)
 
 --><h3>Type Definitions</h3><p><a name="ActiveRefreshCallback"></a><h4>ActiveRefreshCallback(data, refreshMs, forceActive)</h4><p>The callback for setting data and delay of next refresh request.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>data</code><td><em>object</em><td><em>optional</em><td>Data to be passed to next refresh call<tr><td><code>refreshMs</code><td><em>number</em><td><em>optional</em><td>Delay in milliseconds before the next refresh call<tr><td><code>forceActive</code><td><em>boolean</em> | <em>undefined</em><td><em>optional</em><td>Ignore visibility, schedule anyway</table><!--
 

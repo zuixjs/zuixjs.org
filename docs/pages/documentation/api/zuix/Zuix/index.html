@@ -500,17 +500,17 @@ main table code {
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em><h3>Properties</h3><p><a name="$"></a><h4>$ → <em><a href="../../helpers/ZxQueryStatic">ZxQueryStatic</a></em></h4><p>Helper function for manipulating the DOM.<h3>Methods</h3><p><a name="activeRefresh"></a><h4>activeRefresh($view, $element, contextData, refreshCallback) → {<a href="../../zuix/ActiveRefresh">ActiveRefresh</a>}</h4><p>Active-Refresh factory method.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>$view</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>The component's view<tr><td><code>$element</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td>The target element<tr><td><code>contextData</code><td><em>object</em><td>Custom data that ca be passed from call to call<tr><td><code>refreshCallback</code><td><em><a href="#ActiveRefreshHandler">ActiveRefreshHandler</a></em><td>The refresh handler function</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1845](../../zuix/Zuix.js#L1845)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1850](../../zuix/Zuix.js#L1850)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ActiveRefresh">ActiveRefresh</a></em> ‐ The ActiveRefresh object. Invoke the <code>start()</code> method on the returned object, to actually activate the refresh handler.<p><a name="bundle"></a><h4>bundle(bundleData, callback) → {<a href="../../zuix/Zuix">Zuix</a>|Array.&lt;<a href="#BundleItem">BundleItem</a>&gt;}</h4><p>Gets/Sets the application's data bundle (all components and scripts used in the page packed into a single object).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>bundleData</code><td><em>!Array.&lt;<a href="#BundleItem">BundleItem</a>&gt;</em> | <em>true</em><td><em>optional</em><td>A bundle object holding in memory all components' data (cache)<tr><td><code>callback</code><td><em>function</em><td><em>optional</em><td>Called once the bundle compilation ends. Works if <em>bundleData</em> is <em>true</em></table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1855](../../zuix/Zuix.js#L1855)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1860](../../zuix/Zuix.js#L1860)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> | <em>Array.&lt;<a href="#BundleItem">BundleItem</a>&gt;</em><p><a name="componentize"></a><h4>componentize(element) → {<a href="../../zuix/Zuix">Zuix</a>}</h4><p>Searches the document, or inside the given <code>element</code>, for elements with <code>z-load</code> attribute, and loads the requested components. Is also possible to disable/enable the componentizer by passing a boolean value as argument.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>element</code><td><em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>boolean</em><td><em>optional</em><td>Container to use as starting element for the search (<strong>default:</strong> <em>document</em>)</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1788](../../zuix/Zuix.js#L1788)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1793](../../zuix/Zuix.js#L1793)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> ‐ The <code>{Zuix}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"> zuix<span class="token punctuation">.</span><span class="token function">componentize</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">;</span>
  <span class="token comment">// Globally disable the componentizer</span>
@@ -519,7 +519,7 @@ main table code {
  zuix<span class="token punctuation">.</span><span class="token function">compenentize</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="context"></a><h4>context(contextId, callback) → {<a href="../../zuix/ComponentContext">ComponentContext</a>}</h4><p>Gets a <code>ComponentContext</code> object, given its <code>contextId</code> or its host element. The <code>contextId</code> is the one specified in the <code>ContextOptions</code> object or by using the <code>z-context</code> attribute on the host element.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>contextId</code><td><em>Element</em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>string</em><td><td>The <code>contextId</code> or the component's host element.<tr><td><code>callback</code><td><em><a href="#ContextReadyCallback">ContextReadyCallback</a></em><td><em>optional</em><td>The callback function that will pass the component's context object once loaded and ready.</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1530](../../zuix/Zuix.js#L1530)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1533](../../zuix/Zuix.js#L1533)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ComponentContext">ComponentContext</a></em> ‐ The matching component's context or <code>null</code> if the context does not exist or not yet loaded.<h5>Example</h5><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">z-load</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>site/components/slideshow<span class="token punctuation">"</span></span>
      <span class="token attr-name">z-context</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-slide-show<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre><pre class="language-js"><code class="language-js">slideShow <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -540,12 +540,12 @@ ctrl <span class="token operator">=</span> zuix<span class="token punctuation">.
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'path/to/component_name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="dumpCache"></a><h4>dumpCache() → {Array.&lt;<a href="#ComponentCache">ComponentCache</a>&gt;}</h4><p>Dumps content of the components cache. Mainly for debugging purpose.</p><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1914](../../zuix/Zuix.js#L1914)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1919](../../zuix/Zuix.js#L1919)
 
 --><h5>Returns</h5><p><em>Array.&lt;<a href="#ComponentCache">ComponentCache</a>&gt;</em><p><a name="dumpContexts"></a><h4>dumpContexts() → {Array.&lt;<a href="../../zuix/ComponentContext">ComponentContext</a>&gt;}</h4><p>Dumps allocated component's contexts. Mainly for debugging purpose.</p><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1919](../../zuix/Zuix.js#L1919)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1924](../../zuix/Zuix.js#L1924)
 
 --><h5>Returns</h5><p><em>Array.&lt;<a href="../../zuix/ComponentContext">ComponentContext</a>&gt;</em><p><a name="field"></a><h4>field(fieldName, container, context) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Search the document or inside the given <code>container</code> for elements with <code>z-field</code> attribute matching the provided <code>fieldName</code>. This method implements a caching mechanism and automatic disposal of allocated objects and events.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>fieldName</code><td><em>string</em><td><td>Value of <em>z-field</em> to look for<tr><td><code>container</code><td><em>Element</em><td><em>optional</em><td>Starting DOM element for this search (<strong>default:</strong> <em>document</em>)<tr><td><code>context</code><td><em>object</em><td><em>optional</em><td>The context</table><!--
 
@@ -561,12 +561,12 @@ container<span class="token punctuation">.</span><span class="token function">ht
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre><p><a name="getResourcePath"></a><h4>getResourcePath(path) → {string}</h4><p>Gets the path of a loadable resource.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>path</code><td><em>string</em><td>Loadable resource <em>id</em></table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1826](../../zuix/Zuix.js#L1826)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1831](../../zuix/Zuix.js#L1831)
 
 --><h5>Returns</h5><p><em>string</em> ‐ The resource's path.<p><a name="hook"></a><h4>hook(eventPath, eventHandler) → {<a href="../../zuix/Zuix">Zuix</a>}</h4><p>Sets a callback for a global event. There can be only one callback for each kind of global event. Pass null as <code>eventHandler</code> to unset a previously set callback.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em><td><td>The event path<tr><td><code>eventHandler</code><td><em>function</em> | <em>undefined</em><td><em>optional</em><td>The handler function</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1616](../../zuix/Zuix.js#L1616)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1619](../../zuix/Zuix.js#L1619)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> ‐ The <code>{Zuix}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// The context `this` in the event handlers will be</span>
 <span class="token comment">// the {ComponentContext} object that sourced the event.</span>
@@ -628,7 +628,7 @@ zuix<span class="token punctuation">.</span><span class="token function">hook</s
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="lazyLoad"></a><h4>lazyLoad(enable, threshold) → {<a href="../../zuix/Zuix">Zuix</a>|boolean}</h4><p>Enables/Disables lazy-loading or gets the current setting.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>enable</code><td><em>boolean</em><td><em>optional</em><td>Enable or disable lazy loading.<tr><td><code>threshold</code><td><em>number</em><td><em>optional</em><td>Load-ahead threshold in pixels. When &lt; 0, elements will be loaded before entering the viewport for the given amount of pixels. Positive values will delay loading of element until the entered the viewport for at least the given number of pixels.</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1761](../../zuix/Zuix.js#L1761)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1766](../../zuix/Zuix.js#L1766)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> | <em>boolean</em> ‐ <em>true</em> if lazy-loading is enabled, <em>false</em> otherwise.<p><a name="load"></a><h4>load(componentId, options) → {<a href="../../zuix/ComponentContext">ComponentContext</a>}</h4><p>Loads a component. This is the programmatic equivalent of <code>z-load</code> attribute used to load components from HTML.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>componentId</code><td><em>string</em><td><td>The identifier name of the component to be loaded<tr><td><code>options</code><td><em><a href="#ContextOptions">ContextOptions</a></em><td><em>optional</em><td>Options used to initialize the loaded component</table><!--
 
@@ -698,22 +698,22 @@ zuix<span class="token punctuation">.</span><span class="token function">load</s
 }</style><script>const elements=zuix.$.find(".card-component");zuix.loadComponent(elements,"templates/mdl_card","view")</script><p><a name="observable"></a><h4>observable(obj) → {<a href="../../observable/ObservableObject">ObservableObject</a>}</h4><p>Gets an observable instance of the given object. Based on the browser's built-in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy?retiredLocale=it">Proxy</a> object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>obj</code><td><em>object</em><td>Object to observe</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1834](../../zuix/Zuix.js#L1834)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1839](../../zuix/Zuix.js#L1839)
 
---><h5>Returns</h5><p><em><a href="../../observable/ObservableObject">ObservableObject</a></em> ‐ The observable object.<p><a name="runScriptlet"></a><h4>runScriptlet(scriptCode, $el, $view, data) → {object|undefined}</h4><p>// TODO: document method<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>scriptCode</code><td><em>string</em><td><td>Scriptlet Js code<tr><td><code>$el</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>Target ZxQuery-wrapped element<tr><td><code>$view</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>Component's view (ZxQuery)<tr><td><code>data</code><td><em>object</em> | <em>undefined</em><td><em>optional</em><td>Custom data</table><!--
+--><h5>Returns</h5><p><em><a href="../../observable/ObservableObject">ObservableObject</a></em> ‐ The observable object.<p><a name="runScriptlet"></a><h4>runScriptlet(scriptCode, $el, $view, data) → {object|undefined}</h4><p>Runs a script in the scripting context of the given view element.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>scriptCode</code><td><em>string</em><td><td>Scriptlet Js code<tr><td><code>$el</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>Target ZxQuery-wrapped element<tr><td><code>$view</code><td><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><td><td>Component's view (ZxQuery)<tr><td><code>data</code><td><em>object</em> | <em>undefined</em><td><em>optional</em><td>Custom data</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1955](../../zuix/Zuix.js#L1955)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1960](../../zuix/Zuix.js#L1960)
 
 --><h5>Returns</h5><p><em>object</em> | <em>undefined</em><p><a name="setComponentCache"></a><h4>setComponentCache()</h4><p>Sets components cache.</p><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1909](../../zuix/Zuix.js#L1909)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1914](../../zuix/Zuix.js#L1914)
 
 --><h5>Returns</h5><p>‐ void<p><a name="store"></a><h4>store(name, value) → {object}</h4><p>Gets/Sets a global store entry.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>name</code><td><em>string</em><td><td>Entry name<tr><td><code>value</code><td><em>object</em><td><em>optional</em><td>Entry value</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1814](../../zuix/Zuix.js#L1814)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1819](../../zuix/Zuix.js#L1819)
 
 --><h5>Returns</h5><p><em>object</em><h5>Example</h5><pre class="language-js"><code class="language-js"> <span class="token comment">// stores *myObjectData* in the store entry named *my-data*</span>
  zuix<span class="token punctuation">.</span><span class="token function">store</span><span class="token punctuation">(</span><span class="token string">'my-data'</span><span class="token punctuation">,</span> myObjectData<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -721,7 +721,7 @@ zuix<span class="token punctuation">.</span><span class="token function">load</s
  <span class="token keyword">const</span> data <span class="token operator">=</span> zuix<span class="token punctuation">.</span><span class="token function">store</span><span class="token punctuation">(</span><span class="token string">'my-data'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="trigger"></a><h4>trigger(context, eventPath, eventData) → {<a href="../../zuix/Zuix">Zuix</a>}</h4><p>Triggers the event specified by <code>eventPath</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>context</code><td><em>object</em><td><td>The context object (<em>this</em>) passed to handler functions listening for this event<tr><td><code>eventPath</code><td><em>string</em><td><td>The path of the event to fire<tr><td><code>eventData</code><td><em>object</em><td><em>optional</em><td>The data object of the event</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1541](../../zuix/Zuix.js#L1541)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1544](../../zuix/Zuix.js#L1544)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> ‐ The <code>{Zuix}</code> object itself.<p><a name="unload"></a><h4>unload(context) → {<a href="../../zuix/Zuix">Zuix</a>}</h4><p>Unloads the given component context(s) releasing all allocated resources.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>context</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em> | <em><a href="../../helpers/ZxQuery">ZxQuery</a></em> | <em>Element</em><td>The instance of the component to be unloaded, a <em>ZxQuery</em> selection, or the component's host element</table><!--
 
@@ -731,7 +731,7 @@ zuix<span class="token punctuation">.</span><span class="token function">load</s
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> ‐ The <code>{Zuix}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js">zuix<span class="token punctuation">.</span><span class="token function">unload</span><span class="token punctuation">(</span>ctx<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="using"></a><h4>using(resourceType, resourcePath, callback, ctx) → {<a href="../../zuix/Zuix">Zuix</a>}</h4><p>Loads a CSS, script or a singleton component. Resources loaded with this method are available in the global scope and can also be included in the application bundle.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>resourceType</code><td><em>string</em><td><td>Either <em>'style'</em>, <em>'script'</em> or <em>'component'</em><tr><td><code>resourcePath</code><td><em>string</em><td><td>Relative or absolute resource url path<tr><td><code>callback</code><td><em><a href="#ResourceUsingCallback">ResourceUsingCallback</a></em><td><em>optional</em><td>Callback function to call once resource is loaded<tr><td><code>ctx</code><td><em><a href="../../zuix/ComponentContext">ComponentContext</a></em><td><em>optional</em><td>The target context. Mandatory when loading resources for a component with ShadowDOM (custom element).</table><!--
 
 *Source:*
-[zuix/Zuix.js](../../zuix/Zuix.js), [line 1638](../../zuix/Zuix.js#L1638)
+[zuix/Zuix.js](../../zuix/Zuix.js), [line 1641](../../zuix/Zuix.js#L1641)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/Zuix">Zuix</a></em> ‐ The <code>{Zuix}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js">zuix<span class="token punctuation">.</span><span class="token function">using</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">,</span> <span class="token string">'https://some.cdn.js/moment.min.js'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
   <span class="token comment">// can start using moment.js</span>
@@ -880,7 +880,7 @@ zuix<span class="token punctuation">.</span><span class="token function">load</s
 *Source:*
 [helpers/ZxQuery.js](../../helpers/ZxQuery.js), [line 101](../../helpers/ZxQuery.js#L101)
 
---></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.26</small><script>self.zuixVersion="1.1.26"</script></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
+--></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.27</small><script>self.zuixVersion="1.1.27"</script></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
 <ul>
     <li >
     <a href="/home" class="mdl-js-ripple-effect">
