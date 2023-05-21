@@ -282,7 +282,7 @@ then, the component, can be added inside the page's `body` using the defined tag
 <time-clock></time-clock>
 ```
 
-Since the code above is already loading `zuix.js` library with the `import` at line [#1](#import-example), there's no need to
+Since the code above is already loading `zuix.js` library with the `import` at line [#16](#import-example), there's no need to
 include `zuix.min.js` in the `head` section of the page and so, the component can be loaded with just one line of
 of code.
 
