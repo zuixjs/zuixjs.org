@@ -69,7 +69,7 @@ together with *zuix.js*.
     - Handlebars
     - Mustache
     - Pug
-    - and [more](https://11ty.dev/docs/)
+    - and more...
   * Custom filters and shortcodes
 - [LESS](https://lesscss.org/) to CSS style compiler
 - Page indexing and search engine [Fuse.js](https://fusejs.io/)

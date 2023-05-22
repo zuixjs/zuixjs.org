@@ -47,7 +47,7 @@
         color: lightslategray;
     }
     label {
-        color: lightslategray;
+        color: #366495;
         font-size: 14px;
         text-transform: uppercase;
         font-weight: bold;
@@ -61,6 +61,7 @@
     li {
         line-height: 175%;
         font-size: 100%;
+        min-height: 32px;
     }
     li small {
         color: dimgray;

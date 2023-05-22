@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Sun, 21 May 2023 09:58:25 +0200</lastBuildDate>
-    <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+    <lastBuildDate>Mon, 22 May 2023 10:59:13 +0200</lastBuildDate>
+    <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org/images/icons/icon-152x152.png</url>
@@ -19,7 +19,7 @@
         <link>https://zuixjs.org/pages/documentation/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/</guid>
         <description>Documentation section</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -28,7 +28,7 @@
         <link>https://zuixjs.org/search/</link>
         <guid isPermaLink="true">https://zuixjs.org/search/</guid>
         <description>Search this website</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/search/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -37,7 +37,7 @@
         <link>https://zuixjs.org/pages/documentation/cli/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/cli/</guid>
         <description>Command Line Interface, creating a new projects, pages, templates and components.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/cli/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -46,7 +46,7 @@
         <link>https://zuixjs.org/pages/documentation/api/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/</guid>
         <description>API classes documentation, Zuix, ComponentContext, ContextController, ZxQuery.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -55,7 +55,7 @@
         <link>https://zuixjs.org/pages/documentation/view/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/view/</guid>
         <description>View, Data binding, binding adapters, accessibility, behaviors, events.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/view/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -64,17 +64,8 @@
         <link>https://zuixjs.org/pages/documentation/context_options/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/context_options/</guid>
         <description>Component&#39;s loading options, event handlers, styles, priority, theming.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/context_options/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
-        <title>About zuix.js</title>
-        <link>https://zuixjs.org/pages/documentation/about/</link>
-        <guid isPermaLink="true">https://zuixjs.org/pages/documentation/about/</guid>
-        <description>zuix.js is a lightweight library for creating component based websites and applications by using standard HTML, CSS and JavaScript.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
-        <atom:link href="https://zuixjs.org/pages/documentation/about/" rel="self" />
         <dc:creator></dc:creator>
     </item>
     <item>
@@ -82,7 +73,7 @@
         <link>https://zuixjs.org/pages/documentation/getting_started/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/getting_started/</guid>
         <description>Creating a new project using *zuix.js* CLI tool and bare library usage.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/getting_started/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -91,7 +82,7 @@
         <link>https://zuixjs.org/pages/documentation/active_refresh/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/active_refresh/</guid>
         <description>About scoped scripts, dependencies, refresh-handlers, built-in @ handlers, custom handlers.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/active_refresh/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -100,7 +91,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/Utils_dom/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/Utils_dom/</guid>
         <description>zUIx.js API documentation, Namespace: dom</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/Utils_dom/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -109,7 +100,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/Logger/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/Logger/</guid>
         <description>zUIx.js API documentation, Class: Logger</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/Logger/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -118,7 +109,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/TaskQueue/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/TaskQueue/</guid>
         <description>zUIx.js API documentation, Class: TaskQueue</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/TaskQueue/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -127,7 +118,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/Utils.dom/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/Utils.dom/</guid>
         <description>zUIx.js API documentation, Namespace: dom</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/Utils.dom/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -136,7 +127,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/Utils/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/Utils/</guid>
         <description>zUIx.js API documentation, Namespace: Utils</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/Utils/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -145,7 +136,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/ZxQuery/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/ZxQuery/</guid>
         <description>zUIx.js API documentation, Class: ZxQuery</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/ZxQuery/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -154,7 +145,7 @@
         <link>https://zuixjs.org/pages/documentation/api/helpers/ZxQueryStatic/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/helpers/ZxQueryStatic/</guid>
         <description>zUIx.js API documentation, Class: ZxQueryStatic</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/helpers/ZxQueryStatic/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -163,7 +154,7 @@
         <link>https://zuixjs.org/pages/documentation/api/localizer/Localizer/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/localizer/Localizer/</guid>
         <description>zUIx.js API documentation, Class: Localizer</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/localizer/Localizer/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -172,7 +163,7 @@
         <link>https://zuixjs.org/pages/documentation/api/observable/ObjectObserver/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/observable/ObjectObserver/</guid>
         <description>zUIx.js API documentation, Class: ObjectObserver</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/observable/ObjectObserver/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -181,7 +172,7 @@
         <link>https://zuixjs.org/pages/documentation/api/observable/ObservableListener/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/observable/ObservableListener/</guid>
         <description>zUIx.js API documentation, Class: ObservableListener</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/observable/ObservableListener/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -190,7 +181,7 @@
         <link>https://zuixjs.org/pages/documentation/api/observable/ObservableObject/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/observable/ObservableObject/</guid>
         <description>zUIx.js API documentation, Class: ObservableObject</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/observable/ObservableObject/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -199,7 +190,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/ActiveRefresh/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/ActiveRefresh/</guid>
         <description>zUIx.js API documentation, Class: ActiveRefresh</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/ActiveRefresh/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -208,7 +199,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/ComponentContext/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/ComponentContext/</guid>
         <description>zUIx.js API documentation, Class: ComponentContext</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/ComponentContext/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -217,7 +208,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/Componentizer/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/Componentizer/</guid>
         <description>zUIx.js API documentation, Class: Componentizer</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/Componentizer/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -226,7 +217,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/ContextController/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/ContextController/</guid>
         <description>zUIx.js API documentation, Class: ContextController</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/ContextController/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -235,7 +226,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/</guid>
         <description>zUIx.js API documentation, Class: ControllerInstance</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -244,7 +235,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/ViewObserver/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/ViewObserver/</guid>
         <description>zUIx.js API documentation, Class: ViewObserver</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/ViewObserver/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -253,7 +244,7 @@
         <link>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/api/zuix/Zuix/</guid>
         <description>zUIx.js API documentation, Class: Zuix</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/api/zuix/Zuix/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -262,7 +253,7 @@
         <link>https://zuixjs.org/pages/documentation/controller/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/controller/</guid>
         <description>Controller implementation types, lifecycle, options, events.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/controller/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -271,7 +262,7 @@
         <link>https://zuixjs.org/pages/documentation/component/</link>
         <guid isPermaLink="true">https://zuixjs.org/pages/documentation/component/</guid>
         <description>Components, custom elements, shadow DOM, standalone components, the &lt;em&gt;default&lt;/em&gt; component.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/pages/documentation/component/" rel="self" />
         <dc:creator></dc:creator>
     </item>
@@ -280,8 +271,17 @@
         <link>https://zuixjs.org/playground/</link>
         <guid isPermaLink="true">https://zuixjs.org/playground/</guid>
         <description>Client-side embeddable components editor.</description>
-        <pubDate>Sun, 21 May 2023 09:58:25 +0200</pubDate>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
         <atom:link href="https://zuixjs.org/playground/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>About zuix.js</title>
+        <link>https://zuixjs.org/pages/documentation/about/</link>
+        <guid isPermaLink="true">https://zuixjs.org/pages/documentation/about/</guid>
+        <description>zuix.js is a lightweight library for creating component based websites and applications by using standard HTML, CSS and JavaScript.</description>
+        <pubDate>Mon, 22 May 2023 10:59:13 +0200</pubDate>
+        <atom:link href="https://zuixjs.org/pages/documentation/about/" rel="self" />
         <dc:creator></dc:creator>
     </item>
 </channel>
