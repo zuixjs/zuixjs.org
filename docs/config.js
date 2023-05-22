@@ -17,7 +17,7 @@
       "resourcePath": "/zuixjs.org/app/"
     },
     "siteMapUrl": "https://zuixjs.org",
-    "googleSiteId": "UA-92520304-1"
+    "googleSiteId": null
   });
   // Check that service workers are registered
   if ('serviceWorker' in navigator) {
