@@ -6,10 +6,6 @@
     <lastmod>2022-03-17</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/search/</loc>
-    <lastmod>2022-04-20</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/cli/</loc>
     <lastmod>2022-06-04</lastmod>
   </url>
@@ -120,5 +116,9 @@
   <url>
     <loc>https://zuixjs.org/pages/documentation/about/</loc>
     <lastmod>2023-05-22</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/search/</loc>
+    <lastmod>2023-05-23</lastmod>
   </url>
 </urlset>
