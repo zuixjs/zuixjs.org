@@ -27,30 +27,6 @@ ready to use components directly in the browser!
 ```
 {% endunpre %}
 
-## Creating a new web project using the CLI
-
-The `zuix-cli` tool can be used to create a new web project, the only prerequisite is that
-[node.js](https://nodejs.org/en/download/package-manager) must be installed first. 
-
-```bash
-# Create a new website project named 'my-new-webapp'
-npx zuix new my-new-webapp
-```
-
-A new folder named *my-new-webapp* will be created containing all files required to run the starter project.
-
-From the new folder we can now start the local server that will watch, build and serve the web application files (by
-default at *http://localhost:8080*).  
-
-```bash
-cd my-new-webapp
-npx zuix start
-```
-
-Read more about all other `zuix` command functionality from [`zuix-cli`](../cli/) documentation page.
-
-You can also try the web-starter template live on [StackBlitz](https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start).
-
 
 ## Bare library usage on an existing site
 
@@ -85,3 +61,28 @@ npm install zuix-dist
 
 then copy the library from `node_modules/zuix-dist/js` to your project's `js` folder and include it in your HTML page or
 JavaScript module.
+
+
+## Creating a new web project using the CLI
+
+The `zuix-cli` tool can be used to create a new web project, the only prerequisite is that
+[node.js](https://nodejs.org/en/download/package-manager) must be installed first.
+
+```bash
+# Create a new website project named 'my-new-webapp'
+npx zuix new my-new-webapp
+```
+
+A new folder named *my-new-webapp* will be created containing all files required to run the starter project.
+
+From the new folder we can now start the local server that will watch, build and serve the web application files (by
+default at *http://localhost:8080*).
+
+```bash
+cd my-new-webapp
+npx zuix start
+```
+
+Read more about all other `zuix` command functionality from [`zuix-cli`](../cli/) documentation page.
+
+You can also try the web-starter template live on [StackBlitz](https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start).

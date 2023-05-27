@@ -449,7 +449,7 @@ where `resourcePath` is the default base path when loading components from a rel
 list of shortcuts that can be used as prefix in component's [*&lt;path&gt;*](../component/#) to load components from
 different locations.
 
-This is how the `@lib` prefix was used in the [controller example](../component/#type_ctrl), as a shortcut to [ZKit](https://zuixjs.github.io/zkit/)
+This is how the `@lib` prefix was used in the [controller example](../component/#type_ctrl), as a shortcut to [zKit](https://zuixjs.github.io/zkit/)
 component's library.
 
 This way it's also possible to change a components' set by just changing those paths to another location where components

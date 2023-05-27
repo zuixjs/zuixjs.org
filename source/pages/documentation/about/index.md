@@ -14,27 +14,32 @@ keywords:
 - about
 ---
 
-🐝 `zuix.js` is a lightweight library for creating modular and component based websites and applications
-by using standard HTML, CSS and JavaScript.
+🐝 `zuix.js` is a lightweight library for creating modular and component-based websites or applications
+using standard HTML, CSS and JavaScript with some useful extras that will speed up development time
+and improve code reusability and maintainability.
 
-By default, components, resources and dependencies are loaded only when they are actually being used, and this also applies
-to any single functionality of a component that involves loading of external resources or dependencies.
+It's framework-agnostic, and it doesn't require any bundler, package manager, or transpiling to work; all the
+magic is already provided by the library itself and can be used with your favorite web development stack.
 
-Since it's possible to load components over existing HTML content, web pages can be designed so that a page can even work
-with JavaScript disabled, and where JavaScript is enabled, the same page is brought to life with components that use the
-very page content as its data source.
+Designed to take your website's speed to the max, it will automagically load components and dependencies
+only when they are actually about to be used.
 
-Components can also be loaded from external websites, making infinite the possibilities in sharing and reusing them
-across a network of sites.
+Designed to support you in writing truly reusable components without creating messy code that mixes
+JavaScript with HTML and CSS in a single file.  
+
+Components can also be loaded directly from external websites, making the possibilities of sharing and reusing them
+infinite across a network of sites.  
 
 Write once and reuse anywhere without ever duplicating a single file!
 
-**Features in brief**
+
+### Features in brief
+
 - Components loading either from a local or remote servers
 - View templates (featuring hot swapping)
 - Data binding
-- Lazy loading
-- Events, Behaviors, Refresh *@* Handlers, Scoped scripts
+- Lazy loading of components and dependencies
+- Events, Behaviors, Refresh *@* Handlers, "scoped" scripts
 - Automatic events unbinding
 - Resource loader with caching
 - Integrated DOM helper
@@ -42,11 +47,10 @@ Write once and reuse anywhere without ever duplicating a single file!
 - Inline components definition
 - Standalone components
 
-**zuix.js** does not require any bundler, dependency manager or transpiling to work. It's framework-agnostic and can be
-used with your favorite web development stack. Optionally it offers a *CLI* tool with some basic features and templates.
 
-
+<a id="zuix-cli"></a>
 &nbsp;
+
 
 🧰 `zuix-cli` is a tool for the command line for creating new projects, adding pages or components,
 bundling and compressing into a single HTML file all resources used in a page, either local or remote ones.

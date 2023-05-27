@@ -33,7 +33,7 @@ identifier of any other view placed in a file or inline in the same page, unless
 <small>Inline declaration of the view `inline/example/hello_world`:</small>
 
 
-<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="height: 360px; overflow: hidden">
   <div class="mdl-tabs__tab-bar">
       <a href="#view-mtd-1" class="mdl-tabs__tab is-active">Method #1</a>
       <a href="#view-mtd-2" class="mdl-tabs__tab">Method #2</a>
@@ -134,12 +134,13 @@ then the view template can be loaded using the custom element tag:
     h1 {
         color: steelblue;
         font-weight: 300!important;
+        margin:0;
     }
 </style>
 <!-- END: Inline Template -->
 
 <label class="mdl-color-text--primary">Result</label>
-<div layout="row center-center" class="example-container" style="height: 80px">
+<div layout="row center-center" class="example-container" style="min-height: 32px">
     <div view z-load="inline/example/hello_world" class="visible-on-ready"></div>
 </div>
 ```
@@ -192,7 +193,7 @@ p { color: slategray; margin: 0 }
 <!-- END: Inline Template -->
 
 <label class="mdl-color-text--primary">Preview</label>
-<div layout="row center-center" class="example-container">
+<div layout="row center-center" class="example-container" style="height: 58px; overflow: hidden">
   <div view z-load="inline/example/article_header" class="visible-on-ready"></div>
 </div>
 ```
@@ -210,7 +211,7 @@ to pass a *JSON data object* with the actual data to display:
 
 {% unpre '----------------------------' %}
 ```html
-<div layout="row center-center" class="example-container">
+<div layout="row center-center" class="example-container" style="height: 58px; overflow: hidden">
   <div view z-load="inline/example/article_header" :model="{
     title: 'Image from Mars',
     subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
@@ -339,7 +340,7 @@ postponing the update of field's bound `$element` (eg. data is not available yet
 same `$element`/`fieldName`.
 
 <label class="mdl-color-text--primary">Example</label>
-<div layout="column top-center">
+<div layout="column top-center" style="min-height: 332px">
 {% include './_inc/adapter_example_1.html' %}
 </div>
 
@@ -351,7 +352,7 @@ In the above example the *binding adapter* is used to handle all bound fields of
 also checks if the component is visible before updating view's fields. If it's not visible then it will enter an idle
 state postponing the refresh.
 
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <!-- Contact Chip view template -->
 <div z-view="inline/common/contact_chip">
@@ -406,10 +407,10 @@ field `name` in the following example:
 ```html
 <!-- Foo Bar chip -->
 <div view z-load="inline/common/contact_chip"
-     :model="foo_bar_contact"></div>
+     :model="foo_bar_contact" style="min-height: 36px"></div>
 <!-- Jane Doe chip -->
 <div view z-load="inline/common/contact_chip"
-     :model="a_random_contact"></div>
+     :model="a_random_contact" style="min-height: 36px"></div>
 
 <script>
 // example inline data model
@@ -519,14 +520,14 @@ function loadMdlCard(container) {
 }
 </script>
 
-<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center">
+<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center" style="max-height: 36px">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer1)"
         @disable-if="zuix.context(cardViewContainer1)" @active>Load view "mdl_card"</li>
     <li onclick="zuix.unload(cardViewContainer1)"
         @disable-if="!zuix.context(cardViewContainer1)" @active>Unload</li>
   </ul>
-  <a ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</a>
+  <button ctrl z-load="@lib/controllers/mdl-button" onclick="zuix.$(this).playAnimation({classes:'animate__rubberBand', options: {duration: '250ms'}})" class="animate__animated">Try me!</button>
 </div>
 ```
 {% endunpre %}
@@ -599,7 +600,7 @@ disabled, or a *loading* message to show while the component is loading for brow
 cardViewContainer2 = zuix.field('card-example-2');
 </script>
 
-<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center">
+<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center" style="max-height: 36px">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer2)"
         @disable-if="zuix.context(cardViewContainer2)" @active>Load view "mdl_card"</li>
@@ -733,5 +734,6 @@ The possible values of the `animation` attribute are:
 ```
 
 <label class="mdl-color-text--primary">Result</label>
-
+<div style="min-height: 438px">
 {% include './_inc/behavior_example_2.html' %}
+</div>

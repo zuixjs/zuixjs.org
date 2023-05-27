@@ -1,3 +1,5 @@
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500&display=swap');
+
     :root {
         --primary-color: #16641c;
         --primary-color-half: #16641c88;
@@ -8,7 +10,8 @@
         margin: 0;
         padding: 0;
         font-size: 12px!important;
-        font-family: Helvetica, sans-serif;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
         position: relative;
         min-height: 100vh;
     }
@@ -18,13 +21,17 @@
         -webkit-user-drag: none;
         -webkit-app-region: no-drag;
     }
-
     a {
         text-decoration: none;
     }
+
+    strong {
+        font-weight: 500;
+    }
+
     h1 {
         font-size: 195%;
-        font-weight: 600!important;
+        font-weight: 500!important;
     }
     h1.title {
         margin:0;
@@ -36,15 +43,15 @@
         color: var(--primary-color);
     }
     h2 {
-        font-size: 185%;
+        font-size: 175%;
         margin-top: 56px;
-        font-weight: 600;
+        font-weight: 500;
     }
     h3 {
         margin-top: 42px;
         font-size: 160%;
-        font-weight: 600;
-        color: lightslategray;
+        font-weight: 500;
+        color: #4c7498;
     }
     label {
         color: #366495;
@@ -75,6 +82,7 @@
 
     p {
         font-size: 130%;
+        font-weight: 200;
         line-height: 160%;
         margin-bottom: 24px;
     }
@@ -91,6 +99,12 @@
     td:not(:first-child) {
         border-left: 1px solid rgba(100,100,100, 0.5);
         padding: 4px;
+    }
+
+    .example-container {
+        margin-top: 48px;
+        margin-bottom: 48px;
+        min-height: 48px;
     }
 
     code[class*=language-], pre[class*=language-] {
@@ -124,6 +138,10 @@
     }
     p code {
         font-size: 90%;
+    }
+    a code {
+        color: var(--accent-color);
+        font-weight: bold;
     }
     table {
         /*margin-left: auto;
