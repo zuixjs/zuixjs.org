@@ -102,14 +102,6 @@
     <lastmod>2023-05-27</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/playground/</loc>
-    <lastmod>2023-05-27</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/about/</loc>
-    <lastmod>2023-05-27</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
     <lastmod>2023-05-27</lastmod>
   </url>
@@ -118,7 +110,15 @@
     <lastmod>2023-05-27</lastmod>
   </url>
   <url>
+    <loc>https://zuixjs.org/playground/</loc>
+    <lastmod>2023-05-28</lastmod>
+  </url>
+  <url>
     <loc>https://zuixjs.org/pages/documentation/cli/</loc>
-    <lastmod>2023-05-27</lastmod>
+    <lastmod>2023-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/about/</loc>
+    <lastmod>2023-05-28</lastmod>
   </url>
 </urlset>

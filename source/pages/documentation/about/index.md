@@ -52,41 +52,10 @@ Write once and reuse anywhere without ever duplicating a single file!
 &nbsp;
 
 
-🧰 `zuix-cli` is a tool for the command line for creating new projects, adding pages or components,
-bundling and compressing into a single HTML file all resources used in a page, either local or remote ones.
-Project starter templates are using [Eleventy](https://11ty.dev/) as site generator, which works very nicely
-together with *zuix.js*.
-
-**Features in brief**
-
-- Page bundling (components, styles, scripts)
-- Assets mirroring (creates a local copy of external resources such as scripts, images and videos)
-- *Eleventy* site generator:
-  * Integrated web server (*BrowserSync*)
-  * Automatic rebuild and client refresh on files change
-  * Partials and include
-  * Front matter and external data files
-  * Multiple template languages:
-    - [Liquid](https://shopify.github.io/liquid/basics/introduction/)
-    - [Nunjucks](https://mozilla.github.io/nunjucks/templating.html)
-    - Markdown
-    - Handlebars
-    - Mustache
-    - Pug
-    - and more...
-  * Custom filters and shortcodes
-- [LESS](https://lesscss.org/) to CSS style compiler
-- Page indexing and search engine [Fuse.js](https://fusejs.io/)
-- Code linting and minifying
-- Service worker generator for assets pre-caching and other optimizations
-- Responsive starter templates optimized for both desktop and mobile
-- Progressive Web App (PWA) templates with 95-100/100/100/100 score in *Lighthouse* test for mobile devices
-
-
 {% unpre %}
 ```html
 <style>
-  main .content code {
+  main p:first-of-type code {
     border: solid 2px var(--accent-color);
     padding: 2px 4px;
     border-radius: 8px;
