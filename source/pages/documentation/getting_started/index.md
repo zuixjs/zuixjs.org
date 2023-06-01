@@ -30,8 +30,7 @@ ready to use components directly in the browser!
 
 ## Bare library usage on an existing site
 
-*zuix.js* can also be used on an existing website project by including the library directly in the HTML page or a JavaScript
-module:
+As a regular script:
 
 ### JsDeliver
 
@@ -39,13 +38,13 @@ module:
 <script src="https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}"></script>
 ```
 
-or as a module:
+As a module:
 
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}/js/zuix.module.min.js"></script>
 ```
 
-or as a dependency of another module:
+As a dependency of another module:
 
 ```js
 // file: my-class.module.js
