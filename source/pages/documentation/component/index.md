@@ -21,9 +21,9 @@ keywords:
 - standalone
 ---
 
-A *component*, here intended as a reusable part of a web page, consists of a **[View](../view)**, that is implemented
-as HTML template with its own CSS, and a **[Controller](../controller)** that is the Javascript code that controls the *view*,
-its presentation and interaction logic.
+A *component* consists of a **[View](../view)**, that is implemented as HTML template with its own CSS,
+and a **[Controller](../controller)** that is the Javascript code that controls the *view*, its presentation
+and the interaction logic.
 
 Component's files are placed in the same *path* location and their base name is the same, and it represents itself
 the *component's name*:
@@ -61,7 +61,7 @@ the `<component_id>` is `widgets/time-clock`, and the component can be loaded us
 <div z-load="widgets/time-clock"></div>
 ```
 
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <script>
     testOptions = {
@@ -318,7 +318,7 @@ In the example below the view template named *links* is loaded using an absolute
 <div view z-load="https://zuixjs.org/app/content/docs/examples/links"></div>
 ```
 
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <!-- TODO: create a custom liquid tag for including examples -->
 <label class="mdl-color-text--primary">Result</label>
@@ -383,7 +383,7 @@ to detect *swipe left* and *swipe right* gestures over it.
 }
 </script>
 ```
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
 <div class="example-container" style="overflow-x: hidden">

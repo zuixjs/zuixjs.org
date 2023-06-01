@@ -30,7 +30,7 @@ The value of `z-view` attribute is meant to be a unique identifier (`[<path>/]co
 identifier of any other view placed in a file or inline in the same page, unless we want to *override* it.
 
 <label class="mdl-color-text--primary">Example</label>
-<small>Inline declaration of the view `inline/example/hello_world`:</small>
+<small>Inline declaration of the view `inline/example/hello-world`:</small>
 
 
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="height: 360px; overflow: hidden">
@@ -43,7 +43,7 @@ identifier of any other view placed in a file or inline in the same page, unless
 
 ```html
 <!-- HTML Template -->
-<template z-view="inline/example/hello_world">
+<template z-view="inline/example/hello-world">
   <h1>
     Hello World!
   </h1>
@@ -62,7 +62,7 @@ identifier of any other view placed in a file or inline in the same page, unless
 
 ```html
 <!-- HTML Template -->
-<div z-view="inline/example/hello_world">
+<div z-view="inline/example/hello-world">
   <h1>
     Hello World!
   </h1>
@@ -81,13 +81,13 @@ identifier of any other view placed in a file or inline in the same page, unless
 
 ```html
 <!-- HTML Template -->
-<div z-view="inline/example/hello_world">
+<div z-view="inline/example/hello-world">
   <h1>
     Hello World!
   </h1>
 </div>
 <!-- CSS styles -->
-<style media="#inline/example/hello_world">
+<style media="#inline/example/hello-world">
 h1 {
   color: steelblue;
   font-weight: 300;
@@ -103,7 +103,7 @@ the above code is just a declaration of a view and **will not produce any visibl
 of the `hello_word` view, the following code is used:
 
 ```html
-<div view z-load="inline/example/hello_world"></div>
+<div view z-load="inline/example/hello-world"></div>
 ```
 
 or, if a custom element tag has been defined like in the example below,
@@ -111,7 +111,7 @@ or, if a custom element tag has been defined like in the example below,
 ```js
 customElements.define('hello-world', class extends HTMLElement {
   connectedCallback() {
-    zuix.loadComponent(this, 'inline/example/hello_world', 'view');
+    zuix.loadComponent(this, 'inline/example/hello-world', 'view');
   }
 });
 ```
@@ -126,10 +126,10 @@ then the view template can be loaded using the custom element tag:
 {% unpre %}
 ```html
 <!-- BEGIN: Inline Template -->
-<div z-view="inline/example/hello_world">
+<div z-view="inline/example/hello-world">
     <h1 #title class="animate__animated animate__bounceIn animate__slow">Hello World!</h1>
 </div>
-<style media="#inline/example/hello_world">
+<style media="#inline/example/hello-world">
     /* TODO: view styles definitions */
     h1 {
         color: steelblue;
@@ -141,7 +141,7 @@ then the view template can be loaded using the custom element tag:
 
 <label class="mdl-color-text--primary">Result</label>
 <div layout="row center-center" class="example-container" style="min-height: 32px">
-    <div view z-load="inline/example/hello_world" class="visible-on-ready"></div>
+    <div view z-load="inline/example/hello-world" class="visible-on-ready"></div>
 </div>
 ```
 {% endunpre %}
@@ -160,7 +160,7 @@ model.
 <label class="mdl-color-text--primary">Example</label>
 <small>Declaration of an inline view with `title` and `subtitle` fields:</small> 
 ```html
-<div z-view="inline/example/article_header">
+<div z-view="inline/example/article-header">
   <h1 #title>
     Example title
   </h1>
@@ -170,10 +170,10 @@ model.
 </div>
 ```
 
-{% unpre '----------------------------' %}
+{% unpre %}
 ```html
 <!-- BEGIN: Inline Template -->
-<div z-view="inline/example/article_header">
+<div z-view="inline/example/article-header">
   <h1 #title class="animate__animated animate__fadeInDown">
       Example title
   </h1>
@@ -181,7 +181,7 @@ model.
       Example article subtitle
   </p>
 </div>
-<style media="#inline/example/article_header">
+<style media="#inline/example/article-header">
 /* TODO: view styles definitions */
 h1 {
   color: steelblue;
@@ -194,7 +194,7 @@ p { color: slategray; margin: 0 }
 
 <label class="mdl-color-text--primary">Preview</label>
 <div layout="row center-center" class="example-container" style="height: 58px; overflow: hidden">
-  <div view z-load="inline/example/article_header" class="visible-on-ready"></div>
+  <div view z-load="inline/example/article-header" class="visible-on-ready"></div>
 </div>
 ```
 {% endunpre %}
@@ -203,16 +203,16 @@ Then, to set the actual data to display in `#<field_name>` elements, the `:model
 to pass a *JSON data object* with the actual data to display:
 
 ```html
-<div view z-load="inline/example/article_header" :model="{
+<div view z-load="inline/example/article-header" :model="{
   title: 'Image from Mars',
   subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
 }"></div>
 ```
 
-{% unpre '----------------------------' %}
+{% unpre %}
 ```html
-<div layout="row center-center" class="example-container" style="height: 58px; overflow: hidden">
-  <div view z-load="inline/example/article_header" :model="{
+<div layout="row center-center" class="example-container" style="height: 72px; overflow: hidden">
+  <div view z-load="inline/example/article-header" :model="{
     title: 'Image from Mars',
     subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
   }" class="visible-on-ready"></div>
@@ -229,7 +229,7 @@ fields in the following template example of a [Material Design Lite](https://get
 card.
 
 <label class="mdl-color-text--primary">Example</label>
-<small>`templates/mdl_card.html`</small>
+<small>`templates/mdl-card.html`</small>
 ```html
 <!-- Template of a Material Design card -->
 <div class="mdl-card mdl-shadow--8dp">
@@ -254,10 +254,10 @@ card.
 ```
 
 <label class="mdl-color-text--primary">Preview</label>
-{% unpre '----------------------------' %}
+{% unpre %}
 ```html
 <div self="size-x1" layout="row center-center" class="example-container" style="min-height: 357px">
-  <div view z-load="templates/mdl_card" self="sm-full" class="visible-on-ready" style="max-width: 460px"></div>
+  <div view z-load="templates/mdl-card" self="sm-full" class="visible-on-ready" style="max-width: 460px"></div>
 </div>
 ```
 {% endunpre %}
@@ -267,7 +267,7 @@ When loading a view, the data provided through the `:model` attribute, can be pa
 
 - as inline string (like in the previous example)
 ```html
-<div view z-load="templates/mdl_card" :model="{
+<div view z-load="templates/mdl-card" :model="{
   title: 'Down the rabbit hole',
   image: 'examples/images/card_cover_2.jpg',
   text: 'Luckily for Alice, the little magic bottle had now had its full effect, and she grew no larger&hellip;',
@@ -280,7 +280,7 @@ When loading a view, the data provided through the `:model` attribute, can be pa
 
 - or with a variable
 ```html
-<div view z-load="templates/mdl_card" :model="myCardData"></div>
+<div view z-load="templates/mdl-card" :model="myCardData"></div>
 <script>
 myCardData = {
   title: 'Down the rabbit hole',
@@ -295,10 +295,10 @@ myCardData = {
 ```
 
 <label class="mdl-color-text--primary">Result</label>
-{% unpre '----------------------------' %}
+{% unpre %}
 ```html
 <div self="size-x1" layout="row center-center" class="example-container" style="min-height: 325px">
-  <div view z-load="templates/mdl_card" :model="{
+  <div view z-load="templates/mdl-card" :model="{
     title: 'Down the rabbit hole',
     image: '{{app.resourcePath}}content/docs/examples/images/card_cover_2.jpg',
     text: 'Luckily for Alice, the little magic bottle had now had its full effect, and she grew no larger&hellip;',
@@ -434,7 +434,7 @@ function a_random_name() {
 </script>
 ```
 
-{% unpre '----------------------------' %}
+{% unpre %}
 ```html
 <script>
 // example inline data model
@@ -478,7 +478,7 @@ attribute:
 
 <label class="mdl-color-text--primary">Example</label>
 ```html
-<div view z-load="templates/mdl_card">
+<div view z-load="templates/mdl-card">
 
   <h1 #title>Let's code!</h1>
   <img #image src="examples/images/card_cover_3.jpg"
@@ -495,7 +495,7 @@ attribute:
 
 and the above code, as is, will also provide a default visualization, that will also work without JavaScript:
 
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
 <div self="size-x1" layout="column center-center">
@@ -514,7 +514,7 @@ and the above code, as is, will also provide a default visualization, that will 
 <script>
 cardViewContainer1 = zuix.field('card-example-1');
 function loadMdlCard(container) {
-  zuix.loadComponent(container, 'templates/mdl_card', 'view', {
+  zuix.loadComponent(container, 'templates/mdl-card', 'view', {
     ready: (ctx) => ctx.$.playAnimation({classes:'animate__zoomIn', options: {duration: '300ms'}})
   });
 }
@@ -523,7 +523,7 @@ function loadMdlCard(container) {
 <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center" style="max-height: 36px">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer1)"
-        @disable-if="zuix.context(cardViewContainer1)" @active>Load view "mdl_card"</li>
+        @disable-if="zuix.context(cardViewContainer1)" @active>Load view "mdl-card"</li>
     <li onclick="zuix.unload(cardViewContainer1)"
         @disable-if="!zuix.context(cardViewContainer1)" @active>Unload</li>
   </ul>
@@ -532,7 +532,7 @@ function loadMdlCard(container) {
 ```
 {% endunpre %}
 
-to actually load or unload the `templates/mdl_card` view, use the **Try Me** button above.
+to actually load or unload the `templates/mdl-card` view, use the **Try Me** button above.
 
 This is just an example to show what happen when the HTML view code is enhanced by the component,
 since by default, in JavaScript enabled browsers, components loading starts right away.
@@ -549,7 +549,7 @@ The host element body can also be used to simply provide an alternative text des
 disabled, or a *loading* message to show while the component is loading for browsers where Javascript is enabled:
 
 ```html
-<div view z-load="templates/mdl_card" :model="{
+<div view z-load="templates/mdl-card" :model="{
   title: 'Some title',
   image: 'examples/images/card_cover_4.jpg',
   text: 'Some great encouraging text.',
@@ -566,7 +566,7 @@ disabled, or a *loading* message to show while the component is loading for brow
 </div>
 ```
 
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
 <div self="size-x1" layout="column center-center">
@@ -576,7 +576,7 @@ disabled, or a *loading* message to show while the component is loading for brow
     The component will be loaded later with
     `loadMdlCard(..)' in js code.
   -->
-  <div z-field="card-example-2" z-ready :model="{
+  <div #card-example-2 z-ready :model="{
     title: 'Some title',
     image: '{{app.resourcePath}}content/docs/examples/images/card_cover_4.jpg',
     text: 'Some great encouraging text.',
@@ -603,7 +603,7 @@ cardViewContainer2 = zuix.field('card-example-2');
 <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center" style="max-height: 36px">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer2)"
-        @disable-if="zuix.context(cardViewContainer2)" @active>Load view "mdl_card"</li>
+        @disable-if="zuix.context(cardViewContainer2)" @active>Load view "mdl-card"</li>
     <li onclick="cardViewContainer2.playAnimation({classes:'animate__flipOutX', options: {duration: '500ms'}, onEnd: ($this) => {zuix.unload(cardViewContainer2)}})"
         @disable-if="!zuix.context(cardViewContainer2)" @active>Unload</li>
   </ul>

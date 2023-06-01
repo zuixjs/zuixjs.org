@@ -238,7 +238,7 @@ because these events are triggered before the component is actually ready and wo
 </div>
 
 ```html
-<div z-load="my_component" z-options="opts"></div>
+<div z-load="my-component" z-options="opts"></div>
 
 <script>
 
@@ -260,10 +260,10 @@ opts = {
     },
     
     // custom component events (created with "$.trigger(..)")
-    'my_component:event_1': function(e, data) {
+    'my-component:event_1': function(e, data) {
       // handle event
     },
-    'my_component:event_2': function(e, data) {
+    'my-component:event_2': function(e, data) {
       // handle event
     },
 
@@ -306,7 +306,7 @@ For instance, this is how the banner in the previous chapter example would look 
      :css="false">
  </div>
 ```
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
 <div class="example-container">
@@ -334,7 +334,7 @@ my_test_css = `
     }`;
 </script>
 ```
-{% unpre '---------------------------------' %}
+{% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
 <div class="example-container">

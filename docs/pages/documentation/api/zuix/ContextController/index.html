@@ -169,6 +169,9 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
         border-left: 1px solid rgba(100,100,100, 0.5);
         padding: 4px;
     }
+    td code {
+        white-space: nowrap;
+    }
 
     .example-container {
         margin-top: 48px;
@@ -551,27 +554,27 @@ main table code {
 --><p><a name="clearCache"></a><h4>clearCache()</h4><p>Clears the fields cache.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 277](../../zuix/ContextController.js#L277)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 278](../../zuix/ContextController.js#L278)
 
 --><p><a name="declare"></a><h4>declare(name, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Declare fields that are available in the view's scripting scope.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>name</code><td><em>string</em> | <em>JSON</em><td><td>Name of the declared method/property, or list of name/value pairs<tr><td><code>handler</code><td><em>function</em><td><em>optional</em><td>Function or property descriptor.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 417](../../zuix/ContextController.js#L417)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 418](../../zuix/ContextController.js#L418)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<p><a name="expose"></a><h4>expose(name, handler) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Declare fields that are available as public members of the component context object.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>name</code><td><em>string</em> | <em>JSON</em><td><td>Name of the exposed method/property, or list of name/value pairs<tr><td><code>handler</code><td><em>function</em><td><em>optional</em><td>Function or property descriptor.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 391](../../zuix/ContextController.js#L391)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 392](../../zuix/ContextController.js#L392)
 
---><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<p><a name="field"></a><h4>field(fieldName) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets view's field(s) with the specified name. Same as <a href="../ComponentContext/#field">ComponentContext–field</a>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>fieldName</code><td><em>string</em><td>Value to match in the <em>z-field</em> attribute</table><!--
+--><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<p><a name="field"></a><h4>field(fieldName) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets, within the component view, elements having the <code>#&lt;field_name&gt;</code> (or <code>z-field="&lt;name&gt;"</code>) attribute matching the given value. Same as <a href="../ComponentContext/#field">ComponentContext–field</a>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>fieldName</code><td><em>string</em><td>The name of the <code>#&lt;field_name&gt;</code> (or <code>z-field="name"</code>) attribute of the element(s) to get.</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 271](../../zuix/ContextController.js#L271)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 272](../../zuix/ContextController.js#L272)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em> ‐ A <code>{ZxQuery}</code> object wrapping the matching element(s).<p><a name="for"></a><h4>for(componentId) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Registers this one as the default controller for the given component type.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Description<tbody><tr><td><code>componentId</code><td><em>string</em><td>Component identifier</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 514](../../zuix/ContextController.js#L514)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 515](../../zuix/ContextController.js#L515)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// Controller of component 'path/to/component_name'</span>
 <span class="token keyword">var</span> ctrl <span class="token operator">=</span> zuix<span class="token punctuation">.</span><span class="token function">controller</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cp</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -581,7 +584,7 @@ main table code {
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">for</span><span class="token punctuation">(</span><span class="token string">'path/to/component_name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="loadCss"></a><h4>loadCss(options) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Loads the <code>.css</code> file and replace the current view style of the component. If no <code>options.path</code> is specified, it will try to load the file with the same base-name as the <code>componentId</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>options</code><td><em>object</em><td><em>optional</em><td>The options object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 457](../../zuix/ContextController.js#L457)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 458](../../zuix/ContextController.js#L458)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// loads 'path/to/component_name.css' by default</span>
 cp<span class="token punctuation">.</span><span class="token function">loadCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -594,7 +597,7 @@ cp<span class="token punctuation">.</span><span class="token function">loadCss</
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="loadHtml"></a><h4>loadHtml(options) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Loads the <code>.html</code> file and replace the view markup of the component. If no <code>options.path</code> is specified, it will try to load the file with the same base-name as the <code>componentId</code>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>options</code><td><em>object</em><td><em>optional</em><td>The options object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 483](../../zuix/ContextController.js#L483)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 484](../../zuix/ContextController.js#L484)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> ‐ The <code>{ContextController}</code> object itself.<h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// loads 'path/to/component_name.html' by default</span>
 cp<span class="token punctuation">.</span><span class="token function">loadHtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -607,17 +610,17 @@ cp<span class="token punctuation">.</span><span class="token function">loadHtml<
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="model"></a><h4>model(model) → {<a href="../../zuix/ContextController">ContextController</a>|object}</h4><p>Gets/Sets the data model of the component. Same as <a href="../ComponentContext/#model">ComponentContext–model</a>.<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>model</code><td><em>object</em> | <em>undefined</em><td><em>optional</em><td>The model object</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 325](../../zuix/ContextController.js#L325)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 326](../../zuix/ContextController.js#L326)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em> | <em>object</em><p><a name="options"></a><h4>options() → {<a href="#ContextOptions">ContextOptions</a>|any}</h4><p>Gets the component options. Same as <a href="../ComponentContext/#options">ComponentContext–options</a>.</p><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 337](../../zuix/ContextController.js#L337)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 338](../../zuix/ContextController.js#L338)
 
 --><h5>Returns</h5><p><em><a href="#ContextOptions">ContextOptions</a></em> | <em>any</em> ‐ The component options.<p><a name="trigger"></a><h4>trigger(eventPath, eventData, isHook) → {<a href="../../zuix/ContextController">ContextController</a>}</h4><p>Triggers the component event <code>eventPath</code> with the given <code>eventData</code> object. To listen to a component event use the <code>{ComponentContext}.on(eventPath, handler)</code> method or in case <code>isHook</code> is set to true, use the <code>zuix.hook(eventPath, handler)</code> method (global hook event).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>eventPath</code><td><em>string</em><td><td>The event path<tr><td><code>eventData</code><td><em>object</em><td><td>The event data<tr><td><code>isHook</code><td><em>boolean</em><td><em>optional</em><td>Trigger as global hook event</table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 364](../../zuix/ContextController.js#L364)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 365](../../zuix/ContextController.js#L365)
 
 --><h5>Returns</h5><p><em><a href="../../zuix/ContextController">ContextController</a></em><h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// somewhere inside the slide-show component controller</span>
 cp<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token string">'slide:change'</span><span class="token punctuation">,</span> slideIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -636,7 +639,7 @@ zuix<span class="token punctuation">.</span><span class="token function">context
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a name="view"></a><h4>view(filter) → {<a href="../../helpers/ZxQuery">ZxQuery</a>}</h4><p>Gets the component view or if <code>filter</code> argument is passed, gets the view elements matching the given <code>filter</code> (shorthand for <code>cp.view().find(filter)</code>).<h5>Parameters</h5><table><thead><tr><th>Name<th>Type<th>Argument<th>Description<tbody><tr><td><code>filter</code><td><em>string</em> | <em>undefined</em><td><em>optional</em><td></table><!--
 
 *Source:*
-[zuix/ContextController.js](../../zuix/ContextController.js), [line 298](../../zuix/ContextController.js#L298)
+[zuix/ContextController.js](../../zuix/ContextController.js), [line 299](../../zuix/ContextController.js#L299)
 
 --><h5>Returns</h5><p><em><a href="../../helpers/ZxQuery">ZxQuery</a></em><h5>Example</h5><pre class="language-js"><code class="language-js"><span class="token comment">// get all `checkbox` elements with `.checked` class.</span>
 <span class="token keyword">var</span> choices <span class="token operator">=</span> cp<span class="token punctuation">.</span><span class="token function">view</span><span class="token punctuation">(</span><span class="token string">'input[type="checkbox"].checked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

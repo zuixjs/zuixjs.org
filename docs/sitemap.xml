@@ -62,19 +62,7 @@
     <lastmod>2023-05-17</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/api/zuix/ComponentContext/</loc>
-    <lastmod>2023-05-17</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/api/zuix/Componentizer/</loc>
-    <lastmod>2023-05-17</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/api/zuix/ContextController/</loc>
-    <lastmod>2023-05-17</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/</loc>
     <lastmod>2023-05-17</lastmod>
   </url>
   <url>
@@ -82,31 +70,15 @@
     <lastmod>2023-05-17</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
-    <lastmod>2023-05-17</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/controller/</loc>
     <lastmod>2023-05-19</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/component/</loc>
-    <lastmod>2023-05-21</lastmod>
   </url>
   <url>
     <loc>https://zuixjs.org/search/</loc>
     <lastmod>2023-05-23</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org/pages/documentation/view/</loc>
-    <lastmod>2023-05-27</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org/pages/documentation/getting_started/</loc>
-    <lastmod>2023-05-27</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org/pages/documentation/context_options/</loc>
     <lastmod>2023-05-27</lastmod>
   </url>
   <url>
@@ -118,7 +90,35 @@
     <lastmod>2023-05-28</lastmod>
   </url>
   <url>
+    <loc>https://zuixjs.org/pages/documentation/api/zuix/ComponentContext/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/zuix/ContextController/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/zuix/ControllerInstance/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/api/zuix/Zuix/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
     <loc>https://zuixjs.org/pages/documentation/about/</loc>
-    <lastmod>2023-05-28</lastmod>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/component/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/view/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org/pages/documentation/context_options/</loc>
+    <lastmod>2023-06-01</lastmod>
   </url>
 </urlset>

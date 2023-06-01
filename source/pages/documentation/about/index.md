@@ -14,23 +14,21 @@ keywords:
 - about
 ---
 
-🐝 `zuix.js` is a lightweight library for creating modular and component-based websites or applications
-using standard HTML, CSS and JavaScript with some useful extras that will speed up development time
+🐝 `zuix.js` is a lightweight library for building modular, component-based websites and apps that
+use standard HTML, CSS, and JavaScript with a few handy extras that will speed up development time
 and improve code reusability and maintainability.
 
-It's framework-agnostic, and it doesn't require any bundler, package manager, or transpiling to work; all the
+It is framework-agnostic, and does not require any bundler, package manager, or transpiling to work; all the
 magic is already provided by the library itself and can be used with your favorite web development stack.
 
-Designed to take your website's speed to the max, it will automagically load components and dependencies
-only when they are actually about to be used.
+Designed to maximize website speed, it will automatically load components and dependencies only when they
+are actually going to be used.
 
-Designed to support you in writing truly reusable components without creating messy code that mixes
-JavaScript with HTML and CSS in a single file.  
+Designed to help write truly reusable components without creating messy code that mixes JavaScript,
+HTML and CSS in the same file.
 
-Components can also be loaded directly from external websites, making the possibilities of sharing and reusing them
-infinite across a network of sites.  
-
-Write once and reuse anywhere without ever duplicating a single file!
+Components can also be loaded from external websites, so they can be reused and shared across a network
+of sites without ever duplicating a file!
 
 
 ### Features in brief
