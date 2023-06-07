@@ -31,8 +31,8 @@ the *component's name*:
 - `[<path>/]<component_name>.css` <small>(optional)</small>
 - `[<path>/]<component_name>.js`
 
-The *unique component's identifier* is then its full path, formed by the component's `<path>` plus the `<component_name>`,
-without any extension.
+The *unique identifier of the component* is therefore its full path, formed by the `<path>` of the component plus the
+`<component_name>` without any extension.
 
 ```
 <component_id> :== [<path>/]<component_name>
@@ -45,17 +45,20 @@ identifier*:
 <div z-load="<component_id>"></div> 
 ```
 
-The `<path>` of the component, can be either relative to the page requesting the component, or an absolute path, even
+The `<path>` of the component can be either relative to the page requesting the component, or an absolute path even
 if pointing to a different server. In the latter case, [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) must
 be enabled on the server end in order to allow fetching of components from the remote server.
 
+If the `<path>` is relative and not starting with a "`.`", the lookup folder will be the application folder,
+which is by default "`/app`".
 
-As an example, consider this *time-clock* component with its view and controller files placed inside a *widgets* folder:
-- `widgets/time-clock.html`
-- `widgets/time-clock.css`
-- `widgets/time-clock.js`
+For example, consider the following *time-clock* component with its files placed into a *widgets* folder:
+- `/app/widgets/time-clock.html`
+- `/app/widgets/time-clock.css`
+- `/app/widgets/time-clock.js`
 
-the `<component_id>` is `widgets/time-clock`, and the component can be loaded using the following code in the HTML page:
+in this case the `<component_id>` is `widgets/time-clock`, so the component can be loaded into the HTML page by using
+the following code:
 
 ```html
 <div z-load="widgets/time-clock"></div>
@@ -92,7 +95,7 @@ the `<component_id>` is `widgets/time-clock`, and the component can be loaded us
 ```
 {% endunpre %}
 
-so, basically, the component's view template's files (*time-clock.html* + *time-clock.css*) are rendered inside the host
+so, basically, the view template files (*time-clock.html* + *time-clock.css*) are added to the host
 element `div`, and the controller code (*time-clock.js*) is activated and begins to animate the clock's digits.
 
 {% include "fragments/playground-button" component_id: "/app/widgets/time-clock" %}

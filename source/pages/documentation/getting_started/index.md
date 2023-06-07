@@ -30,9 +30,9 @@ ready to use components directly in the browser!
 
 ## Bare library usage on an existing site
 
-As a regular script:
-
 ### JsDeliver
+
+As a regular script:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/zuix-dist@{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}"></script>
