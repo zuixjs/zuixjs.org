@@ -85,6 +85,9 @@ Different starter project templates are available and can be specified using the
 for a list of available templates and a complete overview of commands and features.
 
 
+You can also try the web-starter template live on [StackBlitz](https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start).
+
+
 ### Adding a new component
 
 ```shell
@@ -120,4 +123,3 @@ npx zuix g controller my-service-api
 ```
 
 - `./source/app/controllers/my-service-api.js`
-

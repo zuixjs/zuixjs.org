@@ -183,15 +183,19 @@ A component can also be implemented inline, directly in the HTML page, as shown 
 ```html
 <div z-view="path/of/component-name">
   <!-- component's view template content -->
+  <h1>Hello World!</h1>
 </div>
 
 <style media="#path/of/component-name">
   /* styles definitions of this component's view */
+  h1 { color: deeppink; }
 </style>
 
 <script>
 class ComponentName extends ControllerInstance {
-    onCreate() { /* ... */ }
+    onCreate() {
+      console.log('Component created.');
+    }
     // ...
 }
 zuix.controller(ComponentName)
@@ -206,7 +210,7 @@ A component declared inline can be loaded as any other component:
 <div z-load="path/of/component-name"></div>
 ```
 
-or, if a custom element tag has been defined:
+or, if a [custom element](../component/#custom_element) tag has been defined:
 
 ```html
 <component-name></component-name>

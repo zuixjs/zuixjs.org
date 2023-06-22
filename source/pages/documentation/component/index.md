@@ -95,12 +95,12 @@ the following code:
 ```
 {% endunpre %}
 
-so, basically, the view template files (*time-clock.html* + *time-clock.css*) are added to the host
+so, basically, the view template (*time-clock.html* + *time-clock.css*) is rendered inside the host
 element `div`, and the controller code (*time-clock.js*) is activated and begins to animate the clock's digits.
 
 {% include "fragments/playground-button" component_id: "/app/widgets/time-clock" %}
 
-
+<a name="custom_element"></a>
 ## Custom element
 
 It is possible to define a [custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for a *zuix.js* component

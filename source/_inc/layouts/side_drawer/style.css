@@ -8,7 +8,7 @@
         margin: 0;
         padding: 0;
         font-size: 12px!important;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", "Open Sans", sans-serif;
         font-weight: 400;
         position: relative;
         min-height: 100vh;
@@ -24,12 +24,12 @@
     }
 
     strong {
-        font-weight: 500;
+        font-weight: 600;
     }
 
     h1 {
         font-size: 195%;
-        font-weight: 500!important;
+        font-weight: 600!important;
     }
     h1.title {
         margin:0;
@@ -43,19 +43,19 @@
     h2 {
         font-size: 175%;
         margin-top: 56px;
-        font-weight: 500;
+        font-weight: 600;
     }
     h3 {
         margin-top: 42px;
         font-size: 160%;
-        font-weight: 500;
+        font-weight: 600;
         color: #4c7498;
     }
     label {
         color: #366495;
         font-size: 14px;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 600;
         margin-top: 24px;
         display: block;
     }
@@ -64,6 +64,7 @@
         padding-left: 20px;
     }
     li {
+        font-weight: 400;
         line-height: 175%;
         font-size: 100%;
         min-height: 32px;
@@ -80,8 +81,8 @@
 
     p {
         font-size: 130%;
-        font-weight: 200;
-        line-height: 160%;
+        font-weight: 400;
+        line-height: 170%;
         margin-bottom: 24px;
     }
 
@@ -142,7 +143,7 @@
     }
     a code {
         color: var(--accent-color);
-        font-weight: bold;
+        font-weight: 600;
     }
     table {
         /*margin-left: auto;
@@ -179,12 +180,12 @@
     }
     div.content > p {
         font-size: 150% !important;
-        line-height: 160% !important;
+        line-height: 170% !important;
         margin: 24px 0 24px;
     }
     [\#header] {
         position: fixed;
-        z-index: 1;
+        z-index: 100;
         top:0; left: 0; right: 0; bottom: 0;
         height: 64px;
         padding-left: 8px;

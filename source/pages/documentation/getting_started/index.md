@@ -83,5 +83,3 @@ npx zuix start
 ```
 
 Read more about all other `zuix` command functionality from [`zuix-cli`](../cli/) documentation page.
-
-You can also try the web-starter template live on [StackBlitz](https://stackblitz.com/github/zuixjs/zuix-web-starter?terminal=start).

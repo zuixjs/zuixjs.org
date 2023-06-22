@@ -18,7 +18,7 @@ keywords:
 use standard HTML, CSS, and JavaScript with a few handy extras that will speed up development time
 and improve code reusability and maintainability.
 
-It is framework-agnostic, and does not require any bundler, package manager, or transpiling to work; all the
+It's framework-agnostic, and does not require any bundler, package manager, or transpiling to work; all the
 magic is already provided by the library itself and can be used with your favorite web development stack.
 
 Designed to maximize website speed, it will automatically load components and dependencies only when they

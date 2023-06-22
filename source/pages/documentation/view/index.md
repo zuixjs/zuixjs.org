@@ -18,16 +18,16 @@ keywords:
 - behavior
 ---
 
-A *view* is the *visual* part of a component, and it consists of an `.html` template file, and a `.css` file for styles
-definition, both with the same base name, which is also the name of the view:
+A *view* is the visual part of a component, and it consists of an `.html` template file, and a `.css` file,
+both with the same base name:
 - `<component_id>.html`
 - `<component_id>.css` <small>(optional)</small>
 
 A *view* can also be implemented inline, rather than in separate files, and can be declared by adding the `z-view`
 attribute to its container element.
 
-The value of `z-view` attribute is meant to be a unique identifier (`[<path>/]component_name`) and shall not match the
-identifier of any other view placed in a file or inline in the same page, unless we want to *override* it.
+The value of `z-view` attribute is meant to be a unique identifier (`[<path>/]component_name`) and should not match the
+identifier of any other view placed in a file or inline in the same page, unless we want to override it.
 
 <label class="mdl-color-text--primary">Example</label>
 <small>Inline declaration of the view `inline/example/hello-world`:</small>
