@@ -3,7 +3,7 @@ layout: side_drawer.liquid
 options: mdl highlight sponsor
 tags: documentation
 group: documentation
-order: 2
+order: 1
 icon: outlined_flag
 title: Getting started
 summary: Creating a new project using the CLI, bare library usage.

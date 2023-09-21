@@ -3,7 +3,7 @@ layout: side_drawer.liquid
 options: mdl sponsor
 tags: documentation
 group: documentation
-order: 1
+order: 0
 icon: info_outline
 title: About zuix.js
 summary: Library and CLI features in brief.

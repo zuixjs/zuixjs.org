@@ -3,7 +3,7 @@ layout: side_drawer.liquid
 options: mdl highlight
 tags: documentation
 group: documentation
-order: 3
+order: 2
 icon: rule
 title: Terms and concepts
 summary: Component, reusable parts, view rendering, Web Components.
