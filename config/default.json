@@ -70,7 +70,9 @@
       "zuixjs.github.io": {
         "baseUrl": "/zuixjs.org/",
         "resourcePath": "/zuixjs.org/app/"
-      }
+      },
+      "googleSiteId": null,
+      "cookiesConsent": false
     }
   }
 }

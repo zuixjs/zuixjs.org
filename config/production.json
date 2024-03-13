@@ -60,7 +60,7 @@
       "subtitle": "Presentation and documentation website.",
       "language": "en",
       "baseUrl": "/",
-      "resourcePath": "/app/",
+      "resourcePath": "{{ app.baseUrl }}app/",
       "siteRoot": "https://zuixjs.org/",
       "libraryPath": {
         "@lib": "https://zuixjs.github.io/zkit/lib/1.2/",
@@ -71,8 +71,9 @@
         "baseUrl": "/zuixjs.org/",
         "resourcePath": "/zuixjs.org/app/"
       },
-      "siteMapUrl": "https://zuixjs.org",
-      "googleSiteId": null
+      "siteMapUrl": "https://zuixjs.org{{ app.baseUrl }}",
+      "googleSiteId": "G-RMNF3XRJ7M",
+      "cookiesConsent": true
     }
   }
 }

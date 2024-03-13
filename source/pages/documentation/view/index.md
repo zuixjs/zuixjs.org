@@ -734,6 +734,6 @@ The possible values of the `animation` attribute are:
 ```
 
 <label class="mdl-color-text--primary">Result</label>
-<div style="min-height: 438px">
+<div style="min-height: 438px" class="notranslate">
 {% include './_inc/behavior_example_2.html' %}
 </div>

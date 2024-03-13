@@ -21,7 +21,7 @@ ready to use components directly in the browser!
 {% unpre %}
 ```html
 <a layout="row center-start" class="mdl-color-text--accent" href="/playground/#/app/widgets/analog-clock">
-    <i class="material-icons rotate">sports_soccer</i>
+    <i class="material-icons notranslate rotate">sports_soccer</i>
     <span style="font-size: 160%; margin-left: 6px">Playground</span>
 </a>
 ```

@@ -94,3 +94,8 @@
     <link rel="preload" as="script" href="{{ '/config.js' | url }}">
     <script src="{{ '/js/zuix/zuix.min.js' | url }}"></script>
     <script src="{{ '/config.js' | url }}"></script>
+    
+{% if app.cookiesConsent == true %}
+    <!-- Cookies consent -->
+    {% include "fragments/cookies-consent.liquid"  %}
+{% endif %}

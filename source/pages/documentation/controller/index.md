@@ -404,7 +404,7 @@ that control the button appearance:
     <div>
         <a ctrl z-load="@lib/controllers/mdl-button"
            :type="'fab'" :class="'mini-fab colored'">
-            <i class="material-icons">mail</i>
+            <i class="material-icons notranslate">mail</i>
         </a>
     </div>
     <div>
@@ -461,7 +461,7 @@ of the button.
         </ul>
         <a ctrl z-load="@lib/controllers/mdl-button" class="mdl-color--pink"
            :type="'fab'" :class="'mini-fab colored'">
-            <i class="material-icons">menu</i>
+            <i class="material-icons notranslate">menu</i>
         </a>
     </div>
 </div>

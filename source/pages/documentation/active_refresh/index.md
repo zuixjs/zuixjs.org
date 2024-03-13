@@ -507,7 +507,7 @@ button will be enabled only if all the three checkboxes are checked.
                 (click)="handleClick">
           <span #label>Proceed</span>
         </button>
-        <i @hide-if="state.validFormData" class="material-icons animate__animated animate__flash animate__infinite mdl-color-text--orange-500 warning-sign">
+        <i @hide-if="state.validFormData" class="material-icons notranslate animate__animated animate__flash animate__infinite mdl-color-text--orange-500 warning-sign">
           report
         </i>
         <div @hide-if="state.validFormData">

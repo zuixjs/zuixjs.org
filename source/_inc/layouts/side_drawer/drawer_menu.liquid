@@ -3,7 +3,7 @@
     <li {% if page.url == '/home/' %} aria-current="page"{% endif %}>
     <a href="{{ '/home' | url }}" class="mdl-js-ripple-effect">
         <div layout="row center-left">
-            <i class="material-icons">home</i>
+            <i class="material-icons notranslate">home</i>
             <span>Home</span>
         </div>
         <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
@@ -12,7 +12,7 @@
     <li {% if page.url == '/search/' %} aria-current="page"{% endif %}>
     <a href="{{ '/search' | url }}" class="mdl-js-ripple-effect">
         <div layout="row center-left">
-            <i class="material-icons">search</i>
+            <i class="material-icons notranslate">search</i>
             <span>Search</span>
         </div>
         <span class="mdl-button__ripple-container" draggable="false"><span class="mdl-ripple"></span></span>
@@ -34,7 +34,7 @@
                 <a href="{{ post.url | url }}" class="mdl-js-ripple-effect" style="overflow:hidden;">
                     <div layout="row center-justify">
                         <span>{{ post.data.title }}</span>
-                        <i class="material-icons">{{ post.data.icon }}</i>
+                        <i class="material-icons notranslate">{{ post.data.icon }}</i>
                     </div>
                     <div class="summary">
                         {{ post.data.summary }}
