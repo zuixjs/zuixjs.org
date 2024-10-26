@@ -7,7 +7,7 @@
     body {
         margin: 0;
         padding: 0;
-        font-size: 12px!important;
+        font-size: 12pt!important;
         font-family: "Roboto", "Open Sans", sans-serif;
         font-weight: 400;
         position: relative;
@@ -53,7 +53,7 @@
     }
     label {
         color: #366495;
-        font-size: 14px;
+        font-size: 12pt;
         text-transform: uppercase;
         font-weight: 600;
         margin-top: 24px;
@@ -66,7 +66,7 @@
     li {
         font-weight: 400;
         line-height: 175%;
-        font-size: 100%;
+        font-size: 105%;
         min-height: 32px;
     }
     li small {
@@ -110,7 +110,7 @@
     }
 
     code[class*=language-], pre[class*=language-] {
-        font-size: 115%;
+        font-size: 100%;
     }
     pre:not([class*="language-"]) {
         width: 100%;
@@ -179,7 +179,7 @@
         margin-bottom: 16px;
     }
     div.content > p {
-        font-size: 150% !important;
+        font-size: 110% !important;
         line-height: 170% !important;
         margin: 24px 0 24px;
     }

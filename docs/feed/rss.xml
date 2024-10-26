@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Wed, 13 Mar 2024 21:31:07 +0100</lastBuildDate>
-    <pubDate>Wed, 13 Mar 2024 21:31:07 +0100</pubDate>
+    <lastBuildDate>Sat, 26 Oct 2024 12:45:03 +0200</lastBuildDate>
+    <pubDate>Sat, 26 Oct 2024 12:45:03 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org//images/icons/icon-152x152.png</url>
@@ -150,15 +150,6 @@
         <dc:creator></dc:creator>
     </item>
     <item>
-        <title>Events and Active&amp;rarr;Refresh</title>
-        <link>https://zuixjs.org//pages/documentation/active_refresh/</link>
-        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/active_refresh/</guid>
-        <description>About scoped scripts, dependencies, refresh-handlers, built-in @ handlers, custom handlers.</description>
-        <pubDate>Wed, 13 Mar 2024 21:22:35 +0100</pubDate>
-        <atom:link href="https://zuixjs.org//pages/documentation/active_refresh/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
         <title>zuix.js &lt;i class=&#39;material-icons notranslate&#39;&gt;emoji_nature&lt;/i&gt; API</title>
         <link>https://zuixjs.org//pages/documentation/api/helpers/Utils.dom/</link>
         <guid isPermaLink="true">https://zuixjs.org//pages/documentation/api/helpers/Utils.dom/</guid>
@@ -291,6 +282,15 @@
         <description>View, Data binding, binding adapters, accessibility, behaviors, events.</description>
         <pubDate>Wed, 13 Mar 2024 21:28:46 +0100</pubDate>
         <atom:link href="https://zuixjs.org//pages/documentation/view/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>Events and Active&amp;rarr;Refresh</title>
+        <link>https://zuixjs.org//pages/documentation/active_refresh/</link>
+        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/active_refresh/</guid>
+        <description>About scoped scripts, dependencies, refresh-handlers, built-in @ handlers, custom handlers.</description>
+        <pubDate>Sat, 26 Oct 2024 12:36:23 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//pages/documentation/active_refresh/" rel="self" />
         <dc:creator></dc:creator>
     </item>
 </channel>

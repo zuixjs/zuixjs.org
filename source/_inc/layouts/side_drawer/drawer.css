@@ -19,11 +19,11 @@
 
 .drawer-header .text-logo {
     font-family: "Roboto", "Open Sans", sans-serif;
-    font-size: 180%;
+    font-size: 150%;
     font-weight: 400;
 }
 .drawer-header .text-logo small {
-    font-size: 12px;
+    font-size: 10pt;
     vertical-align: middle;
     margin-left: 8px;
 }
@@ -81,6 +81,7 @@
     color: var(--primary-color);
 }
 .drawer-content li a {
+    font-weight: bold;
     color: var(--accent-color);
     position: relative;
     display: block;

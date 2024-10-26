@@ -80,7 +80,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
     body {
         margin: 0;
         padding: 0;
-        font-size: 12px!important;
+        font-size: 12pt!important;
         font-family: "Roboto", "Open Sans", sans-serif;
         font-weight: 400;
         position: relative;
@@ -126,7 +126,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
     }
     label {
         color: #366495;
-        font-size: 14px;
+        font-size: 12pt;
         text-transform: uppercase;
         font-weight: 600;
         margin-top: 24px;
@@ -139,7 +139,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
     li {
         font-weight: 400;
         line-height: 175%;
-        font-size: 100%;
+        font-size: 105%;
         min-height: 32px;
     }
     li small {
@@ -183,7 +183,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
     }
 
     code[class*=language-], pre[class*=language-] {
-        font-size: 115%;
+        font-size: 100%;
     }
     pre:not([class*="language-"]) {
         width: 100%;
@@ -252,7 +252,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
         margin-bottom: 16px;
     }
     div.content > p {
-        font-size: 150% !important;
+        font-size: 110% !important;
         line-height: 170% !important;
         margin: 24px 0 24px;
     }
@@ -387,11 +387,11 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
 
 .drawer-header .text-logo {
     font-family: "Roboto", "Open Sans", sans-serif;
-    font-size: 180%;
+    font-size: 150%;
     font-weight: 400;
 }
 .drawer-header .text-logo small {
-    font-size: 12px;
+    font-size: 10pt;
     vertical-align: middle;
     margin-left: 8px;
 }
@@ -449,6 +449,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;font-fami
     color: var(--primary-color);
 }
 .drawer-content li a {
+    font-weight: bold;
     color: var(--accent-color);
     position: relative;
     display: block;
@@ -655,7 +656,7 @@ zuix<span class="token punctuation">.</span><span class="token function">store</
       <span class="token string-property property">"@cdnjs"</span><span class="token operator">:</span> <span class="token string">"https://cdnjs.cloudflare.com/ajax/libs/"</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>where <code>resourcePath</code> is the default base path when loading components from a relative location, and <code>libraryPath</code> is a list of shortcuts that can be used as prefix in component's <a href="../component/#"><em>&lt;path&gt;</em></a> to load components from different locations.<p>This is how the <code>@lib</code> prefix was used in the <a href="../component/#type_ctrl">controller example</a>, as a shortcut to <a href="https://zuixjs.github.io/zkit/">zKit</a> component's library.<p>This way it's also possible to change a components' set by just changing those paths to another location where components preserve the same files and folders structure.<p>So, theming become not just a matter of changing styles and graphics, but also a whole set of components and functionality could be customized for a different theme by just pointing to a different library path in <em>zuix.js</em> configuration store.<div layout="rows center-spread" style="margin-top: 112px; gap:12px; margin-bottom: 32px; padding-left: 8px; padding-right: 8px; font-size: 140%"><a href="/pages/documentation/component/" style="text-align: center"><label layout="row center-center"><i class="material-icons notranslate">arrow_left</i>&nbsp; <span style="padding-right: 24px">Previous</span></label><div class="mdl-color-text--pink">Component</div></a><a href="/pages/documentation/view/" style="text-align: center"><label layout="row center-center"><span style="padding-left: 24px">Next</span> <i class="material-icons notranslate">arrow_right</i>&nbsp;</label><div class="mdl-color-text--pink">View</div></a></div></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.29</small><script>self.zuixVersion="1.1.29"</script></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>where <code>resourcePath</code> is the default base path when loading components from a relative location, and <code>libraryPath</code> is a list of shortcuts that can be used as prefix in component's <a href="../component/#"><em>&lt;path&gt;</em></a> to load components from different locations.<p>This is how the <code>@lib</code> prefix was used in the <a href="../component/#type_ctrl">controller example</a>, as a shortcut to <a href="https://zuixjs.github.io/zkit/">zKit</a> component's library.<p>This way it's also possible to change a components' set by just changing those paths to another location where components preserve the same files and folders structure.<p>So, theming become not just a matter of changing styles and graphics, but also a whole set of components and functionality could be customized for a different theme by just pointing to a different library path in <em>zuix.js</em> configuration store.<div layout="rows center-spread" style="margin-top: 112px; gap:12px; margin-bottom: 32px; padding-left: 8px; padding-right: 8px; font-size: 120%"><a href="/pages/documentation/component/" style="text-align: center"><label layout="row center-center"><i class="material-icons notranslate">arrow_left</i>&nbsp; <span style="padding-right: 24px">Previous</span></label><div class="mdl-color-text--pink">Component</div></a><a href="/pages/documentation/view/" style="text-align: center"><label layout="row center-center"><span style="padding-left: 24px">Next</span> <i class="material-icons notranslate">arrow_right</i>&nbsp;</label><div class="mdl-color-text--pink">View</div></a></div></div></main><!-- Navigation Drawer --><div ctrl="" z-load="@lib/controllers/drawer-layout" z-context="menu-drawer" z-lazy="false" z-options="drawer_opts" class="drawer-layout no-select visible-on-ready" layout="column top-stretch"><!-- Navigation Drawer content --><!-- Header --><div class="drawer-header" layout="column justify-stretch"><div self="stretch" layout="row center-justify"><a href="/" title="Home"><img class="logo animate__animated animate__swing animate__fast" src="/images/icons/icon-192x192.png" alt="Logo" title="zuix.js"></a><div class="text-logo">zuix.js <small>v1.1.29</small><script>self.zuixVersion="1.1.29"</script></div><a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75"><img src="/images/github-mark-light.png" alt="GitHub logo" title="zuix.js on GitHub" width="32" height="32"></a></div><div style="font-size:80%; padding-left: 6px;padding-right: 6px;">JavaScript library for component-based websites and applications.</div></div><!-- Menu items and other content --><div class="drawer-content" self="size-x1"><!--
 <ul>
     <li >
     <a href="/home" class="mdl-js-ripple-effect">

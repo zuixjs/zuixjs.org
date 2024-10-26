@@ -62,10 +62,6 @@
     <lastmod>2024-03-13</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/active_refresh/</loc>
-    <lastmod>2024-03-13</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//pages/documentation/api/helpers/Utils.dom/</loc>
     <lastmod>2024-03-13</lastmod>
   </url>
@@ -124,5 +120,9 @@
   <url>
     <loc>https://zuixjs.org//pages/documentation/view/</loc>
     <lastmod>2024-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/active_refresh/</loc>
+    <lastmod>2024-10-26</lastmod>
   </url>
 </urlset>

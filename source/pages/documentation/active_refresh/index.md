@@ -253,7 +253,7 @@ view of the component, and this can be used to customize a visible feedback of t
 </div>
 <style>
   [z-context="ready-example"] {
-    font-size: 200%;
+    font-size: 140%;
     width: 200px;
     padding: 12px;
     margin-bottom:24px;
