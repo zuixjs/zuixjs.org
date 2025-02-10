@@ -1,36 +1,5 @@
-<!-- Cookie Consent -->
-
-<!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-<script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-  document.addEventListener('DOMContentLoaded', function () {
-    const lang = "en"; // navigator.language.charAt(0)+navigator.language.charAt(1);
-    cookieconsent.run({
-      'notice_banner_type': 'simple',
-      'consent_type': 'express',
-      'palette': 'light',
-      'language': lang,
-      'page_load_consent_levels': ['strictly-necessary'],
-      'notice_banner_reject_button_hide': false,
-      'preferences_center_close_button_hide': false,
-      'page_refresh_confirmation_buttons': false,
-      'website_name': 'zuixjs.org',
-      'callbacks': {
-        'script_specific_loaded': (level) => {
-          switch (level) {
-            case 'targeting':
-              gtag('consent', 'update', {
-                'ad_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted',
-                'analytics_storage': 'granted'
-              });
-          }
-        }
-      },
-      'callbacks_force': true
-    });
-  });
+<!-- Google Analytics -->
+<script type="text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -44,12 +13,12 @@
 </script>
 
 <!-- Google tag (gtag.js) -->
-<script type="text/plain" data-cookie-consent="tracking" async
+<script type="text/javascript" async
         src="https://www.googletagmanager.com/gtag/js?id={{ app.googleSiteId }}"></script>
 
 <!-- end of Google Analytics-->
 
 <!-- Google AdSense -->
-<script type="text/plain" data-cookie-consent="targeting" async
+<script type="text/javascript" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3712125302020807"
         crossorigin="anonymous"></script>
