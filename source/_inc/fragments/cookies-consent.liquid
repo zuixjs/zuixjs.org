@@ -16,9 +16,13 @@
 </script>
 
 <!-- Google tag (gtag.js) -->
-<script type="text/javascript" async
-        src="https://www.googletagmanager.com/gtag/js?id={{ app.googleSiteId }}"></script>
-
+<script type="text/plain" async src="https://www.googletagmanager.com/gtag/js?id={{ app.googleSiteId }}"></script>
+<script type="text/plain">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', "{{ app.googleSiteId }}");
+</script>
 <!-- end of Google Analytics-->
 
 <!-- Google AdSense -->
