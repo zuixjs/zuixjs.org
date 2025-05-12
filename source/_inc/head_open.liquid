@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="generator" content="{{ eleventy.generator }}">
     {% if redirect -%}
     <meta http-equiv="refresh" content="500; url={{ redirect | url }}">
     {%- endif %}
@@ -94,7 +95,7 @@
     <link rel="preload" as="script" href="{{ '/config.js' | url }}">
     <script src="{{ '/js/zuix/zuix.min.js' | url }}"></script>
     <script src="{{ '/config.js' | url }}"></script>
-    
+
 {% if app.cookiesConsent == true %}
     <!-- Cookies consent -->
     {% include "fragments/cookies-consent.liquid"  %}
