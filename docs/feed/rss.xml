@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Sat, 27 Sep 2025 21:27:08 +0200</lastBuildDate>
-    <pubDate>Sat, 27 Sep 2025 21:27:08 +0200</pubDate>
+    <lastBuildDate>Sun, 28 Sep 2025 00:48:53 +0200</lastBuildDate>
+    <pubDate>Sun, 28 Sep 2025 00:48:53 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org//images/icons/icon-152x152.png</url>
@@ -291,6 +291,15 @@
         <description>Components, custom elements, shadow DOM, standalone components, the &lt;em&gt;default&lt;/em&gt; component.</description>
         <pubDate>Sat, 26 Oct 2024 14:05:49 +0200</pubDate>
         <atom:link href="https://zuixjs.org//pages/documentation/component/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>Privacy Policy</title>
+        <link>https://zuixjs.org//about/privacy-policy/</link>
+        <guid isPermaLink="true">https://zuixjs.org//about/privacy-policy/</guid>
+        <description>zuix.js is a lightweight library for building modular, component-based websites and apps.</description>
+        <pubDate>Sun, 28 Sep 2025 00:47:56 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//about/privacy-policy/" rel="self" />
         <dc:creator></dc:creator>
     </item>
 </channel>
