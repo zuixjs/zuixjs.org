@@ -36,6 +36,12 @@ These websites may collect data about you, use cookies, embed additional third-p
 
 We embed videos from YouTube to provide richer content to our users. For more information on how YouTube (a Google service) handles your data, please review [YouTube's Privacy Policy](https://www.google.com/intl/en/policies/privacy/).
 
+### 4. Website Translation
+
+To improve accessibility and offer our content in multiple languages, this website uses the GTranslate service, which is powered by Google Translate.
+
+When you choose to translate a page into a different language, the text content of that page is sent to Google's translation service for processing. This action is subject to Google's own terms of service and privacy policies. We encourage you to review [Google's Privacy Policy](https://policies.google.com/privacy) for more information on how they handle data.
+
 ## Our Role
 
 To be clear: *zuixjs.org* does not directly collect, store, or process the personal data gathered by these third-party services. We are providing this information to ensure transparency about the data processing that occurs when you visit our Site. We encourage you to review the privacy policies of these third parties to fully understand their practices.
