@@ -8,41 +8,6 @@
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 -->
-
-
-
-<script>
-  (function() {
-    const RECAPTCHA_SELECTOR = 'iframe[src="https://www.google.com/recaptcha/api2/aframe"]';
-
-    const preventBannerTranslation = (bannerHost) => {
-      if (bannerHost && !bannerHost.classList.contains('notranslate')) {
-        bannerHost.classList.add('notranslate');
-        bannerHost.setAttribute('translate', 'no');
-        console.log('Google Consent Banner marked as non-translatable.');
-      }
-    };
-
-    const observer = new MutationObserver((mutationsList, obs) => {
-      const recaptchaIframe = document.querySelector(RECAPTCHA_SELECTOR);
-      if (recaptchaIframe) {
-        const bannerHost = recaptchaIframe.previousElementSibling;
-
-        if (bannerHost && bannerHost.shadowRoot) {
-          preventBannerTranslation(bannerHost);
-          obs.disconnect();
-        }
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-  })();
-</script>
-
-
-
-
-
 <style>
     #gt_float_wrapper {
         transform: translate(10px, -10px);
