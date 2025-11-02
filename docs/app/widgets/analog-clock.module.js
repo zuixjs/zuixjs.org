@@ -8,7 +8,7 @@ const setup = () => {
   });
 };
 if (self.zuix === undefined) {
-  const zv = '^1.2.3'.substring(1);
+  const zv = '^1.2.5'.substring(1);
   import(`https://cdn.jsdelivr.net/npm/zuix-dist@${zv}/js/zuix.module.min.js`)
       .then(() => setup());
 } else setup();

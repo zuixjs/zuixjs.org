@@ -1,4 +1,4 @@
-/* zuix.js v1.2.3 25.10.25 18:47:18 */
+/* zuix.js v1.2.5 25.11.02 23:11:21 */
 
 var zuix;
 /******/ (function() { // webpackBootstrap
@@ -2156,17 +2156,17 @@ function setComponentCache(cache) {
   _componentCache = cache;
 }
 
-///** @private */
-//function removeCachedComponent(componentId) {
-// TODO: removeCachedComponent
-// TODO: should this be called when last instance of a component type is disposed?
-//}
+/** @private */
+function removeCachedComponent(componentId) {
+  delete _globalControllerHandlers[componentId];
+  const idx = _componentCache.findIndex((c) => c.componentId === componentId);
+  if (idx >= 0) {
+    return (_componentCache.splice(idx, 1))[0];
+  }
+  return null;
+}
 
-/**
- * @private
- * @param {Object} componentId
- * @return {ComponentCache | null}
- */
+/** @private */
 function getCachedComponent(componentId) {
   /** @type {ComponentCache | null} */
   let cached = null;
@@ -3337,6 +3337,18 @@ Zuix.prototype.ZxQuery = z$.ZxQuery;
  * @return void
  */
 Zuix.prototype.setComponentCache = (componentCache) => setComponentCache(componentCache);
+/**
+ * Removes a component from the components cache.
+ * @param componentId
+ * @returns {ComponentCache | null}
+ */
+Zuix.prototype.removeCachedComponent = (componentId) => removeCachedComponent(componentId);
+/**
+ * Gets a component from the components cache.
+ * @param {Object} componentId
+ * @return {ComponentCache | null}
+ */
+Zuix.prototype.getCachedComponent = (componentId) => getCachedComponent(componentId);
 /**
  * Dumps content of the components cache. Mainly for debugging purpose.
  * @return {Array<ComponentCache>}
@@ -5419,7 +5431,7 @@ function addEventHandler(el, path, handler, options) {
   });
   if (!found) {
     _zuix_events_mapping.push({element: el, path, handler, options});
-    el.addEventListener(path, routeEvent, supportsPassive && (options == null || options.passive !== false) ? {passive: true} : false);
+    el.addEventListener(path, routeEvent, options);
   }
 }
 function removeEventHandler(el, path, handler) {
