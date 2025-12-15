@@ -1,4 +1,4 @@
-/* zuix.js v1.2.5 25.11.02 23:11:21 */
+/* zuix.js v1.2.6 25.12.15 07:08:35 */
 
 /******/ var __webpack_modules__ = ({
 
@@ -1982,6 +1982,7 @@ function unload(context) {
       util.catchContextError(ctx, () => {
         ctx.dispose();
       });
+      ctx._error = 'disposed';
     }
   };
   if (context && context.each) {
@@ -4949,6 +4950,7 @@ const _defaultRefreshDelay = 100;
 function ActiveRefresh($v, $el, data, refreshCallback) {
   this.$view = $v;
   this.$element = $el;
+  this.contextId = null;
   this.contextData = data;
   this.refreshMs = _defaultRefreshDelay;
   this.paused = false;
@@ -4965,7 +4967,11 @@ function ActiveRefresh($v, $el, data, refreshCallback) {
       if (ms != null) this.refreshMs = ms;
       if (active == null) active = $el.attr('@active') != null;
       if (active != null) this.forceActive = active;
-      const ctx = zuix.context($v);
+      if (this.contextId == null) {
+        const c = zuix.context($v);
+        this.contextId = c ? c.contextId : null;
+      }
+      const ctx = zuix.context(this.contextId);
       if (ctx != null && ctx._error == null && this.refreshMs > 0) {
         setTimeout(() => this.requestRefresh($v, $el, this.contextData), isActive ? this.refreshMs : 500); // 500ms for noop-loop
         initialized = true;
