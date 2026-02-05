@@ -1,0 +1,90 @@
+{% raw %}
+<div style="justify-self: center;">
+    <!-- BANNER: DeepWiki AI -->
+    <div class="deepwiki-banner-container">
+        <div class="deepwiki-banner-content">
+            <span class="ai-icon">📖</span>
+            <div class="text-group">
+                <p class="title">🕵🏻 Explore <span style="opacity: 0.6">zuix.js</span> DeepWiki</p>
+                <p class="subtitle">Technical Docs & Interactive Wiki</p>
+            </div>
+            <a href="https://deepwiki.com/zuixjs/zuix" target="_blank" class="ai-button">
+                Ask the AI 🧠
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ------------------------------------------------------------------
+       CSS DeepWiki Banner
+       ------------------------------------------------------------------ */
+    .deepwiki-banner-container {
+        width: 100%;
+        max-width: 640px;
+        margin-top: 48px;
+        padding: 15px;
+
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .deepwiki-banner-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .ai-icon {
+        font-size: 2.5em;
+        margin-right: 15px;
+        line-height: 1;
+    }
+    .text-group {
+        flex-grow: 1;
+        margin-right: 20px;
+    }
+    .deepwiki-banner-container .title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0 0 3px 0;
+    }
+    .deepwiki-banner-container .subtitle {
+        font-size: 0.9em;
+        opacity: 0.9;
+        margin: 0;
+    }
+    .ai-button {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        white-space: nowrap;
+        transition: background 0.2s;
+    }
+    .ai-button:hover {
+        background: rgba(80, 80, 80, 0.1);
+    }
+    @media (max-width: 600px) {
+        .deepwiki-banner-content {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .ai-icon {
+            margin-bottom: 10px;
+        }
+
+        .text-group {
+            margin-bottom: 15px;
+        }
+
+        .ai-button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+{% endraw %}

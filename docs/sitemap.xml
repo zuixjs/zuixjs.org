@@ -10,14 +10,6 @@
     <lastmod>2024-01-12</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/basic_concepts/</loc>
-    <lastmod>2024-01-12</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org//pages/documentation/about/</loc>
-    <lastmod>2024-01-12</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//pages/documentation/cli/</loc>
     <lastmod>2024-01-12</lastmod>
   </url>
@@ -27,10 +19,6 @@
   </url>
   <url>
     <loc>https://zuixjs.org//search/</loc>
-    <lastmod>2024-03-13</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org//pages/documentation/getting_started/</loc>
     <lastmod>2024-03-13</lastmod>
   </url>
   <url>
@@ -128,5 +116,17 @@
   <url>
     <loc>https://zuixjs.org//pages/documentation/api/helpers/Utils/</loc>
     <lastmod>2025-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/basic_concepts/</loc>
+    <lastmod>2026-02-05</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/getting_started/</loc>
+    <lastmod>2026-02-05</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/about/</loc>
+    <lastmod>2026-02-05</lastmod>
   </url>
 </urlset>
