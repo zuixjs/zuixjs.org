@@ -94,6 +94,7 @@ A data-driven, beautifully styled UI component using flex-layouts and custom CSS
 
 ## Demos and templates
 
+- [HomeGenie Vibe Coding examples](https://homegenie.it/learn/ai)
 - [zuix.js playground component](/playground)
 - [zKit web enhancing bits](https://zuixjs.github.io/zkit/)
 - [Web Starter template](https://zuixjs.github.io/zuix-web-starter/)
