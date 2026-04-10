@@ -34,8 +34,8 @@
         "animate.css/animate.min.css": "css"
       }],
       "bundle": {
-        "js": true,
-        "css": true,
+        "js": false,
+        "css": false,
         "zuix": true
       },
       "mirror": "",
