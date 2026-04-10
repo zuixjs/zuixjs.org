@@ -72,7 +72,7 @@
         "resourcePath": "/zuixjs.org/app/"
       },
       "googleSiteId": null,
-      "cookiesConsent": false
+      "cookiesConsent": true
     }
   }
 }

@@ -1,6 +1,6 @@
 ---
 layout: side_drawer.liquid
-options: mdl sponsor
+options: mdl sponsor highlight
 tags: documentation
 group: documentation
 order: 0
@@ -9,46 +9,75 @@ title: About zuix.js
 summary: Library and CLI features in brief.
 description: zuix.js is a lightweight library for creating component based websites and applications by using standard HTML, CSS and JavaScript.
 keywords:
-- documentation
-- introduction
-- about
+  - documentation
+  - introduction
+  - about
 ---
 
-🐝 `zuix.js` is a lightweight library for building modular, component-based websites and apps that
-use standard HTML, CSS, and JavaScript with a few handy extras that will speed up development time
-and improve code reusability and maintainability.
+🐝 `zuix.js` is a lightweight library for building modular, component-based websites and applications using standard HTML, CSS, and JavaScript. It provides a set of powerful features designed to dramatically speed up development, code reusability, and maintainability.
 
-It's framework-agnostic, and does not require any bundler, package manager, or transpiling to work; all the
-magic is already provided by the library itself and can be used with your favorite web development stack.
+**Zero Configuration Required:** It is completely framework-agnostic. You do not need any bundlers, package managers, or complex transpiling pipelines. The magic is built-in, allowing you to integrate it seamlessly into your favorite web development stack.
 
-Designed to maximize website speed, it will automatically load components and dependencies only when they
-are actually going to be used.
+**Performance First:** Engineered to maximize rendering speed, `zuix.js` automatically lazy-loads components and dependencies only when they enter the viewport or are actively required by the application logic.
 
-Designed to help write truly reusable components without creating messy code that mixes JavaScript,
-HTML and CSS in the same file.
+**Clean Architecture:** Write truly reusable, standalone Web Components without creating messy, monolithic codebases that mix JavaScript, HTML, and CSS in the same file.
 
-Components can also be loaded from external websites, so they can be reused and shared across a network
-of sites without ever duplicating a file!
+**Ultimate Portability:** Because components are encapsulated and standalone, they can be dynamically loaded from external servers. You can reuse and share UI elements across a network of different websites without ever duplicating a single file!
 
 
-### Features in brief
+### Vibe Coding with `zuix.js`
 
-- Components loading either from a local or remote servers
-- View templates (featuring hot swapping)
-- Data binding
-- Lazy loading of components and dependencies
-- Events, Behaviors, Refresh *@* Handlers, "scoped" scripts
-- Automatic events unbinding
-- Resource loader with caching
-- Integrated DOM helper
-- Animations and transitions handling
-- Inline components definition
-- Standalone components
+Because `zuix.js` requires zero build tools and uses standard web languages, it is incredibly efficient
+for AI code generation.
 
+The **Widget Editor in [HomeGenie 2.0](https://homegenie.it/learn/ai)** leverages this to enable **Vibe Coding**.
+By describing your intent in natural language, HomeGenie's AI autonomously generates modular `zuix.js` code
+(View, Style, Controller) and instantly deploys complex, reactive Web Components directly to your dashboard.
+No manual coding required.
+
+<style>
+.showcase-frame {
+  justify-self: center;
+  background: #111;
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-bottom: 32px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+</style>
+
+#### Breakout Arcade Game
+Physics, score tracking, and reactive UI updates, all encapsulated in a single component.
+
+```html
+<script type="module" src="https://homegenie.it/app/widgets/break-out.module.js"></script>
+<games-break-out></games-break-out>
+```
+
+<script type="module" src="https://homegenie.it/app/widgets/break-out.module.js"></script>
+<games-break-out class="showcase-frame"></games-break-out>
+
+
+#### Cyberdeck Weather Station
+A data-driven, beautifully styled UI component using flex-layouts and custom CSS variables (requires *Material Symbols Outlined*).
+
+```html
+<script type="module" src="https://homegenie.it/app/widgets/weather-station.module.js"></script>
+<demo-weather-station></demo-weather-station>
+```
+
+<script type="module" src="https://homegenie.it/app/widgets/weather-station.module.js"></script>
+<demo-weather-station class="showcase-frame"></demo-weather-station>
+
+---
 
 <a id="zuix-cli"></a>
 &nbsp;
-
 
 {% unpre %}
 ```html
@@ -63,7 +92,6 @@ of sites without ever duplicating a file!
 ```
 {% endunpre %}
 
-
 ## Demos and templates
 
 - [zuix.js playground component](/playground)
@@ -72,8 +100,6 @@ of sites without ever duplicating a file!
 - [Web App template](https://zuixjs.github.io/web-app/)
 - [News-Blog template](https://zuixjs.github.io/news-blog/)
 
-
 ## Old demos
 
-- [zuix.js playground on Glitch](https://glitch.com/@genemars)
 - [Examples on CodePen](https://codepen.io/genielabs)
