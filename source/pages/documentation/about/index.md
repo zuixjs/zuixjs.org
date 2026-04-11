@@ -41,8 +41,9 @@ No manual coding required.
   background: #111;
   display: block;
   width: 100%;
-  max-width: 600px;
-  height: 400px;
+  height: 100%;
+  max-width: 560px;
+  max-height: 360px;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -60,7 +61,9 @@ Physics, score tracking, and reactive UI updates, all encapsulated in a single c
 ```
 
 <script type="module" src="https://homegenie.it/app/widgets/break-out.module.js"></script>
-<games-break-out class="showcase-frame"></games-break-out>
+<div class="showcase-frame">
+    <games-break-out></games-break-out>
+</div>
 
 
 #### Cyberdeck Weather Station
@@ -72,7 +75,9 @@ A data-driven, beautifully styled UI component using flex-layouts and custom CSS
 ```
 
 <script type="module" src="https://homegenie.it/app/widgets/weather-station.module.js"></script>
-<demo-weather-station class="showcase-frame"></demo-weather-station>
+<div class="showcase-frame">
+    <demo-weather-station></demo-weather-station>
+</div>
 
 ---
 
