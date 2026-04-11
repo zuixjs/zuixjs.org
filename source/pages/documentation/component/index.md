@@ -276,7 +276,7 @@ or the dynamic [`import()`](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 inside another module
 
 ```js
-import "/app/widgets/time-clock.module.js"
+import("/app/widgets/time-clock.module.js");
 ```
 
 then, the component, can be added inside the page's `body` using the defined tag
