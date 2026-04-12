@@ -20,8 +20,7 @@ permalink: "playground/"
 ```html
 <div layout="column center-center">
     <zx-playground :menu-items="menuItems"
-                   class="visible-on-ready notranslate"
-                   style="overflow: visible"></zx-playground>
+                   class="visible-on-ready notranslate"></zx-playground>
 </div>
 <script>
     const menuItems = [
@@ -40,6 +39,17 @@ permalink: "playground/"
 <style>
     .gtranslate_wrapper {
         display:none;
+    }
+    [z-component][z-css-0] {
+        height: 95vh !important;
+    }
+    .component-preview {
+        height: 100% !important;
+        max-height: 40%!important;
+    }
+    .main-container {
+        height: 100% !important;
+        max-height: 60%!important;
     }
 </style>
 ```
