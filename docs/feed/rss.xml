@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Sun, 12 Apr 2026 11:11:54 +0200</lastBuildDate>
-    <pubDate>Sun, 12 Apr 2026 11:11:54 +0200</pubDate>
+    <lastBuildDate>Sun, 12 Apr 2026 11:13:02 +0200</lastBuildDate>
+    <pubDate>Sun, 12 Apr 2026 11:13:02 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org//images/icons/icon-152x152.png</url>
@@ -298,7 +298,7 @@
         <link>https://zuixjs.org//playground/</link>
         <guid isPermaLink="true">https://zuixjs.org//playground/</guid>
         <description>Client-side embeddable components editor.</description>
-        <pubDate>Sun, 12 Apr 2026 11:11:49 +0200</pubDate>
+        <pubDate>Sun, 12 Apr 2026 11:12:52 +0200</pubDate>
         <atom:link href="https://zuixjs.org//playground/" rel="self" />
         <dc:creator></dc:creator>
     </item>
