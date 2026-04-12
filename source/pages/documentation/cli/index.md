@@ -64,7 +64,7 @@ together with *zuix.js*.
 
 ## Prerequisites
 
-- [Install Node.js](https://nodejs.org/en/download/) version 14 or higher
+- [Install Node.js](https://nodejs.org/en/download/) (versions 14–22)
 - Install `zuix`, command-line tool:
 
 ```shell
