@@ -19,7 +19,9 @@ permalink: "playground/"
 {% unpre %}
 ```html
 <div layout="column center-center">
-    <zx-playground :menu-items="menuItems" class="visible-on-ready notranslate" style="height: 80vh"></zx-playground>
+    <zx-playground :menu-items="menuItems"
+                   class="visible-on-ready notranslate"
+                   style="overflow: visible; height: 80vh"></zx-playground>
 </div>
 <script>
     const menuItems = [
