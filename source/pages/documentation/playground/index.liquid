@@ -18,9 +18,9 @@ permalink: "playground/"
 <script type="module" src="{{ app.libraryPath['@lib'] }}components/zx-playground.module.js"></script>
 {% unpre %}
 ```html
-<div layout="column center-center">
-    <zx-playground :menu-items="menuItems"
-                   class="visible-on-ready notranslate"></zx-playground>
+<div layout="column stretch-center" class="notranslate">
+  <zx-playground :menu-items="menuItems"
+                 class="visible-on-ready"></zx-playground>
 </div>
 <script>
     const menuItems = [
@@ -41,15 +41,21 @@ permalink: "playground/"
         display:none;
     }
     [z-component][z-css-0] {
-        height: 95vh !important;
+        height: 100vh !important;
     }
     .component-preview {
-        height: 100% !important;
-        max-height: 40%!important;
+        height: 50vh!important;
     }
     .main-container {
-        height: 100% !important;
-        max-height: 60%!important;
+        height: 50vh!important;
+    }
+    [\#header] {
+        background: transparent!important;
+        box-shadow: none!important;
+        pointer-events: none;
+    }
+    [\#header] h1 {
+        display: none;
     }
 </style>
 ```

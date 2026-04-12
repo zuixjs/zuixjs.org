@@ -114,7 +114,11 @@
     <lastmod>2026-04-12</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//playground/</loc>
+    <loc>https://zuixjs.org//pages/documentation/getting_started/</loc>
+    <lastmod>2026-04-12</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/basic_concepts/</loc>
     <lastmod>2026-04-12</lastmod>
   </url>
   <url>
@@ -122,11 +126,7 @@
     <lastmod>2026-04-12</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/getting_started/</loc>
-    <lastmod>2026-04-12</lastmod>
-  </url>
-  <url>
-    <loc>https://zuixjs.org//pages/documentation/basic_concepts/</loc>
+    <loc>https://zuixjs.org//playground/</loc>
     <lastmod>2026-04-12</lastmod>
   </url>
 </urlset>

@@ -101,7 +101,7 @@ Physics, score tracking, and reactive UI updates, all encapsulated in a single c
 </div>
 
 #### Cyberdeck Weather Station
-A data-driven, beautifully styled UI component using flex-layouts and custom CSS variables (requires *Material Symbols Outlined*).
+A data-driven, beautifully styled UI component using flex-layouts and custom CSS variables.
 
 ```html
 <script type="module" src="https://homegenie.it/app/widgets/weather-station.module.js"></script>

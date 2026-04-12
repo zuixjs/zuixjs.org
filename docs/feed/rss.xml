@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Sun, 12 Apr 2026 18:02:57 +0200</lastBuildDate>
-    <pubDate>Sun, 12 Apr 2026 18:02:57 +0200</pubDate>
+    <lastBuildDate>Sun, 12 Apr 2026 18:56:21 +0200</lastBuildDate>
+    <pubDate>Sun, 12 Apr 2026 18:56:21 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org//images/icons/icon-152x152.png</url>
@@ -267,24 +267,6 @@
         <dc:creator></dc:creator>
     </item>
     <item>
-        <title>Playground</title>
-        <link>https://zuixjs.org//playground/</link>
-        <guid isPermaLink="true">https://zuixjs.org//playground/</guid>
-        <description>Client-side embeddable components editor.</description>
-        <pubDate>Sun, 12 Apr 2026 16:53:39 +0200</pubDate>
-        <atom:link href="https://zuixjs.org//playground/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
-        <title>About zuix.js</title>
-        <link>https://zuixjs.org//pages/documentation/about/</link>
-        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/about/</guid>
-        <description>zuix.js is a lightweight library for creating component based websites and applications by using standard HTML, CSS and JavaScript.</description>
-        <pubDate>Sun, 12 Apr 2026 17:14:56 +0200</pubDate>
-        <atom:link href="https://zuixjs.org//pages/documentation/about/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
         <title>Getting started</title>
         <link>https://zuixjs.org//pages/documentation/getting_started/</link>
         <guid isPermaLink="true">https://zuixjs.org//pages/documentation/getting_started/</guid>
@@ -300,6 +282,24 @@
         <description>Rendering components with a SSG or with SSR, and differences with client-side components loading. About reusability.</description>
         <pubDate>Sun, 12 Apr 2026 18:01:32 +0200</pubDate>
         <atom:link href="https://zuixjs.org//pages/documentation/basic_concepts/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>About zuix.js</title>
+        <link>https://zuixjs.org//pages/documentation/about/</link>
+        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/about/</guid>
+        <description>zuix.js is a lightweight library for creating component based websites and applications by using standard HTML, CSS and JavaScript.</description>
+        <pubDate>Sun, 12 Apr 2026 18:31:12 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//pages/documentation/about/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>Playground</title>
+        <link>https://zuixjs.org//playground/</link>
+        <guid isPermaLink="true">https://zuixjs.org//playground/</guid>
+        <description>Client-side embeddable components editor.</description>
+        <pubDate>Sun, 12 Apr 2026 18:53:56 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//playground/" rel="self" />
         <dc:creator></dc:creator>
     </item>
 </channel>
