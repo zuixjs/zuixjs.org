@@ -94,7 +94,7 @@ Physics, score tracking, and reactive UI updates, all encapsulated in a single c
 </div>
 
 <div class="showcase-link">
-  <a style="justify-self: center" href="/playground/#https://homegenie.it/app/widgets/break-out" class="mdl-button mdl-color--accent mdl-color-text--accent-contrast">
+  <a style="justify-self: center" href="/playground/#https://homegenie.it/app/widgets/break-out" class="mdl-button mdl-color--accent mdl-color-text--accent-contrast local-link">
     <span class="material-icons notranslate">edit</span>
     <span>Open in the Playground</span>
   </a>
@@ -114,7 +114,7 @@ A data-driven, beautifully styled UI component using flex-layouts and custom CSS
   <demo-weather-station></demo-weather-station>
 </div>
 <div class="showcase-link">
-  <a self="center" href="/playground/#https://homegenie.it/app/widgets/weather-station" class="mdl-button mdl-color--accent mdl-color-text--accent-contrast">
+  <a self="center" href="/playground/#https://homegenie.it/app/widgets/weather-station" class="mdl-button mdl-color--accent mdl-color-text--accent-contrast local-link">
     <span class="material-icons notranslate">edit</span>
     <span>Open in the Playground</span>
   </a>

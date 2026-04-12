@@ -47,7 +47,7 @@ function hideHeader() {
 
 function processExternalLinks(view) {
   // Force opening of all non-local links in a new window
-  view.find('a[href*="://"]')
+  view.find('a[href*="://"]:not(.local-link)')
       .attr('target', '_blank')
       .attr('rel', 'noreferrer');
 }
