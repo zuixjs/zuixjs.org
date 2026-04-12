@@ -40,9 +40,13 @@ date: Last Modified
             {{ content }}
 
             {% unless options contains 'content-only' %}
+
+                {% unless options contains 'no-deepwiki' %}
                 {% include "fragments/deepwiki-banner" %}
+                {% endunless %}
     
                 {%- include "./side_drawer/page_navigation.liquid" %}
+
             {% endunless %}
         </div>
 
