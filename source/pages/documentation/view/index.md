@@ -5,7 +5,7 @@ tags: documentation
 group: documentation
 order: 5
 icon: html
-title: View
+title: The View
 summary: Data binding, binding adapters, accessibility, behaviors, events.
 description: View, Data binding, binding adapters, accessibility, behaviors, events.
 keywords:

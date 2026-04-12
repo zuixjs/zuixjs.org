@@ -5,7 +5,7 @@ tags: documentation
 group: documentation
 order: 7
 icon: javascript
-title: Controller
+title: The Controller
 summary: Implementation types, lifecycle, options, events.
 description: Controller implementation types, lifecycle, options, events.
 keywords:

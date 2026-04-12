@@ -5,7 +5,7 @@ tags: documentation
 group: documentation
 order: 3
 icon: smart_button
-title: Component
+title: The Component
 summary: Custom elements, standalone components, the <em>default</em> component.
 description: Components, custom elements, shadow DOM, standalone components, the <em>default</em> component.
 keywords:
@@ -82,7 +82,7 @@ the following code:
         }
     };
 </script>
-<div>
+<div class="notranslate">
   <label class="mdl-color-text--primary">Result</label>
   <div layout="row center-center">
       <div z-load="widgets/time-clock" z-options="testOptions" layout="column center-center" style="min-height: 90px">
