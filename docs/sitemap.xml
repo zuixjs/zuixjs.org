@@ -22,10 +22,6 @@
     <lastmod>2024-03-13</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/active_refresh/</loc>
-    <lastmod>2024-10-26</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//about/privacy-policy/</loc>
     <lastmod>2025-09-28</lastmod>
   </url>
@@ -127,6 +123,10 @@
   </url>
   <url>
     <loc>https://zuixjs.org//pages/documentation/controller/</loc>
+    <lastmod>2026-04-12</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/active_refresh/</loc>
     <lastmod>2026-04-12</lastmod>
   </url>
 </urlset>

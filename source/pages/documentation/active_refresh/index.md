@@ -104,7 +104,9 @@ If multiple `jscript` occurrences are found, they will be merged into a single s
 ```
 {% endcapture %}
 
+<div class="notranslate">
 {{ example }}
+</div>
 
 
 <script>
@@ -130,7 +132,7 @@ customElements.define('mdl-button', class extends HTMLElement {
   }
 });
 </script>
-<div style="min-height: 64px">
+<div style="min-height: 64px" class="notranslate">
 {% unpre %}
 {{ example }}
 {% endunpre %}
@@ -186,9 +188,11 @@ milliseconds).
 ```
 {% endcapture %}
 
+<div class="notranslate">
 {{ example }}
+</div>
 
-<div style="min-height: 64px">
+<div style="min-height: 64px" class="notranslate">
 {% unpre %}
 {{ example }}
 {% endunpre %}
@@ -244,9 +248,11 @@ view of the component, and this can be used to customize a visible feedback of t
 ```
 {% endcapture %}
 
+<div class="notranslate">
 {{ example }}
+</div>
 
-<div style="min-height: 120px">
+<div style="min-height: 120px" class="notranslate">
 {% unpre %}
 {{ example }}
 {% endunpre %}
@@ -311,9 +317,11 @@ then available in the component's scripting scope.
 ```
 {% endcapture %}
 
+<div class="notranslate">
 {{ example }}
+</div>
 
-<div style="min-height: 80px" layout="row center-left">
+<div style="min-height: 80px" layout="row center-left" class="notranslate">
 <script type="module">
   import "https://zuixjs.github.io/zkit/lib/1.2/components/context-menu.module.js";
 </script>
@@ -486,7 +494,7 @@ button will be enabled only if all the three checkboxes are checked.
 {% unpre %}
 ```html
 <div z-load="default"
-     class="example-container visible-on-ready" style="min-height:248px" layout="column top-start">
+     class="example-container visible-on-ready notranslate" style="min-height:248px" layout="column top-start">
     <label #check1 ctrl z-load="@lib/controllers/mdl-checkbox" for="agreed1">
         <input type="checkbox" id="agreed1">
         Check this
@@ -606,7 +614,7 @@ the preview rectangle will change accordingly.
 
 {% unpre %}
 ```html
-<div z-context="color-select" z-model="{color:'{{colors[2]}}'}" class="example-container">
+<div z-context="color-select" z-model="{color:'{{colors[2]}}'}" class="example-container notranslate">
   <div layout="row bottom-left">
     <div>
       <label for="color">Color</label>
@@ -679,7 +687,7 @@ the following component to get or set the currently selected color:
 
 {% unpre %}
 ```html
-<div z-load="default" style="min-height: 120px">
+<div z-load="default" style="min-height: 120px" class="notranslate">
   <label>
     Selected
     <span @get="cm.color as color" @set="$this.html(color).css({color})">
