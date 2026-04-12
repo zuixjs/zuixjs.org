@@ -372,9 +372,11 @@ The same thing could be similarly done for Bootstrap, Materialize.CSS, or any ot
 ```
 {% unpre %}
 ```html
-<a ctrl z-load="@lib/controllers/mdl-button">With</a>
-... or ...
-<a>Without</a>
+<div class="notranslate">
+  <a ctrl z-load="@lib/controllers/mdl-button">With</a>
+  ... or ...
+  <a>Without</a>
+</div>
 ```
 {% endunpre %}
 
@@ -400,7 +402,7 @@ that control the button appearance:
 ```
 {% unpre %}
 ```html
-<div layout="row center-spread">
+<div layout="row center-spread" class="notranslate">
     <div>
         <a ctrl z-load="@lib/controllers/mdl-button"
            :type="'fab'" :class="'mini-fab colored'">
@@ -453,7 +455,7 @@ of the button.
 {% unpre %}
 ```html
 <div z-load="default" layout="column center-left" style="padding: 32px">
-    <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready"
+    <div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready notranslate"
          :behavior="menuButtonBehavior">
         <ul>
             <li>Menu option 1</li>
