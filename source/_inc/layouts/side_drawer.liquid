@@ -22,18 +22,28 @@ date: Last Modified
     </nav>
 
 
+{% if options contains 'content-only' %}
+    <main layout="column stretch-stretch">
+{% else %}
     <main layout="column top-center">
+{% endif %}
 
         {% unless options contains 'no-title' %}
             <h1 #alt_header class="title">{{ title }}</h1>
         {% endunless %}
 
+    {% if options contains 'content-only' %}
+        <div self="size-x1" layout="column stretch-stretch">
+    {% else %}
         <div self="size-x1" class="content">
+    {% endif %}
             {{ content }}
 
-            {% include "fragments/deepwiki-banner" %}
-
-            {%- include "./side_drawer/page_navigation.liquid" %}
+            {% unless options contains 'content-only' %}
+                {% include "fragments/deepwiki-banner" %}
+    
+                {%- include "./side_drawer/page_navigation.liquid" %}
+            {% endunless %}
         </div>
 
     </main>
@@ -80,8 +90,9 @@ date: Last Modified
 
     </div>
 
+{% unless options contains 'content-only' %}
     {%- include "footer.liquid" %}
-
+{% endunless %}
 
     {%- include "body_end.liquid" %}
 

@@ -1,6 +1,6 @@
 ---
 layout: side_drawer.liquid
-options: mdl highlight sponsor
+options: mdl no-title content-only
 tags: documentation
 group: playground
 order: 9
@@ -18,7 +18,9 @@ permalink: "playground/"
 <script type="module" src="{{ app.libraryPath['@lib'] }}components/zx-playground.module.js"></script>
 {% unpre %}
 ```html
-<zx-playground :menu-items="menuItems" class="visible-on-ready notranslate" style="height: 80vh"></zx-playground>
+<div layout="column center-center">
+    <zx-playground :menu-items="menuItems" class="visible-on-ready notranslate" style="height: 80vh"></zx-playground>
+</div>
 <script>
     const menuItems = [
         {link: '#/app/examples/new-component', description: 'New component'},
@@ -33,10 +35,15 @@ permalink: "playground/"
         {link: '#https://homegenie.it/app/widgets/simon-says', description: 'Simon Says (from homegenie.it)'}
     ];
 </script>
+<style>
+    .gtranslate_wrapper {
+        display:none;
+    }
+</style>
 ```
 {% endunpre %}
 
-
+<!--
 <div layout="row center-center">
 
     <a ctrl z-load="@lib/controllers/mdl-button"
@@ -47,3 +54,4 @@ permalink: "playground/"
     </a>
 
 </div>
+-->
