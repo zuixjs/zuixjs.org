@@ -13,8 +13,6 @@
             </label>
             <div class="mdl-color-text--pink">{{ prevPost.data.title }}</div>
         </a>
-        {% else %}
-            <div>&nbsp;</div>
         {% endif %}
 
         {% if nextPost %}
@@ -25,10 +23,10 @@
             </label>
             <div class="mdl-color-text--pink">{{ nextPost.data.title }}</div>
         </a>
-        {% else %}
-        <div>&nbsp;</div>
         {% endif %}
 
     </div>
 
 {% endif %}
+
+{% include "fragments/section-index" %}

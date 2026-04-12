@@ -22,6 +22,48 @@ date: Last Modified
     </nav>
 
 
+    <!-- Navigation Drawer -->
+    <div ctrl z-load="@lib/controllers/drawer-layout"
+         z-context="menu-drawer" z-lazy="false"
+         z-options="drawer_opts"
+         class="drawer-layout no-select visible-on-ready"
+         layout="column top-stretch">
+        <!-- Navigation Drawer content -->
+
+        <!-- Header -->
+        <div class="drawer-header" layout="column justify-stretch">
+            <div self="stretch" layout="row center-justify">
+                <a href="{{ '/' | url }}" title="Home">
+                    <img class="logo animate__animated animate__swing animate__fast"
+                         src="{{ '/images/icons/icon-192x192.png' | url }}" alt="Logo" title="zuix.js">
+                </a>
+                <div class="text-logo">
+                    zuix.js
+                    <small>
+                        v{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}
+                    </small>
+                    <script>
+                      self.zuixVersion = "{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}";
+                    </script>
+                </div>
+                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75">
+                    <img src="{{ '/images/github-mark-light.png' | url }}" alt="GitHub logo"
+                         title="zuix.js on GitHub" width="32" height="32">
+                </a>
+            </div>
+            <div style="font-size:80%; padding-left: 6px;padding-right: 6px;">
+                JavaScript library for component-based websites and applications.
+            </div>
+        </div>
+
+        <!-- Menu items and other content -->
+        <div class="drawer-content" self="size-x1">
+            {% include "./side_drawer/drawer_menu.liquid" %}
+        </div>
+
+    </div>
+
+
 {% if options contains 'content-only' %}
     <main layout="column stretch-stretch">
 {% else %}
@@ -51,48 +93,6 @@ date: Last Modified
         </div>
 
     </main>
-
-
-    <!-- Navigation Drawer -->
-    <div ctrl z-load="@lib/controllers/drawer-layout"
-         z-context="menu-drawer" z-lazy="false"
-         z-options="drawer_opts"
-         class="drawer-layout no-select visible-on-ready"
-         layout="column top-stretch">
-        <!-- Navigation Drawer content -->
-
-        <!-- Header -->
-        <div class="drawer-header" layout="column justify-stretch">
-            <div self="stretch" layout="row center-justify">
-                <a href="{{ '/' | url }}" title="Home">
-                    <img class="logo animate__animated animate__swing animate__fast"
-                         src="{{ '/images/icons/icon-192x192.png' | url }}" alt="Logo" title="zuix.js">
-                </a>
-                <div class="text-logo">
-                    zuix.js
-                    <small>
-                        v{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}
-                    </small>
-                    <script>
-                        self.zuixVersion = "{{ pkg.dependencies['zuix-dist'] | remove_first: '^' }}";
-                    </script>
-                </div>
-                <a href="https://github.com/zuixjs" style="margin: 8px 8px 4px 10px;opacity: 0.75">
-                    <img src="{{ '/images/github-mark-light.png' | url }}" alt="GitHub logo"
-                         title="zuix.js on GitHub" width="32" height="32">
-                </a>
-            </div>
-            <div style="font-size:80%; padding-left: 6px;padding-right: 6px;">
-                JavaScript library for component-based websites and applications.
-            </div>
-        </div>
-
-        <!-- Menu items and other content -->
-        <div class="drawer-content" self="size-x1">
-            {% include "./side_drawer/drawer_menu.liquid" %}
-        </div>
-
-    </div>
 
 {% unless options contains 'content-only' %}
     {%- include "footer.liquid" %}

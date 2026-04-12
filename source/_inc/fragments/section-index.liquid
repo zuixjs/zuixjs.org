@@ -1,0 +1,73 @@
+<style>
+    a.index-item {
+        color: var(--lite-color--text)!important;
+        display: block;
+        opacity: 0.95;
+        width: 240px;
+    }
+    a.index-item:hover {
+        color: var(--lite-color--primary)!important;
+        opacity: 1;
+    }
+    .theme-dark a.index-item {
+        color: var(--dark-color--text)!important;
+    }
+    .theme-dark a.index-item:hover {
+        color: var(--dark-color--primary)!important;
+    }
+    a.index-item.disabled, a.index-item.disabled:hover {
+        cursor: initial;
+        opacity: 0.5;
+    }
+    a.index-item i {
+        margin-right: 8px;
+    }
+    .section-topics {
+        padding-bottom: 56px;
+    }
+    .section-topics h3 {
+        font-size: 95%;
+    }
+</style>
+<section class="section-topics" layout="column top-left" style="margin-top: 24px">
+    <h2>Content Index</h2>
+    <div layout="rows top-stretch" style="gap: 6px">
+    {%- if group != "main" -%}
+        <div>
+        <div layout="rows top-stretch" style="gap: 6px">
+            {%- assign posts = collections.documentation | sort: 'data.pubDate' | reverse | sort: 'data.order' | sort: 'data.major' -%}
+            {%- for post in posts -%}
+                {%- if post.url and post.data.product == product and post.data.major == major and post.data.hidden != true -%}
+                    {%- assign match = page.url | split:post.url -%}
+                    <div {% if match[0] == blank and match.size == 0 %} aria-current="page"{% endif %}>
+                        {% assign link = post.url | url %}
+                        {% if post.data.wip == true %}
+                            {% assign link = '#' %}
+                            {% assign class = 'disabled' %}
+                        {% else %}
+                            {% assign class = '' %}
+                        {% endif %}
+                        <a href="{{ link }}" class="index-item {{ class }}">
+                            <div layout="row center-left">
+                                <i class="material-icons notranslate">{{ post.data.icon }}</i>
+                                <span class="title">{{ post.data.title }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% elsif post.data.link and post.data.product == product and post.data.major == major and post.data.hidden != true %}
+                    <div>
+                        <a href="{{ post.data.link | url }}">
+                            <div layout="row center-left">
+                                <i class="material-icons">{{ post.data.icon }}</i>
+                                <span class="title">{{ post.data.title }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {%- endif -%}
+            {%- endfor -%}
+            <div>&nbsp;</div>
+        </div>
+        </div>
+    {%- endif -%}
+    </div>
+</section>
