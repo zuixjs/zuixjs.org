@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Sun, 12 Apr 2026 17:19:08 +0200</lastBuildDate>
-    <pubDate>Sun, 12 Apr 2026 17:19:08 +0200</pubDate>
+    <lastBuildDate>Sun, 12 Apr 2026 17:54:45 +0200</lastBuildDate>
+    <pubDate>Sun, 12 Apr 2026 17:54:45 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org//images/icons/icon-152x152.png</url>
@@ -249,24 +249,6 @@
         <dc:creator></dc:creator>
     </item>
     <item>
-        <title>Terms and concepts</title>
-        <link>https://zuixjs.org//pages/documentation/basic_concepts/</link>
-        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/basic_concepts/</guid>
-        <description>Rendering components with a SSG or with SSR, and differences with client-side components loading. About reusability.</description>
-        <pubDate>Thu, 05 Feb 2026 10:20:24 +0100</pubDate>
-        <atom:link href="https://zuixjs.org//pages/documentation/basic_concepts/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
-        <title>Getting started</title>
-        <link>https://zuixjs.org//pages/documentation/getting_started/</link>
-        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/getting_started/</guid>
-        <description>Creating a new project using *zuix.js* CLI tool and bare library usage.</description>
-        <pubDate>Thu, 05 Feb 2026 10:20:30 +0100</pubDate>
-        <atom:link href="https://zuixjs.org//pages/documentation/getting_started/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
         <title>Component</title>
         <link>https://zuixjs.org//pages/documentation/component/</link>
         <guid isPermaLink="true">https://zuixjs.org//pages/documentation/component/</guid>
@@ -300,6 +282,24 @@
         <description>zuix.js is a lightweight library for creating component based websites and applications by using standard HTML, CSS and JavaScript.</description>
         <pubDate>Sun, 12 Apr 2026 17:14:56 +0200</pubDate>
         <atom:link href="https://zuixjs.org//pages/documentation/about/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>Getting started</title>
+        <link>https://zuixjs.org//pages/documentation/getting_started/</link>
+        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/getting_started/</guid>
+        <description>Creating a new project using *zuix.js* CLI tool and bare library usage.</description>
+        <pubDate>Sun, 12 Apr 2026 17:44:56 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//pages/documentation/getting_started/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>Terms and concepts</title>
+        <link>https://zuixjs.org//pages/documentation/basic_concepts/</link>
+        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/basic_concepts/</guid>
+        <description>Rendering components with a SSG or with SSR, and differences with client-side components loading. About reusability.</description>
+        <pubDate>Sun, 12 Apr 2026 17:53:58 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//pages/documentation/basic_concepts/" rel="self" />
         <dc:creator></dc:creator>
     </item>
 </channel>

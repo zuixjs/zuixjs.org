@@ -23,7 +23,7 @@ date: Last Modified
 
 
     <!-- Navigation Drawer -->
-    <div ctrl z-load="@lib/controllers/drawer-layout"
+    <div ctrl z-load="@lib/controllers/drawer-layout" style="position: absolute"
          z-context="menu-drawer" z-lazy="false"
          z-options="drawer_opts"
          class="drawer-layout no-select visible-on-ready"
@@ -83,12 +83,12 @@ date: Last Modified
 
             {% unless options contains 'content-only' %}
 
+                {%- include "./side_drawer/page_navigation.liquid" %}
+
                 {% unless options contains 'no-deepwiki' %}
                 {% include "fragments/deepwiki-banner" %}
                 {% endunless %}
     
-                {%- include "./side_drawer/page_navigation.liquid" %}
-
             {% endunless %}
         </div>
 

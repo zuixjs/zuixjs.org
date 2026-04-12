@@ -3,7 +3,7 @@ layout: side_drawer.liquid
 options: mdl highlight
 tags: documentation
 group: documentation
-order: 2
+order: 1
 icon: rule
 title: Terms and concepts
 summary: Component, reusable parts, view rendering, Web Components.
@@ -18,63 +18,38 @@ keywords:
 - reusability
 ---
 
-This is a brief introduction to some terms and concepts commonly used in web development and related to *zuix.js*
-functionality.
-For a better understanding of these pages a basic knowledge of HTML, CSS and JavaScript is required.  
-
+This page introduces core concepts used throughout the *zuix.js* documentation. While *zuix.js* simplifies component orchestration, a basic understanding of HTML, CSS, and JavaScript is recommended.
 
 ## Component
 
-We can think of a component as a **reusable part** of the page that can be defined once and then added to
-any page, one or more times, by just referencing it.
+A component is a **reusable building block** that can be defined once and referenced multiple times across any page. A complete component typically consists of two parts:
 
-In a component there are two kind of reusable parts:
+*   **View:** The visible part, defined by HTML structure and CSS styles.
+*   **Controller:** The logic part, defined by JavaScript, which manages the view's behavior and animations.
 
-- a visible part (*view*), which is a block of HTML and CSS code that is rendered in the page
-- a program-logic part (*controller*), which is a block of JavaScript code used to control and animate the associated *view*
+While the *View + Controller* combo is standard, *zuix.js* is flexible: you can also create **view-only** components (pure UI) or **controller-only** components (adding logic to generic page elements).
 
-A complete component is therefore formed by the combo *view* + *controller*, although as described later
-in these pages, we can also have *view-only* components that do not contain any JavaScript code, or *controller-only*
-components that are associated to a generic element of the page instead of a specific view template.
+### Component Implementation
 
-### Component implementation
+Components can be implemented using different patterns:
+*   **Decoupled:** Using distinct files for each part (`.html`, `.css`, `.js`).
+*   **Bundled:** Using a single `.js` file that programmatically generates the HTML/CSS.
+*   **Inline:** Declaring all parts directly within the host HTML page.
 
-A component can be implemented with various methods:
+The **decoupled method** maximizes maintainability and reusability. Since the web platform does not natively support loading a component's parts from separate external files, *zuix.js* acts as a **resource loader** to bridge this gap.
 
-- using a distinct file for each reusable part (`.html`, `.css`, `.js`)
-- using a single `.js` file which will also generate the output of the HTML and CSS code for the view
-- declaring all parts inline, on the HTML page itself
+## Component Rendering
 
-The first method, among other advantages, maximizes the maintainability, reusability, and customizability of each part.
-This design pattern, that reckons on loading all bits of a component from external files, is not directly supported by
-the web platform, and in order to be implemented it requires a *resource loader* such as *zuix.js*.
+"Rendering" is the process of outputting a component instance into the page. *zuix.js* supports three main approaches:
 
+*   **Client-side:** The view is dynamically injected and instantiated via JavaScript.
+*   **Server-side (SSR):** The view is pre-rendered on the server before the page reaches the client.
+*   **Build-side (SSG):** The view is rendered during the site's build process via a static site generator.
 
-### View rendering
-
-"Rendering" is the process of outputting the view of a component instance into the page.
-This process can be implemented using one of the following methods:
-
-
-- **Client-side**  
-  the view is dynamically added using JavaScript
-- **Server-side**  
-  the view is pre-rendered on the server before the requested page is sent to the client
-- **Build-side**  
-  the view is pre-rendered during the build process of the page, using a static-site generator or similar tool
-
-The first method is the standard approach in *zuix.js*, but it also allows to pre-render a component's view
-either server-side or during the build process, by simply outputting the component's *HTML*
-inside a container element with some special directive attributes (`ctrl z-load`), so that *zuix.js* will
-then instantiate the controller of the component and bind it to the pre-rendered view instance.
-
+While **Client-side rendering** is the *zuix.js* standard, the framework supports SSR and SSG by allowing you to inject pre-rendered HTML into a container marked with a `z-load` directive. Once the page loads, *zuix.js* automatically "hydrates" the container, instantiating the controller and binding it to the pre-rendered view.
 
 ## Web Components
 
-The term [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) identifies a set of
-*Web Platform* APIs that allow to create custom HTML elements.  
-The main advantage in using custom elements is encapsulation &dash;
-"being able to keep the markup structure, style, and behavior hidden and separate from other code on the page so that
-different parts do not clash, and the code can be kept nice and clean." ([MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM))  
-*zuix.js* also implements *emulated encapsulation* through which is possible to load the same component either
-using a custom element or by using any standard element as host.
+[Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) are a set of Web Platform APIs for creating custom, encapsulated HTML elements. Their main advantage is **encapsulation**: markup, styles, and behavior remain hidden and separate, preventing code clashes and keeping the project clean.
+
+Beyond standard Web Components, *zuix.js* provides **emulated encapsulation**, allowing you to load the same component seamlessly as either a custom element or a standard HTML element.
