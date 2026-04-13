@@ -7,8 +7,8 @@
     <description></description>
     <language>en</language>
     <copyright></copyright>
-    <lastBuildDate>Sun, 12 Apr 2026 23:22:44 +0200</lastBuildDate>
-    <pubDate>Sun, 12 Apr 2026 23:22:44 +0200</pubDate>
+    <lastBuildDate>Mon, 13 Apr 2026 21:24:53 +0200</lastBuildDate>
+    <pubDate>Mon, 13 Apr 2026 21:24:53 +0200</pubDate>
     <image>
         <title>zuix.js</title>
         <url>https://zuixjs.org//images/icons/icon-152x152.png</url>
@@ -30,15 +30,6 @@
         <description>Documentation section</description>
         <pubDate>Fri, 12 Jan 2024 16:08:38 +0100</pubDate>
         <atom:link href="https://zuixjs.org//pages/documentation/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
-        <title>Context Options</title>
-        <link>https://zuixjs.org//pages/documentation/context_options/</link>
-        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/context_options/</guid>
-        <description>Component&#39;s loading options, event handlers, styles, priority, theming.</description>
-        <pubDate>Fri, 12 Jan 2024 16:08:38 +0100</pubDate>
-        <atom:link href="https://zuixjs.org//pages/documentation/context_options/" rel="self" />
         <dc:creator></dc:creator>
     </item>
     <item>
@@ -267,15 +258,6 @@
         <dc:creator></dc:creator>
     </item>
     <item>
-        <title>The View</title>
-        <link>https://zuixjs.org//pages/documentation/view/</link>
-        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/view/</guid>
-        <description>View, Data binding, binding adapters, accessibility, behaviors, events.</description>
-        <pubDate>Sun, 12 Apr 2026 22:50:02 +0200</pubDate>
-        <atom:link href="https://zuixjs.org//pages/documentation/view/" rel="self" />
-        <dc:creator></dc:creator>
-    </item>
-    <item>
         <title>The Component</title>
         <link>https://zuixjs.org//pages/documentation/component/</link>
         <guid isPermaLink="true">https://zuixjs.org//pages/documentation/component/</guid>
@@ -300,6 +282,24 @@
         <description>Controller implementation types, lifecycle, options, events.</description>
         <pubDate>Sun, 12 Apr 2026 23:21:49 +0200</pubDate>
         <atom:link href="https://zuixjs.org//pages/documentation/controller/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>Context Options</title>
+        <link>https://zuixjs.org//pages/documentation/context_options/</link>
+        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/context_options/</guid>
+        <description>Component&#39;s loading options, event handlers, styles, priority, theming.</description>
+        <pubDate>Mon, 13 Apr 2026 21:03:57 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//pages/documentation/context_options/" rel="self" />
+        <dc:creator></dc:creator>
+    </item>
+    <item>
+        <title>The View</title>
+        <link>https://zuixjs.org//pages/documentation/view/</link>
+        <guid isPermaLink="true">https://zuixjs.org//pages/documentation/view/</guid>
+        <description>Component view, data binding, binding adapters, accessibility, behaviors, events.</description>
+        <pubDate>Mon, 13 Apr 2026 21:20:44 +0200</pubDate>
+        <atom:link href="https://zuixjs.org//pages/documentation/view/" rel="self" />
         <dc:creator></dc:creator>
     </item>
 </channel>

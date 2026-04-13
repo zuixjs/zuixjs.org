@@ -61,7 +61,7 @@ component's data model and event handlers for component emitted events:
 {% unpre %}
 ```html
 <div z-options="{model: testData}" style="height: 80px"
-     z-on="testEventHandlers">
+     z-on="testEventHandlers" class="notranslate">
     <strong #title></strong>
     <p #text></p>
     <style media="#">
@@ -337,7 +337,7 @@ my_test_css = `
 {% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
-<div class="example-container">
+<div class="example-container" class="notranslate">
   <div view z-load="https://zuixjs.org/app/content/docs/examples/links"
        :css="my_test_css" class="visible-on-ready"></div>
 </div>

@@ -7,7 +7,7 @@ order: 5
 icon: html
 title: The View
 summary: Data binding, binding adapters, accessibility, behaviors, events.
-description: View, Data binding, binding adapters, accessibility, behaviors, events.
+description: Component view, data binding, binding adapters, accessibility, behaviors, events.
 keywords:
 - documentation
 - api
@@ -126,7 +126,7 @@ then the view template can be loaded using the custom element tag:
 {% unpre %}
 ```html
 <!-- BEGIN: Inline Template -->
-<div z-view="inline/example/hello-world">
+<div z-view="inline/example/hello-world" class="notranslate">
     <h1 #title class="animate__animated animate__bounceIn animate__slow">Hello World!</h1>
 </div>
 <style media="#inline/example/hello-world">
@@ -140,7 +140,7 @@ then the view template can be loaded using the custom element tag:
 <!-- END: Inline Template -->
 
 <label class="mdl-color-text--primary">Result</label>
-<div layout="row center-center" class="example-container" style="min-height: 32px">
+<div layout="row center-center" class="example-container notranslate" style="min-height: 32px">
     <div view z-load="inline/example/hello-world" class="visible-on-ready"></div>
 </div>
 ```
@@ -173,7 +173,7 @@ model.
 {% unpre %}
 ```html
 <!-- BEGIN: Inline Template -->
-<div z-view="inline/example/article-header">
+<div z-view="inline/example/article-header" class="notranslate">
   <h1 #title class="animate__animated animate__fadeInDown">
       Example title
   </h1>
@@ -188,12 +188,12 @@ h1 {
   font-weight: 300!important;
   margin: 0;
 }
-p { color: slategray; margin: 0 }
+p { color: slategray; margin: 0; line-height: 140% }
 </style>
 <!-- END: Inline Template -->
 
 <label class="mdl-color-text--primary">Preview</label>
-<div layout="row center-center" class="example-container" style="height: 58px; overflow: hidden">
+<div layout="row center-center" class="example-container notranslate" style="overflow: hidden">
   <div view z-load="inline/example/article-header" class="visible-on-ready"></div>
 </div>
 ```
@@ -211,7 +211,7 @@ to pass a *JSON data object* with the actual data to display:
 
 {% unpre %}
 ```html
-<div layout="row center-center" class="example-container" style="height: 72px; overflow: hidden">
+<div layout="row center-center" class="example-container notranslate" style="height: 72px; overflow: hidden">
   <div view z-load="inline/example/article-header" :model="{
     title: 'Image from Mars',
     subtitle: 'A Perseverance rover scientist’s favorite shot of Jezero Crater\'s \'Delta Scarp\'.'
@@ -256,7 +256,7 @@ card.
 <label class="mdl-color-text--primary">Preview</label>
 {% unpre %}
 ```html
-<div self="size-x1" layout="row center-center" class="example-container" style="min-height: 357px">
+<div self="size-x1" layout="row center-center" class="example-container notranslate" style="min-height: 357px">
   <div view z-load="templates/mdl-card" self="sm-full" class="visible-on-ready" style="max-width: 460px"></div>
 </div>
 ```
@@ -297,7 +297,7 @@ myCardData = {
 <label class="mdl-color-text--primary">Result</label>
 {% unpre %}
 ```html
-<div self="size-x1" layout="row center-center" class="example-container" style="min-height: 325px">
+<div self="size-x1" layout="row center-center" class="example-container notranslate" style="min-height: 325px">
   <div view z-load="templates/mdl-card" :model="{
     title: 'Down the rabbit hole',
     image: '{{app.resourcePath}}content/docs/examples/images/card_cover_2.jpg',
@@ -355,7 +355,7 @@ state postponing the refresh.
 {% unpre %}
 ```html
 <!-- Contact Chip view template -->
-<div z-view="inline/common/contact_chip">
+<div z-view="inline/common/contact_chip" class="notranslate">
   <div class="mdl-chip mdl-chip--contact mdl-color--blue mdl-color-text--white mdl-shadow--4dp animate__animated animate__fadeIn">
     <img #image class="mdl-chip__contact" src="{{app.resourcePath}}content/docs/examples/images/avatar_00.png" alt="avatar">
     <div #name class="mdl-chip__text">Contact Name</div>
@@ -366,7 +366,7 @@ state postponing the refresh.
 </style>
 
 <!-- BEGIN: Inline View - Example Data Binding -->
-<div z-view="inline/chip_example_result">
+<div z-view="inline/chip_example_result" class="notranslate">
     <div layout="rows center-spread">
         <div view z-load="inline/common/contact_chip"
              data-id="0" :model="chip_adapter_fn" class="visible-on-ready"></div>
@@ -456,7 +456,7 @@ function a_random_name() {
 </script>
 
 <label class="mdl-color-text--primary">Result</label>
-<div class="example-container">
+<div class="example-container notranslate">
   <div layout="rows center-spread">
     <div view z-load="inline/common/contact_chip"
       data-id="0" :model="foo_bar_contact" class="visible-on-ready"></div>
@@ -478,7 +478,7 @@ attribute:
 
 <label class="mdl-color-text--primary">Example</label>
 ```html
-<div view z-load="templates/mdl-card">
+<div view z-load="templates/mdl-card" class="notranslate">
 
   <h1 #title>Let's code!</h1>
   <img #image src="examples/images/card_cover_3.jpg"
@@ -498,7 +498,7 @@ and the above code, as is, will also provide a default visualization, that will 
 {% unpre %}
 ```html
 <label class="mdl-color-text--primary">Result</label>
-<div self="size-x1" layout="column center-center">
+<div self="size-x1" layout="column center-center" class="notranslate">
   <div #card-example-1 self="sm-full" class="animate__animated" style="width:100%; max-width: 460px;min-height: 335px">
     <h1 #title class="animate__animated animate__fadeIn" style="margin: 0">Let's code!</h1>
     <img #image class="animate__animated animate__fadeIn" style="max-width: 100%"
@@ -520,7 +520,7 @@ function loadMdlCard(container) {
 }
 </script>
 
-<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center" style="max-height: 36px">
+<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready notranslate" layout="column center-center" style="max-height: 36px">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer1)"
         @disable-if="zuix.context(cardViewContainer1)" @active>Load view "mdl-card"</li>
@@ -584,7 +584,7 @@ disabled, or a *loading* message to show while the component is loading for brow
        title: 'Just do it!',
        url: 'javascript:void(0)'
     }
-  }" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px">
+  }" self="sm-full" style="width:100%; max-width: 460px;min-height: 335px" class="notranslate">
     <div layout="column center-center" style="min-height: 335px">
         <div class="animate__animated animate__bounceIn" style="width: 100%;text-align: center; padding:24px; font-size: 160%;">
             <code>-=| loading |=-</code>
@@ -600,7 +600,7 @@ disabled, or a *loading* message to show while the component is loading for brow
 cardViewContainer2 = zuix.field('card-example-2');
 </script>
 
-<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready" layout="column center-center" style="max-height: 36px">
+<div ctrl z-load="@lib/controllers/mdl-menu" z-lazy="false" class="visible-on-ready notranslate" layout="column center-center" style="max-height: 36px">
   <ul>
     <li onclick="loadMdlCard(cardViewContainer2)"
         @disable-if="zuix.context(cardViewContainer2)" @active>Load view "mdl-card"</li>

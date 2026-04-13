@@ -10,10 +10,6 @@
     <lastmod>2024-01-12</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/context_options/</loc>
-    <lastmod>2024-01-12</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//search/</loc>
     <lastmod>2024-03-13</lastmod>
   </url>
@@ -114,10 +110,6 @@
     <lastmod>2026-04-12</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/view/</loc>
-    <lastmod>2026-04-12</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//pages/documentation/component/</loc>
     <lastmod>2026-04-12</lastmod>
   </url>
@@ -128,5 +120,13 @@
   <url>
     <loc>https://zuixjs.org//pages/documentation/controller/</loc>
     <lastmod>2026-04-12</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/context_options/</loc>
+    <lastmod>2026-04-13</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/view/</loc>
+    <lastmod>2026-04-13</lastmod>
   </url>
 </urlset>
