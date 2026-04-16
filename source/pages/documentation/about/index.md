@@ -89,8 +89,10 @@ Physics, score tracking, and reactive UI updates, all encapsulated in a single c
 ```
 
 <script type="module" src="https://homegenie.it/app/widgets/break-out.module.js?mode=open"></script>
-<div class="showcase-frame">
+<div layout="row center-center">
+  <div class="showcase-frame">
     <games-break-out></games-break-out>
+  </div>
 </div>
 
 <div class="showcase-link">
@@ -110,8 +112,10 @@ A data-driven, beautifully styled UI component using flex-layouts and custom CSS
 ```
 
 <script type="module" src="https://homegenie.it/app/widgets/weather-station.module.js?mode=open"></script>
-<div class="showcase-frame">
-  <demo-weather-station></demo-weather-station>
+<div layout="row center-center">
+  <div class="showcase-frame">
+    <demo-weather-station></demo-weather-station>
+  </div>
 </div>
 <div class="showcase-link">
   <a self="center" href="/playground/#https://homegenie.it/app/widgets/weather-station" class="mdl-button mdl-color--accent mdl-color-text--accent-contrast local-link">
