@@ -65,7 +65,7 @@ JavaScript module.
 ## Creating a new web project using the CLI
 
 The `zuix-cli` tool can be used to create a new web project, the only prerequisite is that
-[node.js](https://nodejs.org/en/download/package-manager) must be installed first.
+[node.js](https://nodejs.org/en/download/package-manager) must be installed first (versions 14-22).
 
 ```bash
 # Create a new website project named 'my-new-webapp'
