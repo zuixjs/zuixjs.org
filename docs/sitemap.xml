@@ -98,10 +98,6 @@
     <lastmod>2026-04-12</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//playground/</loc>
-    <lastmod>2026-04-12</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//pages/documentation/component/</loc>
     <lastmod>2026-04-12</lastmod>
   </url>
@@ -126,11 +122,15 @@
     <lastmod>2026-04-17</lastmod>
   </url>
   <url>
-    <loc>https://zuixjs.org//pages/documentation/cli/</loc>
-    <lastmod>2026-04-17</lastmod>
-  </url>
-  <url>
     <loc>https://zuixjs.org//pages/documentation/integration/</loc>
     <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//playground/</loc>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://zuixjs.org//pages/documentation/cli/</loc>
+    <lastmod>2026-04-22</lastmod>
   </url>
 </urlset>
